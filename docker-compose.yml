@@ -3,12 +3,15 @@ services:
   sqlite:
     image: keinos/sqlite3:3.42.0
     volumes:
-      - ./sqlite/data:/data
-    working_dir: /data
+      - ./sqlite:/sqlite
+    restart: always
+    working_dir: /sqlite
     stdin_open: true
     tty: true
   mysql:
     image: mysql:8.1.0
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ecommerce
@@ -16,11 +19,9 @@ services:
       MYSQL_PASSWORD: test
     volumes:
       - mysql_data:/var/lib/mysql
-    ports:
-      - 3306:3306
+      - ./mysql:/mysql
     restart: always
-    stdin_open: true
-    tty: true
+    working_dir: /mysql
   neo4j:
     image: neo4j:5.12.0
     ports:
@@ -30,6 +31,9 @@ services:
       NEO4J_AUTH: none
     volumes:
       - neo4j_data:/data
+      - ./neo4j:/neo4j
+    restart: always
+    working_dir: /neo4j
   arangodb:
     image: arangodb:3.11.3
     ports:
@@ -40,8 +44,9 @@ services:
     volumes:
       - arangodb_data:/var/lib/arangodb3
       - arangodb_apps_data:/var/lib/arangodb3-apps
-    stdin_open: true
-    tty: true
+      - ./arangodb:/arangodb
+    restart: always
+    working_dir: /arangodb
   cassandra:
     image: cassandra:4.1.3
     ports:
@@ -50,8 +55,9 @@ services:
       CASSANDRA_CLUSTER_NAME: ecommerce
     volumes:
       - cassandra_data:/var/lib/cassandra
-    stdin_open: true
-    tty: true
+      - ./cassandra:/cassandra
+    restart: always
+    working_dir: /cassandra
   mongodb:
     image: mongo:7.0.2
     ports:
@@ -60,8 +66,9 @@ services:
       MONGO_INITDB_DATABASE: ecommerce
     volumes:
       - mongodb_data:/data/db
-    stdin_open: true
-    tty: true
+      - ./mongodb:/mongodb
+    restart: always
+    working_dir: /mongodb
 
 volumes:
   mysql_data:
