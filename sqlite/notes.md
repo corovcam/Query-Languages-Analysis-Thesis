@@ -11,11 +11,11 @@
       little data.
     - https://sqlite.org/limits.html
 
-- SQL:
-  - Differencies:
-    - https://sqlite.org/omitted.html
-  - SELECT statement syntax:
-    - https://sqlite.org/lang_select.html
+### SQL:
+- Differencies:
+  - https://sqlite.org/omitted.html
+- SELECT statement syntax:
+  - https://sqlite.org/lang_select.html
 
 - Interesting stuff:
   - https://www.sqlite.org/quirks.html

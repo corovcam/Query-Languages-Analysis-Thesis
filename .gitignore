@@ -1,3 +1,5 @@
 sqlite/data
 todo.md
 .idea/
+.vscode/
+**/logs/*.log
