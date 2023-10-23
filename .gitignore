@@ -3,3 +3,5 @@ todo.md
 .idea/
 .vscode/
 **/logs/*.log
+**/exports/**/*.json*
+**/data/**/*.json*
