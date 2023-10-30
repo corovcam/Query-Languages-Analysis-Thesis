@@ -13,6 +13,10 @@
   - https://docs.arangodb.com/stable/aql/fundamentals/limitations/
 - Graph traversals
   - https://arangodb.com/learn/graphs/comparing-arangodb-aql-neo4j-cypher/
+- Transactions
+  - https://docs.arangodb.com/3.11/develop/transactions/limitations/
+- Comparison between MongoDB
+  - https://arangodb.com/2012/11/comparing-arangodb-with-mongodb-and-couchdb/
 
 ### AQL
 - https://docs.arangodb.com/stable/aql/data-queries/#modifying-a-single-document
@@ -29,4 +33,3 @@
       [OPTIONS options]
     ```
   - PRUNE expression (AQL expression, optional): An expression, like in a FILTER statement, which is evaluated in every step of the traversal, as early as possible.
-  - 

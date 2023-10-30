@@ -12,3 +12,6 @@ db.vendors.find({
 
 console.log(`db.vendors.find({ $or: [{ vendorId: 1 }, { vendorId: 2 }] })`)
 db.vendors.find({ $or: [{ vendorId: 1 }, { vendorId: 2 }] })
+
+console.log(`db.vendors.find({ $or: [{ vendorId: 1 }, { vendorId: 2 }] })`)
+db.vendors.find({ $or: [{ vendorId: 1 }, { vendorId: 2 }] })

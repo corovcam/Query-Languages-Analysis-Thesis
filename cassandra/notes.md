@@ -30,3 +30,23 @@
   - Unlike in SQL, INSERT does not check the prior existence of the row by default. The row is created if none existed before, and updated otherwise.
 - https://cassandra.apache.org/doc/latest/cassandra/cql/dml.html#batch_statement
   - Batches are not a full analogue for SQL transactions.
+
+
+### Schema
+
+Instance ▸ keyspaces ▸ tables ▸ rows ▸columns
+▸ Keyspace
+▸ Table (column family)
+  ▸ Collection of (similar) rows
+  ▸ Table schema must be specified, yet can be modified later on
+▸ Row
+  ▸ Collection of columns
+  ▸ Rows in a table do not need to have the same columns
+  ▸ Each row is uniquely identified by a primary key
+▸ Column
+  ▸ Name-value pair + additional data
+
+
+### Additional Notes
+- https://thenewstack.io/an-apache-cassandra-breakthrough-acid-transactions-at-scale/
+  - ACID transactions in Cassandra

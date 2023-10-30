@@ -11,6 +11,9 @@
       little data.
     - https://sqlite.org/limits.html
 
+- WITHOUT ROWID is found only in SQLite and is not compatible with any other SQL database engine, as far as we know.
+  - https://www.sqlite.org/withoutrowid.html
+
 ### SQL:
 - Differencies:
   - https://sqlite.org/omitted.html
@@ -21,4 +24,5 @@
   - https://www.sqlite.org/quirks.html
 
 - UUID as a standalone script:
+  - Is it really necessary?
   - https://sqlite.org/src/file/ext/misc/uuid.c
