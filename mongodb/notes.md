@@ -1,5 +1,8 @@
 ## MongoDB Notes
 
+- https://www.diva-portal.org/smash/get/diva2:1278762/FULLTEXT01.pdf
+  - MongoDB vs. MySQL
+
 ### General
 
 - limitations
