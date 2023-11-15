@@ -58,12 +58,29 @@ VALUES (1, 1, 'vendorA@example.com'),
 -- Sample data for the Person table
 INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country)
 VALUES (1, 'John', 'Doe', 'Male', '1980-05-15', '123 Main St', 'New York', '10001', 'USA'),
-       (2, 'Jane', 'Smith', 'Female', '1990-08-25', '456 Elm St', 'Toronto', 'M5V 1A1', 'Canada');
+       (2, 'Jane', 'Smith', 'Female', '1990-08-25', '456 Elm St', 'Toronto', 'M5V 1A1', 'Canada'),
+       (3, 'Michael', 'Johnson', 'Male', '1983-03-10', '789 Oak St', 'London', 'EC1A 1BB', 'UK'),
+       (4, 'Sophia', 'Müller', 'Female', '1986-06-20', '101 Birch St', 'Berlin', '10115', 'Germany'),
+       (5, 'Alex', 'Dupont', 'Male', '1995-01-05', '456 Maple St', 'Paris', '75001', 'France'),
+       (6, 'Giulia', 'Rossi', 'Female', '1990-12-15', '789 Vine St', 'Rome', '00100', 'Italy'),
+       (7, 'Takashi', 'Yamamoto', 'Male', '1980-08-01', '123 Sakura St', 'Tokyo', '100-0001', 'Japan'),
+       (8, 'Mia', 'Johnson', 'Female', '1992-05-30', '456 Cherry St', 'Sydney', '2000', 'Australia'),
+       (9, 'Lucas', 'Silva', 'Male', '1985-11-18', '789 Kangaroo St', 'Melbourne', '3000', 'Australia'),
+       (10, 'Isabella', 'Pereira', 'Female', '1991-04-25', '101 Copacabana St', 'Rio de Janeiro', '20000-000',
+        'Brazil');
 
 -- Sample data for the Customer table
 INSERT INTO Customer (customerId, personId)
 VALUES (1, 1),
-       (2, 2);
+       (2, 2),
+       (3, 3),
+       (4, 4),
+       (5, 5),
+       (6, 6),
+       (7, 7),
+       (8, 8),
+       (9, 9),
+       (10, 10);
 
 -- Sample data for the Order table
 INSERT INTO `Order` (orderId, customerId)
@@ -84,7 +101,20 @@ VALUES (1, 1, 2),
 
 -- Sample data for the Person_Person table (for relationships)
 INSERT INTO Person_Person (personId1, personId2)
-VALUES (1, 2); -- should I include also (2, 1) to make it bidirectional? Or is it redundant?
+VALUES (1, 2),
+       (1, 3),
+       (1, 4),
+       (1, 5),
+       (3, 4),
+       (4, 5),
+       (4, 10),
+       (6, 7),
+       (6, 8),
+       (6, 9),
+       (6, 10),
+       (7, 8),
+       (9, 10),
+       (10, 1);
 
 -- Sample data for the Post table
 INSERT INTO Post (postId, personId, imageFile, creationDate, locationIP, browserUsed, language, content, length)
@@ -94,14 +124,25 @@ VALUES (1, 1, 'post1.jpg', '2023-10-30 12:00:00', '192.168.1.1', 'Chrome', 'Engl
 -- Sample data for the Tag table
 INSERT INTO Tag (tagId, value)
 VALUES (1, 'Technology'),
-       (2, 'Travel');
+       (2, 'Travel'),
+       (3, 'Fashion'),
+       (4, 'Food'),
+       (5, 'Health'),
+       (6, 'Sports');
 
 -- Sample data for the Post_Tags table (associating posts with tags)
 INSERT INTO Post_Tags (postId, tagId)
 VALUES (1, 1),
+       (1, 3),
+       (2, 1),
+       (2, 4),
        (2, 2);
 
 -- Sample data for the Person_Tags table (associating persons with tags)
 INSERT INTO Person_Tags (personId, tagId)
 VALUES (1, 2),
-       (2, 1);
+       (2, 1),
+       (3, 4),
+       (4, 3),
+       (5, 6),
+       (6, 5);
