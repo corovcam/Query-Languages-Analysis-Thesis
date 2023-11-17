@@ -6,11 +6,26 @@ SELECT vendorId, name
 FROM Vendor
 WHERE name = "Vendor A";
 
--- 1.2 Indexed Columns
+-- 1.2 Non-Indexed Columns - Range Query
+
+CALL drop_birthday_index_if_exists();
+
+SELECT personId, firstName, lastName, birthday
+FROM Person
+WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
+
+-- 1.3 Indexed Columns
 
 SELECT vendorId, name
 FROM Vendor
 WHERE VendorId = 1;
+
+-- 1.4 Indexed Columns - Range Query
+CALL drop_birthday_index_if_exists();
+
+SELECT personId, firstName, lastName, birthday
+FROM Person
+WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 -- 2. Aggregation
 
