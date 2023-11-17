@@ -1,3 +1,5 @@
+.timer ON
+
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns
@@ -6,11 +8,25 @@ SELECT vendorId, name
 FROM Vendor
 WHERE name = "Vendor A";
 
+-- 1.2 Non-Indexed Columns - Range Query
+DROP INDEX IF EXISTS idx_person_birthday;
+
+SELECT personId, firstName, lastName, birthday
+FROM Person
+WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
+
 -- 1.2 Indexed Columns
 
 SELECT vendorId, name
 FROM Vendor
 WHERE VendorId = 1;
+
+-- 1.3 Indexed Columns - Range Query
+CREATE INDEX IF NOT EXISTS idx_person_birthday ON Person (birthday);
+
+SELECT personId, firstName, lastName, birthday
+FROM Person
+WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 -- 2. Aggregation
 
@@ -76,8 +92,6 @@ WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
 SELECT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
-
--- Find the hierarchical structure of persons based on relationships using WITH RECURSIVE
 
 -- Find the shortest path between two persons using WITH RECURSIVE
 
