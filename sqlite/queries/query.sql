@@ -45,11 +45,12 @@ GROUP BY brand;
 
 -- 3. Join
 
--- 3.1 Non-Indexed Columns ??
+-- 3.1 Non-Indexed Columns
 
+-- Join Vendor_Contacts and Order_Contacts on the type of contact (non-indexed column)
 SELECT *
-FROM Product P
-         INNER JOIN Order_Products OP on P.productId = OP.productId;
+FROM Vendor_Contacts VC
+         INNER JOIN Order_Contacts OC on VC.typeId = OC.typeId;
 
 -- 3.2 Indexed Columns
 
@@ -59,10 +60,26 @@ FROM Product P
 
 -- 3.3 Complex Join 1
 
+-- SELECT *
+-- FROM Product P
+--          INNER JOIN Order_Products OP on P.productId = OP.productId
+--          INNER JOIN `Order` O on OP.orderId = O.orderId;
+
+-- Complex query with JOINS to retrieve order details
 SELECT *
-FROM Product P
-         INNER JOIN Order_Products OP on P.productId = OP.productId
-         INNER JOIN `Order` O on OP.orderId = O.orderId;
+FROM `Order` o
+         JOIN
+     Customer c ON o.customerId = c.customerId
+         JOIN
+     Person p ON c.personId = p.personId
+         JOIN
+     Order_Products op ON o.orderId = op.orderId
+         JOIN
+     Product pr ON op.productId = pr.productId
+         JOIN
+     Vendor_Products vp ON pr.productId = vp.productId
+         JOIN
+     Vendor v ON vp.vendorId = v.vendorId;
 
 -- 3.4 Complex Join 2 (having more than 1 friend)
 
@@ -100,7 +117,7 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId1 AS currentPersonId,
                                      1         AS depth
                               FROM Person_Person
-                              WHERE personId1 = 1 -- Specify the source person ID
+                              WHERE personId1 = 1  -- Specify the source person ID
                                 AND personId2 = 10 -- Specify the target person ID
                               UNION
                               SELECT pp.sourcePersonId,
@@ -109,8 +126,7 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      pp.depth + 1 AS depth
                               FROM PersonPath pp
                                        JOIN Person_Person pp2 ON pp.currentPersonId = pp2.personId1
-                              WHERE pp.currentPersonId <> pp.targetPersonId
-)
+                              WHERE pp.currentPersonId <> pp.targetPersonId)
 SELECT *
 FROM PersonPath
 ORDER BY sourcePersonId, depth, targetPersonId;

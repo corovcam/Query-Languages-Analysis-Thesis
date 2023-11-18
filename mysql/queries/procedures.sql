@@ -1,3 +1,6 @@
+DROP PROCEDURE IF EXISTS create_birthday_index_if_not_exists;
+DROP PROCEDURE IF EXISTS drop_birthday_index_if_exists;
+
 DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS create_birthday_index_if_not_exists ()
 BEGIN

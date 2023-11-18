@@ -44,11 +44,12 @@ GROUP BY brand;
 
 -- 3. Join
 
--- 3.1 Non-Indexed Columns ??
+-- 3.1 Non-Indexed Columns
 
+-- Join Vendor_Contacts and Order_Contacts on the type of contact (non-indexed column)
 SELECT *
-FROM Product P
-         INNER JOIN Order_Products OP on P.productId = OP.productId;
+FROM Order_Contacts OC
+         INNER JOIN Vendor_Contacts VC on VC.typeId = OC.typeId;
 
 -- 3.2 Indexed Columns
 
@@ -58,10 +59,28 @@ FROM Product P
 
 -- 3.3 Complex Join 1
 
+# SELECT *
+# FROM Product P
+#          INNER JOIN Order_Products OP on P.productId = OP.productId
+#          INNER JOIN `Order` O on OP.orderId = O.orderId;
+
+
+-- Complex query with JOINS to retrieve order details
 SELECT *
-FROM Product P
-         INNER JOIN Order_Products OP on P.productId = OP.productId
-         INNER JOIN `Order` O on OP.orderId = O.orderId;
+FROM `Order` o
+         JOIN
+     Customer c ON o.customerId = c.customerId
+         JOIN
+     Person p ON c.personId = p.personId
+         JOIN
+     Order_Products op ON o.orderId = op.orderId
+         JOIN
+     Product pr ON op.productId = pr.productId
+         JOIN
+     Vendor_Products vp ON pr.productId = vp.productId
+         JOIN
+     Vendor v ON vp.vendorId = v.vendorId;
+
 
 -- 3.4 Complex Join 2 (having more than 1 friend)
 
@@ -91,8 +110,6 @@ WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
 SELECT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
-
--- Find the hierarchical structure of persons based on relationships using WITH RECURSIVE
 
 -- Find the shortest path between two persons using WITH RECURSIVE
 

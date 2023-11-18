@@ -15,6 +15,9 @@ DROP TABLE IF EXISTS Vendor_Products;
 DROP TABLE IF EXISTS Product;
 DROP TABLE IF EXISTS Vendor;
 
+DROP PROCEDURE IF EXISTS create_birthday_index_if_not_exists;
+DROP PROCEDURE IF EXISTS drop_birthday_index_if_exists;
+
 CREATE TABLE Vendor
 (
     vendorId INTEGER PRIMARY KEY,
