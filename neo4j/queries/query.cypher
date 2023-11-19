@@ -119,28 +119,19 @@ RETURN
 
 // 7. Intersection
 
-//-- Find common tags between posts and persons
-//
-//-- Tags associated with posts
-//SELECT Tag.tagId AS tagId, Tag.value AS commonTag
-//FROM Post_Tags
-//         JOIN Tag ON Post_Tags.tagId = Tag.tagId
-//INTERSECT
-//-- Tags associated with persons
-//SELECT Tag.tagId AS tagId, Tag.value AS commonTag
-//FROM Person_Tags
-//         JOIN Tag ON Person_Tags.tagId = Tag.tagId
-//ORDER BY tagId;
-// translate to Cypher:
-MATCH (p:Post)-[:HAS_TAG]->(t:Tag)<-[:HAS_INTEREST]-(p2:Person)
-RETURN t.tagId, t.value AS commonTag
-// TODO: use apoc.coll.intersection() function
+- - Find common tags between posts AND persons
+
+MATCH (p:Post)-[:HAS_TAG]->(t:Tag)
+WITH collect(properties(t)) AS postTags
+MATCH (p:Person)-[:HAS_INTEREST]->(t:Tag)
+WITH postTags, collect(properties(t)) AS personTags
+RETURN apoc.coll.intersection(postTags, personTags) AS commonTags;
 
 // 8. Difference
 
 // Find people who have not made any orders
 MATCH (p:Person)
-WHERE NOT (p)<-[:IS_PERSON]-(:Customer)<-[:ORDERED_BY]-(:Order)
+  WHERE NOT (p)<-[:IS_PERSON]-(:Customer)<-[:ORDERED_BY]-(:Order)
 RETURN p.personId, p.firstName, p.lastName;
 
 // 9. Sorting
@@ -149,7 +140,7 @@ RETURN p.personId, p.firstName, p.lastName;
 
 MATCH (pr:Product)
 RETURN pr.brand
-ORDER BY pr.brand;
+  ORDER BY pr.brand;
 
 // 9.2 Indexed property
 
@@ -157,7 +148,7 @@ CREATE INDEX idx_product_productId FOR (p:Product) ON (p.productId);
 
 MATCH (pr:Product)
 RETURN pr.productId
-ORDER BY pr.productId;
+  ORDER BY pr.productId;
 
 // 10. Distinct
 
@@ -166,7 +157,7 @@ ORDER BY pr.productId;
 MATCH (pr:Product)<-[:CONTAINS_PRODUCTS]-(o:Order)-[:ORDERED_BY]->(c:Customer)-[:IS_PERSON]->(p:Person),
       (pr)-[:MANUFACTURED_BY]->(v:Vendor)
 RETURN DISTINCT pr.brand, v.country
-ORDER BY pr.brand, v.country;
+  ORDER BY pr.brand, v.country;
 
 // 11. MapReduce (not supported in Neo4j, simple aggregation instead)
 
