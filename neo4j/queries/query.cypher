@@ -14,13 +14,13 @@ MATCH (p:Person)
   WHERE p.birthday >= date('1980-01-01') AND p.birthday <= date('1990-12-31')
 RETURN p.personId, p.firstName, p.lastName, p.birthday;
 
-// 1.3 Indexed Columns
+// 1.3 Indexed Selection
 
 MATCH (n:Vendor)
   WHERE n.vendorId = 1
 RETURN n.vendorId, n.name;
 
-// 1.4 Indexed Columns - Range Query
+// 1.4 Indexed Selection - Range Query
 
 CREATE INDEX idx_person_birthday FOR (p:Person) ON (p.birthday);
 
@@ -51,7 +51,7 @@ DROP INDEX rel_type_lookup_index;
 
 // Match all Orders and Vendors sharing the same Contact Type
 MATCH (o:Order)-[:CONTACT_TYPE]->(t)-[:CONTACT_TYPE]->(v:Vendor)
-RETURN o, v;
+RETURN DISTINCT o, v;
 
 // TODO: Need to add a new Property to Order and Vendor (or CONTACT_TYPE rel) to include contact value!!!
 // TODO: Is this the same Query as the one below in SQL? What should I return??
@@ -93,9 +93,9 @@ RETURN properties(p1), friendCount;
 
 // Find all direct and indirect relationships between people limited to 3 hops
 MATCH (p1:Person)-[*..3]-(p2:Person)
-RETURN *;
+RETURN DISTINCT *;
 
-// Find the shortest path between two persons using WITH RECURSIVE
+// Find the shortest path between two persons
 MATCH (p1:Person {personId: 1}), (p2:Person {personId: 10}),
       path = shortestPath((p1)-[:KNOWS*]->(p2))
 RETURN path;
