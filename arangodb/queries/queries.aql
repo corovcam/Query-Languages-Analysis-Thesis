@@ -1,0 +1,116 @@
+// 1.1 Non-Indexed Selection
+FOR v IN Vendor
+  FILTER v.name == 'Vendor 1'
+  RETURN { vendorId: v.vendorId, name: v.name }
+
+// 1.2 Non-Indexed Selection - Range Query
+FOR p IN Person
+  FILTER p.birthday >= DATE('1980-01-01') && p.birthday <= DATE('1990-12-31')
+  RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
+
+// 1.3 Indexed Selection
+FOR n IN Vendor
+  FILTER n.vendorId == 1
+  RETURN { vendorId: n.vendorId, name: n.name }
+
+// 1.4 Indexed Selection - Range Query
+FOR p IN Person
+  FILTER p.birthday >= DATE('1980-01-01') && p.birthday <= DATE('1990-12-31')
+  RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
+
+// 2.1 COUNT
+FOR p IN Product
+  COLLECT brand = p.brand WITH COUNT INTO productCount
+  RETURN { brand: brand, productCount: productCount }
+
+// 2.2 MAX
+FOR p IN Product
+  COLLECT brand = p.brand WITH MAX(p.price) INTO maxPrice
+  RETURN { brand: brand, maxPrice: maxPrice }
+
+// 3.1 Non-Indexed Node/Relationship Labels
+FOR o IN Order
+  FOR t IN 1..1 OUTBOUND o CONTACT_TYPE
+    FOR v IN 1..1 OUTBOUND t CONTACT_TYPE
+      RETURN { order: o, vendor: v }
+
+// 3.2 Indexed Node/Relationship Labels
+// Assuming LOOKUP INDEX is a custom index, not directly supported in ArangoDB
+// CREATE LOOKUP INDEX node_label_lookup_index FOR (n) ON EACH labels(n);
+// CREATE LOOKUP INDEX rel_type_lookup_index FOR () - [r] - () ON EACH type(r);
+
+// Assuming CONTAINS_PRODUCTS is a custom edge definition
+FOR o IN Order
+  FOR cp IN CONTAINS_PRODUCTS
+    FILTER o._id == cp._from
+    FOR p IN 1..1 OUTBOUND cp._to Product
+      RETURN { order: o, product: p }
+
+// 3.3 Complex Join 1
+FOR o IN Order
+  FOR c IN 1..1 OUTBOUND o ORDERED_BY
+    FOR p IN 1..1 OUTBOUND c IS_PERSON
+      FOR pr IN 1..1 OUTBOUND o CONTAINS_PRODUCTS
+        FOR v IN 1..1 OUTBOUND pr MANUFACTURED_BY
+          RETURN { order: o, customer: c, person: p, product: pr, vendor: v }
+
+// 3.4 Complex Join 2 (having more than 1 friend)
+FOR p1 IN Person
+  FOR p2 IN 1..1 OUTBOUND p1 KNOWS
+    COLLECT WITH COUNT(p2) INTO friendCount
+    FILTER friendCount > 1
+    RETURN { person: p1, friendCount: friendCount }
+
+// 4. Unlimited Traversal
+FOR p1 IN Person
+  FOR p2 IN 1..3 OUTBOUND p1 ANY
+    RETURN { person1: p1, person2: p2 }
+
+// 5. Optional Traversal
+FOR p1 IN Person
+  LET friends = (FOR p2 IN 1..1 OUTBOUND p1 KNOWS RETURN p2)
+  RETURN { person: p1, friendCount: LENGTH(friends) }
+
+// 6. Union
+FOR v IN Vendor
+  FOR t IN 1..1 OUTBOUND v CONTACT_TYPE
+    RETURN { entityType: 'Vendor', entityId: v.vendorId, entityName: v.name, contactType: t.value }
+UNION
+FOR p IN Person
+  FOR c IN 1..1 OUTBOUND p IS_PERSON
+    FOR o IN 1..1 OUTBOUND c ORDERED_BY
+      FOR t IN 1..1 OUTBOUND o CONTACT_TYPE
+        RETURN { entityType: 'Order', entityId: o.orderId, entityName: CONCAT(p.firstName, ' ', p.lastName), contactType: t.value }
+
+// 7. Intersection
+FOR p IN 1..1 OUTBOUND (FOR p IN Post RETURN p._id) HAS_TAG
+  COLLECT WITH COUNT INTO postTags
+FOR p IN 1..1 OUTBOUND (FOR p IN Person RETURN p._id) HAS_INTEREST
+  COLLECT WITH COUNT INTO personTags
+RETURN INTERSECTION(postTags, personTags) AS commonTags
+
+// 8. Difference
+FOR p IN Person
+  FILTER LENGTH((FOR c IN 1..1 OUTBOUND p IS_PERSON RETURN c)[*..1] INTERSECTION (FOR o IN 1..1 OUTBOUND p KNOWS RETURN o)[*..1]) == 0
+  RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName }
+
+// 9.1 Non-Indexed property
+FOR pr IN Product
+  SORT pr.brand
+  RETURN pr.brand
+
+// 9.2 Indexed property
+// Assuming idx_product_productId is a persistent index in ArangoDB
+FOR pr IN Product
+  SORT pr.productId
+  RETURN pr.productId
+
+// 10. Distinct
+FOR pr IN 1..1 OUTBOUND (FOR o IN Order RETURN o._id) CONTAINS_PRODUCTS
+  FOR v IN 1..1 OUTBOUND pr MANUFACTURED_BY
+    RETURN DISTINCT { brand: pr.brand, country: v.country }
+
+// 11. MapReduce (not supported in ArangoDB, simple aggregation instead)
+FOR c IN 1..1 OUTBOUND (FOR o IN Order RETURN o._id) ORDERED_BY
+  COLLECT WITH COUNT INTO orderCount
+RETURN { customerId: c.customerId, orderCount: orderCount }
