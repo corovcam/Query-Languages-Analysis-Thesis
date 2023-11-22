@@ -34,6 +34,8 @@
 #     --overwrite true \
 #     | tee -a logs/import.log
 
+timestamp=$(date +"%Y-%m-%d_%s")
+
 for file in data/nodes/*.json; do
     fullFilename=$(basename "$file")
     filename=${fullFilename%.*}
@@ -47,7 +49,7 @@ for file in data/nodes/*.json; do
         --file "$file" \
         --progress true \
         --overwrite true \
-        | tee -a logs/import.log
+        | tee -a logs/import_"$timestamp".log
 done
 
 for file in data/edges/*.json; do
@@ -65,5 +67,5 @@ for file in data/edges/*.json; do
         --file "$file" \
         --progress true \
         --overwrite true \
-        | tee -a logs/import.log
+        | tee -a logs/import_"$timestamp".log
 done

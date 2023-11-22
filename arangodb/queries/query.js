@@ -12,6 +12,12 @@ db._query(aql`
 
 // 1.2 Non-Indexed Selection - Range Query
 
+try {
+  db.persons.dropIndex('idx_person_birthday');
+} catch (e) {
+  // index does not exist
+}
+
 db._query(aql`
   FOR p IN persons
     FILTER DATE_TIMESTAMP(p.birthday) >= DATE_TIMESTAMP('1980-01-01') && DATE_TIMESTAMP(p.birthday) <= DATE_TIMESTAMP('1990-12-31')
@@ -19,6 +25,10 @@ db._query(aql`
 `);
 
 // 1.3 Indexed Columns
+
+db.vendors.ensureIndex(
+  { type: "persistent", name: "idx_vendors_vendorID", unique: true, fields: [ "vendorId" ] }
+);
 
 db._query(aql`
   FOR n IN vendors
@@ -28,7 +38,9 @@ db._query(aql`
 
 // 1.4 Indexed Columns - Range Query
 
-// TODO: Index p.birthday
+db.persons.ensureIndex(
+  { type: "persistent", name: "idx_person_birthday", unique: false, fields: [ "birthday" ] }
+);
 
 db._query(aql`
   FOR p IN persons
@@ -57,7 +69,11 @@ db._query(aql`
 
 // 3. Join
 
-// 3.1 Non-Indexed Node/Relationship Labels
+// 3.1 Non-Indexed Node/Relationship keys
+
+// TODO: Drop indexes for this query
+// Primary Indexes cannot be dropped: https://docs.arangodb.com/3.11/index-and-search/indexing/basics/#primary-index
+// Need to change the query? 
 
 // Match all Orders and Vendors sharing the same Contact Type
 db._query(aql`
@@ -67,7 +83,7 @@ db._query(aql`
         RETURN DISTINCT { order: o, vendor: v }
 `);
 
-// 3.2 Indexed Node/Relationship Labels
+// 3.2 Indexed Node/Relationship keys
 
 // Match all Products contained in Orders
 db._query(aql`
@@ -125,179 +141,111 @@ db._query(aql`
 
 db._query(aql`
 FOR p1 IN persons
-LET friendCount = (
-  FOR p2 IN 0..1 OUTBOUND p1 knows
-  FILTER p1._key == p2._key
-
-//OPTIONS { uniqueVertices: "global", order: "bfs" }
-  COLLECT originalPerson = p1 WITH COUNT INTO friendCount
-  RETURN { person: originalPerson, friendCount: friendCount }
+  LET friends = (
+    FOR p2 IN OUTBOUND p1 knows
+    RETURN 1
+  )
+  RETURN { person: p1, friendCount: LENGTH(friends) }
 `);
 
-// // 1. Selection, Projection, Source (of data)
+// 6. Union
 
-// // 1.1 Non-Indexed Selection
+// Get a list of contacts (email and phone) for both vendors and customers
 
-// MATCH (v:Vendor)
-//   WHERE v.name = 'Vendor 1'
-// RETURN v.vendorId, v.name;
+db._query(aql`
+  LET vendorContacts = (
+    FOR v IN vendors
+      FOR t IN INBOUND v contactType
+      RETURN { entityType: 'Vendor', entityId: v.vendorId, entityName: v.name, contactType: t.value }
+  )
 
-// // 1.2 Non-Indexed Selection - Range Query
+  LET orderContacts = (
+    FOR p IN persons
+      FOR c IN INBOUND p isPerson
+      FOR o IN INBOUND c orderedBy
+      FOR t IN OUTBOUND o contactType
+      RETURN { entityType: 'Order', entityId: o.orderId, entityName: CONCAT(p.firstName, ' ', p.lastName), contactType: t.value }
+  )
 
-// DROP INDEX idx_person_birthday IF EXISTS;
+  RETURN UNION(vendorContacts, orderContacts)
+`);
 
-// MATCH (p:Person)
-//   WHERE p.birthday >= date('1980-01-01') AND p.birthday <= date('1990-12-31')
-// RETURN p.personId, p.firstName, p.lastName, p.birthday;
+// 7. Intersection
 
-// // 1.3 Indexed Columns
+// Find common tags between posts AND persons
 
-// MATCH (n:Vendor)
-//   WHERE n.vendorId = 1
-// RETURN n.vendorId, n.name;
+db._query(aql`
+  LET postTags = (
+    FOR p IN posts
+      FOR t IN OUTBOUND p hasTag
+      RETURN { tagId: t.tagId, value: t.value }
+  )
 
-// // 1.4 Indexed Columns - Range Query
+  LET personTags = (
+    FOR p IN persons
+      FOR t IN OUTBOUND p hasInterest
+      RETURN { tagId: t.tagId, value: t.value }
+  )
 
-// CREATE INDEX idx_person_birthday FOR (p:Person) ON (p.birthday);
+  RETURN INTERSECTION(postTags, personTags)
+`);
 
-// MATCH (p:Person)
-//   WHERE p.birthday >= date('1980-01-01') AND p.birthday <= date('1990-12-31')
-// RETURN p.personId, p.firstName, p.lastName, p.birthday;
+// 8. Difference
 
-// // 2. Aggregation
+// Find people who have not made any orders
 
-// // 2.1 COUNT
+db._query(aql`
+  FOR p IN persons
+    FILTER LENGTH(
+      FOR c IN INBOUND p isPerson
+        FOR o IN INBOUND c orderedBy
+          RETURN 1
+    ) == 0
+    RETURN p
+`);
 
-// MATCH (p:Product)
-// RETURN p.brand, COUNT(*) AS productCount;
+// 9. Sorting
 
-// // 2.2 MAX
+// 9.1 Non-Indexed property
 
-// MATCH (p:Product)
-// RETURN p.brand, max(p.price) AS maxPrice;
+db._query(aql`
+  FOR pr IN products
+    SORT pr.brand
+    RETURN pr.brand
+`);
 
-// // 3. Join
+// 9.2 Indexed property
 
-// // 3.1 Non-Indexed Node/Relationship Labels
+// _key is the default primary index for all collections
 
-// // DROP lookup indexes for this query
-// DROP INDEX node_label_lookup_index;
+db._query(aql`
+  FOR pr IN products
+    SORT pr._key
+    RETURN pr._key
+`);
 
-// DROP INDEX rel_type_lookup_index;
+// 10. Distinct
 
-// // Match all Orders and Vendors sharing the same Contact Type
-// MATCH (o:Order)-[:CONTACT_TYPE]->(t)-[:CONTACT_TYPE]->(v:Vendor)
-// RETURN o, v;
+// Find unique combinations of product brands and the countries of the vendors selling those products
 
-// // TODO: Need to add a new Property to Order and Vendor (or CONTACT_TYPE rel) to include contact value!!!
-// // TODO: Is this the same Query as the one below in SQL? What should I return??
-// // Compared to SQL Query, this one JOINs based on common :CONTACT_TYPE relationships - different data model, check Schema
-// //-- Join Vendor_Contacts and Order_Contacts on the type of contact (non-indexed column)
-// //SELECT *
-// //FROM Order_Contacts OC
-// //         INNER JOIN Vendor_Contacts VC on VC.typeId = OC.typeId;
+db._query(aql`
+  FOR pr IN products
+    FOR o IN INBOUND pr containsProducts
+      FOR c IN OUTBOUND o orderedBy
+        FOR p IN OUTBOUND c isPerson
+          FOR v IN OUTBOUND pr manufacturedBy
+            //COLLECT brand = pr.brand, country = v.country
+            SORT pr.brand, v.country
+            RETURN DISTINCT { brand: pr.brand, country: v.country }
+`);
 
-// // 3.2 Indexed Node/Relationship Labels
+// 11. MapReduce (not supported in ArangoDB, simple aggregation instead)
 
-// // CREATE lookup indexes for this query
-// CREATE LOOKUP INDEX node_label_lookup_index FOR (n) ON EACH labels(n);
+// Find the number of orders per customer
 
-// CREATE LOOKUP INDEX rel_type_lookup_index FOR () - [r] - () ON EACH type(r);
-
-// // Match all Products contained in Orders
-// MATCH (o:Order)-[cp:CONTAINS_PRODUCTS]->(p:Product)
-// RETURN properties(p), o.orderId, cp.quantity;
-
-// // TODO: Should I RETURN properties(p) or p (as whole Node)? What's the difference in Query performance?
-
-// // 3.3 Complex Join 1
-
-// // Match all important information about Orders, Customers, People, Products and Vendors
-// MATCH (o:Order)-[:ORDERED_BY]->(c:Customer)-[:IS_PERSON]->(p:Person),
-//       (o)-[:CONTAINS_PRODUCTS]->(pr:Product),
-//       (pr)-[:MANUFACTURED_BY]->(v:Vendor)
-// RETURN properties(o), properties(c), properties(p), properties(pr), properties(v);
-
-// // 3.4 Complex Join 2 (having more than 1 friend)
-
-// MATCH (p1:Person)-[:KNOWS]->(p2:Person)
-// WITH p1, count(p2) AS friendCount
-//   WHERE friendCount > 1
-// RETURN properties(p1), friendCount;
-
-// // 4. Unlimited Traversal (in Neo4j everything is matched by default)
-
-// // Find all direct and indirect relationships between people limited to 3 hops
-// MATCH (p1:Person)-[*..3]-(p2:Person)
-// RETURN *;
-
-// // Find the shortest path between two persons using WITH RECURSIVE
-// MATCH (p1:Person {personId: 1}), (p2:Person {personId: 10}),
-//       path = shortestPath((p1)-[:KNOWS*]->(p2))
-// RETURN path;
-
-// // 5. Optional Traversal
-
-// // Get a list of all people and their friend count (0 if they have no friends)
-// MATCH (p1:Person)
-// OPTIONAL MATCH (p1)-[:KNOWS]->(p2:Person)
-// RETURN properties(p1), count(p2) AS friendCount;
-
-// // 6. Union
-
-// //-- Get a list of contacts (email and phone) for both vendors and customers
-// MATCH (v:Vendor)<-[:CONTACT_TYPE]-(t)
-// RETURN 'Vendor' AS entityType, v.vendorId AS entityId, v.name AS entityName, t.value AS contactType
-// UNION
-// MATCH (p:Person)<-[:IS_PERSON]-(c:Customer)<-[:ORDERED_BY]-(o:Order)-[:CONTACT_TYPE]->(t)
-// RETURN
-//   'Order' AS entityType, o.orderId AS entityId, p.firstName + ' ' + p.lastName AS entityName, t.value AS contactType;
-
-// // 7. Intersection
-
-// - - Find common tags between posts AND persons
-
-// MATCH (p:Post)-[:HAS_TAG]->(t:Tag)
-// WITH collect(properties(t)) AS postTags
-// MATCH (p:Person)-[:HAS_INTEREST]->(t:Tag)
-// WITH postTags, collect(properties(t)) AS personTags
-// RETURN apoc.coll.intersection(postTags, personTags) AS commonTags;
-
-// // 8. Difference
-
-// // Find people who have not made any orders
-// MATCH (p:Person)
-//   WHERE NOT (p)<-[:IS_PERSON]-(:Customer)<-[:ORDERED_BY]-(:Order)
-// RETURN p.personId, p.firstName, p.lastName;
-
-// // 9. Sorting
-
-// // 9.1 Non-Indexed property
-
-// MATCH (pr:Product)
-// RETURN pr.brand
-//   ORDER BY pr.brand;
-
-// // 9.2 Indexed property
-
-// CREATE INDEX idx_product_productId FOR (p:Product) ON (p.productId);
-
-// MATCH (pr:Product)
-// RETURN pr.productId
-//   ORDER BY pr.productId;
-
-// // 10. Distinct
-
-// // Find unique combinations of product brands and the countries of the vendors selling those products
-
-// MATCH (pr:Product)<-[:CONTAINS_PRODUCTS]-(o:Order)-[:ORDERED_BY]->(c:Customer)-[:IS_PERSON]->(p:Person),
-//       (pr)-[:MANUFACTURED_BY]->(v:Vendor)
-// RETURN DISTINCT pr.brand, v.country
-//   ORDER BY pr.brand, v.country;
-
-// // 11. MapReduce (not supported in Neo4j, simple aggregation instead)
-
-// MATCH (c:Customer)<-[:ORDERED_BY]-(o:Order)
-// RETURN c.customerId, count(o) AS orderCount;
-
-
+db._query(aql`
+  FOR c IN customers
+    FOR o IN INBOUND c orderedBy
+      COLLECT customerId = c.customerId WITH COUNT INTO orderCount
+      RETURN { customerId: customerId, orderCount: orderCount }
+`);

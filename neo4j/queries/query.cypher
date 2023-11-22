@@ -109,7 +109,7 @@ RETURN properties(p1), count(p2) AS friendCount;
 
 // 6. Union
 
-//-- Get a list of contacts (email and phone) for both vendors and customers
+// Get a list of contacts (email and phone) for both vendors and customers
 MATCH (v:Vendor)<-[:CONTACT_TYPE]-(t)
 RETURN 'Vendor' AS entityType, v.vendorId AS entityId, v.name AS entityName, t.value AS contactType
 UNION
@@ -119,7 +119,7 @@ RETURN
 
 // 7. Intersection
 
-- - Find common tags between posts AND persons
+// Find common tags between posts AND persons
 
 MATCH (p:Post)-[:HAS_TAG]->(t:Tag)
 WITH collect(properties(t)) AS postTags
