@@ -1,0 +1,88 @@
+[{
+  "_id": 1,
+  "value": "Technology",
+  "personTags": [
+    {
+      "personId": 2,
+      "tagId": 1
+    }
+  ],
+  "postTags": [
+    {
+      "postId": 1,
+      "tagId": 1
+    },
+    {
+      "postId": 2,
+      "tagId": 1
+    }
+  ]
+},
+{
+  "_id": 2,
+  "value": "Travel",
+  "personTags": [
+    {
+      "personId": 1,
+      "tagId": 2
+    }
+  ],
+  "postTags": [
+    {
+      "postId": 2,
+      "tagId": 2
+    }
+  ]
+},
+{
+  "_id": 3,
+  "value": "Fashion",
+  "personTags": [
+    {
+      "personId": 4,
+      "tagId": 3
+    }
+  ],
+  "postTags": [
+    {
+      "postId": 1,
+      "tagId": 3
+    }
+  ]
+},
+{
+  "_id": 4,
+  "value": "Food",
+  "personTags": [
+    {
+      "personId": 3,
+      "tagId": 4
+    }
+  ],
+  "postTags": [
+    {
+      "postId": 2,
+      "tagId": 4
+    }
+  ]
+},
+{
+  "_id": 5,
+  "value": "Health",
+  "personTags": [
+    {
+      "personId": 6,
+      "tagId": 5
+    }
+  ]
+},
+{
+  "_id": 6,
+  "value": "Sports",
+  "personTags": [
+    {
+      "personId": 5,
+      "tagId": 6
+    }
+  ]
+}]

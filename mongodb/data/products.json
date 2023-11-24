@@ -1,0 +1,30 @@
+[{
+  "_id": 1,
+  "asin": "ASIN123",
+  "brand": "Brand X",
+  "imageUrl": "product1.jpg",
+  "price": 19.99,
+  "title": "Product 1",
+  "inOrders": [
+    {
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+},
+{
+  "_id": 2,
+  "asin": "ASIN456",
+  "brand": "Brand Y",
+  "imageUrl": "product2.jpg",
+  "price": 29.99,
+  "title": "Product 2",
+  "inOrders": [
+    {
+      "orderId": 2,
+      "productId": 2,
+      "quantity": 3
+    }
+  ]
+}]

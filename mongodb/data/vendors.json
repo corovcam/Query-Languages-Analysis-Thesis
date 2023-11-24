@@ -1,0 +1,66 @@
+[{
+  "_id": 1,
+  "country": "USA",
+  "name": "Vendor A",
+  "contacts": [
+    {
+      "typeId": 1,
+      "value": "vendorA@example.com",
+      "type": {
+        "typeId": 1,
+        "value": "Email"
+      }
+    },
+    {
+      "typeId": 2,
+      "value": "123-456-7890",
+      "type": {
+        "typeId": 2,
+        "value": "Phone"
+      }
+    }
+  ],
+  "products": [
+    {
+      "productId": 1,
+      "asin": "ASIN123",
+      "brand": "Brand X",
+      "imageUrl": "product1.jpg",
+      "price": 19.99,
+      "title": "Product 1"
+    },
+    {
+      "productId": 2,
+      "asin": "ASIN456",
+      "brand": "Brand Y",
+      "imageUrl": "product2.jpg",
+      "price": 29.99,
+      "title": "Product 2"
+    }
+  ]
+},
+{
+  "_id": 2,
+  "country": "Canada",
+  "name": "Vendor B",
+  "contacts": [
+    {
+      "typeId": 2,
+      "value": "987-654-3210",
+      "type": {
+        "typeId": 2,
+        "value": "Phone"
+      }
+    }
+  ],
+  "products": [
+    {
+      "productId": 2,
+      "asin": "ASIN456",
+      "brand": "Brand Y",
+      "imageUrl": "product2.jpg",
+      "price": 29.99,
+      "title": "Product 2"
+    }
+  ]
+}]

@@ -1,0 +1,67 @@
+[{
+  "_id": 1,
+  "value": "Email",
+  "orderContacts": [
+    {
+      "orderId": 1,
+      "typeId": 1,
+      "value": "john@example.com",
+      "customerId": 1
+    },
+    {
+      "orderId": 2,
+      "typeId": 1,
+      "value": "jane@example.com",
+      "customerId": 2
+    }
+  ],
+  "vendorContacts": [
+    {
+      "vendorId": 1,
+      "typeId": 1,
+      "value": "vendorA@example.com"
+    }
+  ]
+},
+{
+  "_id": 2,
+  "value": "Phone",
+  "orderContacts": [
+    {
+      "orderId": 1,
+      "typeId": 2,
+      "value": "111-222-3333",
+      "customerId": 1
+    },
+    {
+      "orderId": 2,
+      "typeId": 2,
+      "value": "444-555-6666",
+      "customerId": 2
+    }
+  ],
+  "vendorContacts": [
+    {
+      "vendorId": 1,
+      "typeId": 2,
+      "value": "123-456-7890"
+    },
+    {
+      "vendorId": 2,
+      "typeId": 2,
+      "value": "987-654-3210"
+    }
+  ]
+},
+{
+  "_id": 3,
+  "value": "Address"
+},
+{
+  "_id": 4,
+  "value": "Automotive"
+},
+{
+  "_id": 5,
+  "value": "Electronics"
+}]

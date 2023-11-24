@@ -34,7 +34,7 @@ db.products.aggregate([{ $group: { _id: "$brand", productCount: { $sum: 1 } } }]
 
 db.products.aggregate([{ $group: { _id: "$brand", maxPrice: { $max: "$price" } } }]);
 
-// 3. Join
+// 3. Join ( TODO: One complex JOIN in mongoDB)
 
 // 3.1 Non-Indexed Attributes
 
@@ -53,6 +53,7 @@ db.types.aggregate([
 ]);
 
 // 3.2 Indexed Attributes
+
 
 db.products.find();
 

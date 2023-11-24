@@ -4,4 +4,4 @@ todo.md
 .vscode/
 **/logs/*.log
 **/exports/**/*.json*
-**/data/**/*.json*
+# **/data/**/*.json*

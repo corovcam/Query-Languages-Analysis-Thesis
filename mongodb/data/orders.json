@@ -1,0 +1,100 @@
+[{
+  "_id": 1,
+  "customer": {
+    "customerId": 1,
+    "person": {
+      "personId": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "gender": "Male",
+      "birthday": {
+        "$date": "1980-05-15T00:00:00.000Z"
+      },
+      "street": "123 Main St",
+      "city": "New York",
+      "postalCode": "10001",
+      "country": "USA"
+    }
+  },
+  "contacts": [
+    {
+      "typeId": 1,
+      "value": "john@example.com",
+      "type": {
+        "typeId": 1,
+        "value": "Email"
+      }
+    },
+    {
+      "typeId": 2,
+      "value": "111-222-3333",
+      "type": {
+        "typeId": 2,
+        "value": "Phone"
+      }
+    }
+  ],
+  "containsProducts": [
+    {
+      "quantity": 2,
+      "product": {
+        "productId": 1,
+        "asin": "ASIN123",
+        "title": "Product 1",
+        "price": 19.99,
+        "brand": "Brand X",
+        "imageUrl": "product1.jpg"
+      }
+    }
+  ]
+},
+{
+  "_id": 2,
+  "customer": {
+    "customerId": 2,
+    "person": {
+      "personId": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "gender": "Female",
+      "birthday": {
+        "$date": "1990-08-25T00:00:00.000Z"
+      },
+      "street": "456 Elm St",
+      "city": "Toronto",
+      "postalCode": "M5V 1A1",
+      "country": "Canada"
+    }
+  },
+  "contacts": [
+    {
+      "typeId": 1,
+      "value": "jane@example.com",
+      "type": {
+        "typeId": 1,
+        "value": "Email"
+      }
+    },
+    {
+      "typeId": 2,
+      "value": "444-555-6666",
+      "type": {
+        "typeId": 2,
+        "value": "Phone"
+      }
+    }
+  ],
+  "containsProducts": [
+    {
+      "quantity": 3,
+      "product": {
+        "productId": 2,
+        "asin": "ASIN456",
+        "title": "Product 2",
+        "price": 29.99,
+        "brand": "Brand Y",
+        "imageUrl": "product2.jpg"
+      }
+    }
+  ]
+}]

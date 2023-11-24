@@ -1,0 +1,162 @@
+[{
+  "_id": 1,
+  "birthday": {
+    "$date": "1980-05-15T00:00:00.000Z"
+  },
+  "city": "New York",
+  "country": "USA",
+  "firstName": "John",
+  "gender": "Male",
+  "lastName": "Doe",
+  "postalCode": "10001",
+  "street": "123 Main St",
+  "knowsPeople": [
+    1
+  ]
+},
+{
+  "_id": 2,
+  "birthday": {
+    "$date": "1990-08-25T00:00:00.000Z"
+  },
+  "city": "Toronto",
+  "country": "Canada",
+  "firstName": "Jane",
+  "gender": "Female",
+  "lastName": "Smith",
+  "postalCode": "M5V 1A1",
+  "street": "456 Elm St",
+  "knowsPeople": [
+    2
+  ]
+},
+{
+  "_id": 3,
+  "birthday": {
+    "$date": "1983-03-10T00:00:00.000Z"
+  },
+  "city": "London",
+  "country": "UK",
+  "firstName": "Michael",
+  "gender": "Male",
+  "lastName": "Johnson",
+  "postalCode": "EC1A 1BB",
+  "street": "789 Oak St",
+  "knowsPeople": [
+    3
+  ]
+},
+{
+  "_id": 4,
+  "birthday": {
+    "$date": "1986-06-20T00:00:00.000Z"
+  },
+  "city": "Berlin",
+  "country": "Germany",
+  "firstName": "Sophia",
+  "gender": "Female",
+  "lastName": "Müller",
+  "postalCode": "10115",
+  "street": "101 Birch St",
+  "knowsPeople": [
+    4,
+    4
+  ]
+},
+{
+  "_id": 5,
+  "birthday": {
+    "$date": "1995-01-05T00:00:00.000Z"
+  },
+  "city": "Paris",
+  "country": "France",
+  "firstName": "Alex",
+  "gender": "Male",
+  "lastName": "Dupont",
+  "postalCode": "75001",
+  "street": "456 Maple St",
+  "knowsPeople": [
+    5,
+    5
+  ]
+},
+{
+  "_id": 6,
+  "birthday": {
+    "$date": "1990-12-15T00:00:00.000Z"
+  },
+  "city": "Rome",
+  "country": "Italy",
+  "firstName": "Giulia",
+  "gender": "Female",
+  "lastName": "Rossi",
+  "postalCode": "00100",
+  "street": "789 Vine St"
+},
+{
+  "_id": 7,
+  "birthday": {
+    "$date": "1980-08-01T00:00:00.000Z"
+  },
+  "city": "Tokyo",
+  "country": "Japan",
+  "firstName": "Takashi",
+  "gender": "Male",
+  "lastName": "Yamamoto",
+  "postalCode": "100-0001",
+  "street": "123 Sakura St",
+  "knowsPeople": [
+    7
+  ]
+},
+{
+  "_id": 8,
+  "birthday": {
+    "$date": "1992-05-30T00:00:00.000Z"
+  },
+  "city": "Sydney",
+  "country": "Australia",
+  "firstName": "Mia",
+  "gender": "Female",
+  "lastName": "Johnson",
+  "postalCode": "2000",
+  "street": "456 Cherry St",
+  "knowsPeople": [
+    8,
+    8
+  ]
+},
+{
+  "_id": 9,
+  "birthday": {
+    "$date": "1985-11-18T00:00:00.000Z"
+  },
+  "city": "Melbourne",
+  "country": "Australia",
+  "firstName": "Lucas",
+  "gender": "Male",
+  "lastName": "Silva",
+  "postalCode": "3000",
+  "street": "789 Kangaroo St",
+  "knowsPeople": [
+    9
+  ]
+},
+{
+  "_id": 10,
+  "birthday": {
+    "$date": "1991-04-25T00:00:00.000Z"
+  },
+  "city": "Rio de Janeiro",
+  "country": "Brazil",
+  "firstName": "Isabella",
+  "gender": "Female",
+  "lastName": "Pereira",
+  "postalCode": "20000-000",
+  "street": "101 Copacabana St",
+  "knowsPeople": [
+    10,
+    10,
+    10
+  ]
+}]

@@ -20,4 +20,4 @@ Check individual "notes.md" files in each database folder.
 
 ### MongoDB
 
-![](/docs/mongo_schema_1.png)
+![](/docs/mongo_schema_2.png)
