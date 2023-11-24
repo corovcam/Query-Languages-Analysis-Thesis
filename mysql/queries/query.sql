@@ -18,10 +18,10 @@ WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 SELECT vendorId, name
 FROM Vendor
-WHERE VendorId = 1;
+WHERE vendorId = 1;
 
 -- 1.4 Indexed Columns - Range Query
-CALL drop_birthday_index_if_exists();
+CALL create_birthday_index_if_not_exists();
 
 SELECT personId, firstName, lastName, birthday
 FROM Person
@@ -163,10 +163,10 @@ FROM Vendor
          JOIN Type ON Vendor_Contacts.typeId = Type.typeId
 UNION
 -- Customer contacts
-SELECT 'Order'                                    AS entityType,
-       Customer.customerId                        AS entityId,
-       Person.firstName || ' ' || Person.lastName AS entityName,
-       Type.value                                 AS contactType,
+SELECT 'Order'                                        AS entityType,
+       Customer.customerId                            AS entityId,
+       CONCAT(Person.firstName, ' ', Person.lastName) AS entityName,
+       Type.value                                     AS contactType,
        Order_Contacts.value
 FROM Customer
          JOIN `Order` ON Customer.customerId = `Order`.customerId

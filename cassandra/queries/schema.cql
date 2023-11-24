@@ -1,14 +1,14 @@
-DROP KEYSPACE IF EXISTS eshop;
+DROP KEYSPACE IF EXISTS ecommerce;
 
-CREATE KEYSPACE eshop
+CREATE KEYSPACE ecommerce
             WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
 
-USE eshop;
+USE ecommerce;
 
 CREATE TABLE Vendor
 (
     vendorId   BIGINT PRIMARY KEY,
-    vendorUuid UUID,
+    -- vendorUuid UUID,
     name       TEXT,
     country    TEXT
 ) WITH COMMENT = 'Vendor information';
@@ -35,3 +35,18 @@ CREATE TABLE ProductsByVendor
     imageUrl  TEXT,*/
     PRIMARY KEY ((vendorId), productId)
 ) WITH COMMENT = 'Products by vendor';
+
+/*CREATE TABLE Type
+(
+    typeId BIGINT PRIMARY KEY,
+    value  TEXT
+);*/
+
+CREATE TABLE IndustryTypesByVendor
+(
+    vendorId BIGINT,
+    typeId  BIGINT,
+    value  TEXT,
+    PRIMARY KEY ((vendorId), typeId),
+);
+
