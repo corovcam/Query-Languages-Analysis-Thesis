@@ -11,7 +11,7 @@
   "postalCode": "10001",
   "street": "123 Main St",
   "knowsPeople": [
-    1
+    10
   ]
 },
 {
@@ -27,7 +27,7 @@
   "postalCode": "M5V 1A1",
   "street": "456 Elm St",
   "knowsPeople": [
-    2
+    1
   ]
 },
 {
@@ -43,7 +43,7 @@
   "postalCode": "EC1A 1BB",
   "street": "789 Oak St",
   "knowsPeople": [
-    3
+    1
   ]
 },
 {
@@ -59,8 +59,8 @@
   "postalCode": "10115",
   "street": "101 Birch St",
   "knowsPeople": [
-    4,
-    4
+    1,
+    3
   ]
 },
 {
@@ -76,8 +76,8 @@
   "postalCode": "75001",
   "street": "456 Maple St",
   "knowsPeople": [
-    5,
-    5
+    1,
+    4
   ]
 },
 {
@@ -106,7 +106,7 @@
   "postalCode": "100-0001",
   "street": "123 Sakura St",
   "knowsPeople": [
-    7
+    6
   ]
 },
 {
@@ -122,8 +122,8 @@
   "postalCode": "2000",
   "street": "456 Cherry St",
   "knowsPeople": [
-    8,
-    8
+    6,
+    7
   ]
 },
 {
@@ -139,7 +139,7 @@
   "postalCode": "3000",
   "street": "789 Kangaroo St",
   "knowsPeople": [
-    9
+    6
   ]
 },
 {
@@ -155,8 +155,8 @@
   "postalCode": "20000-000",
   "street": "101 Copacabana St",
   "knowsPeople": [
-    10,
-    10,
-    10
+    4,
+    6,
+    9
   ]
 }]
