@@ -47,3 +47,8 @@ Instance ▸ database ▸ collections ▸ documents
 - SECONDARY INDEXES
     ▸ Created manually for values of a given key field / fields
     ▸ Always within just a single collection
+
+
+#### Aggregation
+
+- Excessive use of $lookup within a query may slow down performance. To avoid multiple $lookup stages, consider an embedded data model to optimize query performance.

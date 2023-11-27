@@ -21,7 +21,6 @@
       "typeId": 1,
       "value": "john@example.com",
       "type": {
-        "typeId": 1,
         "value": "Email"
       }
     },
@@ -29,22 +28,19 @@
       "typeId": 2,
       "value": "111-222-3333",
       "type": {
-        "typeId": 2,
         "value": "Phone"
       }
     }
   ],
   "containsProducts": [
     {
+      "productId": 1,
       "quantity": 2,
-      "product": {
-        "productId": 1,
-        "asin": "ASIN123",
-        "title": "Product 1",
-        "price": 19.99,
-        "brand": "Brand X",
-        "imageUrl": "product1.jpg"
-      }
+      "asin": "ASIN123",
+      "title": "Product 1",
+      "price": 19.99,
+      "brand": "Brand X",
+      "imageUrl": "product1.jpg"
     }
   ]
 },
@@ -71,7 +67,6 @@
       "typeId": 1,
       "value": "jane@example.com",
       "type": {
-        "typeId": 1,
         "value": "Email"
       }
     },
@@ -79,22 +74,19 @@
       "typeId": 2,
       "value": "444-555-6666",
       "type": {
-        "typeId": 2,
         "value": "Phone"
       }
     }
   ],
   "containsProducts": [
     {
+      "productId": 2,
       "quantity": 3,
-      "product": {
-        "productId": 2,
-        "asin": "ASIN456",
-        "title": "Product 2",
-        "price": 29.99,
-        "brand": "Brand Y",
-        "imageUrl": "product2.jpg"
-      }
+      "asin": "ASIN456",
+      "title": "Product 2",
+      "price": 29.99,
+      "brand": "Brand Y",
+      "imageUrl": "product2.jpg"
     }
   ]
 }]

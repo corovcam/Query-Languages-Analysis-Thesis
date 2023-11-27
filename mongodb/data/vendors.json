@@ -7,7 +7,6 @@
       "typeId": 1,
       "value": "vendorA@example.com",
       "type": {
-        "typeId": 1,
         "value": "Email"
       }
     },
@@ -15,12 +14,11 @@
       "typeId": 2,
       "value": "123-456-7890",
       "type": {
-        "typeId": 2,
         "value": "Phone"
       }
     }
   ],
-  "products": [
+  "manufacturesProducts": [
     {
       "productId": 1,
       "asin": "ASIN123",
@@ -48,12 +46,11 @@
       "typeId": 2,
       "value": "987-654-3210",
       "type": {
-        "typeId": 2,
         "value": "Phone"
       }
     }
   ],
-  "products": [
+  "manufacturesProducts": [
     {
       "productId": 2,
       "asin": "ASIN456",

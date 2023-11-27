@@ -80,7 +80,7 @@ db._query(aql`
   FOR o IN orders
     FOR t IN OUTBOUND o contactType
       FOR v IN OUTBOUND t contactType
-        RETURN DISTINCT { order: o, vendor: v }
+        RETURN DISTINCT { typeId: t.typeId, order: o, vendor: v }
 `);
 
 // 3.2 Indexed Node/Relationship keys
@@ -230,13 +230,10 @@ db._query(aql`
 
 db._query(aql`
   FOR pr IN products
-    FOR o IN INBOUND pr containsProducts
-      FOR c IN OUTBOUND o orderedBy
-        FOR p IN OUTBOUND c isPerson
-          FOR v IN OUTBOUND pr manufacturedBy
-            //COLLECT brand = pr.brand, country = v.country
-            SORT pr.brand, v.country
-            RETURN DISTINCT { brand: pr.brand, country: v.country }
+    FOR v IN OUTBOUND pr manufacturedBy
+      //COLLECT brand = pr.brand, country = v.country
+      SORT pr.brand, v.country
+      RETURN DISTINCT { brand: pr.brand, country: v.country }
 `);
 
 // 11. MapReduce (not supported in ArangoDB, simple aggregation instead)

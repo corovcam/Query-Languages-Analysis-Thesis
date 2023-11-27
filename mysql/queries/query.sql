@@ -107,7 +107,7 @@ WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                                 JOIN Person_Person pp ON pr.relatedPersonId = pp.personId1
                                        WHERE pr.depth < 3 -- Limiting recursion depth to 3 for illustration
 )
-SELECT *
+SELECT DISTINCT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
 

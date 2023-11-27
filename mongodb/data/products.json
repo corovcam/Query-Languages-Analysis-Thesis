@@ -8,7 +8,6 @@
   "inOrders": [
     {
       "orderId": 1,
-      "productId": 1,
       "quantity": 2
     }
   ]
@@ -23,7 +22,6 @@
   "inOrders": [
     {
       "orderId": 2,
-      "productId": 2,
       "quantity": 3
     }
   ]

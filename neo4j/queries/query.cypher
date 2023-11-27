@@ -154,8 +154,7 @@ RETURN pr.productId
 
 // Find unique combinations of product brands and the countries of the vendors selling those products
 
-MATCH (pr:Product)<-[:CONTAINS_PRODUCTS]-(o:Order)-[:ORDERED_BY]->(c:Customer)-[:IS_PERSON]->(p:Person),
-      (pr)-[:MANUFACTURED_BY]->(v:Vendor)
+MATCH (pr:Product)-[:MANUFACTURED_BY]->(v:Vendor)
 RETURN DISTINCT pr.brand, v.country
   ORDER BY pr.brand, v.country;
 
