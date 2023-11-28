@@ -97,6 +97,8 @@ VALUES (1, 1, 'john@example.com'),
 -- Sample data for the Order_Products table
 INSERT INTO Order_Products (orderId, productId, quantity)
 VALUES (1, 1, 2),
+       -- (1, 2, 1),
+       -- (2, 1, 1),
        (2, 2, 3);
 
 -- Sample data for the Person_Person table (for relationships)

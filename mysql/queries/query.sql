@@ -2,6 +2,7 @@
 
 -- 1.1 Non-Indexed Columns
 
+-- Select vendor with the name "Vendor A"
 SELECT vendorId, name
 FROM Vendor
 WHERE name = "Vendor A";
@@ -10,12 +11,14 @@ WHERE name = "Vendor A";
 
 CALL drop_birthday_index_if_exists();
 
+-- Select people born between 1980-01-01 and 1990-12-31
 SELECT personId, firstName, lastName, birthday
 FROM Person
 WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 -- 1.3 Indexed Columns
 
+-- Select vendor with the ID 1
 SELECT vendorId, name
 FROM Vendor
 WHERE vendorId = 1;
@@ -23,6 +26,7 @@ WHERE vendorId = 1;
 -- 1.4 Indexed Columns - Range Query
 CALL create_birthday_index_if_not_exists();
 
+-- Select people born between 1980-01-01 and 1990-12-31 (using index)
 SELECT personId, firstName, lastName, birthday
 FROM Person
 WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
@@ -31,6 +35,7 @@ WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 -- 2.1 COUNT
 
+-- Count the number of products per brand
 SELECT brand, COUNT(*) AS productCount
 FROM Product
 GROUP BY brand;
@@ -38,6 +43,7 @@ GROUP BY brand;
 
 -- 2.2 MAX
 
+-- Find the most expensive product per brand
 SELECT brand, MAX(price) AS maxPrice
 FROM Product
 GROUP BY brand;
@@ -53,6 +59,7 @@ FROM Order_Contacts OC
 
 -- 3.2 Indexed Columns
 
+-- Join Product and Order_Products on the product ID (indexed column)
 SELECT *
 FROM Product P
          INNER JOIN Order_Products OP on P.productId = OP.productId;
@@ -93,8 +100,9 @@ HAVING COUNT(*) > 1;
 
 -- 4. Unlimited Traversal (WITH RECURSIVE)
 
--- Find all direct and indirect relationships between people
+-- 4.1. Both way traversal
 
+-- Find all direct and indirect relationships between people
 WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                               personId2 AS relatedPersonId,
                                               1         AS depth
@@ -111,8 +119,9 @@ SELECT DISTINCT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
 
--- Find the shortest path between two persons using WITH RECURSIVE
+-- 4.2. Shortest path
 
+-- Find the shortest path between two persons using WITH RECURSIVE
 WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId2 AS targetPersonId,
                                      personId1 AS currentPersonId,
@@ -141,13 +150,11 @@ ORDER BY sourcePersonId, depth, targetPersonId;
 SELECT P1.personId,
        P1.firstName,
        P1.lastName,
-#        CASE WHEN P2.personId IS NOT NULL THEN COUNT(*) ELSE 0 END
-#            AS friendCount -- doesnt work in MySQL
-       COUNT(*) AS friendCount -- must be fixed
+       COUNT(P2.personId) AS friendCount
 FROM Person P1
          LEFT OUTER JOIN Person_Person PP on P1.personId = PP.personId1
          LEFT OUTER JOIN Person P2 on PP.personId2 = P2.personId
-GROUP BY P1.personId, P1.firstName, P1.lastName;
+GROUP BY P1.personId;
 
 -- 6. UNION
 

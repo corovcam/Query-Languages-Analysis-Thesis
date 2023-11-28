@@ -1,5 +1,3 @@
-// MongoDB Queries
-
 // 1. Selection, Projection, Source (of data)
 
 // 1.1 Non-Indexed Attributes

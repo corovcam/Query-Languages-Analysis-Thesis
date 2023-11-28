@@ -140,8 +140,7 @@ ORDER BY sourcePersonId, depth, targetPersonId;
 SELECT P1.personId,
        P1.firstName,
        P1.lastName,
-       CASE WHEN P2.personId IS NOT NULL THEN COUNT(*) ELSE 0 END
-           AS friendCount
+       COUNT(P2.personId) AS friendCount
 FROM Person P1
          LEFT OUTER JOIN Person_Person PP on P1.personId = PP.personId1
          LEFT OUTER JOIN Person P2 on PP.personId2 = P2.personId

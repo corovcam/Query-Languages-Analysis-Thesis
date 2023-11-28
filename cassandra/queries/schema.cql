@@ -5,14 +5,165 @@ CREATE KEYSPACE ecommerce
 
 USE ecommerce;
 
+-- Query 1.1, 1.3 : Select all products from a specific vendor
 CREATE TABLE Vendor
 (
-    vendorId   BIGINT PRIMARY KEY,
-    -- vendorUuid UUID,
-    name       TEXT,
-    country    TEXT
+    vendorId BIGINT PRIMARY KEY,
+    name     TEXT,
+    country  TEXT
 ) WITH COMMENT = 'Vendor information';
 
+-- Query 1.2, 3.4, 5.1 : Select people born between 1980-01-01 and 1990-12-31 (without index)
+--                  Find friendCount of a person
+--                  Get a list of all people and their friend count (0 if they have no friends)
+CREATE TABLE Person
+(
+    personId    BIGINT PRIMARY KEY,
+    firstName   TEXT,
+    lastName    TEXT,
+    gender      TEXT,
+    birthday    DATE,
+    street      TEXT,
+    city        TEXT,
+    postalCode  TEXT,
+    country     TEXT,
+    knowsPeople SET<BIGINT> -- TODO: change this
+) WITH COMMENT = 'Person information';
+
+-- Query 1.4 : Select people born between 1980-01-01 and 1990-12-31 (with index)
+-- https://dba.stackexchange.com/questions/313576/how-to-efficiently-run-range-based-queries-in-cassandra
+-- Can't use a range query on a secondary index, so we need to use clustering column for birthday
+CREATE TABLE Person_By_Birthday_Indexed
+(
+    personId   BIGINT,
+    firstName  TEXT,
+    lastName   TEXT,
+    gender     TEXT,
+    birthday   DATE,
+    street     TEXT,
+    city       TEXT,
+    postalCode TEXT,
+    country    TEXT,
+    PRIMARY KEY ((personId), birthday)
+) WITH COMMENT = 'People by birthday - clustering index on birthday';
+
+-- Query 2.1, 2.2 : GROUP BY brand queries
+CREATE TABLE Products_By_Brand
+(
+    productId BIGINT,
+    asin      TEXT,
+    title     TEXT,
+    price     DOUBLE,
+    brand     TEXT,
+    imageUrl  TEXT,
+    PRIMARY KEY ((brand), productId)
+) WITH COMMENT = 'Products by brand';
+
+-- Query 3.1.: Return all Orders and Vendors sharing the same Contact typeId
+CREATE TABLE Order_Vendor_Contacts_By_Contact_Type
+(
+    typeId             BIGINT,
+    orderId            BIGINT,
+    -- orderContactTypeId BIGINT, -- TODO: Should I include this for it to be the same as SQL DBs?
+    orderContactValue  TEXT,
+    vendorId           BIGINT,
+    -- vendorContactTypeId BIGINT,
+    vendorContactValue TEXT,
+    PRIMARY KEY ((typeId, orderId, orderContactValue), vendorId, vendorContactValue)
+) WITH COMMENT = 'Order and Vendor contacts by Order Contact type';
+
+-- Query 3.2.: Return all Products and the orderIds, quantities of the orders they were ordered in
+// TODO: Maybe embed the order information into the Product table?
+CREATE TABLE Orders_By_Product
+(
+    productId BIGINT,
+    asin      TEXT,
+    title     TEXT,
+    price     DOUBLE,
+    brand     TEXT,
+    imageUrl  TEXT,
+    orderId   BIGINT,
+    quantity  BIGINT, -- To be consistent with all other DBs (64-bit integer in most of them)
+    PRIMARY KEY ((productId), orderId)
+) WITH COMMENT = 'Orders by product';
+
+-- Query 3.3.: Complex query to return Order details
+CREATE TABLE "Order"
+(
+    orderId       BIGINT,
+    -- Customer
+    customerId    BIGINT,
+    -- Person
+    personId      BIGINT,
+    firstName     TEXT,
+    lastName      TEXT,
+    gender        TEXT,
+    birthday      DATE,
+    street        TEXT,
+    city          TEXT,
+    postalCode    TEXT,
+    personCountry TEXT,
+    -- Product(s)
+    productId     BIGINT,
+    asin          TEXT,
+    title         TEXT,
+    price         DOUBLE,
+    brand         TEXT,
+    imageUrl      TEXT,
+    -- Product(s) quantity
+    quantity      BIGINT,
+    -- Vendor
+    vendorId      BIGINT,
+    vendorName    TEXT,
+    vendorCountry TEXT,
+    PRIMARY KEY ((orderId, customerId, productId, vendorId))
+) WITH COMMENT = 'Order information';
+
+-- Query 4.1.: Find all direct and indirect relationships between people (friends of friends up to depth of 3)
+-- Note that relationship between a person and themselves may exist (if cycle exists)
+CREATE TABLE Person_Relationships
+(
+    sourcePersonId  BIGINT,
+    relatedPersonId BIGINT,
+    depth           INT, -- Depth of the relationship (1 = direct, 2 = friend of friend, 3 = friend of friend of friend)
+    PRIMARY KEY ((sourcePersonId), relatedPersonId, depth)
+) WITH COMMENT = 'Person relationships (friends of friends up to depth of 3)';
+
+-- Query 6: Get a list of contacts (email and phone) for both vendors and customers
+CREATE TABLE Contact
+(
+    entityType   TEXT,
+    entityId     BIGINT,
+    entityName   TEXT,
+    contactType  TEXT,
+    contactValue TEXT,
+    PRIMARY KEY ((entityId, contactType, contactValue))
+) WITH COMMENT = 'Contact information';
+
+-- Query 7: Find common tags between posts and persons
+-- Since id set of postTags and personTags are embedded here
+-- we can just find a record with non-empty set of both interestedPeople and postsTagged
+CREATE TABLE Tag
+(
+    tagId            BIGINT,
+    value            TEXT,
+    interestedPeople FROZEN<SET<BIGINT>>,
+    postsTagged      FROZEN<SET<BIGINT>>,
+    PRIMARY KEY ((tagId), interestedPeople, postsTagged)
+) WITH COMMENT = 'Tag information';
+
+-- Query 8: Find people who have not made any orders
+-- We can just find a record with empty set of orders
+CREATE TABLE Orders_By_Person
+(
+    personId        BIGINT,
+    firstName       TEXT,
+    lastName        TEXT,
+    orderedProducts FROZEN<SET<BIGINT>>,
+    PRIMARY KEY ((personId), orderedProducts)
+) WITH COMMENT = 'Orders by person';
+
+-- Query 9.1, 9.2: Sort by indexed/non-indexed column
 CREATE TABLE Product
 (
     productId BIGINT PRIMARY KEY,
@@ -20,33 +171,22 @@ CREATE TABLE Product
     title     TEXT,
     price     DOUBLE,
     brand     TEXT,
-    imageUrl  TEXT
+    imageUrl  TEXT,
 ) WITH COMMENT = 'Product information';
 
-CREATE TABLE ProductsByVendor
+-- Query 10: Find unique combinations of product brands and the countries of the vendors selling those products
+CREATE TABLE Vendor_Countries_By_Product
 (
-    vendorId  BIGINT,
     productId BIGINT,
-//  Should we store the product information here?
-/*    asin      TEXT,
-    title     TEXT,
-    price     DOUBLE,
     brand     TEXT,
-    imageUrl  TEXT,*/
-    PRIMARY KEY ((vendorId), productId)
-) WITH COMMENT = 'Products by vendor';
+    country   TEXT,
+    PRIMARY KEY ((productId), brand, country)
+) WITH COMMENT = 'Vendor countries by product';
 
-/*CREATE TABLE Type
+-- Query 11: Find the number of orders per customer
+CREATE TABLE Orders_By_Customer
 (
-    typeId BIGINT PRIMARY KEY,
-    value  TEXT
-);*/
-
-CREATE TABLE IndustryTypesByVendor
-(
-    vendorId BIGINT,
-    typeId  BIGINT,
-    value  TEXT,
-    PRIMARY KEY ((vendorId), typeId),
-);
-
+    customerId BIGINT,
+    orderId    BIGINT,
+    PRIMARY KEY ((customerId), orderId)
+) WITH COMMENT = 'Orders by customer';
