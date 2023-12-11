@@ -115,7 +115,7 @@ WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                                 JOIN Person_Person pp ON pr.relatedPersonId = pp.personId1
                                        WHERE pr.depth < 3 -- Limiting recursion depth to 3 for illustration
 )
-SELECT DISTINCT *
+SELECT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
 
@@ -215,7 +215,6 @@ WHERE personId NOT IN ( -- EXCEPT is not supported in MySQL, it is available in 
              JOIN Customer ON Person.personId = Customer.personId
              JOIN `Order` ON Customer.customerId = `Order`.customerId);
 
-
 -- 9. Sorting
 
 -- 9.1 Non-Indexed Columns
@@ -243,7 +242,7 @@ ORDER BY Product.brand, Vendor.country;
 
 -- 11. MapReduce
 
--- Find the number of orders per customer
+-- Find the number of orders per customer (only those who have made at least 1 order)
 
 SELECT Customer.customerId, COUNT(*) AS orderCount
 FROM Customer

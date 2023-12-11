@@ -5,3 +5,4 @@ todo.md
 **/logs/*.log
 **/exports/**/*.json*
 # **/data/**/*.json*
+test.sql

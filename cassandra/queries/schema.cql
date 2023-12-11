@@ -13,12 +13,12 @@ CREATE TABLE Vendor
     country  TEXT
 ) WITH COMMENT = 'Vendor information';
 
--- Query 1.2, 3.4, 5.1 : Select people born between 1980-01-01 and 1990-12-31 (without index)
---                  Find friendCount of a person
---                  Get a list of all people and their friend count (0 if they have no friends)
+-- Query 1.2: Select people born between 1980-01-01 and 1990-12-31 (without index)
+-- Query 3.4: Find all people having more than 1 friend
+-- Query 5.1: Get a list of all people and their friend count (0 if they have no friends)
 CREATE TABLE Person
 (
-    personId    BIGINT PRIMARY KEY,
+    personId    BIGINT,
     firstName   TEXT,
     lastName    TEXT,
     gender      TEXT,
@@ -27,7 +27,8 @@ CREATE TABLE Person
     city        TEXT,
     postalCode  TEXT,
     country     TEXT,
-    knowsPeople SET<BIGINT> -- TODO: change this
+    friendCount BIGINT,
+    PRIMARY KEY ((personId), friendCount)
 ) WITH COMMENT = 'Person information';
 
 -- Query 1.4 : Select people born between 1980-01-01 and 1990-12-31 (with index)
@@ -126,7 +127,7 @@ CREATE TABLE Person_Relationships
     sourcePersonId  BIGINT,
     relatedPersonId BIGINT,
     depth           INT, -- Depth of the relationship (1 = direct, 2 = friend of friend, 3 = friend of friend of friend)
-    PRIMARY KEY ((sourcePersonId), relatedPersonId, depth)
+    PRIMARY KEY ((sourcePersonId), depth, relatedPersonId)
 ) WITH COMMENT = 'Person relationships (friends of friends up to depth of 3)';
 
 -- Query 6: Get a list of contacts (email and phone) for both vendors and customers
@@ -141,8 +142,6 @@ CREATE TABLE Contact
 ) WITH COMMENT = 'Contact information';
 
 -- Query 7: Find common tags between posts and persons
--- Since id set of postTags and personTags are embedded here
--- we can just find a record with non-empty set of both interestedPeople and postsTagged
 CREATE TABLE Tag
 (
     tagId            BIGINT,
@@ -153,7 +152,8 @@ CREATE TABLE Tag
 ) WITH COMMENT = 'Tag information';
 
 -- Query 8: Find people who have not made any orders
--- We can just find a record with empty set of orders
+-- We can just find a record with a dummy value (-1) that represents "null" (no orders)
+-- (Cassandra doesn't support filtering by null values)
 CREATE TABLE Orders_By_Person
 (
     personId        BIGINT,
@@ -175,15 +175,14 @@ CREATE TABLE Product
 ) WITH COMMENT = 'Product information';
 
 -- Query 10: Find unique combinations of product brands and the countries of the vendors selling those products
-CREATE TABLE Vendor_Countries_By_Product
+CREATE TABLE Vendor_Countries_By_Product_Brand
 (
-    productId BIGINT,
     brand     TEXT,
     country   TEXT,
-    PRIMARY KEY ((productId), brand, country)
-) WITH COMMENT = 'Vendor countries by product';
+    PRIMARY KEY ((brand), country)
+) WITH COMMENT = 'Vendor countries by product brand';
 
--- Query 11: Find the number of orders per customer
+-- Query 11: Find the number of orders per customer (only those who have made at least 1 order)
 CREATE TABLE Orders_By_Customer
 (
     customerId BIGINT,

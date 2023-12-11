@@ -384,7 +384,7 @@ db.vendors.aggregate([
 
 // 11. MapReduce
 
-// Find the number of orders per customer
+// Find the number of orders per customer (only those who have made at least 1 order)
 
 // 11.1. Using the deprecated mapReduce() method:
 // https://www.mongodb.com/docs/manual/reference/method/db.collection.mapReduce/#db.collection.mapreduce--
