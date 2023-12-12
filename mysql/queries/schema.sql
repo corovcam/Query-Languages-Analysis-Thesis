@@ -127,6 +127,7 @@ CREATE TABLE Order_Products
     FOREIGN KEY (productId) REFERENCES Product (productId)
 );
 
+-- Not used in Queries
 CREATE TABLE Post
 (
     postId       INTEGER PRIMARY KEY,

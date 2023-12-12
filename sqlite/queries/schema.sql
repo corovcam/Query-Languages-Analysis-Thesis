@@ -110,6 +110,7 @@ CREATE TABLE Person_Person
     PRIMARY KEY (personId1, personId2)
 ) WITHOUT ROWID;
 
+-- Not used in Queries
 CREATE TABLE Post
 (
     postId       INTEGER PRIMARY KEY,

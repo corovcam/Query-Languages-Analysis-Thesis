@@ -6,3 +6,5 @@ todo.md
 **/exports/**/*.json*
 # **/data/**/*.json*
 test.sql
+node_modules/
+data_new.sql

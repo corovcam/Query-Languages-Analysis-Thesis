@@ -6,7 +6,7 @@
 
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Vendor A";
+WHERE name = "Tillman - Larson";
 
 -- 1.2 Non-Indexed Columns - Range Query
 DROP INDEX IF EXISTS idx_person_birthday;
@@ -19,7 +19,7 @@ WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 SELECT vendorId, name
 FROM Vendor
-WHERE VendorId = 1;
+WHERE VendorId = 24;
 
 -- 1.4 Indexed Columns - Range Query
 CREATE INDEX IF NOT EXISTS idx_person_birthday ON Person (birthday);

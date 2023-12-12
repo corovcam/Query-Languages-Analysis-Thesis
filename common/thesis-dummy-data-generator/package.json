@@ -1,0 +1,15 @@
+{
+  "name": "thesis-dummy-data-generator",
+  "version": "1.0.0",
+  "description": "Generate dummy data for database testing.",
+  "main": "data-generator.js",
+  "scripts": {
+    "start": "node data-generator.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin Čorovčák",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1"
+  }
+}
