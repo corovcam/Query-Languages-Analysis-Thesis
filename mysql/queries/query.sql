@@ -5,7 +5,7 @@
 -- Select vendor with the name "Vendor A"
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Vendor A";
+WHERE name = "Tillman - Larson";
 
 -- 1.2 Non-Indexed Columns - Range Query
 
@@ -21,7 +21,7 @@ WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 -- Select vendor with the ID 1
 SELECT vendorId, name
 FROM Vendor
-WHERE vendorId = 1;
+WHERE VendorId = 24;
 
 -- 1.4 Indexed Columns - Range Query
 CALL create_birthday_index_if_not_exists();

@@ -202,7 +202,7 @@ function generatePosts(postCount, peopleCount) {
     for (let i = 0; i < postCount; i++) {
         const postId = i + 1;
         const personId = faker.number.int({ min: 1, max: peopleCount });
-        const creationDate = faker.date.recent().toISOString();
+        const creationDate = faker.date.recent().toISOString().slice(0, -1);
         const language = faker.helpers.arrayElement(['English', 'Spanish', 'French', 'German', 'Chinese']);
         const postContent = faker.lorem.paragraphs({ min: 1, max: 5 });
         const postLength = postContent.length;
@@ -226,10 +226,9 @@ function generateData(recordCount = 100) {
     let data = '';
 
     const typeMapping = getTypeMapping();
-    const productCount = recordCount;
 
     data += generateTypes(typeMapping);
-    data += generateVendorsProducts(vendorCount = recordCount, productCount, typeMapping);
+    data += generateVendorsProducts(vendorCount = recordCount, productCount = recordCount, typeMapping);
 
     data += generateTags(tagCount = recordCount);
 
@@ -238,7 +237,7 @@ function generateData(recordCount = 100) {
     data += generatePeople(peopleCount, customerCount, tagCount = recordCount);
 
     const maxOrdersPerCustomer = 3;
-    data += generateOrders(customerCount, maxOrdersPerCustomer, productCount, typeMapping);
+    data += generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
 
     data += generatePosts(postCount = recordCount, peopleCount);
 
