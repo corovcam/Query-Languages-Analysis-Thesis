@@ -139,6 +139,8 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
     let friends = [];
     let personTags = [];
 
+    let peopleObjects = [];
+
     for (let i = 0; i < peopleCount; i++) {
         const personId = i + 1;
         const sexType = faker.person.sexType();
@@ -149,6 +151,8 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         const city = faker.location.city().replace(/'/g, "''");
         const postalCode = faker.location.zipCode();
         const country = faker.location.country().replace(/'/g, "''");
+        
+        peopleObjects.push({ personId, firstName, lastName, sexType, birthday, streetAddress, city, postalCode, country, friends: [], tags: [] });
         people.push(`(${personId}, '${firstName}', '${lastName}', '${sexType}', '${birthday}', '${streetAddress}', '${city}', '${postalCode}', '${country}')`);
 
         // Assign Friends to Person (Person_Person)
@@ -158,6 +162,7 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         for (let j = 0; j < friendCount; j++) {
             const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
             const friendId = friendIds[randomIndex];
+            peopleObjects[personId - 1].friends.push(friendId);
             friends.push(`(${personId}, ${friendId})`);
             friendIds.splice(randomIndex, 1);
         }
@@ -168,19 +173,31 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         for (let j = 0; j < tagCountPerPerson; j++) {
             const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
             const tagId = tagIds[randomIndex];
-            personTags.push(`(${personId}, ${tagId})`);
+            peopleObjects[personId - 1].tags.push(tagId);
             tagIds.splice(randomIndex, 1);
         }
     }
+
     for (let i = 0; i < customerCount; i++) {
         const customerId = i + 1;
         const personId = customerId;
         customers.push(`(${customerId}, ${personId})`);
     }
-    return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${people.join(", \n")};\n` +
+
+    const relationalData = `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${people.join(", \n")};\n` +
         `INSERT INTO Customer (customerId, personId) VALUES ${customers.join(", \n")};\n` +
         `INSERT INTO Person_Person (personId1, personId2) VALUES ${friends.join(", \n")};\n` +
         `INSERT INTO Person_Tags (personId, tagId) VALUES ${personTags.join(", \n")};\n`;
+    
+    const cassandraData = peopleObjects.map(p => {
+            const person = `(${p.personId}, '${p.firstName}', '${p.lastName}', '${p.sexType}', '${p.birthday}', '${p.streetAddress}', '${p.city}', '${p.postalCode}', '${p.country}', ${p.friends.length})`;
+            return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friendCount) VALUES ${person};\n`
+        }
+        ).join("") +
+        people.map(person => `INSERT INTO Person_By_Birthday_Indexed (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${person};\n`).join("");
+
+
+    return { relationalData, cassandraData };
 }
 
 function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, typeMapping) {
@@ -276,7 +293,9 @@ function generateData(recordCount = 100) {
 
     const peopleCount = recordCount;
     const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
-    relationalData += generatePeople(peopleCount, customerCount, tagCount = recordCount);
+    data = generatePeople(peopleCount, customerCount, tagCount = recordCount);
+    relationalData += data.relationalData;
+    cassandraData += data.cassandraData;
 
     const maxOrdersPerCustomer = 3;
     relationalData += generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
