@@ -7,4 +7,4 @@ todo.md
 # **/data/**/*.json*
 test.sql
 node_modules/
-data_new.sql
+data_new.*

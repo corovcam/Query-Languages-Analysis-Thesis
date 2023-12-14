@@ -47,11 +47,14 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
     let vendorIndustries = [];
     let vendorContacts = [];
 
+    let brandVendorsByProductId = {};
+    let countriesByBrand = {};
+
     let productsAssigned = 0;
     for (let i = 0; i < vendorCount; i++) {
         const vendorId = i + 1;
         const vendorName = faker.company.name().replace(/'/g, "''");
-        const vendorCountry = faker.location.country();
+        const vendorCountry = faker.location.country().replace(/'/g, "''");
         vendors.push(`(${vendorId}, '${vendorName}', '${vendorCountry}')`);
 
         // Assign Products to Vendor
@@ -70,9 +73,35 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
                 { weight: 0.2, value: capitalizeFirstLetter(faker.lorem.word()) }
             ]);
             const imageUrl = faker.image.url();
+
             products.push(`(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}')`);
             vendorProducts.push(`(${vendorId}, ${productId})`);
+
+            // Assign Country to Brand
+            if (!countriesByBrand[brand]) {
+                countriesByBrand[brand] = new Set();
+            }
+            countriesByBrand[brand].add(vendorCountry);
+
+            brandVendorsByProductId[productId] = { brand, vendorCountry };
         }
+
+        // TODO: Fix for Cassandra
+        // With probability of 0.3 assign some previous Products to Vendor
+        productsAssigned !== 0 && faker.helpers.maybe(() => {
+            let productIds = Array.from({ length: productsAssigned - 1 }, (value, index) => index + 1);
+            let productCountPerVendor = faker.number.int({ min: 0, max: 5 < productsAssigned ? 5 : productsAssigned - 1 });
+            for (let j = 0; j < productCountPerVendor; j++) {
+                const randomIndex = faker.number.int({ min: 0, max: productIds.length - 1 });
+                const chosenProductId = productIds[randomIndex];
+                vendorProducts.push(`(${vendorId}, ${chosenProductId})`);
+                const brandCountry = brandVendorsByProductId[chosenProductId];
+                countriesByBrand[brandCountry.brand].add(brandCountry.vendorCountry);
+                productIds.splice(randomIndex, 1);
+            }
+        }, { probability: 0.7 });
+
+        // Update productsAssigned count
         productsAssigned += productsPerVendor;
 
         // Assign Industries to Vendor
@@ -88,11 +117,20 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
         });
     }
 
-    return `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendors.join(", \n")};\n` +
+    const relationalData = `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendors.join(", \n")};\n` +
         `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${products.join(", \n")};\n` +
         `INSERT INTO Vendor_Products (vendorId, productId) VALUES ${vendorProducts.join(", \n")};\n` +
         `INSERT INTO Industry (vendorId, typeId) VALUES ${vendorIndustries.join(", \n")};\n` +
         `INSERT INTO Vendor_Contacts (vendorId, typeId, value) VALUES ${vendorContacts.join(", \n")};\n`;
+
+    const cassandraData = vendors.map(vendor => `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendor};\n`).join("") +
+        products.map(product => `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+        products.map(product => `INSERT INTO Products_By_Brand (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+        Object.keys(countriesByBrand).map(brand => 
+            Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
+        ).join("");
+
+    return { relationalData, cassandraData };
 }
 
 function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
@@ -223,28 +261,43 @@ function generatePosts(postCount, peopleCount) {
 }
 
 function generateData(recordCount = 100) {
-    let data = '';
+    let relationalData = '';
+    let cassandraData = 'USE ecommerce;\n\nBEGIN BATCH\n';
 
     const typeMapping = getTypeMapping();
 
-    data += generateTypes(typeMapping);
-    data += generateVendorsProducts(vendorCount = recordCount, productCount = recordCount, typeMapping);
+    relationalData += generateTypes(typeMapping);
 
-    data += generateTags(tagCount = recordCount);
+    let data = generateVendorsProducts(vendorCount = recordCount, productCount = recordCount, typeMapping);
+    relationalData += data.relationalData;
+    cassandraData += data.cassandraData;
+
+    relationalData += generateTags(tagCount = recordCount);
 
     const peopleCount = recordCount;
     const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
-    data += generatePeople(peopleCount, customerCount, tagCount = recordCount);
+    relationalData += generatePeople(peopleCount, customerCount, tagCount = recordCount);
 
     const maxOrdersPerCustomer = 3;
-    data += generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
+    relationalData += generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
 
-    data += generatePosts(postCount = recordCount, peopleCount);
+    relationalData += generatePosts(postCount = recordCount, peopleCount);
 
-    return data;
+    cassandraData += '\nAPPLY BATCH;';
+
+    return { relationalData, cassandraData };
 }
 
-fs.writeFile('data_new.sql', generateData(100), (err) => {
-    if (err) throw err;
-    console.log('Data written to file');
-});
+function writeToFiles(data) {
+    fs.writeFile('data_new.sql', data.relationalData, (err) => {
+        if (err) throw err;
+        console.log("Relational data written to data_new.sql");
+    });
+
+    fs.writeFile('data_new.cql', data.cassandraData, (err) => {
+        if (err) throw err;
+        console.log("Cassandra data written to data_new.cql");
+    });
+}
+
+writeToFiles(generateData(100));
