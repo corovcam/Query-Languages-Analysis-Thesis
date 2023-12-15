@@ -411,8 +411,7 @@ function generateCassandraTagsContacts() {
     return tags + contacts;
 }
 
-/** @param {Type[]} typeMapping */
-function writeCassandraOrderVendorContacts(typeMapping) {
+function writeCassandraOrderVendorContacts() {
     let orderVendorContactsByType = "";
     let numOfRecords = 0;
     // Vendor_Contacts_By_Order_Contact table

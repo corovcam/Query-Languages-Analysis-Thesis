@@ -16,8 +16,8 @@ Check individual "notes.md" files in each database folder.
 
 ### Neo4j/ArangoDB
 
-![](/docs/graph_diagram.png)
+![](/common/docs/graph_diagram.png)
 
 ### MongoDB
 
-![](/docs/mongo_schema_2.png)
+![](/common/docs/mongo_schema_2.png)
