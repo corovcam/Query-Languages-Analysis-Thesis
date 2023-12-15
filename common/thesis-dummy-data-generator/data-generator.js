@@ -415,21 +415,18 @@ function generateCassandraTagsContacts() {
 function writeCassandraOrderVendorContacts(typeMapping) {
     let orderVendorContactsByType = "";
     let numOfRecords = 0;
-    // Order_Vendor_Contacts_By_Contact_Type table
-    const contactTypes = typeMapping.filter(type => type.typeFor === "contact");
-    for (const { typeId } of contactTypes) {
-        for (const { orderId, contacts: orderContacts } of orderObjects) {
-            const orderContactValue = orderContacts.find(contact => contact.typeId === typeId)?.value;
-            if (orderContactValue) {
-                for (const { vendorId, contacts: vendorContacts } of vendorObjects) {
-                    const vendorContactValue = vendorContacts.find(contact => contact.typeId === typeId)?.value;
-                    if (vendorContactValue) {
-                        orderVendorContactsByType += `INSERT INTO Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue) VALUES (${typeId}, ${orderId}, '${orderContactValue}', ${vendorId}, '${vendorContactValue}');\n`;
-                        numOfRecords++;
-                        if (orderVendorContactsByType.length > 400000000) {
-                            fs.appendFileSync('data_new.cql', orderVendorContactsByType);
-                            orderVendorContactsByType = "";
-                        }
+    // Vendor_Contacts_By_Order_Contact table
+    for (const { orderId, contacts: orderContacts } of orderObjects) {
+        for (const { typeId, value: orderContactValue } of orderContacts) {
+            for (const { vendorId, contacts: vendorContacts } of vendorObjects) {
+                const vendorContactValue = vendorContacts.find(contact => contact.typeId === typeId)?.value;
+                if (vendorContactValue) {
+                    orderVendorContactsByType += `INSERT INTO Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue) 
+                        VALUES (${typeId}, ${orderId}, '${orderContactValue}', ${vendorId}, '${vendorContactValue}');\n`;
+                    numOfRecords++;
+                    if (orderVendorContactsByType.length > 400000000) {
+                        fs.appendFileSync('data_new.cql', orderVendorContactsByType);
+                        orderVendorContactsByType = "";
                     }
                 }
             }

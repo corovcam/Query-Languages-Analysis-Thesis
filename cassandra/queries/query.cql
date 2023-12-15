@@ -59,7 +59,7 @@ GROUP BY brand;
 
 -- Return all Orders and Vendors sharing the same Contact typeId
 SELECT *
-FROM Order_Vendor_Contacts_By_Contact_Type;
+FROM Vendor_Contacts_By_Order_Contact;
 
 -- 3.2
 

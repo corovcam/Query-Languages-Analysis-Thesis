@@ -70,17 +70,17 @@ BEGIN
     VALUES (10, 'Isabella', 'Pereira', 'Female', '1991-04-25', '101 Copacabana St', 'Rio de Janeiro', '20000-000',
             'Brazil');
 
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (1, 1, 'john@example.com', 1, 'vendorA@example.com');
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (1, 2, 'jane@example.com', 1, 'vendorA@example.com');
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (2, 1, '111-222-3333', 1, '123-456-7890');
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (2, 2, '444-555-6666', 1, '123-456-7890');
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (2, 1, '111-222-3333', 2, '987-654-3210');
-    insert into Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
+    insert into Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue)
     values (2, 2, '444-555-6666', 2, '987-654-3210');
 
     insert into Orders_By_Product (productId, asin, title, price, brand, imageUrl, orderId, quantity)

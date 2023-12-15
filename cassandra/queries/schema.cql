@@ -61,7 +61,7 @@ CREATE TABLE Products_By_Brand
 ) WITH COMMENT = 'Products by brand';
 
 -- Query 3.1.: Return all Orders and Vendors sharing the same Contact typeId
-CREATE TABLE Order_Vendor_Contacts_By_Contact_Type
+CREATE TABLE Vendor_Contacts_By_Order_Contact
 (
     typeId             BIGINT,
     orderId            BIGINT,
