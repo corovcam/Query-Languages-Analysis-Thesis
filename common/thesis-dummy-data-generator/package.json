@@ -2,6 +2,7 @@
   "name": "thesis-dummy-data-generator",
   "version": "1.0.0",
   "description": "Generate dummy data for database testing.",
+  "types": "types.d.ts",
   "main": "data-generator.js",
   "scripts": {
     "start": "node data-generator.js",

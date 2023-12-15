@@ -129,6 +129,9 @@ CREATE TABLE Person_Relationships
     depth           INT, -- Depth of the relationship (1 = direct, 2 = friend of friend, 3 = friend of friend of friend)
     PRIMARY KEY ((sourcePersonId), depth, relatedPersonId)
 ) WITH COMMENT = 'Person relationships (friends of friends up to depth of 3)';
+-- explain in discussion how it can be done
+-- why is inneficient in application layer
+-- using only query language constructs, its inneficient (exponential complexity)
 
 -- Query 6: Get a list of contacts (email and phone) for both vendors and customers
 CREATE TABLE Contact
@@ -159,8 +162,8 @@ CREATE TABLE Orders_By_Person
     personId        BIGINT,
     firstName       TEXT,
     lastName        TEXT,
-    orderedProducts FROZEN<SET<BIGINT>>,
-    PRIMARY KEY ((personId), orderedProducts)
+    ordersCreated FROZEN<SET<BIGINT>>,
+    PRIMARY KEY ((personId), ordersCreated)
 ) WITH COMMENT = 'Orders by person';
 
 -- Query 9.1, 9.2: Sort by indexed/non-indexed column

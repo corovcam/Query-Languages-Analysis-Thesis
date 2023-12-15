@@ -6,7 +6,7 @@
 
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Tillman - Larson";
+WHERE name = "Bauch - Denesik";
 
 -- 1.2 Non-Indexed Columns - Range Query
 DROP INDEX IF EXISTS idx_person_birthday;

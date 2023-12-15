@@ -194,19 +194,19 @@ BEGIN
     insert into Tag (tagId, value, interestedPeople, postsTagged) values (5, 'Health', { -1, 6 }, { });
     insert into Tag (tagId, value, interestedPeople, postsTagged) values (6, 'Sports', { -1, 5 }, { });
 
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (1, 'John', 'Doe', { 1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (2, 'Jane', 'Smith', { 2 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts)
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (1, 'John', 'Doe', { 1 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (2, 'Jane', 'Smith', { 2 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated)
     values (3, 'Michael', 'Johnson', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts)
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated)
     values (4, 'Sophia', 'Müller', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (5, 'Alex', 'Dupont', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (6, 'Giulia', 'Rossi', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts)
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (5, 'Alex', 'Dupont', { -1 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (6, 'Giulia', 'Rossi', { -1 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated)
     values (7, 'Takashi', 'Yamamoto', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (8, 'Mia', 'Johnson', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts) values (9, 'Lucas', 'Silva', { -1 });
-    insert into Orders_By_Person (personId, firstName, lastName, orderedProducts)
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (8, 'Mia', 'Johnson', { -1 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated) values (9, 'Lucas', 'Silva', { -1 });
+    insert into Orders_By_Person (personId, firstName, lastName, ordersCreated)
     values (10, 'Isabella', 'Pereira', { -1 });
 
     insert into Vendor_Countries_By_Product_Brand (brand, country) values ('Brand X', 'USA');

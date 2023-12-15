@@ -171,6 +171,39 @@ db.persons.aggregate([
   }
 ]);
 
+// TODO: traverse the other way
+db.persons.aggregate([
+  {
+    $graphLookup: {
+      from: "persons",
+      startWith: "$_id",
+      connectFromField: "_id",
+      connectToField: "knowsPeople",
+      as: "relationships",
+      maxDepth: 3,
+      depthField: "depth"
+    }
+  },
+  {
+    $unwind: "$relationships"
+  },
+  {
+    $project: {
+      _id: 0,
+      sourcePersonId: "$_id",
+      relatedPersonId: "$relationships._id",
+      depth: "$relationships.depth"
+    }
+  },
+  {
+    $sort: {
+      sourcePersonId: 1,
+      depth: 1,
+      relatedPersonId: 1
+    }
+  }
+]);
+
 // Find the shortest path between two persons using $graphLookup
 
 // This one stops traverses in BFS until it finds the target person (not necessarily the shortest path)

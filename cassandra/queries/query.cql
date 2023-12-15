@@ -93,6 +93,7 @@ FROM Person_Relationships;
 -- Only by explicitly inserting each and every shortest path between all tuples of (person1id, person2id)
 -- in a specific table Shortest_Paths_By_Person, etc.
 -- I find it highly ineffective to use Cassandra for calculating shortest paths this way
+-- its better to use graph db
 
 -- 5. Optional Traversal
 
@@ -127,7 +128,7 @@ WHERE interestedPeople CONTAINS -1 AND postsTagged CONTAINS -1
 
 SELECT personId, firstName, lastName
 FROM Orders_By_Person
-WHERE orderedProducts CONTAINS -1
+WHERE ordersCreated CONTAINS -1
     ALLOW FILTERING;
 
 -- 9. Sorting

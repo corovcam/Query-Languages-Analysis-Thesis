@@ -25,6 +25,27 @@ function chooseContactValue(type) {
 
 // SQLite, MySQL, Cassandra dummy data generator
 
+/**
+ * @typedef {import("./types").Vendor} Vendor
+ * @typedef {import("./types").Product} Product
+ * @typedef {import("./types").Person} Person
+ * @typedef {import("./types").Order} Order
+ * @typedef {import("./types").Tag} Tag
+ * @typedef {import("./types").Type} Type
+ */
+
+// Global entity objects
+/** @type {Vendor[]} */
+let vendorObjects = [];
+/** @type {Product[]} */
+let productObjects = [];
+/** @type {Person[]} */
+let peopleObjects = [];
+/** @type {Order[]} */
+let orderObjects = [];
+/** @type {Tag[]} */
+let tagObjects = [];
+
 function getTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
     const industryTypes = faker.helpers.uniqueArray(faker.commerce.department, industryCount);
     let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
@@ -50,11 +71,14 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
     let brandVendorsByProductId = {};
     let countriesByBrand = {};
 
+    const industryTypes = typeMapping.filter(type => type.typeFor === "industry")
     let productsAssigned = 0;
     for (let i = 0; i < vendorCount; i++) {
         const vendorId = i + 1;
         const vendorName = faker.company.name().replace(/'/g, "''");
         const vendorCountry = faker.location.country().replace(/'/g, "''");
+
+        vendorObjects.push({ vendorId, name: vendorName, country: vendorCountry, contacts: [] });
         vendors.push(`(${vendorId}, '${vendorName}', '${vendorCountry}')`);
 
         // Assign Products to Vendor
@@ -76,6 +100,12 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
 
             products.push(`(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}')`);
             vendorProducts.push(`(${vendorId}, ${productId})`);
+
+            productObjects.push({
+                productId, asin, title, price, brand, imageUrl, vendor: {
+                    vendorId, name: vendorName, country: vendorCountry
+                }
+            });
 
             // Assign Country to Brand
             if (!countriesByBrand[brand]) {
@@ -106,14 +136,16 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
 
         // Assign Industries to Vendor
         vendorIndustries.push(
-            ...faker.helpers.arrayElements(typeMapping.filter(type => type.typeFor === "industry"), { max: 3 })
+            ...faker.helpers.arrayElements(industryTypes, { max: 3 })
                 .map(type => `(${vendorId}, ${type.typeId})`)
         );
 
         // Assign Contacts to Vendor
         const chosenContactTypes = faker.helpers.arrayElements(typeMapping.filter(type => type.typeFor === "contact"));
         chosenContactTypes.forEach(type => {
-            vendorContacts.push(`(${vendorId}, ${type.typeId}, '${chooseContactValue(type.value)}')`);
+            const chosenContactValue = chooseContactValue(type.value);
+            vendorObjects[vendorId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } });
+            vendorContacts.push(`(${vendorId}, ${type.typeId}, '${chosenContactValue}')`);
         });
     }
 
@@ -126,7 +158,7 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
     const cassandraData = vendors.map(vendor => `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendor};\n`).join("") +
         products.map(product => `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
         products.map(product => `INSERT INTO Products_By_Brand (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
-        Object.keys(countriesByBrand).map(brand => 
+        Object.keys(countriesByBrand).map(brand =>
             Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
         ).join("");
 
@@ -139,21 +171,19 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
     let friends = [];
     let personTags = [];
 
-    let peopleObjects = [];
-
     for (let i = 0; i < peopleCount; i++) {
         const personId = i + 1;
-        const sexType = faker.person.sexType();
-        const firstName = faker.person.firstName(sexType).replace(/'/g, "''");
-        const lastName = faker.person.lastName(sexType).replace(/'/g, "''");
+        const gender = faker.person.sexType();
+        const firstName = faker.person.firstName(gender).replace(/'/g, "''");
+        const lastName = faker.person.lastName(gender).replace(/'/g, "''");
         const birthday = faker.date.past({ years: 50 }).toISOString().substring(0, 10);
-        const streetAddress = faker.location.streetAddress({ useFullAddress: true }).replace(/'/g, "''");
+        const street = faker.location.streetAddress({ useFullAddress: true }).replace(/'/g, "''");
         const city = faker.location.city().replace(/'/g, "''");
         const postalCode = faker.location.zipCode();
         const country = faker.location.country().replace(/'/g, "''");
-        
-        peopleObjects.push({ personId, firstName, lastName, sexType, birthday, streetAddress, city, postalCode, country, friends: [], tags: [] });
-        people.push(`(${personId}, '${firstName}', '${lastName}', '${sexType}', '${birthday}', '${streetAddress}', '${city}', '${postalCode}', '${country}')`);
+
+        peopleObjects.push({ personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friends: new Set(), tags: new Set(), ordersCreated: new Set([-1]) });
+        people.push(`(${personId}, '${firstName}', '${lastName}', '${gender}', '${birthday}', '${street}', '${city}', '${postalCode}', '${country}')`);
 
         // Assign Friends to Person (Person_Person)
         let friendCount = faker.number.int({ min: 0, max: 10 });
@@ -162,8 +192,10 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         for (let j = 0; j < friendCount; j++) {
             const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
             const friendId = friendIds[randomIndex];
-            peopleObjects[personId - 1].friends.push(friendId);
+
+            peopleObjects[personId - 1].friends.add(friendId);
             friends.push(`(${personId}, ${friendId})`);
+
             friendIds.splice(randomIndex, 1);
         }
 
@@ -173,7 +205,11 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         for (let j = 0; j < tagCountPerPerson; j++) {
             const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
             const tagId = tagIds[randomIndex];
-            peopleObjects[personId - 1].tags.push(tagId);
+
+            peopleObjects[personId - 1].tags.add(tagId);
+            tagObjects[tagId - 1].interestedPeople.add(personId).add(-1);
+            personTags.push(`(${personId}, ${tagId})`);
+
             tagIds.splice(randomIndex, 1);
         }
     }
@@ -181,6 +217,8 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
     for (let i = 0; i < customerCount; i++) {
         const customerId = i + 1;
         const personId = customerId;
+
+        peopleObjects[i].customerId = customerId;
         customers.push(`(${customerId}, ${personId})`);
     }
 
@@ -188,7 +226,7 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         `INSERT INTO Customer (customerId, personId) VALUES ${customers.join(", \n")};\n` +
         `INSERT INTO Person_Person (personId1, personId2) VALUES ${friends.join(", \n")};\n` +
         `INSERT INTO Person_Tags (personId, tagId) VALUES ${personTags.join(", \n")};\n`;
-    
+
     const cassandraData = peopleObjects.map(p => {
             const person = `(${p.personId}, '${p.firstName}', '${p.lastName}', '${p.sexType}', '${p.birthday}', '${p.streetAddress}', '${p.city}', '${p.postalCode}', '${p.country}', ${p.friends.length})`;
             return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friendCount) VALUES ${person};\n`
@@ -216,10 +254,14 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
         for (let j = 0; j < orderCount; j++) {
             orders.push(`(${orderId}, ${customerId})`);
 
+            orderObjects.push({ orderId, customer: { customerId }, contacts: [], products: [] });
+
             // Assign Contacts to Order
             const chosenContactTypes = faker.helpers.arrayElements(filteredContactTypes, { min: 1 });
             chosenContactTypes.forEach(type => {
-                orderContacts.push(`(${orderId}, ${type.typeId}, '${chooseContactValue(type.value)}')`);
+                const chosenContactValue = chooseContactValue(type.value);
+                orderObjects[orderId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } })
+                orderContacts.push(`(${orderId}, ${type.typeId}, '${chosenContactValue}')`);
             });
 
             // Assign Products to Order
@@ -229,6 +271,8 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
                 const randomIndex = faker.number.int({ min: 0, max: productIdArray.length - 1 });
                 const productId = productIdArray[randomIndex];
                 const quantity = faker.number.int({ min: 1, max: 5 });
+
+                orderObjects[orderId - 1].products.push({ productId, quantity });
                 orderProducts.push(`(${orderId}, ${productId}, ${quantity})`);
                 productIdArray.splice(randomIndex, 1);
             }
@@ -236,15 +280,72 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
             orderId++;
         }
     }
-    return `INSERT INTO \`Order\` (orderId, customerId) VALUES ${orders.join(", \n")};\n` +
+
+    const relationalData = `INSERT INTO \`Order\` (orderId, customerId) VALUES ${orders.join(", \n")};\n` +
         `INSERT INTO Order_Contacts (orderId, typeId, value) VALUES ${orderContacts.join(", \n")};\n` +
         `INSERT INTO Order_Products (orderId, productId, quantity) VALUES ${orderProducts.join(", \n")};\n`;
+
+    const cassandraData = generateCassandraOrderTables();
+
+    return { relationalData, cassandraData };
+}
+
+function generateCassandraOrderTables() {
+    let orderInserts = "";
+    let ordersByProductInserts = "";
+    let ordersByPerson = "";
+    let ordersByCustomer = "";
+
+    for (const { orderId, customer: { customerId }, products } of orderObjects) {
+        const p = peopleObjects.find(person => person.customerId === customerId);
+
+        // Orders_By_Person : ordersCreated set
+        p.ordersCreated.delete(-1);
+        p.ordersCreated.add(...products.map(p => p.productId));
+        
+        // "Order" and "Orders_By_Product" Cassandra tables
+        for (const { productId, quantity } of products) {
+            const { asin, title, price, brand, imageUrl } = productObjects.find(product => product.productId === productId);
+            const v = productObjects.find(product => product.productId === productId).vendor;
+
+            // "Order"
+            const productValues = `${productId}, ${quantity}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}'`;
+            const orderValues =
+                `(${orderId}, ${customerId}, ${p.personId}, '${p.firstName}', '${p.lastName}', '${p.gender}', '${p.birthday}', '${p.street}', 
+                '${p.city}', '${p.postalCode}', '${p.country}', ${productValues}, ${v.vendorId}, '${v.name}', '${v.country}')`;
+            orderInserts +=
+                `INSERT INTO "Order" (orderId, customerId, personId, firstName, lastName, gender, birthday, street, city, postalCode,
+                personCountry, productId, quantity, asin, title, price, brand, imageUrl, vendorId, vendorName,
+                vendorCountry) VALUES ${orderValues};\n`;
+            
+            // Orders_By_Product
+            const ordersByProductValues = `${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}', ${orderId}, ${quantity}`;
+            ordersByProductInserts +=
+                `INSERT INTO Orders_By_Product (productId, asin, title, price, brand, imageUrl, orderId, quantity) VALUES ${ordersByProductValues};\n`;
+        }
+
+        // Orders_By_Customer
+        ordersByCustomer += `INSERT INTO Orders_By_Customer (customerId, orderId) VALUES (${customerId}, ${orderId});\n`;
+    }
+
+    // Orders_By_Person
+    for (const { personId, firstName, lastName, ordersCreated } of peopleObjects) {
+        const orderIdsSetString = Array.from(ordersCreated).map(id => id).join(", ");
+        ordersByPerson += `INSERT INTO Orders_By_Person (personId, firstName, lastName, ordersCreated) VALUES (${personId}, '${firstName}', '${lastName}', { ${orderIdsSetString} });\n`;
+    }
+
+    return orderInserts + ordersByProductInserts + ordersByPerson + ordersByCustomer;
 }
 
 function generateTags(tagCount = 100) {
     let tags = [];
+
     const randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
+    // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
+    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
+    
     randomTags.forEach((tag, index) => {
+        tagObjects.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
         tags.push(`(${index + 1}, '${tag}')`);
     });
     return `INSERT INTO Tag (tagId, value) VALUES ${tags.join(", \n")};\n`;
@@ -269,12 +370,72 @@ function generatePosts(postCount, peopleCount) {
         for (let j = 0; j < tagCountPerPost; j++) {
             const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
             const tagId = tagIds[randomIndex];
+
+            tagObjects[tagId - 1].postsTagged.add(postId).add(-1);
             postTags.push(`(${postId}, ${tagId})`);
             tagIds.splice(randomIndex, 1);
         }
     }
     return `INSERT INTO Post (postId, personId, imageFile, creationDate, locationIP, browserUsed, language, content, length) VALUES ${posts.join(", \n")};\n` +
         `INSERT INTO Post_Tags (postId, tagId) VALUES ${postTags.join(", \n")};\n`;
+}
+
+
+function generateCassandraTagsContacts() {
+    let tags = "";
+    let contacts = "";
+    
+    // Tag table
+    for (const { tagId, value, interestedPeople, postsTagged } of tagObjects) {
+        const interestedPeopleSetString = Array.from(interestedPeople).map(id => id).join(", ");
+        const postsTaggedSetString = Array.from(postsTagged).map(id => id).join(", ");
+        tags += `INSERT INTO Tag (tagId, value, interestedPeople, postsTagged) VALUES (${tagId}, '${value}', { ${interestedPeopleSetString} }, { ${postsTaggedSetString} });\n`;
+    }
+
+    // Contact table
+    // Vendor Contacts
+    for (const { vendorId, name, contacts: vendorContacts } of vendorObjects) {
+        for (const { value: contactValue, type: { value: contactType } } of vendorContacts) {
+            contacts += `INSERT INTO Contact (entityType, entityId, entityName, contactType, contactValue) VALUES ('Vendor', ${vendorId}, '${name}', '${capitalizeFirstLetter(contactType)}', '${contactValue}');\n`;
+        }
+    }
+    // Order Contacts
+    for (const { orderId, customer: { customerId }, contacts: customerContacts } of orderObjects) {
+        const { firstName, lastName } = peopleObjects.find(person => person.customerId === customerId);
+        for (const { value: contactValue, type: { value: contactType } } of customerContacts) {
+            const fullName = `${firstName} ${lastName}`;
+            contacts += `INSERT INTO Contact (entityType, entityId, entityName, contactType, contactValue) VALUES ('Order', ${orderId}, '${fullName}', '${capitalizeFirstLetter(contactType)}', '${contactValue}');\n`;
+        }
+    }
+
+    return tags + contacts;
+}
+
+/** @param {Type[]} typeMapping */
+function writeCassandraOrderVendorContacts(typeMapping) {
+    let orderVendorContactsByType = "";
+    let numOfRecords = 0;
+    // Order_Vendor_Contacts_By_Contact_Type table
+    const contactTypes = typeMapping.filter(type => type.typeFor === "contact");
+    for (const { typeId } of contactTypes) {
+        for (const { orderId, contacts: orderContacts } of orderObjects) {
+            const orderContactValue = orderContacts.find(contact => contact.typeId === typeId)?.value;
+            if (orderContactValue) {
+                for (const { vendorId, contacts: vendorContacts } of vendorObjects) {
+                    const vendorContactValue = vendorContacts.find(contact => contact.typeId === typeId)?.value;
+                    if (vendorContactValue) {
+                        orderVendorContactsByType += `INSERT INTO Order_Vendor_Contacts_By_Contact_Type (typeId, orderId, orderContactValue, vendorId, vendorContactValue) VALUES (${typeId}, ${orderId}, '${orderContactValue}', ${vendorId}, '${vendorContactValue}');\n`;
+                        numOfRecords++;
+                        if (orderVendorContactsByType.length > 400000000) {
+                            fs.appendFileSync('data_new.cql', orderVendorContactsByType);
+                            orderVendorContactsByType = "";
+                        }
+                    }
+                }
+            }
+        }
+    }
+    console.log(numOfRecords);
 }
 
 function generateData(recordCount = 100) {
@@ -298,9 +459,20 @@ function generateData(recordCount = 100) {
     cassandraData += data.cassandraData;
 
     const maxOrdersPerCustomer = 3;
-    relationalData += generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
+    data = generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
+    relationalData += data.relationalData;
+    cassandraData += data.cassandraData;
 
     relationalData += generatePosts(postCount = recordCount, peopleCount);
+
+    cassandraData += generateCassandraTagsContacts(typeMapping);
+
+    // Flush current Cassandra data to file and clear buffer
+    fs.existsSync('data_new.cql') && fs.unlinkSync('data_new.cql');
+    fs.appendFileSync('data_new.cql', cassandraData);
+    cassandraData = '';
+
+    writeCassandraOrderVendorContacts(typeMapping);
 
     cassandraData += '\nAPPLY BATCH;';
 
@@ -313,10 +485,10 @@ function writeToFiles(data) {
         console.log("Relational data written to data_new.sql");
     });
 
-    fs.writeFile('data_new.cql', data.cassandraData, (err) => {
+    fs.appendFile('data_new.cql', data.cassandraData, (err) => {
         if (err) throw err;
         console.log("Cassandra data written to data_new.cql");
     });
 }
 
-writeToFiles(generateData(100));
+writeToFiles(generateData(1000));
