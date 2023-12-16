@@ -158,6 +158,7 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
     const cassandraData = vendors.map(vendor => `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendor};\n`).join("") +
         products.map(product => `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
         products.map(product => `INSERT INTO Products_By_Brand (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+        // TODO: MUST BE FIXED to reflect the relational db outputs
         Object.keys(countriesByBrand).map(brand =>
             Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
         ).join("");
@@ -228,10 +229,9 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
         `INSERT INTO Person_Tags (personId, tagId) VALUES ${personTags.join(", \n")};\n`;
 
     const cassandraData = peopleObjects.map(p => {
-            const person = `(${p.personId}, '${p.firstName}', '${p.lastName}', '${p.sexType}', '${p.birthday}', '${p.streetAddress}', '${p.city}', '${p.postalCode}', '${p.country}', ${p.friends.length})`;
-            return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friendCount) VALUES ${person};\n`
-        }
-        ).join("") +
+            const person = `(${p.personId}, '${p.firstName}', '${p.lastName}', '${p.gender}', '${p.birthday}', '${p.street}', '${p.city}', '${p.postalCode}', '${p.country}', ${p.friends.size})`;
+            return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friendCount) VALUES ${person};\n`;
+        }).join("") +
         people.map(person => `INSERT INTO Person_By_Birthday_Indexed (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${person};\n`).join("");
 
 
@@ -319,7 +319,7 @@ function generateCassandraOrderTables() {
                 vendorCountry) VALUES ${orderValues};\n`;
             
             // Orders_By_Product
-            const ordersByProductValues = `${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}', ${orderId}, ${quantity}`;
+            const ordersByProductValues = `(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}', ${orderId}, ${quantity})`;
             ordersByProductInserts +=
                 `INSERT INTO Orders_By_Product (productId, asin, title, price, brand, imageUrl, orderId, quantity) VALUES ${ordersByProductValues};\n`;
         }
@@ -411,9 +411,10 @@ function generateCassandraTagsContacts() {
     return tags + contacts;
 }
 
-function writeCassandraOrderVendorContacts() {
+function writeCassandraOrderVendorContacts(cqlFileName = 'data.cql') {
     let orderVendorContactsByType = "";
-    let numOfRecords = 0;
+    const dataFile = fs.openSync(cqlFileName, 'a');
+
     // Vendor_Contacts_By_Order_Contact table
     for (const { orderId, contacts: orderContacts } of orderObjects) {
         for (const { typeId, value: orderContactValue } of orderContacts) {
@@ -422,21 +423,21 @@ function writeCassandraOrderVendorContacts() {
                 if (vendorContactValue) {
                     orderVendorContactsByType += `INSERT INTO Vendor_Contacts_By_Order_Contact (typeId, orderId, orderContactValue, vendorId, vendorContactValue) 
                         VALUES (${typeId}, ${orderId}, '${orderContactValue}', ${vendorId}, '${vendorContactValue}');\n`;
-                    numOfRecords++;
                     if (orderVendorContactsByType.length > 400000000) {
-                        fs.appendFileSync('data_new.cql', orderVendorContactsByType);
+                        fs.appendFileSync(dataFile, orderVendorContactsByType);
                         orderVendorContactsByType = "";
                     }
                 }
             }
         }
     }
-    console.log(numOfRecords);
+
+    fs.closeSync(dataFile);
 }
 
-function generateData(recordCount = 100) {
+function generateData(recordCount = 100, cqlFileName = 'data.cql') {
     let relationalData = '';
-    let cassandraData = 'USE ecommerce;\n\nBEGIN BATCH\n';
+    let cassandraData = 'USE ecommerce;\n\n';
 
     const typeMapping = getTypeMapping();
 
@@ -464,24 +465,23 @@ function generateData(recordCount = 100) {
     cassandraData += generateCassandraTagsContacts(typeMapping);
 
     // Flush current Cassandra data to file and clear buffer
-    fs.existsSync('data_new.cql') && fs.unlinkSync('data_new.cql');
-    fs.appendFileSync('data_new.cql', cassandraData);
+    fs.writeFileSync(cqlFileName, cassandraData);
     cassandraData = '';
 
-    writeCassandraOrderVendorContacts(typeMapping);
+    writeCassandraOrderVendorContacts(cqlFileName);
 
-    cassandraData += '\nAPPLY BATCH;';
+    // cassandraData += '\nAPPLY BATCH;';
 
     return { relationalData, cassandraData };
 }
 
-function writeToFiles(data) {
-    fs.writeFile('data_new.sql', data.relationalData, (err) => {
+function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
+    fs.writeFile(sqlFileName, data.relationalData, (err) => {
         if (err) throw err;
         console.log("Relational data written to data_new.sql");
     });
 
-    fs.appendFile('data_new.cql', data.cassandraData, (err) => {
+    fs.appendFile(cqlFileName, data.cassandraData, (err) => {
         if (err) throw err;
         console.log("Cassandra data written to data_new.cql");
     });

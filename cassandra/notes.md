@@ -50,3 +50,5 @@ Instance ▸ keyspaces ▸ tables ▸ rows ▸columns
 ### Additional Notes
 - https://thenewstack.io/an-apache-cassandra-breakthrough-acid-transactions-at-scale/
   - ACID transactions in Cassandra
+- https://foundev.medium.com/cassandra-batch-loading-without-the-batch-keyword-40f00e35e23e
+  - Import for batch loading - inneficient for large data sets
