@@ -1,0 +1,1951 @@
+[
+  {
+    "name": "NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Product`.`productId` AS `productId`, `ecommerce`.`Product`.`productId` AS `productId`, `ecommerce`.`Product`.`asin` AS `asin`, `ecommerce`.`Product`.`imageUrl` AS `imageUrl`, `ecommerce`.`Product`.`title` AS `title`, `ecommerce`.`Product`.`price` AS `price`, `ecommerce`.`Product`.`brand` AS `brand`, \"Product\" AS `_NODE_LABEL_` FROM `ecommerce`.`Product`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Product",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Product",
+              "schema": "ecommerce",
+              "name": "productId",
+              "alias": "productId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.product"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "productId",
+          "alias": "productId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "productId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "asin",
+          "alias": "asin",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "asin",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "imageUrl",
+          "alias": "imageUrl",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "imageUrl",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "title",
+          "alias": "title",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "title",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "price",
+          "alias": "price",
+          "sql-data-type": "DOUBLE",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "price",
+          "neo4j-data-type": "Double",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "brand",
+          "alias": "brand",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "brand",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Product",
+          "schema": "ecommerce",
+          "name": "Product",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Order`.`orderId` AS `orderId`, `ecommerce`.`Order`.`orderId` AS `orderId`, \"Order\" AS `_NODE_LABEL_` FROM `ecommerce`.`Order`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "`Order`",
+              "schema": "ecommerce",
+              "name": "orderId",
+              "alias": "orderId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.order"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "name": "orderId",
+          "alias": "orderId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "orderId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "name": "Order",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Vendor`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor`.`name` AS `name`, `ecommerce`.`Vendor`.`country` AS `country`, \"Vendor\" AS `_NODE_LABEL_` FROM `ecommerce`.`Vendor`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Vendor",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Vendor",
+              "schema": "ecommerce",
+              "name": "vendorId",
+              "alias": "vendorId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.vendor"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Vendor",
+          "schema": "ecommerce",
+          "name": "vendorId",
+          "alias": "vendorId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "vendorId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Vendor",
+          "schema": "ecommerce",
+          "name": "name",
+          "alias": "name",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "name",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Vendor",
+          "schema": "ecommerce",
+          "name": "country",
+          "alias": "country",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "country",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Vendor",
+          "schema": "ecommerce",
+          "name": "Vendor",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Person`.`personId` AS `personId`, `ecommerce`.`Person`.`personId` AS `personId`, `ecommerce`.`Person`.`city` AS `city`, `ecommerce`.`Person`.`country` AS `country`, `ecommerce`.`Person`.`firstName` AS `firstName`, `ecommerce`.`Person`.`lastName` AS `lastName`, `ecommerce`.`Person`.`gender` AS `gender`, `ecommerce`.`Person`.`postalCode` AS `postalCode`, `ecommerce`.`Person`.`birthday` AS `birthday`, `ecommerce`.`Person`.`street` AS `street`, \"Person\" AS `_NODE_LABEL_` FROM `ecommerce`.`Person`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Person",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Person",
+              "schema": "ecommerce",
+              "name": "personId",
+              "alias": "personId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "personId",
+          "alias": "personId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "personId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "city",
+          "alias": "city",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "city",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "country",
+          "alias": "country",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "country",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "firstName",
+          "alias": "firstName",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "firstName",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "lastName",
+          "alias": "lastName",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "lastName",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "gender",
+          "alias": "gender",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "gender",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "postalCode",
+          "alias": "postalCode",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "postalCode",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "birthday",
+          "alias": "birthday",
+          "sql-data-type": "TIMESTAMP",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "birthday",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "street",
+          "alias": "street",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "street",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Person",
+          "schema": "ecommerce",
+          "name": "Person",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Type`.`typeId` AS `typeId`, `ecommerce`.`Type`.`typeId` AS `typeId`, `ecommerce`.`Type`.`value` AS `value`, \"Type\" AS `_NODE_LABEL_` FROM `ecommerce`.`Type`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Type",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Type",
+              "schema": "ecommerce",
+              "name": "typeId",
+              "alias": "typeId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.type"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Type",
+          "schema": "ecommerce",
+          "name": "typeId",
+          "alias": "typeId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "typeId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Type",
+          "schema": "ecommerce",
+          "name": "value",
+          "alias": "value",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "value",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Type",
+          "schema": "ecommerce",
+          "name": "Type",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Customer`.`customerId` AS `customerId`, `ecommerce`.`Customer`.`customerId` AS `customerId`, \"Customer\" AS `_NODE_LABEL_` FROM `ecommerce`.`Customer`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Customer",
+              "schema": "ecommerce",
+              "name": "customerId",
+              "alias": "customerId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.customer"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "name": "customerId",
+          "alias": "customerId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "customerId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "name": "Customer",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Tag`.`tagId` AS `tagId`, `ecommerce`.`Tag`.`tagId` AS `tagId`, `ecommerce`.`Tag`.`value` AS `value`, \"Tag\" AS `_NODE_LABEL_` FROM `ecommerce`.`Tag`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Tag",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Tag",
+              "schema": "ecommerce",
+              "name": "tagId",
+              "alias": "tagId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.tag"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Tag",
+          "schema": "ecommerce",
+          "name": "tagId",
+          "alias": "tagId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "tagId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Tag",
+          "schema": "ecommerce",
+          "name": "value",
+          "alias": "value",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "value",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Tag",
+          "schema": "ecommerce",
+          "name": "Tag",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4",
+    "schema": "ecommerce",
+    "graph-object-type": "Node",
+    "sql": "SELECT `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`content` AS `content`, `ecommerce`.`Post`.`length` AS `length`, `ecommerce`.`Post`.`locationIP` AS `locationIP`, `ecommerce`.`Post`.`language` AS `language`, `ecommerce`.`Post`.`creationDate` AS `creationDate`, `ecommerce`.`Post`.`imageFile` AS `imageFile`, `ecommerce`.`Post`.`browserUsed` AS `browserUsed`, \"Post\" AS `_NODE_LABEL_` FROM `ecommerce`.`Post`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Post",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Post",
+              "schema": "ecommerce",
+              "name": "postId",
+              "alias": "postId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "Id",
+          "name": "",
+          "id-space": "ecommerce.post"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "postId",
+          "alias": "postId",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "postId",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "content",
+          "alias": "content",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "content",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "length",
+          "alias": "length",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "length",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "locationIP",
+          "alias": "locationIP",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "locationIp",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "language",
+          "alias": "language",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "language",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "creationDate",
+          "alias": "creationDate",
+          "sql-data-type": "TIMESTAMP",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "creationDate",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "imageFile",
+          "alias": "imageFile",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "imageFile",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "browserUsed",
+          "alias": "browserUsed",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "browserUsed",
+          "neo4j-data-type": "String",
+          "is-array": false
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "Post",
+          "alias": "_NODE_LABEL_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`personId` AS `personId`, \"CREATED_BY\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Post`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Post",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Post",
+              "schema": "ecommerce",
+              "name": "postId",
+              "alias": "postId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.post"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Post",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Post",
+              "schema": "ecommerce",
+              "name": "personId",
+              "alias": "personId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Person",
+                "schema": "ecommerce",
+                "name": "personId",
+                "alias": "personId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Post",
+          "schema": "ecommerce",
+          "name": "CREATED_BY",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Customer`.`customerId` AS `customerId`, `ecommerce`.`Customer`.`personId` AS `personId`, \"IS_PERSON\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Customer`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "Customer",
+              "schema": "ecommerce",
+              "name": "customerId",
+              "alias": "customerId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.customer"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Customer",
+              "schema": "ecommerce",
+              "name": "personId",
+              "alias": "personId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Person",
+                "schema": "ecommerce",
+                "name": "personId",
+                "alias": "personId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Customer",
+          "schema": "ecommerce",
+          "name": "IS_PERSON",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Order`.`orderId` AS `orderId`, `ecommerce`.`Order`.`customerId` AS `customerId`, \"ORDERED_BY\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "role": "PrimaryKey",
+          "columns": [
+            {
+              "type": "SimpleColumn",
+              "role": "Data",
+              "table": "`Order`",
+              "schema": "ecommerce",
+              "name": "orderId",
+              "alias": "orderId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue"
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.order"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "`Order`",
+              "schema": "ecommerce",
+              "name": "customerId",
+              "alias": "customerId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Customer",
+                "schema": "ecommerce",
+                "name": "customerId",
+                "alias": "customerId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.customer"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "`Order`",
+          "schema": "ecommerce",
+          "name": "ORDERED_BY",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Industry`.`typeId` AS `typeId`, `ecommerce`.`Industry`.`vendorId` AS `vendorId`, \"INDUSTRY_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Industry`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Industry",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Industry",
+              "schema": "ecommerce",
+              "name": "typeId",
+              "alias": "typeId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Type",
+                "schema": "ecommerce",
+                "name": "typeId",
+                "alias": "typeId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.type"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Industry",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Industry",
+              "schema": "ecommerce",
+              "name": "vendorId",
+              "alias": "vendorId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Vendor",
+                "schema": "ecommerce",
+                "name": "vendorId",
+                "alias": "vendorId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.vendor"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Industry",
+          "schema": "ecommerce",
+          "name": "INDUSTRY_TYPE",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Vendor_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Vendor_Contacts`.`vendorId` AS `vendorId`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Contacts`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Vendor_Contacts",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Vendor_Contacts",
+              "schema": "ecommerce",
+              "name": "typeId",
+              "alias": "typeId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Type",
+                "schema": "ecommerce",
+                "name": "typeId",
+                "alias": "typeId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.type"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Vendor_Contacts",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Vendor_Contacts",
+              "schema": "ecommerce",
+              "name": "vendorId",
+              "alias": "vendorId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Vendor",
+                "schema": "ecommerce",
+                "name": "vendorId",
+                "alias": "vendorId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.vendor"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Vendor_Contacts",
+          "schema": "ecommerce",
+          "name": "CONTACT_TYPE",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Person_Tags`.`personId` AS `personId`, `ecommerce`.`Person_Tags`.`tagId` AS `tagId`, \"HAS_INTEREST\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Person_Tags`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Person_Tags",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Person_Tags",
+              "schema": "ecommerce",
+              "name": "personId",
+              "alias": "personId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Person",
+                "schema": "ecommerce",
+                "name": "personId",
+                "alias": "personId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Person_Tags",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Person_Tags",
+              "schema": "ecommerce",
+              "name": "tagId",
+              "alias": "tagId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Tag",
+                "schema": "ecommerce",
+                "name": "tagId",
+                "alias": "tagId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.tag"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Person_Tags",
+          "schema": "ecommerce",
+          "name": "HAS_INTEREST",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Vendor_Products`.`productId` AS `productId`, `ecommerce`.`Vendor_Products`.`vendorId` AS `vendorId`, \"MANUFACTURED_BY\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Products`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Vendor_Products",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Vendor_Products",
+              "schema": "ecommerce",
+              "name": "productId",
+              "alias": "productId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Product",
+                "schema": "ecommerce",
+                "name": "productId",
+                "alias": "productId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.product"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Vendor_Products",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Vendor_Products",
+              "schema": "ecommerce",
+              "name": "vendorId",
+              "alias": "vendorId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Vendor",
+                "schema": "ecommerce",
+                "name": "vendorId",
+                "alias": "vendorId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.vendor"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Vendor_Products",
+          "schema": "ecommerce",
+          "name": "MANUFACTURED_BY",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Person_Person`.`personId1` AS `personId1`, `ecommerce`.`Person_Person`.`personId2` AS `personId2`, \"KNOWS\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Person_Person`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Person_Person",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Person_Person",
+              "schema": "ecommerce",
+              "name": "personId1",
+              "alias": "personId1",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Person",
+                "schema": "ecommerce",
+                "name": "personId",
+                "alias": "personId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Person_Person",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Person_Person",
+              "schema": "ecommerce",
+              "name": "personId2",
+              "alias": "personId2",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Person",
+                "schema": "ecommerce",
+                "name": "personId",
+                "alias": "personId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.person"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Person_Person",
+          "schema": "ecommerce",
+          "name": "KNOWS",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Order_Contacts`.`orderId` AS `orderId`, `ecommerce`.`Order_Contacts`.`typeId` AS `typeId`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order_Contacts`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Order_Contacts",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Order_Contacts",
+              "schema": "ecommerce",
+              "name": "orderId",
+              "alias": "orderId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "`Order`",
+                "schema": "ecommerce",
+                "name": "orderId",
+                "alias": "orderId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.order"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Order_Contacts",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Order_Contacts",
+              "schema": "ecommerce",
+              "name": "typeId",
+              "alias": "typeId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Type",
+                "schema": "ecommerce",
+                "name": "typeId",
+                "alias": "typeId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.type"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Order_Contacts",
+          "schema": "ecommerce",
+          "name": "CONTACT_TYPE",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Order_Products`.`orderId` AS `orderId`, `ecommerce`.`Order_Products`.`productId` AS `productId`, \"CONTAINS_PRODUCTS\" AS `_RELATIONSHIP_TYPE_`, `ecommerce`.`Order_Products`.`quantity` AS `quantity` FROM `ecommerce`.`Order_Products`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Order_Products",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Order_Products",
+              "schema": "ecommerce",
+              "name": "orderId",
+              "alias": "orderId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "`Order`",
+                "schema": "ecommerce",
+                "name": "orderId",
+                "alias": "orderId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.order"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Order_Products",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Order_Products",
+              "schema": "ecommerce",
+              "name": "productId",
+              "alias": "productId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Product",
+                "schema": "ecommerce",
+                "name": "productId",
+                "alias": "productId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.product"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Order_Products",
+          "schema": "ecommerce",
+          "name": "CONTAINS_PRODUCTS",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Order_Products",
+          "schema": "ecommerce",
+          "name": "quantity",
+          "alias": "quantity",
+          "sql-data-type": "INTEGER",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "quantity",
+          "neo4j-data-type": "Long",
+          "is-array": false
+        }
+      }
+    ]
+  },
+  {
+    "name": "REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2",
+    "schema": "ecommerce",
+    "graph-object-type": "Relationship",
+    "sql": "SELECT `ecommerce`.`Post_Tags`.`postId` AS `postId`, `ecommerce`.`Post_Tags`.`tagId` AS `tagId`, \"HAS_TAG\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Post_Tags`",
+    "mappings": [
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Post_Tags",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Post_Tags",
+              "schema": "ecommerce",
+              "name": "postId",
+              "alias": "postId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Post",
+                "schema": "ecommerce",
+                "name": "postId",
+                "alias": "postId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "StartId",
+          "id-space": "ecommerce.post"
+        }
+      },
+      {
+        "column": {
+          "type": "CompositeColumn",
+          "table": "Post_Tags",
+          "schema": "ecommerce",
+          "role": "ForeignKey",
+          "columns": [
+            {
+              "type": "JoinColumn",
+              "role": "Data",
+              "table": "Post_Tags",
+              "schema": "ecommerce",
+              "name": "tagId",
+              "alias": "tagId",
+              "sql-data-type": "INTEGER",
+              "column-value-selection-strategy": "SelectColumnValue",
+              "referenced-column": {
+                "type": "SimpleColumn",
+                "role": "Data",
+                "table": "Tag",
+                "schema": "ecommerce",
+                "name": "tagId",
+                "alias": "tagId",
+                "sql-data-type": "INTEGER",
+                "column-value-selection-strategy": "SelectColumnValue"
+              }
+            }
+          ]
+        },
+        "field": {
+          "type": "EndId",
+          "id-space": "ecommerce.tag"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Literal",
+          "table": "Post_Tags",
+          "schema": "ecommerce",
+          "name": "HAS_TAG",
+          "alias": "_RELATIONSHIP_TYPE_",
+          "sql-data-type": "VARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "RelationshipType"
+        }
+      }
+    ]
+  }
+]

@@ -109,7 +109,7 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
             });
 
             // Assign Country to Brand
-            if (!countriesByBrand[brand]) {
+            if (!countriesByBrand.hasOwnProperty(brand)) {
                 countriesByBrand[brand] = new Set();
             }
             countriesByBrand[brand].add(vendorCountry);
@@ -165,7 +165,7 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
         Object.keys(countriesByBrand).map(brand =>
             Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
         ).join("");
-
+    
     return { relationalData, cassandraData };
 }
 

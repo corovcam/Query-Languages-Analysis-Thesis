@@ -10,3 +10,5 @@ test.sql
 node_modules/
 data_new.*
 data.*
+data_[0-9]*.*
+neo4j/neo4j-etl-tool/neo4j-etl-cli*

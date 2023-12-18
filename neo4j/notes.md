@@ -1,6 +1,8 @@
 ## Data
 - extracted automatically from relational DBMS (MySQL) using Neo4j Labs ETL Tool graph app
   - https://neo4j.com/labs/etl-tool/
+  - using `mysql_mapping.json` and neo4j-etl-cli (https://neo4j.com/labs/etl-tool/) in neo4j-etl-tool
+  - need JAVA_HOME set to JDK 8 or later
 - Afterwards, the data was manually cleaned up and transformed to fit the graph model
 - Then apoc.export.cypher.all was used to export the data to a cypher file (specifically cypher-shell script), including unique constraints and indexes
   - https://neo4j.com/labs/apoc/4.3/overview/apoc.export/apoc.export.cypher.all/

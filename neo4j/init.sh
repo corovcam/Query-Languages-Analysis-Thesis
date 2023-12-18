@@ -1,3 +1,8 @@
 #!/bin/bash
 
-cypher-shell --format plain --log logs/init_"$(date +"%Y-%m-%d-%s")".log < ./queries/data.cypher > logs/out_"$(date +"%Y-%m-%d-%s")".log 2> logs/err_"$(date +"%Y-%m-%d-%s")".log
+
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+
+cypher-shell --format plain < ./queries/db_reset.cypher | tee logs/schema_"$timestamp".log && \
+cypher-shell --format plain < ./queries/data.cypher | tee logs/data_"$timestamp".log && \
+cypher-shell --format plain < ./queries/transform_data.cypher | tee logs/transform-data_"$timestamp".log
