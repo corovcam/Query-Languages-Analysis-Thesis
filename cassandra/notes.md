@@ -54,3 +54,10 @@ Instance ▸ keyspaces ▸ tables ▸ rows ▸columns
   - Import for batch loading - inneficient for large data sets
 - https://docs.datastax.com/en/cql-oss/3.3/cql/cql_reference/refLimits.html
   - Limits
+
+#### Measuring performance
+- tracing on;
+  - select * from system_traces.sessions; - see all tracing sessions and their "source_elapsed" time in microseconds
+- Setting request timeout (read_request_timeout, range_request_timeout, request_timeout) to 5 minutes:
+  - https://docs.datastax.com/en/dse/5.1/docs/managing/configure/configure-cassandra-yaml.html
+  - Mounted as config volume in docker-compose.yml

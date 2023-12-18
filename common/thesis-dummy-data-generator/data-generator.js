@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 
+// Using same seed and ref date for all faker functions to ensure consistency and reproducibility
 faker.seed(123);
 faker.setDefaultRefDate('2000-01-01T00:00:00.000Z');
 
@@ -117,16 +118,18 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
         }
 
         // TODO: Fix for Cassandra
-        // With probability of 0.3 assign some previous Products to Vendor
+        // With probability of 0.7 assign some previous Products to Vendor
         productsAssigned !== 0 && faker.helpers.maybe(() => {
             let productIds = Array.from({ length: productsAssigned - 1 }, (value, index) => index + 1);
             let productCountPerVendor = faker.number.int({ min: 0, max: 5 < productsAssigned ? 5 : productsAssigned - 1 });
             for (let j = 0; j < productCountPerVendor; j++) {
                 const randomIndex = faker.number.int({ min: 0, max: productIds.length - 1 });
                 const chosenProductId = productIds[randomIndex];
+
                 vendorProducts.push(`(${vendorId}, ${chosenProductId})`);
                 const brandCountry = brandVendorsByProductId[chosenProductId];
                 countriesByBrand[brandCountry.brand].add(brandCountry.vendorCountry);
+
                 productIds.splice(randomIndex, 1);
             }
         }, { probability: 0.7 });
@@ -342,6 +345,7 @@ function generateTags(tagCount = 100) {
 
     const randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
     // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
+    // so we need to generate more tags to reach the required count
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
     
     randomTags.forEach((tag, index) => {
@@ -478,12 +482,12 @@ function generateData(recordCount = 100, cqlFileName = 'data.cql') {
 function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     fs.writeFile(sqlFileName, data.relationalData, (err) => {
         if (err) throw err;
-        console.log("Relational data written to data_new.sql");
+        console.log(`Relational data written to ${sqlFileName}`);
     });
 
     fs.appendFile(cqlFileName, data.cassandraData, (err) => {
         if (err) throw err;
-        console.log("Cassandra data written to data_new.cql");
+        console.log(`Cassandra data written to ${cqlFileName}`);
     });
 }
 

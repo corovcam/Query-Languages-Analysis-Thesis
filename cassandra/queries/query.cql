@@ -35,8 +35,6 @@ WHERE vendorId = 1;
 -- 1.4 Indexed Columns - Range Query
 
 -- Select people born between 1980-01-01 and 1990-12-31 (using index)
--- TODO: Check if the "clustering index" on "birthday" is really used if performing a query without
---  specifying the partition key (all partitions are scanned)
 SELECT personId, firstName, lastName, birthday
 FROM Person_By_Birthday_Indexed
 WHERE birthday >= '1980-01-01'

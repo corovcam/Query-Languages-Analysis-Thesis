@@ -3,6 +3,7 @@ todo.md
 .idea/
 .vscode/
 **/logs/**/*.log
+**/logs/**/*.csv
 **/exports/**/*.json*
 # **/data/**/*.json*
 test.sql

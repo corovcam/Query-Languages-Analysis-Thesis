@@ -7,7 +7,7 @@
 
 -- 1.1 Non-Indexed Columns
 
--- Select vendor with the name "Vendor A"
+-- Select vendor with the name "Bauch - Denesik"
 SELECT vendorId, name
 FROM Vendor
 WHERE name = "Bauch - Denesik";
@@ -23,7 +23,7 @@ WHERE birthday BETWEEN '1980-01-01' AND '1990-12-31';
 
 -- 1.3 Indexed Columns
 
--- Select vendor with the ID 1
+-- Select vendor with the ID 24
 SELECT vendorId, name
 FROM Vendor
 WHERE VendorId = 24;
