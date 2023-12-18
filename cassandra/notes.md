@@ -52,3 +52,5 @@ Instance ▸ keyspaces ▸ tables ▸ rows ▸columns
   - ACID transactions in Cassandra
 - https://foundev.medium.com/cassandra-batch-loading-without-the-batch-keyword-40f00e35e23e
   - Import for batch loading - inneficient for large data sets
+- https://docs.datastax.com/en/cql-oss/3.3/cql/cql_reference/refLimits.html
+  - Limits

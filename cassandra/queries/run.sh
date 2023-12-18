@@ -2,4 +2,7 @@
 
 timestamp=$(date +"%Y-%m-%d_%s")
 
-cqlsh -f ./queries/query.cql | tee ../logs/query_"$timestamp".log
+for i in {1..50}
+do
+    cqlsh -f ./query.cql | tee ../logs/query_"$timestamp"_run"$i".log
+done

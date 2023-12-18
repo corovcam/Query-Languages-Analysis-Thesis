@@ -2,7 +2,7 @@ sqlite/data
 todo.md
 .idea/
 .vscode/
-**/logs/*.log
+**/logs/**/*.log
 **/exports/**/*.json*
 # **/data/**/*.json*
 test.sql
