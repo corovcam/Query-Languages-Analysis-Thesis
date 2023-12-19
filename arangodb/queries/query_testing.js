@@ -187,7 +187,7 @@ for (let i = 0; i < iterations; i++) {
         FILTER p2.personId == 12
         FOR v, e IN OUTBOUND SHORTEST_PATH p1 TO p2 knows
           RETURN v
-  `);.getExtra().stats.executionTime;
+  `).getExtra().stats.executionTime;
 
   stats.push(['arangodb', recordVolume, '4.2', i, time]);
 }
