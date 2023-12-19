@@ -3,6 +3,8 @@
 -- todo: 4000, 256000
 -- todo: Set limit for each query to 5 mins
 
+SET GLOBAL MAX_EXECUTION_TIME = 300000; -- 5 minutes
+
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns
@@ -137,8 +139,8 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId1 AS currentPersonId,
                                      1         AS depth
                               FROM Person_Person
-                              WHERE personId1 = 774  -- Specify the source person ID
-                                AND personId2 = 12 -- Specify the target person ID
+                              WHERE personId1 = 774 -- Specify the source person ID
+                                AND personId2 = 12  -- Specify the target person ID
                               UNION
                               SELECT pp.sourcePersonId,
                                      pp.targetPersonId,

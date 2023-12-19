@@ -27,6 +27,16 @@
   - Is it really necessary?
   - https://sqlite.org/src/file/ext/misc/uuid.c
 
+### Testing
+
+- Query Caching: https://sqlite-users.sqlite.narkive.com/7WO7PjK3/sqlite-caching
+  - doesn't exist in SQLite
+  - only page cache for the whole DB
+    - https://stackoverflow.com/questions/5256906/how-do-i-get-sqlite-to-cache-results-of-a-select-command
+    - https://www.sqlite.org/pragma.html#pragma_cache_size
+- Read query timeout
+  - https://stackoverflow.com/questions/8388155/specify-select-timeout-for-sqlite
+  - not supported
 
 ### Technical Specs
 
