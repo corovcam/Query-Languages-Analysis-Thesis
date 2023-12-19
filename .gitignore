@@ -12,6 +12,7 @@ data_new/
 data_new.*
 data.*
 data_[0-9]*.*
+data_[0-9]*/
 neo4j/neo4j-etl-tool/neo4j-etl-cli*
 cassandra.yaml
 transformed/

@@ -1,42 +1,12 @@
 #!/bin/sh
 
-# arangoimport \
-#     --server.endpoint tcp://127.0.0.1:8529 \
-#     --server.authentication false \
-#     --collection "products" \
-#     --create-collection true \
-#     --type json \
-#     --file data/products.json \
-#     --progress true \
-#     --overwrite true \
-#     | tee -a logs/import.log
+set -eu
 
-# arangoimport \
-#     --server.endpoint tcp://127.0.0.1:8529 \
-#     --server.authentication false \
-#     --collection "vendors" \
-#     --create-collection true \
-#     --type json \
-#     --file data/vendors.json \
-#     --progress true \
-#     --overwrite true \
-#     | tee -a logs/import.log
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
-# arangoimport \
-#     --server.endpoint tcp://127.0.0.1:8529 \
-#     --server.authentication false \
-#     --collection "edges" \
-#     --create-collection true \
-#     --create-collection-type edge \
-#     --type json \
-#     --file data/rels.json \
-#     --progress true \
-#     --overwrite true \
-#     | tee -a logs/import.log
+data_dir="data_1k"
 
-timestamp=$(date +"%Y-%m-%d_%s")
-
-for file in data/nodes/*.json; do
+for file in "$data_dir"/nodes/*.json; do
     fullFilename=$(basename "$file")
     filename=${fullFilename%.*}
     arangoimport \
@@ -52,7 +22,7 @@ for file in data/nodes/*.json; do
         | tee -a logs/import_"$timestamp".log
 done
 
-for file in data/edges/*.json; do
+for file in "$data_dir"/edges/*.json; do
     fullFilename=$(basename "$file")
     echo "$fullFilename"
     filename=${fullFilename%.*}

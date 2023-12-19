@@ -33,3 +33,12 @@
       [OPTIONS options]
     ```
   - PRUNE expression (AQL expression, optional): An expression, like in a FILTER statement, which is evaluated in every step of the traversal, as early as possible.
+
+## Testing
+
+- measure execution time: https://docs.arangodb.com/3.11/aql/execution-and-performance/query-statistics/
+- Query cache
+  - https://docs.arangodb.com/3.11/aql/execution-and-performance/caching-query-results/
+  - OFF by default
+- Request timeout: 1200s by default (20min)
+  - https://docs.arangodb.com/3.11/components/tools/arangodb-shell/options/#--serverrequest-timeout

@@ -6,7 +6,7 @@ const { db, aql } = require("@arangodb");
 
 db._query(aql`
   FOR v IN vendors
-  FILTER v.name == 'Vendor A'
+  FILTER v.name == 'Bauch - Denesik'
   RETURN { vendorId: v.vendorId, name: v.name }
 `);
 
@@ -32,7 +32,7 @@ db.vendors.ensureIndex(
 
 db._query(aql`
   FOR n IN vendors
-    FILTER n.vendorId == 1
+    FILTER n.vendorId == 24
     RETURN { vendorId: n.vendorId, name: n.name }
 `);
 
@@ -80,7 +80,7 @@ db._query(aql`
   FOR o IN orders
     FOR t IN OUTBOUND o contactType
       FOR v IN OUTBOUND t contactType
-        RETURN DISTINCT { typeId: t.typeId, order: o, vendor: v }
+        RETURN DISTINCT { typeId: t, order: o, orderContact: oc, vendor: v, vendorContact: vc }
 `);
 
 // 3.2 Indexed Node/Relationship keys
@@ -116,7 +116,7 @@ db._query(aql`
 
 // 4. Unlimited Traversal
 
-// Find all direct and indirect relationships between people limited to 3 hops
+// 4.1 Find all direct and indirect relationships between people limited to 3 hops
 
 db._query(aql`
 FOR p1 IN persons
@@ -124,13 +124,13 @@ FOR p1 IN persons
     RETURN DISTINCT { person1: p1, person2: p2 }
 `);
 
-// Find the shortest path between two persons
+// 4.2 Find the shortest path between two persons
 
 db._query(aql`
   FOR p1 IN persons
-    FILTER p1.personId == 1
+    FILTER p1.personId == 774
     FOR p2 IN persons
-      FILTER p2.personId == 10
+      FILTER p2.personId == 12
       FOR v, e IN OUTBOUND SHORTEST_PATH p1 TO p2 knows
         RETURN v
 `);
