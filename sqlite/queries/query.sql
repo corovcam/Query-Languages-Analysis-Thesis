@@ -117,8 +117,8 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId1 AS currentPersonId,
                                      1         AS depth
                               FROM Person_Person
-                              WHERE personId1 = 1  -- Specify the source person ID
-                                AND personId2 = 10 -- Specify the target person ID
+                              WHERE personId1 = 774  -- Specify the source person ID
+                                AND personId2 = 12 -- Specify the target person ID
                               UNION
                               SELECT pp.sourcePersonId,
                                      pp.targetPersonId,

@@ -107,6 +107,8 @@ HAVING COUNT(*) > 1;
 
 -- 4.1. Both way traversal
 
+SET SESSION cte_max_recursion_depth = 10000000;
+
 -- Find all direct and indirect relationships between people
 WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                               personId2 AS relatedPersonId,
@@ -126,14 +128,17 @@ ORDER BY sourcePersonId, depth, relatedPersonId;
 
 -- 4.2. Shortest path
 
+-- TODO: Guessing the max recursion depth to be 10 million ??
+SET SESSION cte_max_recursion_depth = 10000000;
+
 -- Find the shortest path between two persons using WITH RECURSIVE
 WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId2 AS targetPersonId,
                                      personId1 AS currentPersonId,
                                      1         AS depth
                               FROM Person_Person
-                              WHERE personId1 = 1  -- Specify the source person ID
-                                AND personId2 = 10 -- Specify the target person ID
+                              WHERE personId1 = 774  -- Specify the source person ID
+                                AND personId2 = 12 -- Specify the target person ID
                               UNION
                               SELECT pp.sourcePersonId,
                                      pp.targetPersonId,

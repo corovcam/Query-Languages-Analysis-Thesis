@@ -3,7 +3,7 @@
 // 1.1 Non-Indexed Selection
 
 MATCH (v:Vendor)
-  WHERE v.name = 'Vendor 1'
+  WHERE v.name = 'Bauch - Denesik'
 RETURN v.vendorId, v.name;
 
 // 1.2 Non-Indexed Selection - Range Query
@@ -17,7 +17,7 @@ RETURN p.personId, p.firstName, p.lastName, p.birthday;
 // 1.3 Indexed Selection
 
 MATCH (n:Vendor)
-  WHERE n.vendorId = 1
+  WHERE n.vendorId = 24
 RETURN n.vendorId, n.name;
 
 // 1.4 Indexed Selection - Range Query
@@ -96,7 +96,7 @@ MATCH (p1:Person)-[:KNOWS*..3]-(p2:Person)
 RETURN DISTINCT *;
 
 // Find the shortest path between two persons
-MATCH (p1:Person {personId: 1}), (p2:Person {personId: 10}),
+MATCH (p1:Person {personId: 774}), (p2:Person {personId: 12}),
       path = shortestPath((p1)-[:KNOWS*]->(p2))
 RETURN path;
 
