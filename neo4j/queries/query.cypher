@@ -22,7 +22,7 @@ RETURN n.vendorId, n.name;
 
 // 1.4 Indexed Selection - Range Query
 
-CREATE INDEX idx_person_birthday FOR (p:Person) ON (p.birthday);
+CREATE INDEX idx_person_birthday IF NOT EXISTS FOR (p:Person) ON (p.birthday);
 
 MATCH (p:Person)
   WHERE p.birthday >= date('1980-01-01') AND p.birthday <= date('1990-12-31')
@@ -45,9 +45,9 @@ RETURN p.brand, max(p.price) AS maxPrice;
 // 3.1 Non-Indexed Node/Relationship Labels
 
 // DROP lookup indexes for this query
-DROP INDEX node_label_lookup_index;
+DROP INDEX node_label_lookup_index IF EXISTS;
 
-DROP INDEX rel_type_lookup_index;
+DROP INDEX rel_type_lookup_index IF EXISTS;
 
 // Match all Orders and Vendors sharing the same Contact Type
 MATCH (o:Order)-[:CONTACT_TYPE]->(t)-[:CONTACT_TYPE]->(v:Vendor)
@@ -64,9 +64,9 @@ RETURN DISTINCT o, v;
 // 3.2 Indexed Node/Relationship Labels
 
 // CREATE lookup indexes for this query
-CREATE LOOKUP INDEX node_label_lookup_index FOR (n) ON EACH labels(n);
+CREATE LOOKUP INDEX node_label_lookup_index IF NOT EXISTS FOR (n) ON EACH labels(n);
 
-CREATE LOOKUP INDEX rel_type_lookup_index FOR () - [r] - () ON EACH type(r);
+CREATE LOOKUP INDEX rel_type_lookup_index IF NOT EXISTS FOR () - [r] - () ON EACH type(r);
 
 // Match all Products contained in Orders
 MATCH (o:Order)-[cp:CONTAINS_PRODUCTS]->(p:Product)
@@ -91,11 +91,11 @@ RETURN properties(p1), friendCount;
 
 // 4. Unlimited Traversal (in Neo4j everything is matched by default)
 
-// Find all direct and indirect relationships between people limited to 3 hops
+// 4.1 Find all direct and indirect relationships between people limited to 3 hops
 MATCH (p1:Person)-[:KNOWS*..3]-(p2:Person)
 RETURN DISTINCT *;
 
-// Find the shortest path between two persons
+// 4.2 Find the shortest path between two persons
 MATCH (p1:Person {personId: 774}), (p2:Person {personId: 12}),
       path = shortestPath((p1)-[:KNOWS*]->(p2))
 RETURN path;
@@ -144,7 +144,7 @@ RETURN pr.brand
 
 // 9.2 Indexed property
 
-CREATE INDEX idx_product_productId FOR (p:Product) ON (p.productId);
+CREATE INDEX idx_product_productId IF NOT EXISTS FOR (p:Product) ON (p.productId);
 
 MATCH (pr:Product)
 RETURN pr.productId
