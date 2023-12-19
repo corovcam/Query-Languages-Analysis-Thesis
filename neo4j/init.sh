@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 

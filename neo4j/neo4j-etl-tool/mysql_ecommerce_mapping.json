@@ -1297,7 +1297,7 @@
     "name": "REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6",
     "schema": "ecommerce",
     "graph-object-type": "Relationship",
-    "sql": "SELECT `ecommerce`.`Vendor_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Vendor_Contacts`.`vendorId` AS `vendorId`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Contacts`",
+    "sql": "SELECT `ecommerce`.`Vendor_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Vendor_Contacts`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor_Contacts`.`value` AS `value`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Contacts`",
     "mappings": [
       {
         "column": {
@@ -1365,6 +1365,24 @@
         "field": {
           "type": "EndId",
           "id-space": "ecommerce.vendor"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Vendor_Contacts",
+          "schema": "ecommerce",
+          "name": "value",
+          "alias": "value",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "value",
+          "neo4j-data-type": "String",
+          "is-array": false
         }
       },
       {
@@ -1661,7 +1679,7 @@
     "name": "REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c",
     "schema": "ecommerce",
     "graph-object-type": "Relationship",
-    "sql": "SELECT `ecommerce`.`Order_Contacts`.`orderId` AS `orderId`, `ecommerce`.`Order_Contacts`.`typeId` AS `typeId`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order_Contacts`",
+    "sql": "SELECT `ecommerce`.`Order_Contacts`.`orderId` AS `orderId`, `ecommerce`.`Order_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Order_Contacts`.`value` AS `value`, \"CONTACT_TYPE\" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order_Contacts`",
     "mappings": [
       {
         "column": {
@@ -1729,6 +1747,24 @@
         "field": {
           "type": "EndId",
           "id-space": "ecommerce.type"
+        }
+      },
+      {
+        "column": {
+          "type": "SimpleColumn",
+          "role": "Data",
+          "table": "Order_Contacts",
+          "schema": "ecommerce",
+          "name": "value",
+          "alias": "value",
+          "sql-data-type": "LONGVARCHAR",
+          "column-value-selection-strategy": "SelectColumnValue"
+        },
+        "field": {
+          "type": "Data",
+          "name": "value",
+          "neo4j-data-type": "String",
+          "is-array": false
         }
       },
       {

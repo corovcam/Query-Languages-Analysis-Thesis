@@ -50,16 +50,8 @@ DROP INDEX node_label_lookup_index IF EXISTS;
 DROP INDEX rel_type_lookup_index IF EXISTS;
 
 // Match all Orders and Vendors sharing the same Contact Type
-MATCH (o:Order)-[:CONTACT_TYPE]->(t)-[:CONTACT_TYPE]->(v:Vendor)
-RETURN DISTINCT o, v;
-
-// TODO: Need to add a new Property to Order and Vendor (or CONTACT_TYPE rel) to include contact value!!!
-// TODO: Is this the same Query as the one below in SQL? What should I return??
-// Compared to SQL Query, this one JOINs based on common :CONTACT_TYPE relationships - different data model, check Schema
-//-- Join Vendor_Contacts and Order_Contacts on the type of contact (non-indexed column)
-//SELECT *
-//FROM Order_Contacts OC
-//         INNER JOIN Vendor_Contacts VC on VC.typeId = OC.typeId;
+MATCH (o:Order)-[oc:CONTACT_TYPE]->(t)-[vc:CONTACT_TYPE]->(v:Vendor)
+RETURN DISTINCT *;
 
 // 3.2 Indexed Node/Relationship Labels
 

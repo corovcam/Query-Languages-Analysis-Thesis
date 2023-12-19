@@ -16,3 +16,7 @@
 - INDEXES: https://neo4j.com/docs/cypher-manual/5/indexes-for-search-performance/
   - Lookup Index is automatically created for each Node and Relationship
     - Need to be dropped before testing of queries
+- Caches:
+  - https://neo4j.com/docs/cypher-manual/current/query-caches/
+    - query caches
+  - page caches - cannot start the instance with NEO4J_server_memory_pagecache_size set to 0
