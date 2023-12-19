@@ -1,5 +1,3 @@
-.timer ON
-
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns - Basic Query
@@ -9,6 +7,7 @@ FROM Vendor
 WHERE name = "Bauch - Denesik";
 
 -- 1.2 Non-Indexed Columns - Range Query
+
 DROP INDEX IF EXISTS idx_person_birthday;
 
 SELECT personId, firstName, lastName, birthday
@@ -22,6 +21,7 @@ FROM Vendor
 WHERE VendorId = 24;
 
 -- 1.4 Indexed Columns - Range Query
+
 CREATE INDEX IF NOT EXISTS idx_person_birthday ON Person (birthday);
 
 SELECT personId, firstName, lastName, birthday
@@ -92,7 +92,7 @@ HAVING COUNT(*) > 1;
 
 -- 4. Unlimited Traversal (WITH RECURSIVE)
 
--- Find all direct and indirect relationships between people
+-- 4.1 Find all direct and indirect relationships between people
 
 WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                               personId2 AS relatedPersonId,
@@ -110,7 +110,7 @@ SELECT *
 FROM PersonRelationships
 ORDER BY sourcePersonId, depth, relatedPersonId;
 
--- Find the shortest path between two persons using WITH RECURSIVE
+-- 4.2 Find the shortest path between two persons using WITH RECURSIVE
 
 WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId2 AS targetPersonId,

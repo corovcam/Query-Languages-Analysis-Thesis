@@ -7,10 +7,15 @@ log_file="logs/query_$timestamp.log"
 
 mkdir logs/queries/"$timestamp"
 
-i=1
-while [ "$i" -le 20 ]; do
-    iteration_log_file=logs/queries/"$timestamp"/iteration_"$i".log
-    echo "Iteration $i, started at $(date +"%Y-%m-%d %T")" 2>&1 | tee -a "$log_file"
-    sqlite3 data/ecommerce.db < queries/query.sql 2>> "$log_file" | tee -a "$iteration_log_file"
-    i=$((i+1))
+for file in queries/testing/*.sql; do
+    fullFilename=$(basename "$file")
+    filename=${fullFilename%.*}
+    query_csv_file=logs/queries/"$timestamp"/query_"$filename".csv
+    i=1
+    while [ "$i" -le 20 ]; do
+        printf "\"%s\",%s,\"$(date +"%Y-%m-%d %T")\",\"" "$filename" "$i" 2>&1 | tee -a "$query_csv_file"
+        sqlite3 data/ecommerce.db < "$file" 2>> "$log_file" | tail -n 1 | tr -d '\n' | tee -a "$query_csv_file"
+        printf "\"\n" | tee -a "$query_csv_file"
+        i=$((i+1))
+    done
 done
