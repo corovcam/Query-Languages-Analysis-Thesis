@@ -78,8 +78,8 @@ db._query(aql`
 // Match all Orders and Vendors sharing the same Contact Type
 db._query(aql`
   FOR o IN orders
-    FOR t IN OUTBOUND o contactType
-      FOR v IN OUTBOUND t contactType
+    FOR t, oc IN OUTBOUND o contactType
+      FOR v, vc IN OUTBOUND t contactType
         RETURN DISTINCT { typeId: t, order: o, orderContact: oc, vendor: v, vendorContact: vc }
 `);
 
