@@ -111,7 +111,6 @@ db.persons.aggregate([
       followerCount: { $gt: 1 }
     }
   },
-  // TODO: Embed whole Person obj in knowsPeople array ???
   {
     $lookup: {
       from: "persons",
@@ -160,6 +159,10 @@ db.persons.aggregate([
 // The target person in not included in the result
 // TODO: Find better soluton for shortest path? Or maybe it does not exist?
 // https://stackoverflow.com/questions/42333529/mongodb-node-js-and-shortest-path-function-any-option-available
+
+// The result set is not the same as in previous databases, but the path is included in the result
+// It basically performs BFS until it finds the target person, stops and prints each visited node
+// The backtracking is not possible in mongoDB, but can be done in application layer
 db.persons.aggregate([
   {
     $match: {
@@ -291,8 +294,9 @@ db.tags.aggregate([
 
 // 8. Difference
 
-// TODO: Rewrite query to explicitly use $setDifference operator?
 // Find people who have not made any orders
+
+// 8.1 Using Lookup (not recommended for large datasets)
 
 // All people
 db.persons.aggregate([
@@ -309,6 +313,23 @@ db.persons.aggregate([
   {
     $match: {
       orders: { $eq: [] }
+    }
+  },
+  {
+    $project: {
+      firstName: 1,
+      lastName: 1,
+    }
+  }
+]);
+
+// 8.2 Without Lookup
+
+// Match only people with no customer attribute (and thus no orders)
+db.persons.aggregate([
+  {
+    $match: {
+      customer: { $exists: false },
     }
   },
   {
