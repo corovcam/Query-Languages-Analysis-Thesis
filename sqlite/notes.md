@@ -37,6 +37,8 @@
 - Read query timeout
   - https://stackoverflow.com/questions/8388155/specify-select-timeout-for-sqlite
   - not supported
+- Docker Container changes RW permissions for each file inside copied volume
+  - need to change permissions on host machine for entire folder - `chmod -R 777 /sqlite`
 
 ### Technical Specs
 
