@@ -6,8 +6,6 @@ db.vendors.find({ name: "Vendor A" }, { name: 1 });
 
 // 1.2 Non-Indexed Attributes - Range Query
 
-// db.persons.find({ birthday: { $gte: new Date("1980-01-01"), $lte: new Date("1990-12-31") } }, { firstName: 1, lastName: 1, birthday: 1 });
-
 // Drop index on birthday attribute if exists
 db.persons.dropIndex({ birthday: 1 });
 
@@ -39,9 +37,6 @@ db.products.aggregate([{ $group: { _id: "$brand", maxPrice: { $max: "$price" } }
 // 3.1 Non-Indexed Attributes
 
 // Join vendorContacts and orderContacts on the type of contact (the same document)
-
-// TODO: Should I embed orderContacts and vendorContacts in the same document?
-// Or the point is to only use $lookup for joining collections?
 
 db.types.aggregate([
   {
@@ -133,19 +128,15 @@ db.persons.aggregate([
 
 // 4. Unlimited Traversal
 
-// Find all direct and indirect relationships between people
-// TODO: How to traverse both ways? (not only from person1 to person2, but also from person2 to person1)
-// Maybe create a a new attribute "knownBy"?
-// https://stackoverflow.com/questions/43784935/mongodb-graphlookup-in-reverse-order
+// Find all direct and indirect relationships between people up to 4 (0, 1, 2, 3) levels deep
 
-// This is only one way relationship traversal
 db.persons.aggregate([
   {
     $graphLookup: {
       from: "persons",
-      startWith: "$_id",
-      connectFromField: "_id",
-      connectToField: "knowsPeople",
+      startWith: "$knowsPeople",
+      connectFromField: "knowsPeople",
+      connectToField: "_id",
       as: "relationships",
       maxDepth: 3,
       depthField: "depth"
@@ -159,49 +150,8 @@ db.persons.aggregate([
       _id: 0,
       sourcePersonId: "$_id",
       relatedPersonId: "$relationships._id",
-      depth: "$relationships.depth"
     }
   },
-  {
-    $sort: {
-      sourcePersonId: 1,
-      depth: 1,
-      relatedPersonId: 1
-    }
-  }
-]);
-
-// TODO: traverse the other way
-db.persons.aggregate([
-  {
-    $graphLookup: {
-      from: "persons",
-      startWith: "$_id",
-      connectFromField: "_id",
-      connectToField: "knowsPeople",
-      as: "relationships",
-      maxDepth: 3,
-      depthField: "depth"
-    }
-  },
-  {
-    $unwind: "$relationships"
-  },
-  {
-    $project: {
-      _id: 0,
-      sourcePersonId: "$_id",
-      relatedPersonId: "$relationships._id",
-      depth: "$relationships.depth"
-    }
-  },
-  {
-    $sort: {
-      sourcePersonId: 1,
-      depth: 1,
-      relatedPersonId: 1
-    }
-  }
 ]);
 
 // Find the shortest path between two persons using $graphLookup

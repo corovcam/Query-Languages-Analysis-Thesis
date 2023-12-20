@@ -83,8 +83,8 @@ RETURN properties(p1), friendCount;
 
 // 4. Unlimited Traversal (in Neo4j everything is matched by default)
 
-// 4.1 Find all direct and indirect relationships between people limited to 3 hops
-MATCH (p1:Person)-[:KNOWS*..3]-(p2:Person)
+// 4.1 Find all direct and indirect relationships between people limited to 4 hops
+MATCH (p1:Person)-[:KNOWS*..4]->(p2:Person)
 RETURN DISTINCT *;
 
 // 4.2 Find the shortest path between two persons

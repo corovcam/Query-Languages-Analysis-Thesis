@@ -150,17 +150,17 @@ CREATE TABLE "Order"
 
 -- Query 4.1.: Find all direct and indirect relationships between people (friends of friends up to depth of 3)
 -- Note that relationship between a person and themselves may exist (if cycle exists)
-CREATE TABLE Person_Relationships
-(
-    sourcePersonId  BIGINT,
-    relatedPersonId BIGINT,
-    depth           INT, -- Depth of the relationship (1 = direct, 2 = friend of friend, 3 = friend of friend of friend)
-    PRIMARY KEY ((sourcePersonId), depth, relatedPersonId)
-) WITH COMMENT = 'Person relationships (friends of friends up to depth of 3)'
-   AND caching = {
-            'keys' : 'NONE',
-            'rows_per_partition' : 'NONE'
-            };
+-- CREATE TABLE Person_Relationships
+-- (
+--     sourcePersonId  BIGINT,
+--     relatedPersonId BIGINT,
+--     depth           INT, -- Depth of the relationship (1 = direct, 2 = friend of friend, 3 = friend of friend of friend)
+--     PRIMARY KEY ((sourcePersonId), depth, relatedPersonId)
+-- ) WITH COMMENT = 'Person relationships (friends of friends up to depth of 3)'
+--    AND caching = {
+--             'keys' : 'NONE',
+--             'rows_per_partition' : 'NONE'
+--             };
 -- explain in discussion how it can be done
 -- why is inneficient in application layer
 -- using only query language constructs, its inneficient (exponential complexity)

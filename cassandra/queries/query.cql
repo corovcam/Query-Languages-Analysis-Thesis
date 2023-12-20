@@ -88,8 +88,9 @@ WHERE friendCount > 1
 -- 4.1. Both way traversal
 
 -- Find all direct and indirect relationships between people
-SELECT *
-FROM Person_Relationships;
+-- SELECT *
+-- FROM Person_Relationships;
+-- HIGHLY INEFFICIENT
 
 -- 4.2. Shortest path
 
