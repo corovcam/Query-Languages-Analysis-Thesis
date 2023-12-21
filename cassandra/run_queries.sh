@@ -20,6 +20,8 @@ for file in queries/testing/*.cql; do
         echo "Iteration $i, started at $(date +"%Y-%m-%d %T")" |& tee -a "$log_file"
         # Setting request-timeout to 300 seconds = 5 minutes
         cqlsh -k ecommerce -f "$file" --request-timeout=300 |& tee -a "$log_file"
-        cqlsh -e "SELECT duration FROM system_traces.sessions;" 2>> "$log_file" | sed -n '4p' | tr -d " \t"  | tee -a "$query_csv_file"
+        time_in_microseconds=$(cqlsh -e "SELECT duration FROM system_traces.sessions;" 2>> "$log_file" | sed -n '4p' | tr -d " \n\t\r")
+        time_in_seconds=$(echo "print $time_in_microseconds/1000000" | perl)
+        printf "%s\n" "$time_in_seconds" | tee -a "$query_csv_file"
     done
 done
