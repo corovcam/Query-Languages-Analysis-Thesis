@@ -52,3 +52,8 @@ Instance ▸ database ▸ collections ▸ documents
 #### Aggregation
 
 - Excessive use of $lookup within a query may slow down performance. To avoid multiple $lookup stages, consider an embedded data model to optimize query performance.
+
+### Testing
+
+- https://stackoverflow.com/questions/9362831/how-can-i-check-mongodb-query-performance-without-cache
+    - query cache

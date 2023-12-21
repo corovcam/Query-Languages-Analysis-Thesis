@@ -8,8 +8,6 @@ timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"
 query_csv_file=logs/queries/query_results_"$timestamp".csv
 
-mkdir logs/queries/"$timestamp"
-
 echo "db,record_volume,query,iteration,time_in_seconds" | tee -a "$query_csv_file"
 
 for file in queries/testing/*.cypher; do

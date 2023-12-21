@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
+record_volume=1000
+
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"
-record_volume=1000
 
 mkdir logs/queries/"$timestamp"
 
