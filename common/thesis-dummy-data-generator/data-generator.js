@@ -348,6 +348,7 @@ function generateTags(tagCount = 100) {
     // so we need to generate more tags to reach the required count
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.word.sample, tagCount - randomTags.length));
+    randomTags.length < tagCount && randomTags.push(...Array.from({ length: tagCount - randomTags.length }, () => faker.string.nanoid()));
     
     randomTags.forEach((tag, index) => {
         tagObjects.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
