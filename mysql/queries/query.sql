@@ -73,12 +73,6 @@ FROM Product P
 
 -- 3.3 Complex Join 1
 
-# SELECT *
-# FROM Product P
-#          INNER JOIN Order_Products OP on P.productId = OP.productId
-#          INNER JOIN `Order` O on OP.orderId = O.orderId;
-
-
 -- Complex query with JOINS to retrieve order details
 SELECT *
 FROM `Order` o
@@ -101,13 +95,12 @@ FROM `Order` o
 SELECT P1.*, COUNT(*) AS friendCount
 FROM Person P1
          INNER JOIN Person_Person PP on P1.personId = PP.personId1
--- INNER JOIN Person P2 on PP.personId2 = P2.personId
 GROUP BY P1.personId
 HAVING COUNT(*) > 1;
 
 -- 4. Unlimited Traversal (WITH RECURSIVE)
 
--- 4.1. Both way traversal
+-- 4.1. Direct and Indirect Relationship Traversal up to a certain depth
 
 SET SESSION cte_max_recursion_depth = 10000000;
 

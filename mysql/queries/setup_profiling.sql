@@ -15,3 +15,5 @@ WHERE NAME LIKE '%events_statements_%';
 UPDATE performance_schema.setup_consumers
 SET ENABLED = 'YES'
 WHERE NAME LIKE '%events_stages_%';
+
+SET GLOBAL MAX_EXECUTION_TIME = 300000; -- 5 minutes

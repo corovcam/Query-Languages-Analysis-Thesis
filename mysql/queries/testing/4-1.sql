@@ -1,0 +1,19 @@
+-- 4.1. Direct and Indirect Relationship Traversal up to a certain depth
+
+SET SESSION cte_max_recursion_depth = 10000000;
+
+-- Find all direct and indirect relationships between people
+WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
+                                              personId2 AS relatedPersonId,
+                                              0         AS depth
+                                       FROM Person_Person
+                                       UNION
+                                       SELECT pr.sourcePersonId,
+                                              pp.personId2 AS relatedPersonId,
+                                              pr.depth + 1 AS depth
+                                       FROM PersonRelationships pr
+                                                JOIN Person_Person pp ON pr.relatedPersonId = pp.personId1
+                                       WHERE pr.depth <= 3 -- Limiting recursion depth to 3 for illustration
+)
+SELECT DISTINCT sourcePersonId, relatedPersonId
+FROM PersonRelationships;
