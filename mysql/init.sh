@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-data_file="data_old"
+data_file="data_1k"
 
 mysql --user=root --password=root ecommerce < ./queries/schema.sql |& tee logs/schema_"$timestamp".log && \
 mysql --user=root --password=root ecommerce < ./queries/procedures.sql |& tee -a logs/schema_"$timestamp".log && \

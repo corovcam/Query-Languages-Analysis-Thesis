@@ -4,7 +4,7 @@ set -eu
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
-data_dir="data_old"
+data_dir="data_1k"
 
 for file in "$data_dir"/nodes/*.json; do
     fullFilename=$(basename "$file")

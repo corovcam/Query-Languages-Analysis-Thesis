@@ -13,7 +13,7 @@ for file in queries/testing/*.sql; do
     query_csv_file=logs/queries/"$timestamp"/query_"$filename".csv
     i=1
     while [ "$i" -le 20 ]; do
-        printf "\"%s\",%s,\"$(date +"%Y-%m-%d %T")\",\"" "$filename" "$i" 2>&1 | tee -a "$query_csv_file"
+        printf "\"%s\",%s,\"$(date +"%Y-%m-%d %T")\",\"" "$filename" "$i" | tee -a "$query_csv_file"
         sqlite3 data/ecommerce.db < "$file" 2>> "$log_file" | tail -n 1 | tr -d '\n' | tee -a "$query_csv_file"
         printf "\"\n" | tee -a "$query_csv_file"
         i=$((i+1))

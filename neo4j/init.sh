@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-data_file="data_old"
+data_file="data_1k"
 
 cypher-shell --format plain < ./queries/db_reset.cypher | tee logs/schema_"$timestamp".log && \
 cypher-shell --format plain < ./queries/"$data_file".cypher | tee logs/data_"$timestamp".log && \
