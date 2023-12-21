@@ -106,7 +106,7 @@ for (let i = 0; i < iterations; i++) {
 // Need to change the query? 
 
 // Match all Orders and Vendors sharing the same Contact Type
-
+// TODO: Rewrite to start iteration with i=1
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR o IN orders
