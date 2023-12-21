@@ -1,16 +1,10 @@
 use ecommerce;
 
-capture off;
-paging off;
-tracing on;
-
-capture '/dev/null';
-
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns
 
--- Select vendor with the name "Vendor A"
+-- Select vendor with the name 'Bauch - Denesik'
 SELECT vendorId, name
 FROM Vendor
 WHERE name = 'Bauch - Denesik'
@@ -27,10 +21,10 @@ WHERE birthday >= '1980-01-01'
 
 -- 1.3 Indexed Columns
 
--- Select vendor with the ID 1
+-- Select vendor with the ID 24
 SELECT vendorId, name
 FROM Vendor
-WHERE vendorId = 1;
+WHERE vendorId = 24;
 
 -- 1.4 Indexed Columns - Range Query
 
@@ -166,5 +160,3 @@ FROM Vendor_Countries_By_Product_Brand;
 SELECT customerId, COUNT(*) AS orderCount
 FROM Orders_By_Customer
 GROUP BY customerId;
-
-capture off;
