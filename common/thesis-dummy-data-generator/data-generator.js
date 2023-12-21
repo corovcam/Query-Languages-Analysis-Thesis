@@ -347,6 +347,7 @@ function generateTags(tagCount = 100) {
     // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
     // so we need to generate more tags to reach the required count
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
+    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.word.sample, tagCount - randomTags.length));
     
     randomTags.forEach((tag, index) => {
         tagObjects.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
@@ -468,13 +469,15 @@ function generateData(recordCount = 100, cqlFileName = 'data.cql') {
 
     cassandraData += generateCassandraTagsContacts(typeMapping);
 
-    // Flush current Cassandra data to file and clear buffer
-    fs.writeFileSync(cqlFileName, cassandraData);
-    cassandraData = '';
+    // Generating more than 1000 Vendor_Contacts_By_Order_Contact records causes data.cql to exceed 6GB 
+    // in size and causes Cassandra to crash
+    if (recordCount <= 1000) {
+        // Flush current Cassandra data to file and clear buffer
+        fs.writeFileSync(cqlFileName, cassandraData);
+        cassandraData = '';
 
-    writeCassandraOrderVendorContacts(cqlFileName);
-
-    // cassandraData += '\nAPPLY BATCH;';
+        writeCassandraOrderVendorContacts(cqlFileName);
+    }
 
     return { relationalData, cassandraData };
 }
@@ -491,4 +494,4 @@ function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') 
     });
 }
 
-writeToFiles(generateData(1000));
+writeToFiles(generateData(256000));
