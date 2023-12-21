@@ -127,7 +127,7 @@ db.persons.aggregate([
 
 // 4. Unlimited Traversal
 
-// Find all direct and indirect relationships between people up to 4 (0, 1, 2, 3) levels deep
+// 4.1 Find all direct and indirect relationships between people up to 4 (0, 1, 2, 3) levels deep
 
 db.persons.aggregate([
   {
@@ -153,7 +153,7 @@ db.persons.aggregate([
   },
 ]);
 
-// Find the shortest path between two persons using $graphLookup
+// 4.2 Find the shortest path between two persons using $graphLookup
 
 // This one stops traverses in BFS until it finds the target person (not necessarily the shortest path)
 // The target person in not included in the result
@@ -210,19 +210,20 @@ db.persons.aggregate([
   }
 ]);
 
-
 // 5. Optional Traversal
 
 // Get a list of all people and their friend count (0 if they have no friends)
-db.persons.aggregate([
-  {
-    $project: {
-      firstName: 1,
-      lastName: 1,
-      friendCount: { $cond: { if: { $isArray: "$knowsPeople" }, then: { $size: "$knowsPeople" }, else: 0 } }
+db.persons.find({}, {
+  firstName: 1,
+  lastName: 1,
+  friendCount: {
+    $cond: {
+      if: { $isArray: "$knowsPeople" },
+      then: { $size: "$knowsPeople" },
+      else: 0
     }
   }
-]);
+});
 
 // 6. UNION
 
@@ -278,19 +279,15 @@ db.vendors.aggregate([
 // Since id arrays of postTags and personTags are embedded in "tags" collection
 // we can just find tag object with non-empty arrays of both postTags and personTags
 // TODO: Rewrite data model to explicitly use $setIntersection operator?
-db.tags.aggregate([
-  {
-    $match: {
-      interestedPeople: { $exists: true, $ne: [] },
-      postsTagged: { $exists: true, $ne: [] },
-    }
-  },
-  {
-    $project: {
-        commonTag: "$value",
-    }
-  }
-]);
+db.tags.find({
+  $and: [
+    { interestedPeople: { $exists: true, $ne: [] } },
+    { postsTagged: { $exists: true, $ne: [] } }
+  ]
+}, {
+  commonTag: "$value"
+});
+
 
 // 8. Difference
 
@@ -326,19 +323,12 @@ db.persons.aggregate([
 // 8.2 Without Lookup
 
 // Match only people with no customer attribute (and thus no orders)
-db.persons.aggregate([
-  {
-    $match: {
-      customer: { $exists: false },
-    }
-  },
-  {
-    $project: {
-      firstName: 1,
-      lastName: 1,
-    }
-  }
-]);
+db.persons.find({
+  customer: { $exists: false }
+}, {
+  firstName: 1,
+  lastName: 1
+});
 
 // 9. Sorting
 
