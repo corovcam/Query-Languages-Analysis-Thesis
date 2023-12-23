@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_file="data_1k"
+data_file="data_4k"
 
 cqlsh -f ./queries/schema.cql | tee logs/schema_"$timestamp".log
 

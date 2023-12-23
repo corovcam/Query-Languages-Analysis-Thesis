@@ -7,6 +7,8 @@ faker.setDefaultRefDate('2000-01-01T00:00:00.000Z');
 
 // Utility functions
 
+const STRING_MAX_ALLOWED_LENGTH = 65535;  // 64KB
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -22,6 +24,14 @@ function chooseContactValue(type) {
         default:
             return null;
     }
+}
+
+function checkStringLengthAndAppendToFile(data, fileName) {
+    if (data.length >= STRING_MAX_ALLOWED_LENGTH) {
+        fs.appendFileSync(fileName, data);
+        return '';
+    }
+    return data;
 }
 
 // SQLite, MySQL, Cassandra dummy data generator
@@ -241,7 +251,7 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
     return { relationalData, cassandraData };
 }
 
-function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, typeMapping) {
+function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, typeMapping, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     let orders = [];
     let orderContacts = [];
     let orderProducts = [];
@@ -288,12 +298,12 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
         `INSERT INTO Order_Contacts (orderId, typeId, value) VALUES ${orderContacts.join(", \n")};\n` +
         `INSERT INTO Order_Products (orderId, productId, quantity) VALUES ${orderProducts.join(", \n")};\n`;
 
-    const cassandraData = generateCassandraOrderTables();
+    const cassandraData = generateCassandraOrderTables(cqlFileName);
 
     return { relationalData, cassandraData };
 }
 
-function generateCassandraOrderTables() {
+function generateCassandraOrderTables(cqlFileName) {
     let orderInserts = "";
     let ordersByProductInserts = "";
     let ordersByPerson = "";
@@ -320,21 +330,25 @@ function generateCassandraOrderTables() {
                 `INSERT INTO "Order" (orderId, customerId, personId, firstName, lastName, gender, birthday, street, city, postalCode,
                 personCountry, productId, quantity, asin, title, price, brand, imageUrl, vendorId, vendorName,
                 vendorCountry) VALUES ${orderValues};\n`;
+            orderInserts = checkStringLengthAndAppendToFile(orderInserts, cqlFileName);
             
             // Orders_By_Product
             const ordersByProductValues = `(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}', ${orderId}, ${quantity})`;
             ordersByProductInserts +=
                 `INSERT INTO Orders_By_Product (productId, asin, title, price, brand, imageUrl, orderId, quantity) VALUES ${ordersByProductValues};\n`;
+            ordersByProductInserts = checkStringLengthAndAppendToFile(ordersByProductInserts, cqlFileName);
         }
 
         // Orders_By_Customer
         ordersByCustomer += `INSERT INTO Orders_By_Customer (customerId, orderId) VALUES (${customerId}, ${orderId});\n`;
+        ordersByCustomer = checkStringLengthAndAppendToFile(ordersByCustomer, cqlFileName);
     }
 
     // Orders_By_Person
     for (const { personId, firstName, lastName, ordersCreated } of peopleObjects) {
         const orderIdsSetString = Array.from(ordersCreated).map(id => id).join(", ");
         ordersByPerson += `INSERT INTO Orders_By_Person (personId, firstName, lastName, ordersCreated) VALUES (${personId}, '${firstName}', '${lastName}', { ${orderIdsSetString} });\n`;
+        ordersByPerson = checkStringLengthAndAppendToFile(ordersByPerson, cqlFileName);
     }
 
     return orderInserts + ordersByProductInserts + ordersByPerson + ordersByCustomer;
@@ -343,12 +357,12 @@ function generateCassandraOrderTables() {
 function generateTags(tagCount = 100) {
     let tags = [];
 
-    const randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
+    let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
     // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
     // so we need to generate more tags to reach the required count
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
     randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.word.sample, tagCount - randomTags.length));
-    randomTags.length < tagCount && randomTags.push(...Array.from({ length: tagCount - randomTags.length }, () => faker.string.nanoid()));
+    randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, () => faker.string.nanoid())) : randomTags;
     
     randomTags.forEach((tag, index) => {
         tagObjects.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
@@ -387,7 +401,7 @@ function generatePosts(postCount, peopleCount) {
 }
 
 
-function generateCassandraTagsContacts() {
+function generateCassandraTagsContacts(cqlFileName = 'data.cql') {
     let tags = "";
     let contacts = "";
     
@@ -396,6 +410,7 @@ function generateCassandraTagsContacts() {
         const interestedPeopleSetString = Array.from(interestedPeople).map(id => id).join(", ");
         const postsTaggedSetString = Array.from(postsTagged).map(id => id).join(", ");
         tags += `INSERT INTO Tag (tagId, value, interestedPeople, postsTagged) VALUES (${tagId}, '${value}', { ${interestedPeopleSetString} }, { ${postsTaggedSetString} });\n`;
+        tags = checkStringLengthAndAppendToFile(tags, cqlFileName);
     }
 
     // Contact table
@@ -403,6 +418,7 @@ function generateCassandraTagsContacts() {
     for (const { vendorId, name, contacts: vendorContacts } of vendorObjects) {
         for (const { value: contactValue, type: { value: contactType } } of vendorContacts) {
             contacts += `INSERT INTO Contact (entityType, entityId, entityName, contactType, contactValue) VALUES ('Vendor', ${vendorId}, '${name}', '${capitalizeFirstLetter(contactType)}', '${contactValue}');\n`;
+            contacts = checkStringLengthAndAppendToFile(contacts, cqlFileName);
         }
     }
     // Order Contacts
@@ -411,6 +427,7 @@ function generateCassandraTagsContacts() {
         for (const { value: contactValue, type: { value: contactType } } of customerContacts) {
             const fullName = `${firstName} ${lastName}`;
             contacts += `INSERT INTO Contact (entityType, entityId, entityName, contactType, contactValue) VALUES ('Order', ${orderId}, '${fullName}', '${capitalizeFirstLetter(contactType)}', '${contactValue}');\n`;
+            contacts = checkStringLengthAndAppendToFile(contacts, cqlFileName);
         }
     }
 
@@ -441,9 +458,11 @@ function writeCassandraOrderVendorContacts(cqlFileName = 'data.cql') {
     fs.closeSync(dataFile);
 }
 
-function generateData(recordCount = 100, cqlFileName = 'data.cql') {
+function generateData(recordCount = 100, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     let relationalData = '';
     let cassandraData = 'USE ecommerce;\n\n';
+    fs.writeFileSync(sqlFileName, relationalData);
+    fs.writeFileSync(cqlFileName, cassandraData);
 
     const typeMapping = getTypeMapping();
 
@@ -453,7 +472,13 @@ function generateData(recordCount = 100, cqlFileName = 'data.cql') {
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
     relationalData += generateTags(tagCount = recordCount);
+
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
 
     const peopleCount = recordCount;
     const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
@@ -461,14 +486,20 @@ function generateData(recordCount = 100, cqlFileName = 'data.cql') {
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
     const maxOrdersPerCustomer = 3;
-    data = generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping);
+    data = generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping, sqlFileName, cqlFileName);
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
     relationalData += generatePosts(postCount = recordCount, peopleCount);
 
-    cassandraData += generateCassandraTagsContacts(typeMapping);
+    cassandraData += generateCassandraTagsContacts(cqlFileName);
 
     // Generating more than 1000 Vendor_Contacts_By_Order_Contact records causes data.cql to exceed 6GB 
     // in size and causes Cassandra to crash
@@ -484,7 +515,7 @@ function generateData(recordCount = 100, cqlFileName = 'data.cql') {
 }
 
 function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
-    fs.writeFile(sqlFileName, data.relationalData, (err) => {
+    fs.appendFile(sqlFileName, data.relationalData, (err) => {
         if (err) throw err;
         console.log(`Relational data written to ${sqlFileName}`);
     });
@@ -495,4 +526,4 @@ function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') 
     });
 }
 
-writeToFiles(generateData(256000));
+writeToFiles(generateData(256000, "data_256k.sql", "data_256k.cql"));
