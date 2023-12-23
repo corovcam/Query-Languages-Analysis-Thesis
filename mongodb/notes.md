@@ -57,3 +57,6 @@ Instance ▸ database ▸ collections ▸ documents
 
 - https://stackoverflow.com/questions/9362831/how-can-i-check-mongodb-query-performance-without-cache
     - query cache
+- cursor timeout
+    - db.adminCommand( { setParameter: 1, cursorTimeoutMillis: 300000 } )
+    - https://www.mongodb.com/docs/upcoming/reference/parameters/#mongodb-parameter-param.cursorTimeoutMillis

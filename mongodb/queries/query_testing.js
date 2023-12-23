@@ -10,6 +10,9 @@ function recordStats(queryName, iteration, time) {
   stats.push(['mongodb', recordVolume, queryName, iteration, time]);
 }
 
+// Set cursor (query) timeout to 5 minutes
+db.adminCommand( { setParameter: 1, cursorTimeoutMillis: 300000 } );
+
 // 1. Selection, Projection, Source (of data)
 
 // 1.1 Non-Indexed Attributes
