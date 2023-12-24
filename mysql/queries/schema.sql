@@ -1,3 +1,6 @@
+SET GLOBAL net_buffer_length=1000000;
+SET GLOBAL max_allowed_packet=1000000000; -- 1GB
+
 DROP TABLE IF EXISTS Person_Tags;
 DROP TABLE IF EXISTS Post_Tags;
 DROP TABLE IF EXISTS Tag;

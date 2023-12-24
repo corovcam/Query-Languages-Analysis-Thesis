@@ -4,7 +4,7 @@
 
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Bauch - Denesik";
+WHERE name = 'Bauch - Denesik';
 
 -- 1.2 Non-Indexed Columns - Range Query
 

@@ -3,16 +3,14 @@
 -- todo: 4000, 256000
 -- todo: Set limit for each query to 5 mins
 
-SET GLOBAL MAX_EXECUTION_TIME = 300000; -- 5 minutes
-
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns
 
--- Select vendor with the name "Bauch - Denesik"
+-- Select vendor with the name 'Bauch - Denesik'
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Bauch - Denesik";
+WHERE name = 'Bauch - Denesik';
 
 -- 1.2 Non-Indexed Columns - Range Query
 

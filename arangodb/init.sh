@@ -19,14 +19,12 @@ for file in "$data_dir"/nodes/*.json; do
         --file "$file" \
         --progress true \
         --overwrite true \
-        | tee -a logs/import_"$timestamp".log
+        2>&1 | tee -a logs/import_"$timestamp".log
 done
 
 for file in "$data_dir"/edges/*.json; do
     fullFilename=$(basename "$file")
-    echo "$fullFilename"
     filename=${fullFilename%.*}
-    echo "$filename"
     arangoimport \
         --server.endpoint tcp://127.0.0.1:8529 \
         --server.authentication false \
@@ -37,5 +35,5 @@ for file in "$data_dir"/edges/*.json; do
         --file "$file" \
         --progress true \
         --overwrite true \
-        | tee -a logs/import_"$timestamp".log
+        2>&1 | tee -a logs/import_"$timestamp".log
 done

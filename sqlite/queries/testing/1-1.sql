@@ -4,4 +4,4 @@
 
 SELECT vendorId, name
 FROM Vendor
-WHERE name = "Bauch - Denesik";
+WHERE name = 'Bauch - Denesik';

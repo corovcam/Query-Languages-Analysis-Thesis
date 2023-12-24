@@ -58,7 +58,7 @@ let orderObjects = [];
 let tagObjects = [];
 
 function getTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
-    const industryTypes = faker.helpers.uniqueArray(faker.commerce.department, industryCount);
+    const industryTypes = faker.helpers.uniqueArray(() => faker.commerce.department().replace(/'/g, "''"), industryCount);
     let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
     typeMapping.push(...industryTypes.map((type, index) => ({ typeId: index + 1 + contactTypes.length, typeFor: "industry", value: type })));
     return typeMapping;
@@ -360,9 +360,8 @@ function generateTags(tagCount = 100) {
     let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
     // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
     // so we need to generate more tags to reach the required count
-    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.company.buzzNoun, tagCount - randomTags.length));
-    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(faker.word.sample, tagCount - randomTags.length));
-    randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, () => faker.string.nanoid())) : randomTags;
+    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(() => faker.company.buzzNoun().replace(/'/g, "''"), tagCount - randomTags.length));
+    randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, faker.string.nanoid)) : randomTags;
     
     randomTags.forEach((tag, index) => {
         tagObjects.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
