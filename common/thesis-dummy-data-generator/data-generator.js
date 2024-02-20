@@ -379,7 +379,7 @@ function generatePosts(postCount, peopleCount) {
         const personId = faker.number.int({ min: 1, max: peopleCount });
         const creationDate = faker.date.recent().toISOString().slice(0, -1);
         const language = faker.helpers.arrayElement(['English', 'Spanish', 'French', 'German', 'Chinese']);
-        const postContent = faker.lorem.paragraphs({ min: 1, max: 5 });
+        const postContent = postCount < 128000 ? faker.lorem.paragraphs({ min: 1, max: 5 }) : "";
         const postLength = postContent.length;
         posts.push(`(${postId}, ${personId}, '${faker.image.url()}', '${creationDate}', '${faker.internet.ip()}', '${faker.internet.userAgent()}', '${language}', '${postContent}', ${postLength})`);
 
@@ -525,4 +525,6 @@ function writeToFiles(data, sqlFileName = 'data.sql', cqlFileName = 'data.cql') 
     });
 }
 
-writeToFiles(generateData(256000, "data_256k.sql", "data_256k.cql"));
+const sqlFileName = process.argv[2] || "data_128k.sql";
+const cqlFileName = process.argv[3] || "data_128k.cql";
+writeToFiles(generateData(128000, sqlFileName, cqlFileName), sqlFileName, cqlFileName);
