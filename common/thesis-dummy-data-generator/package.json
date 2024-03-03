@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Generate dummy data for database testing.",
   "types": "types.d.ts",
-  "main": "data-generator.js",
+  "main": "src/data-generator.js",
   "scripts": {
     "start": "node data-generator.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,13 @@
   "author": "Martin Čorovčák",
   "license": "MIT",
   "dependencies": {
-    "@faker-js/faker": "^8.3.1"
+    "@faker-js/faker": "^8.3.1",
+    "pino": "^8.19.0",
+    "pino-pretty": "^10.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
   }
 }

@@ -7,6 +7,7 @@ todo.md
 **/exports/**/*.json*
 # **/data/**/*.json*
 test.sql
+dist/
 node_modules/
 data_new/
 data_new.*
@@ -16,3 +17,4 @@ data_[0-9]*/
 neo4j/neo4j-etl-tool/neo4j-etl-cli*
 cassandra.yaml
 transformed/
+synopsis.md
