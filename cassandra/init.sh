@@ -3,8 +3,16 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_file="data_256k"
+data_file="data_1k"
 
-cqlsh -f ./queries/schema.cql |& tee logs/schema_"$timestamp".log
+log_file="logs/init_$timestamp.log"
 
-cqlsh -f ./queries/"$data_file".cql |& tee logs/data_"$timestamp".log
+echo "[$(date +"%Y-%m-%d %T")] Creating schema" |& tee -a "$log_file"
+cqlsh -f ./queries/schema.cql |& tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Finished creating schema" |& tee -a "$log_file"
+
+log_file="logs/data_$timestamp.log"
+
+echo "[$(date +"%Y-%m-%d %T")] Inserting data" |& tee -a "$log_file"
+cqlsh -f ./queries/"$data_file".cql |& tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Finished inserting data" |& tee -a "$log_file"
