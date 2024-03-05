@@ -7,6 +7,7 @@ todo.md
 **/exports/**/*.json*
 # **/data/**/*.json*
 test.sql
+dist/
 node_modules/
 data_new/
 data_new.*
@@ -18,3 +19,4 @@ cassandra.yaml
 transformed/
 data_slice2.sql
 cassandra.yaml
+synopsis.md
