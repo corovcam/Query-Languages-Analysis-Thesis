@@ -10,6 +10,7 @@ let time;
 
 // 1.1 Non-Indexed Selection
 
+console.log('Started testing query 1.1');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR v IN vendors
@@ -19,6 +20,7 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '1.1', i, time]);
 }
+console.log('Finished testing query 1.1');
 
 // 1.2 Non-Indexed Selection - Range Query
 
@@ -28,6 +30,7 @@ try {
   // index does not exist
 }
 
+console.log('Started testing query 1.2');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p IN persons
@@ -37,6 +40,7 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '1.2', i, time]);
 }
+console.log('Finished testing query 1.2');
 
 // 1.3 Indexed Columns
 
@@ -44,6 +48,7 @@ db.vendors.ensureIndex(
   { type: "persistent", name: "idx_vendors_vendorID", unique: true, fields: [ "vendorId" ] }
 );
 
+console.log('Started testing query 1.3');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR n IN vendors
@@ -53,6 +58,7 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '1.3', i, time]);
 }
+console.log('Finished testing query 1.3');
 
 // 1.4 Indexed Columns - Range Query
 
@@ -60,6 +66,7 @@ db.persons.ensureIndex(
   { type: "persistent", name: "idx_person_birthday", unique: false, fields: [ "birthday" ] }
 );
 
+console.log('Started testing query 1.4');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p IN persons
@@ -69,11 +76,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '1.4', i, time]);
 }
+console.log('Finished testing query 1.4');
 
 // 2. Aggregation
 
 // 2.1 COUNT
 
+console.log('Started testing query 2.1');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR pr IN products
@@ -83,9 +92,11 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '2.1', i, time]);
 }
+console.log('Finished testing query 2.1');
 
 // 2.2 MAX
 
+console.log('Started testing query 2.2');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR pr IN products
@@ -96,6 +107,7 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '2.2', i, time]);
 }
+console.log('Finished testing query 2.2');
 
 // 3. Join
 
@@ -107,6 +119,7 @@ for (let i = 0; i < iterations; i++) {
 
 // Match all Orders and Vendors sharing the same Contact Type
 // TODO: Rewrite to start iteration with i=1
+console.log('Started testing query 3.1');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR o IN orders
@@ -117,11 +130,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '3.1', i, time]);
 }
+console.log('Finished testing query 3.1');
 
 // 3.2 Indexed Node/Relationship keys
 
 // Match all Products contained in Orders
 
+console.log('Started testing query 3.2');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR o IN orders
@@ -131,11 +146,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '3.2', i, time]);
 }
+console.log('Finished testing query 3.2');
 
 // 3.3 Complex Join 1
 
 // Match all important information about Orders, Customers, People, Products and Vendors
 
+console.log('Started testing query 3.3');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR o IN orders
@@ -148,9 +165,11 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '3.3', i, time]);
 }
+console.log('Finished testing query 3.3');
 
 // 3.4 Complex Join 2 (having more than 1 friend)
 
+console.log('Started testing query 3.4');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p1 IN persons
@@ -162,11 +181,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '3.4', i, time]);
 }
+console.log('Finished testing query 3.4');
 
 // 4. Unlimited Traversal
 
 // 4.1 Find all direct and indirect relationships between people limited to 3 hops
 
+console.log('Started testing query 4.1');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p1 IN persons
@@ -176,9 +197,11 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '4.1', i, time]);
 }
+console.log('Finished testing query 4.1');
 
 // 4.2 Find the shortest path between two persons
 
+console.log('Started testing query 4.2');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p1 IN persons
@@ -191,11 +214,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '4.2', i, time]);
 }
+console.log('Finished testing query 4.2');
 
 // 5. Optional Traversal
 
 // Get a list of all people and their friend count (0 if they have no friends)
 
+console.log('Started testing query 5');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p1 IN persons
@@ -208,11 +233,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '5', i, time]);
 }
+console.log('Finished testing query 5');
 
 // 6. Union
 
 // Get a list of contacts (email and phone) for both vendors and customers
 
+console.log('Started testing query 6');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     LET vendorContacts = (
@@ -234,11 +261,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '6', i, time]);
 }
+console.log('Finished testing query 6');
 
 // 7. Intersection
 
 // Find common tags between posts AND persons
 
+console.log('Started testing query 7');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     LET postTags = (
@@ -258,11 +287,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '7', i, time]);
 }
+console.log('Finished testing query 7');
 
 // 8. Difference
 
 // Find people who have not made any orders
 
+console.log('Started testing query 8');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR p IN persons
@@ -276,11 +307,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '8', i, time]);
 }
+console.log('Finished testing query 8');
 
 // 9. Sorting
 
 // 9.1 Non-Indexed property
 
+console.log('Started testing query 9.1');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR pr IN products
@@ -290,11 +323,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '9.1', i, time]);
 }
+console.log('Finished testing query 9.1');
 
 // 9.2 Indexed property
 
 // _key is the default primary index for all collections
 
+console.log('Started testing query 9.2');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR pr IN products
@@ -304,11 +339,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '9.2', i, time]);
 }
+console.log('Finished testing query 9.2');
 
 // 10. Distinct
 
 // Find unique combinations of product brands and the countries of the vendors selling those products
 
+console.log('Started testing query 10');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR pr IN products
@@ -320,11 +357,13 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '10', i, time]);
 }
+console.log('Finished testing query 10');
 
 // 11. MapReduce (not supported in ArangoDB, simple aggregation instead)
 
 // Find the number of orders per customer
 
+console.log('Started testing query 11');
 for (let i = 0; i < iterations; i++) {
   time = db._query(aql`
     FOR c IN customers
@@ -335,6 +374,7 @@ for (let i = 0; i < iterations; i++) {
 
   stats.push(['arangodb', recordVolume, '11', i, time]);
 }
+console.log('Finished testing query 11');
 
 const csv = stats.map(row => row.join(',')).join('\n');
 

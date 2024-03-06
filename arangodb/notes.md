@@ -42,3 +42,13 @@
   - OFF by default
 - Request timeout: 1200s by default (20min)
   - https://docs.arangodb.com/3.11/components/tools/arangodb-shell/options/#--serverrequest-timeout
+
+
+## Import statistics
+
+Entity count | types | orders | customers | contactType | containsProducts | createdBy | hasInterest | hasTag | industryType | isPerson | knows | knows | manufacturedBy | orderedBy
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+4k | 13 | 4097 | 2071 | 20873 | 16986 | 4999 | 24978 | 24719 | 7100 | 2071 | 25249 | 12694 | 5645
+
+4k:
+  - DB Volume: 289 MB
