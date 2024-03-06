@@ -7,8 +7,9 @@
     // "strict": true,
     "allowJs": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    // "moduleResolution": "node",
+    // "sourceMap": true,
   },
   "include": [
     "src/**/*.ts"
