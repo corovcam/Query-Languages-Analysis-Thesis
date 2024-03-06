@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { faker } = require('@faker-js/faker');
 
-const { logger } = require('./utils');
+const { createLogger } = require('./utils');
 
 // Using same seed and ref date for all faker functions to ensure consistency and reproducibility
 faker.seed(123);
@@ -34,6 +34,7 @@ const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products
 
 // GLOBALS
 
+let logger;
 let OUTPUT_DIR;
 
 // Utility functions
@@ -604,7 +605,10 @@ function main() {
     if (isDataDirSet) {
         const recordCount = parseInt(process.argv[2]);
 
-        OUTPUT_DIR = `data_${recordCount}_${new Date().toISOString().replace(/:/g, "-")}`;
+        const currentDateTime = new Date();
+        logger = createLogger(currentDateTime);
+        OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
+
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });
         const sqlFileName = OUTPUT_DIR + "/data.sql";
         const cqlFileName = OUTPUT_DIR + "/data.cql";

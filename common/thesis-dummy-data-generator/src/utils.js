@@ -1,13 +1,13 @@
 const pino = require('pino');
 
-const logger = pino({
+const createLogger = (startDateTime) => pino({
     level: process.env.PINO_LOG_LEVEL || 'debug',
     timestamp: pino.stdTimeFunctions.isoTime,
     transport: {
         targets: [
             {
                 target: 'pino/file',
-                options: { destination: Date.now() + ".log", mkdir: true }
+                options: { destination: `logs/${startDateTime.toISOString().replace(/:/g, "-")}.log`, mkdir: true }
             },
             {
                 target: 'pino-pretty',
@@ -26,4 +26,4 @@ const logger = pino({
 // };
 // export const logger = console;
 
-module.exports = { logger }
+module.exports = { createLogger }
