@@ -1,0 +1,15 @@
+{
+  "name": "arangodb-json-transform",
+  "version": "1.0.0",
+  "description": "Transform Cypher JSON dumps into suitable ArangoDB import format.",
+  "main": "transform-json.js",
+  "scripts": {
+    "start": "node --max-old-space-size=16384 transform-json.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin Čorovčák",
+  "license": "MIT",
+  "dependencies": {
+    "big-json": "^3.2.0"
+  }
+}
