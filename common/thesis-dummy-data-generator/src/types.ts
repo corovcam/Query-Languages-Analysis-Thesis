@@ -1,6 +1,7 @@
-interface Type {
+export interface Type {
   typeFor: "contact" | "industry",
   typeId: number,
+  value?: string,
 }
 
 export interface ContactType extends Type {
@@ -35,10 +36,10 @@ export interface Person {
   postalCode: string,
   country: string,
   // Cassandra additional attributes
-  customerId: number?,
-  friends: Set<number>?,
-  tags: Set<number>?,
-  ordersCreated: Set<number>?,
+  customerId?: number,
+  friends?: Set<number>,
+  tags?: Set<number>,
+  ordersCreated?: Set<number>,
 }
 
 export interface Customer {
@@ -54,22 +55,22 @@ export interface Product {
   brand: string,
   imageUrl: string,
   // Cassandra additional attributes
-  vendor: Vendor?,
-  quantity: number?,
+  vendor?: Vendor,
+  quantity?: number,
 }
 
 export interface Order {
   orderId: number,
   customer: Customer,
   // Cassandra additional attributes
-  contacts: Contact[]?,
-  products: Product[]?,
+  contacts?: Contact[],
+  products?: Product[],
 }
 
 export interface Tag {
   tagId: number,
   value: string,
   // Cassandra additional attributes
-  interestedPeople: Set<number>?,
-  postsTagged: Set<number>?,
+  interestedPeople?: Set<number>,
+  postsTagged?: Set<number>,
 }

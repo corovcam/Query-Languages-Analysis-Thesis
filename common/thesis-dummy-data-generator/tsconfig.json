@@ -8,6 +8,8 @@
     "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "declarationMap": true,
+    "declaration": true,
     // "moduleResolution": "node",
     // "sourceMap": true,
   },

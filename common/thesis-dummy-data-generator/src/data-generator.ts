@@ -1,7 +1,9 @@
-const fs = require('fs');
-const { faker } = require('@faker-js/faker');
+import fs from 'fs';
+import { faker } from '@faker-js/faker';
+import { createLogger } from './utils';
 
-const { createLogger } = require('./utils');
+import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
+import { BaseLogger } from 'pino';
 
 // Using same seed and ref date for all faker functions to ensure consistency and reproducibility
 faker.seed(123);
@@ -34,16 +36,16 @@ const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products
 
 // GLOBALS
 
-let logger;
-let OUTPUT_DIR;
+let logger: Console | BaseLogger;
+let OUTPUT_DIR: string;
 
 // Utility functions
 
-function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function chooseContactValue(type) {
+function chooseContactValue(type: ContactType["value"] | string) {
     switch (type.toLowerCase()) {
         case "email":
             return faker.internet.email();
@@ -56,7 +58,7 @@ function chooseContactValue(type) {
     }
 }
 
-function checkStringLengthAndAppendToFile(data, filePath) {
+function checkStringLengthAndAppendToFile(data: string, filePath: string) {
     if (data.length >= STRING_MAX_ALLOWED_LENGTH) {
         fs.appendFileSync(filePath, data);
         return '';
@@ -64,44 +66,29 @@ function checkStringLengthAndAppendToFile(data, filePath) {
     return data;
 }
 
-function dumpRelationalObjectArrayToOutputFile(insertStatementPrefix, objects, objectToInsertMapping, fileNameWithoutExt) {
+function dumpRelationalObjectArrayToOutputFile(insertStatementPrefix: string, objects: object[], objectToInsertMapping: (o: object) => string, fileNameWithoutExt: string) {
     const data = objects.map(object => objectToInsertMapping(object)).join(", \n");
     fs.appendFileSync(`${OUTPUT_DIR}/${fileNameWithoutExt}.sql`, `${insertStatementPrefix} ${data};\n`);
 }
 
-function dumpCassandraObjectArrayToOutputFile(objects, objectToInsertMapping, fileNameWithoutExt) {
+function dumpCassandraObjectArrayToOutputFile(objects: object[], objectToInsertMapping: (o: object) => string, fileNameWithoutExt: string) {
     const data = objects.map(object => objectToInsertMapping(object)).join("");
     fs.appendFileSync(`${OUTPUT_DIR}/${fileNameWithoutExt}.cql`, data);
 }
 
 // SQLite, MySQL, Cassandra dummy data generator
 
-/**
- * @typedef {import("../types").Vendor} Vendor
- * @typedef {import("../types").Product} Product
- * @typedef {import("../types").Person} Person
- * @typedef {import("../types").Order} Order
- * @typedef {import("../types").Tag} Tag
- * @typedef {import("../types").Type} Type
- */
-
-// Global entity objects
-/** @type {Vendor[]} */
-let VENDOR_OBJECTS = [];
-/** @type {Product[]} */
-let PRODUCT_OBJECTS = [];
-/** @type {Person[]} */
-let PEOPLE_OBJECTS = [];
-/** @type {Order[]} */
-let ORDER_OBJECTS = [];
-/** @type {Tag[]} */
-let TAG_OBJECTS = [];
+let VENDOR_OBJECTS: Vendor[] = [];
+let PRODUCT_OBJECTS: Product[] = [];
+let PEOPLE_OBJECTS: Person[] = [];
+let ORDER_OBJECTS: Order[] = [];
+let TAG_OBJECTS: Tag[] = [];
 
 function getTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
     const industryTypes = faker.helpers.uniqueArray(() => faker.commerce.department().replace(/'/g, "''"), industryCount);
     let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
     typeMapping.push(...industryTypes.map((type, index) => ({ typeId: index + 1 + contactTypes.length, typeFor: "industry", value: type })));
-    return typeMapping;
+    return typeMapping as Type[];
 }
 
 function generateTypes(typeMapping) {
@@ -196,7 +183,7 @@ function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMap
 
         // Assign Industries to Vendor
         vendorIndustries.push(
-            ...faker.helpers.arrayElements(industryTypes, { max: 3 })
+            ...faker.helpers.arrayElements(industryTypes, { min: 1, max: 3 })
                 .map(type => `(${vendorId}, ${type.typeId})`)
         );
 
@@ -303,7 +290,7 @@ function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
     return { relationalData, cassandraData };
 }
 
-function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, typeMapping, sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
+function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[], sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
 
     let orders = [];
@@ -311,7 +298,7 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
     let orderProducts = [];
 
     // TODO: Handle random product assignment ?
-    const filteredContactTypes = typeMapping.filter(type => type.typeFor === "contact");
+    const filteredContactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
 
     let orderId = 1;
     for (let i = 0; i < customerCount; i++) {
@@ -324,6 +311,7 @@ function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount, t
             // ORDER_OBJECTS.push({ orderId, customer: { customerId }, contacts: [], products: [] });
 
             // Assign Contacts to Order
+            // @ts-ignore
             const chosenContactTypes = faker.helpers.arrayElements(filteredContactTypes, { min: 1 });
             chosenContactTypes.forEach(type => {
                 const chosenContactValue = chooseContactValue(type.value);
@@ -372,7 +360,8 @@ function generateCassandraOrderTables(cqlFileName) {
 
         // Orders_By_Person : ordersCreated set
         p.ordersCreated.delete(-1);
-        p.ordersCreated.add(...products.map(p => p.productId));
+        // @ts-ignore
+        p.ordersCreated.add(...products.map(p => p.productId) as const);
 
         // "Order" and "Orders_By_Product" Cassandra tables
         for (const { productId, quantity } of products) {
@@ -539,39 +528,41 @@ function generateData(recordCount = 100, sqlFileName = 'data.sql', cqlFileName =
 
     const typeMapping = getTypeMapping();
 
-    // relationalData += generateTypes(typeMapping);
+    relationalData += generateTypes(typeMapping);
 
     let data;
-    // data = generateVendorsProducts(vendorCount = recordCount, productCount = recordCount, typeMapping);
-    // relationalData += data.relationalData;
-    // cassandraData += data.cassandraData;
-
-    // relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
-    // cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
-
-    // relationalData += generateTags(tagCount = recordCount);
-
-    // relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
-    // cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
-
-    const peopleCount = recordCount;
-    const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
-    // data = generatePeople(peopleCount, customerCount, tagCount = recordCount);
-    // relationalData += data.relationalData;
-    // cassandraData += data.cassandraData;
-
-    // relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
-    // cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
-
-    const maxOrdersPerCustomer = 3;
-    data = generateOrders(customerCount, maxOrdersPerCustomer, productCount = recordCount, typeMapping, sqlFileName, cqlFileName);
+    data = generateVendorsProducts(recordCount, recordCount, typeMapping);
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
     relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
     cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
 
-    relationalData += generatePosts(postCount = recordCount, peopleCount);
+    relationalData += generateTags(recordCount);
+
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
+    const peopleCount = recordCount;
+    const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
+    data = generatePeople(peopleCount, customerCount, recordCount);
+    relationalData += data.relationalData;
+    cassandraData += data.cassandraData;
+
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
+    const maxOrdersPerCustomer = 3;
+    const productCount = recordCount;
+    data = generateOrders(customerCount, maxOrdersPerCustomer, productCount, typeMapping, sqlFileName, cqlFileName);
+    relationalData += data.relationalData;
+    cassandraData += data.cassandraData;
+
+    relationalData = checkStringLengthAndAppendToFile(relationalData, sqlFileName);
+    cassandraData = checkStringLengthAndAppendToFile(cassandraData, cqlFileName);
+
+    const postCount = recordCount;
+    relationalData += generatePosts(postCount, peopleCount);
 
     // cassandraData += generateCassandraTagsContacts(cqlFileName);
 

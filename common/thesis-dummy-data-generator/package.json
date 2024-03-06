@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Generate dummy data for database testing.",
   "types": "types.d.ts",
-  "main": "src/data-generator.js",
+  "main": "dist/data-generator.js",
   "scripts": {
-    "start": "node data-generator.js",
+    "start": "tsc && node dist/data-generator.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Martin Čorovčák",
