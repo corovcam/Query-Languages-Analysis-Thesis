@@ -1,11 +1,13 @@
 #!/bin/bash
 
+set -euo pipefail
+
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="../logs/neo4j-etl-tool_$timestamp.log"
 
-# Requires JAVA_HOME to be set to a JDK 8 installation or higher
-echo "Started at $(date +"%Y-%m-%d %T")" | tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
 
+# Requires JAVA_HOME to be set to a JDK 8 installation or higher
 ./neo4j-etl-cli-1.6.0/bin/neo4j-etl export \
   --mapping-file mysql_ecommerce_mapping.json \
   --rdbms:password test \
@@ -17,6 +19,6 @@ echo "Started at $(date +"%Y-%m-%d %T")" | tee -a "$log_file"
   --tx-batch-size 10000 \
   --neo4j:url neo4j://localhost:7687 \
   --neo4j:user neo4j \
-  --neo4j:password neo4j | tee -a "$log_file"
+  --neo4j:password neo4j |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool failed" |& tee -a "$log_file"
 
-echo "Finished at $(date +"%Y-%m-%d %T")" | tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool finished" |& tee -a "$log_file"

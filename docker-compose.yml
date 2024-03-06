@@ -38,8 +38,8 @@ services:
       NEO4J_server_db_query__cache__size: 0 # Disable query cache to not cache queries - DEPRECATED
       NEO4j_server_memory_query__cache_per__db__cache__num__entries: 0 # Disable query cache to not cache queries
       # https://neo4j.com/developer/kb/understanding-transaction-and-lock-timeouts/
-      # NEO4J_db_transaction_timeout: 5m # Set query timeout to 5 minutes
-      # NEO4J_db_lock_acquisition_timeout: 5m # Set query timeout to 5 minutes
+      NEO4J_db_transaction_timeout: 5m # Set query timeout to 5 minutes
+      NEO4J_db_lock_acquisition_timeout: 5m # Set query timeout to 5 minutes
     volumes:
       - neo4j_data:/data
       - ./neo4j:/neo4j
