@@ -1,34 +1,26 @@
-const fs = require('fs');
-const { streamFilesInDirectory } = require('./streamer');
+import { streamFilesInDirectory } from './streamer.js';
 
-const processJSONChunkOfNodes = async (fileName, chunks) => {
-  console.log(`[${new Date().toISOString()}]\tTransforming ${chunks.length} of ${fileName} nodes to ArangoDB format.`);
-  const transformed = [];
-  for (const chunk of chunks) {
-    const node = Object.values(JSON.parse(chunk))[0];
+async function* processJSONChunkOfNodes(stream) {
+  for await (const nodeObj of stream) {
+    const node = Object.values(nodeObj)[0];
     const newDoc = { _key: node.id.toString(), ...node?.properties };
-    transformed.push(JSON.stringify(newDoc));
+    yield JSON.stringify(newDoc) + '\n';
   }
-  fs.appendFileSync(`./exports/transformed/nodes/${fileName}`, transformed.join('\n') + '\n');
-  console.log(`[${new Date().toISOString()}]\tFinished transforming ${chunks.length} of ${fileName} nodes to ArangoDB format.`);
 }
 
-const processJSONChunkOfEdges = async (fileName, chunks) => {
-  console.log(`[${new Date().toISOString()}]\tTransforming ${chunks.length} of ${fileName} edges to ArangoDB format.`);
-  const transformed = [];
-  for (const chunk of chunks) {
-    const rel = Object.values(JSON.parse(chunk))[0];
+async function* processJSONChunkOfEdges(stream) {
+  for await (const edgeObj of stream) {
+    const rel = Object.values(edgeObj)[0];
     const newDoc = {
       _from: `${rel.start.labels[0].toLowerCase()}s/${rel.start.id}`,
       _to: `${rel.end.labels[0].toLowerCase()}s/${rel.end.id}`,
       rel: {...rel?.properties}
     };
-    transformed.push(JSON.stringify(newDoc));
+    yield JSON.stringify(newDoc) + '\n';
   }
-  fs.appendFileSync(`./exports/transformed/edges/${fileName}`, transformed.join('\n') + '\n');
-  console.log(`[${new Date().toISOString()}]\tFinished transforming ${chunks.length} of ${fileName} edges to ArangoDB format.`);
 }
 
-streamFilesInDirectory('./exports/nodes/', processJSONChunkOfNodes, (err) => { throw err; });
-
-streamFilesInDirectory('./exports/edges/', processJSONChunkOfEdges, (err) => { throw err; });
+const currentTime = new Date().toISOString().replace(/:/g, '-');
+const onError = (err) => { console.error(err); };
+streamFilesInDirectory('./exports/nodes/', `./exports/transformed_${currentTime}/nodes/`, processJSONChunkOfNodes, onError);
+streamFilesInDirectory('./exports/edges/', `./exports/transformed_${currentTime}/edges/`, processJSONChunkOfEdges, onError);
