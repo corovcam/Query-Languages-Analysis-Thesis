@@ -52,3 +52,7 @@ Entity count | types | orders | customers | contactType | containsProducts | cre
 
 4k:
   - DB Volume: 289 MB
+256k:
+  - 
+  - 3.1. query - fails with 5min timeout, but also uses 30GB of RAM (could fail due to memory if timeout increased)
+  - 4.1. query - fails with 5min timeout

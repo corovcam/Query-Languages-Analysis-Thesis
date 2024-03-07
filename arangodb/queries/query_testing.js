@@ -2,7 +2,7 @@ const { db, aql } = require("@arangodb");
 const fs = require("fs");
 
 const iterations = 20;
-const recordVolume = 4000;
+const recordVolume = 256000;
 const stats = [['db', 'record_volume', 'query', 'iteration', 'time_in_seconds']];
 let time;
 

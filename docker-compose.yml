@@ -56,6 +56,7 @@ services:
       - arangodb_data:/var/lib/arangodb3
       - arangodb_apps_data:/var/lib/arangodb3-apps
       - ./arangodb:/arangodb
+      - ./arangodb/data/arangod.conf:/etc/arangodb3/arangod.conf
     restart: always
     working_dir: /arangodb
   cassandra:
