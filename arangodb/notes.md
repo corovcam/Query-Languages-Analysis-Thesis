@@ -55,4 +55,4 @@ Entity count | types | orders | customers | contactType | containsProducts | cre
 256k:
   - 
   - 3.1. query - fails with 5min timeout, but also uses 30GB of RAM (could fail due to memory if timeout increased)
-  - 4.1. query - fails with 5min timeout
+  - 4.1. query - fails with 5min timeout, but also uses 30GB of RAM (could fail due to memory if timeout increased)
