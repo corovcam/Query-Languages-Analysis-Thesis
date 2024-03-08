@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { faker } from '@faker-js/faker';
 import { createLogger } from './utils';
+import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
 
 import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
 import { BaseLogger } from 'pino';
@@ -8,31 +9,6 @@ import { BaseLogger } from 'pino';
 // Using same seed and ref date for all faker functions to ensure consistency and reproducibility
 faker.seed(123);
 faker.setDefaultRefDate('2000-01-01T00:00:00.000Z');
-
-// Constants
-const STRING_MAX_ALLOWED_LENGTH = 65535;  // 64KB
-const ARRAY_MAX_ALLOWED_LENGTH = 65535;  // 65535 elements
-const fileNames = { // File names for the generated data
-    // Entities
-    vendors: 'vendors',
-    products: 'products',
-    people: 'people',
-    orders: 'orders',
-    tags: 'tags',
-    types: 'types',
-    // Relationships
-    vendorProducts: 'vendor_products',
-    industries: 'industries',
-    vendorContacts: 'vendor_contacts',
-    customer: 'customer',
-    personPerson: 'person_person',
-    personTags: 'person_tags',
-    orderContacts: 'order_contacts',
-    orderProducts: 'order_products',
-    post: 'post',
-    postTags: 'post_tags'
-};
-const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products
 
 // GLOBALS
 
@@ -100,6 +76,30 @@ function generateTypes(typeMapping) {
     });
     return `INSERT INTO Type (typeId, value) VALUES ${types.join(", \n")};\n`;
 }
+
+
+// async function* generateProductsForVendor(vendor: Vendor, productCount: number, typeMapping: Type[]) {
+//     for (let i = 0; i < productCount; i++) {
+//         const productId = i + 1;
+//         const asin = faker.string.nanoid(10).toUpperCase();
+//         const title = faker.commerce.productName().replace(/'/g, "''");
+//         const price = faker.commerce.price();
+//         const brand = faker.helpers.weightedArrayElement([
+//             { weight: 0.8, value: vendor.name },
+//             { weight: 0.2, value: capitalizeFirstLetter(faker.lorem.word()) }
+//         ]);
+//         const imageUrl = faker.image.url();
+
+//         // const product = {
+//         //     productId, asin, title, price, brand, imageUrl,
+//         //     vendor: {
+//         //         vendorId: vendor.vendorId, name: vendor.name, country: vendor.country
+//         //     }
+//         // };
+//         // PRODUCT_OBJECTS.push(product);
+//         yield product;
+//     }
+// }
 
 function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
     logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);

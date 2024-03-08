@@ -22,7 +22,7 @@ export interface Vendor {
   vendorId: number,
   name: string,
   country: string,
-  contacts: Contact[],
+  contacts?: Contact[],
 }
 
 export interface Person {
@@ -51,7 +51,7 @@ export interface Product {
   productId: number,
   asin: string,
   title: string,
-  price: number,
+  price: number | string,
   brand: string,
   imageUrl: string,
   // Cassandra additional attributes
