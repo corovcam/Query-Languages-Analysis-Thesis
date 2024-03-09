@@ -1,21 +1,38 @@
 import fs from 'fs';
-import os from 'os';
-import { BaseLogger } from 'pino';
-import { DataStream  } from 'scramjet';
-
-import { generateVendorsProducts, generateProductsForVendor, getTypeMapping, chooseContactValue } from './generators';
-import { mapToSQLDump } from './transformers';
-import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
+import { faker } from '@faker-js/faker';
+import { createLogger } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
+
 import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
+import { BaseLogger } from 'pino';
+
+// Using same seed and ref date for all faker functions to ensure consistency and reproducibility
+faker.seed(123);
+faker.setDefaultRefDate('2000-01-01T00:00:00.000Z');
 
 // GLOBALS
 
-const faker = CustomFaker.faker;
-const logger = CustomLogger;
+let logger: Console | BaseLogger;
 let OUTPUT_DIR: string;
 
 // Utility functions
+
+function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function chooseContactValue(type: ContactType["value"] | string) {
+    switch (type.toLowerCase()) {
+        case "email":
+            return faker.internet.email();
+        case "phone":
+            return faker.phone.number();
+        case "address":
+            return `${faker.location.streetAddress({ useFullAddress: true }).replace(/'/g, "''")}, ${faker.location.city().replace(/'/g, "''")}, ${faker.location.country().replace(/'/g, "''")}`;
+        default:
+            return null;
+    }
+}
 
 function checkStringLengthAndAppendToFile(data: string, filePath: string) {
     if (data.length >= STRING_MAX_ALLOWED_LENGTH) {
@@ -43,6 +60,13 @@ let PEOPLE_OBJECTS: Person[] = [];
 let ORDER_OBJECTS: Order[] = [];
 let TAG_OBJECTS: Tag[] = [];
 
+function getTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
+    const industryTypes = faker.helpers.uniqueArray(() => faker.commerce.department().replace(/'/g, "''"), industryCount);
+    let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
+    typeMapping.push(...industryTypes.map((type, index) => ({ typeId: index + 1 + contactTypes.length, typeFor: "industry", value: type })));
+    return typeMapping as Type[];
+}
+
 function generateTypes(typeMapping) {
     logger.info(`Generating types for ${typeMapping.length} types`);
 
@@ -51,6 +75,120 @@ function generateTypes(typeMapping) {
         types.push(`(${type.typeId}, '${type.value}')`);
     });
     return `INSERT INTO Type (typeId, value) VALUES ${types.join(", \n")};\n`;
+}
+
+function generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
+    logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
+
+    let vendors = [];
+    let products = [];
+    let vendorProducts = [];
+    let vendorIndustries = [];
+    let vendorContacts = [];
+
+    let brandVendorsByProductId = {};
+    let countriesByBrand = {};
+
+    const industryTypes = typeMapping.filter(type => type.typeFor === "industry")
+    let productsAssigned = 0;
+    for (let i = 0; i < vendorCount; i++) {
+        const vendorId = i + 1;
+        const vendorName = faker.company.name().replace(/'/g, "''");
+        const vendorCountry = faker.location.country().replace(/'/g, "''");
+
+        // VENDOR_OBJECTS.push({ vendorId, name: vendorName, country: vendorCountry, contacts: [] });
+        vendors.push(`(${vendorId}, '${vendorName}', '${vendorCountry}')`);
+
+        // Assign Products to Vendor
+        let productsPerVendor = faker.number.int({ max: MAX_VENDOR_PRODUCTS });
+        const productsAssignable = productCount - productsAssigned;
+        if (productsPerVendor > productsAssignable) {
+            productsPerVendor = productsAssignable;
+        }
+        for (let j = productsAssigned; j < productsAssigned + productsPerVendor; j++) {
+            const productId = j + 1;
+            const asin = faker.string.nanoid(10).toUpperCase();
+            const title = faker.commerce.productName().replace(/'/g, "''");
+            const price = faker.commerce.price();
+            const brand = faker.helpers.weightedArrayElement([
+                { weight: 0.8, value: vendorName },
+                { weight: 0.2, value: capitalizeFirstLetter(faker.lorem.word()) }
+            ]);
+            const imageUrl = faker.image.url();
+
+            products.push(`(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}')`);
+            vendorProducts.push(`(${vendorId}, ${productId})`);
+
+            // PRODUCT_OBJECTS.push({
+            //     productId, asin, title, price, brand, imageUrl, vendor: {
+            //         vendorId, name: vendorName, country: vendorCountry
+            //     }
+            // });
+
+            // Assign Country to Brand
+            if (!countriesByBrand.hasOwnProperty(brand)) {
+                countriesByBrand[brand] = new Set();
+            }
+            countriesByBrand[brand].add(vendorCountry);
+
+            brandVendorsByProductId[productId] = { brand, vendorCountry };
+        }
+
+        // // TODO: Fix for Cassandra
+        // // With probability of 0.7 assign some previous Products to Vendor
+        // productsAssigned !== 0 && faker.helpers.maybe(() => {
+        //     const maxProductsToAssign = 5;
+        //     // TODO: Find more efficient way to do this
+        //     let productIds = Array.from({ length: productsAssigned - 1 }, (value, index) => index + 1);
+        //     let productCountPerVendor = faker.number.int({ min: 0, max: maxProductsToAssign < productsAssigned ? maxProductsToAssign : productsAssigned - 1 });
+        //     for (let j = 0; j < productCountPerVendor; j++) {
+        //         const randomIndex = faker.number.int({ min: 0, max: productIds.length - 1 });
+        //         const chosenProductId = productIds[randomIndex];
+
+        //         // TODO: productObjects is not updated with the new vendor ???!!!
+        //         vendorProducts.push(`(${vendorId}, ${chosenProductId})`);
+        //         const brandCountry = brandVendorsByProductId[chosenProductId];
+        //         countriesByBrand[brandCountry.brand].add(brandCountry.vendorCountry);
+
+        //         productIds.splice(randomIndex, 1);
+        //     }
+        // }, { probability: 0.7 });
+
+        // Update productsAssigned count
+        productsAssigned += productsPerVendor;
+
+        // Assign Industries to Vendor
+        vendorIndustries.push(
+            ...faker.helpers.arrayElements(industryTypes, { min: 1, max: 3 })
+                .map(type => `(${vendorId}, ${type.typeId})`)
+        );
+
+        // Assign Contacts to Vendor
+        const chosenContactTypes = faker.helpers.arrayElements(typeMapping.filter(type => type.typeFor === "contact"));
+        chosenContactTypes.forEach(type => {
+            const chosenContactValue = chooseContactValue(type.value);
+            // VENDOR_OBJECTS[vendorId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } });
+            vendorContacts.push(`(${vendorId}, ${type.typeId}, '${chosenContactValue}')`);
+        });
+    }
+
+    const relationalData = `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendors.join(", \n")};\n` +
+        `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${products.join(", \n")};\n` +
+        `INSERT INTO Vendor_Products (vendorId, productId) VALUES ${vendorProducts.join(", \n")};\n` +
+        `INSERT INTO Industry (vendorId, typeId) VALUES ${vendorIndustries.join(", \n")};\n` +
+        `INSERT INTO Vendor_Contacts (vendorId, typeId, value) VALUES ${vendorContacts.join(", \n")};\n`;
+
+    const cassandraData = "";
+    // const cassandraData = vendors.map(vendor => `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendor};\n`).join("") +
+    //     products.map(product => `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+    //     products.map(product => `INSERT INTO Products_By_Brand (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+    //     // TODO: MUST BE FIXED to reflect the relational db outputs
+    //     Object.keys(countriesByBrand).map(brand =>
+    //         Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
+    //     ).join("");
+
+    logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
+    return { relationalData, cassandraData };
 }
 
 function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
@@ -435,8 +573,7 @@ function main() {
         const recordCount = parseInt(process.argv[2]);
 
         const currentDateTime = new Date();
-        CustomLogger.initialize(currentDateTime);
-        CustomFaker.initialize();
+        logger = createLogger(currentDateTime);
         OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
 
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -444,29 +581,8 @@ function main() {
         const cqlFileName = OUTPUT_DIR + "/data.cql";
 
         logger.info(`Started generating data for ${recordCount} records`);
-        // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
-        DataStream
-            .from(() => generateVendorsProducts(recordCount, recordCount, getTypeMapping()))
-            .copy(stream => {
-                stream
-                    .map(({ vendorId, name, country }) => mapToSQLDump(
-                        [vendorId, name, country], 'Vendor', ['vendorId', 'name', 'country']
-                    ))
-                    .pipe(fs.createWriteStream(`${OUTPUT_DIR}/${fileNames.vendors}.sql`));
-            })
-            // .distribute(
-            //     (vendor: Vendor) => vendor.vendorId % os.cpus().length,
-            //     (stream: DataStream) => stream.map((vendor: Vendor) => [...generateProductsForVendor(vendor, recordCount)])
-            // )
-            .map((vendor: Vendor) => [...generateProductsForVendor(vendor, recordCount)])
-            .flatten()
-            .map(({ productId, asin, title, price, brand, imageUrl }) => 
-                mapToSQLDump([productId, asin, title, price, brand, imageUrl], 
-                    'Product', ['productId', 'asin', 'title', 'price', 'brand', 'imageUrl']
-            ))
-            .pipe(fs.createWriteStream(`${OUTPUT_DIR}/${fileNames.products}.sql`))
-            .on('end', () => logger.info(`Finished generating data for ${recordCount} records`));
-        // logger.info(`Finished generating data for ${recordCount} records`);
+        writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
+        logger.info(`Finished generating data for ${recordCount} records`);
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);

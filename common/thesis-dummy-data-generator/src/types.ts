@@ -15,14 +15,18 @@ export interface IndustryType extends Type {
 export interface Contact {
   typeId: number,
   value: string,
-  type: ContactType,
+  type: { value: ContactType["value"] },
 }
 
 export interface Vendor {
   vendorId: number,
   name: string,
   country: string,
+  // Cassandra additional attributes
   contacts?: Contact[],
+  // For future denormalization
+  industries?: IndustryType[],
+  products?: Product[],
 }
 
 export interface Person {
