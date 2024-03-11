@@ -1,5 +1,5 @@
 export const STRING_MAX_ALLOWED_LENGTH = 65535;  // 64KB
-export const ARRAY_MAX_ALLOWED_LENGTH = 65535;  // 65535 elements
+export const ARRAY_MAX_ALLOWED_LENGTH = 1024;  // 1024 elements
 export const fileNames = { // File names for the generated data
     // Entities
     vendors: 'vendors',

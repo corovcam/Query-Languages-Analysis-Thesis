@@ -24,7 +24,7 @@ export function chooseContactValue(type: ContactType["value"] | string): string 
   }
 }
 
-export async function* generateVendorsProducts(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
+export async function* generateVendors(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
   logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
 
   const industryTypes = typeMapping.filter(type => type.typeFor === "industry") as IndustryType[];

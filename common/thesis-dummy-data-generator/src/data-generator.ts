@@ -1,10 +1,9 @@
 import fs from 'fs';
-import os from 'os';
-import { BaseLogger } from 'pino';
-import { DataStream  } from 'scramjet';
+import { DataStream } from 'scramjet';
 
-import { generateVendorsProducts, generateProductsForVendor, getTypeMapping, chooseContactValue } from './generators';
+import { generateVendors, generateProductsForVendor, getTypeMapping, chooseContactValue } from './generators';
 import { mapToSQLDump } from './transformers';
+import { mapAndDumpStream } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
 import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
@@ -369,7 +368,7 @@ function generateData(recordCount = 100, sqlFileName = 'data.sql', cqlFileName =
     relationalData += generateTypes(typeMapping);
 
     let data;
-    data = generateVendorsProducts(recordCount, recordCount, typeMapping);
+    data = generateVendors(recordCount, recordCount, typeMapping);
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
@@ -437,36 +436,42 @@ function main() {
         const currentDateTime = new Date();
         CustomLogger.initialize(currentDateTime);
         CustomFaker.initialize();
+        
         OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
 
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });
         const sqlFileName = OUTPUT_DIR + "/data.sql";
         const cqlFileName = OUTPUT_DIR + "/data.cql";
 
+        // plugin(require('./plugins'));
+
         logger.info(`Started generating data for ${recordCount} records`);
         // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
-        DataStream
-            .from(() => generateVendorsProducts(recordCount, recordCount, getTypeMapping()))
+        const vendorProductStream = DataStream
+            .from(() => generateVendors(recordCount, recordCount, getTypeMapping()))
             .copy(stream => {
-                stream
-                    .map(({ vendorId, name, country }) => mapToSQLDump(
-                        [vendorId, name, country], 'Vendor', ['vendorId', 'name', 'country']
-                    ))
-                    .pipe(fs.createWriteStream(`${OUTPUT_DIR}/${fileNames.vendors}.sql`));
+                logger.info("Vendor write stream");
+                mapAndDumpStream(
+                    stream,
+                    ({ vendorId, name, country }) => mapToSQLDump([vendorId, name, country]), 
+                    fileNames.vendors, 
+                    recordCount, 
+                    `${OUTPUT_DIR}/${fileNames.vendors}.sql`, 
+                    'INSERT INTO Vendor (vendorId, name, country) VALUES '
+                );
             })
-            // .distribute(
-            //     (vendor: Vendor) => vendor.vendorId % os.cpus().length,
-            //     (stream: DataStream) => stream.map((vendor: Vendor) => [...generateProductsForVendor(vendor, recordCount)])
-            // )
             .map((vendor: Vendor) => [...generateProductsForVendor(vendor, recordCount)])
             .flatten()
-            .map(({ productId, asin, title, price, brand, imageUrl }) => 
-                mapToSQLDump([productId, asin, title, price, brand, imageUrl], 
-                    'Product', ['productId', 'asin', 'title', 'price', 'brand', 'imageUrl']
-            ))
-            .pipe(fs.createWriteStream(`${OUTPUT_DIR}/${fileNames.products}.sql`))
-            .on('end', () => logger.info(`Finished generating data for ${recordCount} records`));
-        // logger.info(`Finished generating data for ${recordCount} records`);
+            .catch(console.error);
+        mapAndDumpStream(
+            vendorProductStream,
+            ({ productId, asin, title, price, brand, imageUrl }) => mapToSQLDump([productId, asin, title, price, brand, imageUrl]), 
+            fileNames.products, 
+            recordCount, 
+            `${OUTPUT_DIR}/${fileNames.products}.sql`, 
+            'INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES '
+        )
+        .on('end', () => logger.info(`Finished generating data for ${recordCount} records`))
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);
