@@ -60,3 +60,10 @@ Instance ▸ database ▸ collections ▸ documents
 - cursor timeout
     - db.adminCommand( { setParameter: 1, cursorTimeoutMillis: 300000 } )
     - https://www.mongodb.com/docs/upcoming/reference/parameters/#mongodb-parameter-param.cursorTimeoutMillis
+
+#### Limits
+- https://www.mongodb.com/docs/manual/reference/limits/#bson-documents
+    - BSON documents can have a maximum size of 16 megabytes
+    - BSON documents can have a maximum of 100 levels of nesting
+    - Query 3.1 hit the !BSONObj size not supported! error with `BSONObj size: 16806194 (0x1007132) is invalid. Size must be between 0 and 16793600(16MB)`
+        - Solution could be not to embed both arrays in the same document, but to split them into separate documents and use $lookup to join them in the query

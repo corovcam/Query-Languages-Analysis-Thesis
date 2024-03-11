@@ -1,3 +1,8 @@
+### Quirks
+- Of those that are serverless, SQLite is the only one known to this author that allows multiple applications to access the same database at the same time. This is because SQLite is file-based and not client-server based. 
+  - https://www.sqlite.org/serverless.html
+
+
 ### Create Table
 
 - AutoIncrement is very computationally expensive, so we should avoid it if possible. RowIDs are used instead.
@@ -80,4 +85,3 @@
   - When Read-Only queries are used the disk-access is fast - no Read Locks (concurrent DB connections)
 - https://stackoverflow.com/questions/54998/how-scalable-is-sqlite - 2008
   - `This is because the entire database was locked every time someone viewed the page because it contained updates/inserts. I soon switched to MySQL...`
-  - 
