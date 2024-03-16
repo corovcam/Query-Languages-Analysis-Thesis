@@ -20,6 +20,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mysql:/mysql
+      - ./mysql/data/conf.d:/etc/mysql/conf.d
     restart: always
     working_dir: /mysql
   neo4j:

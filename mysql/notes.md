@@ -21,3 +21,5 @@
     SET ENABLED = 'YES'
     WHERE NAME LIKE '%events_stages_%';
     ```
+
+- jdbc conn string: jdbc:mysql://127.0.0.1/ecommerce?sslMode=preferred&autoReconnect=true&autoReconnectForPools=true
