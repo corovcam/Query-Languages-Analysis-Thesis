@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { DataStream } from 'scramjet';
 
-import { generateVendors, generateProductsForVendor, getTypeMapping, chooseContactValue } from './generators';
-import { mapToSQLDump } from './transformers';
+import { generateVendorsProducts, generateProductsForVendor, getTypeMapping, chooseContactValue } from './generators';
+import { mapToSQLDump, mapToTSV } from './transformers';
 import { mapAndDumpStream } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
@@ -50,6 +50,119 @@ function generateTypes(typeMapping) {
         types.push(`(${type.typeId}, '${type.value}')`);
     });
     return `INSERT INTO Type (typeId, value) VALUES ${types.join(", \n")};\n`;
+}
+
+function generateVendorsProductss(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
+    logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
+
+    let vendors = [];
+    let products = [];
+    let vendorProducts = [];
+    let vendorIndustries = [];
+    let vendorContacts = [];
+
+    // let brandVendorsByProductId = {};
+    let countriesByBrand = {};
+
+    const industryTypes = typeMapping.filter(type => type.typeFor === "industry")
+    let productsAssigned = 0;
+    for (let i = 0; i < vendorCount; i++) {
+        const vendorId = i + 1;
+        const vendorName = faker.company.name().replace(/'/g, "''");
+        const vendorCountry = faker.location.country().replace(/'/g, "''");
+
+        // VENDOR_OBJECTS.push({ vendorId, name: vendorName, country: vendorCountry, contacts: [] });
+        vendors.push(`(${vendorId}, '${vendorName}', '${vendorCountry}')`);
+
+        // Assign Products to Vendor
+        let productsPerVendor = faker.number.int({ max: MAX_VENDOR_PRODUCTS });
+        const productsAssignable = productCount - productsAssigned;
+        if (productsPerVendor > productsAssignable) {
+            productsPerVendor = productsAssignable;
+        }
+        for (let j = productsAssigned; j < productsAssigned + productsPerVendor; j++) {
+            const productId = j + 1;
+            const asin = faker.string.nanoid(10).toUpperCase();
+            const title = faker.commerce.productName().replace(/'/g, "''");
+            const price = faker.commerce.price();
+            const brand = faker.helpers.weightedArrayElement([
+                { weight: 0.8, value: vendorName },
+                { weight: 0.2, value: capitalizeFirstLetter(faker.lorem.word()) }
+            ]);
+            const imageUrl = faker.image.url();
+
+            products.push(`(${productId}, '${asin}', '${title}', ${price}, '${brand}', '${imageUrl}')`);
+            vendorProducts.push(`(${vendorId}, ${productId})`);
+
+            // PRODUCT_OBJECTS.push({
+            //     productId, asin, title, price, brand, imageUrl, vendor: {
+            //         vendorId, name: vendorName, country: vendorCountry
+            //     }
+            // });
+
+            // Assign Country to Brand
+            if (!countriesByBrand.hasOwnProperty(brand)) {
+                countriesByBrand[brand] = new Set();
+            }
+            countriesByBrand[brand].add(vendorCountry);
+
+            // brandVendorsByProductId[productId] = { brand, vendorCountry };
+        }
+
+        // // TODO: Fix for Cassandra
+        // // With probability of 0.7 assign some previous Products to Vendor
+        // productsAssigned !== 0 && faker.helpers.maybe(() => {
+        //     const maxProductsToAssign = 5;
+        //     // TODO: Find more efficient way to do this
+        //     let productIds = Array.from({ length: productsAssigned - 1 }, (value, index) => index + 1);
+        //     let productCountPerVendor = faker.number.int({ min: 0, max: maxProductsToAssign < productsAssigned ? maxProductsToAssign : productsAssigned - 1 });
+        //     for (let j = 0; j < productCountPerVendor; j++) {
+        //         const randomIndex = faker.number.int({ min: 0, max: productIds.length - 1 });
+        //         const chosenProductId = productIds[randomIndex];
+
+        //         // TODO: productObjects is not updated with the new vendor ???!!!
+        //         vendorProducts.push(`(${vendorId}, ${chosenProductId})`);
+        //         const brandCountry = brandVendorsByProductId[chosenProductId];
+        //         countriesByBrand[brandCountry.brand].add(brandCountry.vendorCountry);
+
+        //         productIds.splice(randomIndex, 1);
+        //     }
+        // }, { probability: 0.7 });
+
+        // Update productsAssigned count
+        productsAssigned += productsPerVendor;
+
+        // Assign Industries to Vendor
+        vendorIndustries.push(
+            ...faker.helpers.arrayElements(industryTypes, { min: 1, max: 3 })
+                .map(type => `(${vendorId}, ${type.typeId})`)
+        );
+
+        // Assign Contacts to Vendor
+        const chosenContactTypes = faker.helpers.arrayElements(typeMapping.filter(type => type.typeFor === "contact"));
+        chosenContactTypes.forEach(type => {
+            const chosenContactValue = chooseContactValue(type.value);
+            // VENDOR_OBJECTS[vendorId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } });
+            vendorContacts.push(`(${vendorId}, ${type.typeId}, '${chosenContactValue}')`);
+        });
+    }
+
+    const relationalData = `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendors.join(", \n")};\n` +
+        `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${products.join(", \n")};\n` +
+        `INSERT INTO Vendor_Products (vendorId, productId) VALUES ${vendorProducts.join(", \n")};\n` +
+        `INSERT INTO Industry (vendorId, typeId) VALUES ${vendorIndustries.join(", \n")};\n` +
+        `INSERT INTO Vendor_Contacts (vendorId, typeId, value) VALUES ${vendorContacts.join(", \n")};\n`;
+
+    const cassandraData = vendors.map(vendor => `INSERT INTO Vendor (vendorId, name, country) VALUES ${vendor};\n`).join("") +
+        products.map(product => `INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+        products.map(product => `INSERT INTO Products_By_Brand (productId, asin, title, price, brand, imageUrl) VALUES ${product};\n`).join("") +
+        // TODO: MUST BE FIXED to reflect the relational db outputs
+        Object.keys(countriesByBrand).map(brand =>
+            Array.from(countriesByBrand[brand]).map(country => `INSERT INTO Vendor_Countries_By_Product_Brand (brand, country) VALUES ('${brand}', '${country}');\n`).join("")
+        ).join("");
+
+    logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
+    return { relationalData, cassandraData };
 }
 
 function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
@@ -368,7 +481,7 @@ function generateData(recordCount = 100, sqlFileName = 'data.sql', cqlFileName =
     relationalData += generateTypes(typeMapping);
 
     let data;
-    data = generateVendors(recordCount, recordCount, typeMapping);
+    data = generateVendorsProductss(recordCount, recordCount, typeMapping);
     relationalData += data.relationalData;
     cassandraData += data.cassandraData;
 
@@ -439,7 +552,9 @@ function main() {
         
         OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
 
-        fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+        fs.mkdirSync(`${OUTPUT_DIR}/sql`, { recursive: true });
+        fs.mkdirSync(`${OUTPUT_DIR}/cql`, { recursive: true });
+
         const sqlFileName = OUTPUT_DIR + "/data.sql";
         const cqlFileName = OUTPUT_DIR + "/data.cql";
 
@@ -447,31 +562,64 @@ function main() {
 
         logger.info(`Started generating data for ${recordCount} records`);
         // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
+        const typeMapping = getTypeMapping();
+        const industryTypes = typeMapping.filter(type => type.typeFor === "industry") as IndustryType[];
+        const contactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
         const vendorProductStream = DataStream
-            .from(() => generateVendors(recordCount, recordCount, getTypeMapping()))
-            .copy(stream => {
-                logger.info("Vendor write stream");
+            .from(() => generateVendorsProducts(recordCount, recordCount, industryTypes, contactTypes))
+            .tee(stream => {
                 mapAndDumpStream(
                     stream,
-                    ({ vendorId, name, country }) => mapToSQLDump([vendorId, name, country]), 
+                    ({ vendor: { vendorId, name, country }}) => mapToTSV([vendorId, name, country]), 
                     fileNames.vendors, 
                     recordCount, 
-                    `${OUTPUT_DIR}/${fileNames.vendors}.sql`, 
-                    'INSERT INTO Vendor (vendorId, name, country) VALUES '
+                    `${OUTPUT_DIR}/${fileNames.vendors}.tsv`,
                 );
             })
-            .map((vendor: Vendor) => [...generateProductsForVendor(vendor, recordCount)])
-            .flatten()
+            .tee(stream => {
+                const industryTypeStream = stream.flatMap(
+                    ({ vendor: { vendorId, industries }}) => industries.map(({ typeId }) => ({ vendorId, industryId: typeId }))
+                );
+                mapAndDumpStream(
+                    industryTypeStream,
+                    ({ vendorId, industryId }) => mapToTSV([vendorId, industryId]), 
+                    fileNames.vendors, 
+                    recordCount, 
+                    `${OUTPUT_DIR}/sql/${fileNames.industries}.tsv`,
+                );
+            })
+            .tee(stream => {
+                const contactTypeStream = stream.flatMap(
+                    ({ vendor: { vendorId, contacts }}) => contacts.map(({ typeId }) => ({ vendorId, contactId: typeId }))
+                );
+                mapAndDumpStream(
+                    contactTypeStream,
+                    ({ vendorId, contactId }) => mapToTSV([vendorId, contactId]), 
+                    fileNames.vendors, 
+                    recordCount, 
+                    `${OUTPUT_DIR}/sql/${fileNames.vendorContacts}.tsv`,
+                );
+            })
+            .flatMap(({ products }) => products)
+            .tee(stream => {
+                mapAndDumpStream(
+                    stream,
+                    ({ productId, asin, title, price, brand, imageUrl }) => mapToTSV([productId, asin, title, price, brand, imageUrl]), 
+                    fileNames.products, 
+                    recordCount, 
+                    `${OUTPUT_DIR}/${fileNames.products}.tsv`
+                );
+            })
+            .tee(stream => {
+                mapAndDumpStream(
+                    stream,
+                    ({ productId, vendor: { vendorId } }) => mapToTSV([vendorId, productId]), 
+                    fileNames.vendorProducts, 
+                    recordCount, 
+                    `${OUTPUT_DIR}/sql/${fileNames.vendorProducts}.tsv`
+                )
+            })
             .catch(console.error);
-        mapAndDumpStream(
-            vendorProductStream,
-            ({ productId, asin, title, price, brand, imageUrl }) => mapToSQLDump([productId, asin, title, price, brand, imageUrl]), 
-            fileNames.products, 
-            recordCount, 
-            `${OUTPUT_DIR}/${fileNames.products}.sql`, 
-            'INSERT INTO Product (productId, asin, title, price, brand, imageUrl) VALUES '
-        )
-        .on('end', () => logger.info(`Finished generating data for ${recordCount} records`))
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);

@@ -21,6 +21,10 @@ import { Faker, SimpleFaker, faker } from "@faker-js/faker";
 //     }
 // });
 
+export function isNumber(n: any) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 export class CustomLogger {
   private static logFilePath: string;
   private static logFileStream: fs.WriteStream;

@@ -24,10 +24,8 @@ export function chooseContactValue(type: ContactType["value"] | string): string 
   }
 }
 
-export async function* generateVendors(vendorCount = 100, productCount = 1000, typeMapping = getTypeMapping()) {
+export async function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): AsyncGenerator<{ vendor: Vendor, products: Product[] }> {
   logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
-
-  const industryTypes = typeMapping.filter(type => type.typeFor === "industry") as IndustryType[];
   let productsAssigned = 0;
   for (let i = 0; i < vendorCount; i++) {
       const vendorId = i + 1;
@@ -37,34 +35,39 @@ export async function* generateVendors(vendorCount = 100, productCount = 1000, t
       const vendor: Vendor = { vendorId, name: vendorName, country: vendorCountry, products: [], industries: [], contacts: [] };
 
       // Assign Products to Vendor
+      const products = [];
       let productsPerVendor = faker.number.int({ max: MAX_VENDOR_PRODUCTS });
       const productsAssignable = productCount - productsAssigned;
       if (productsPerVendor > productsAssignable) {
           productsPerVendor = productsAssignable;
       }
 
+      for await (const product of generateProductsForVendor(vendor, productsPerVendor, productsAssigned)) {
+          vendor.products.push(product);
+          products.push(product);
+      }
+
       // Update productsAssigned count
       productsAssigned += productsPerVendor;
 
       // Assign Industries to Vendor
-      faker.helpers.arrayElements(industryTypes, { min: 1, max: 3 }).forEach(type => vendor.industries!.push(type));
+      faker.helpers.arrayElements(industryTypes, { min: 1, max: 3 }).forEach(type => vendor.industries.push(type));
 
       // Assign Contacts to Vendor
-      const chosenContactTypes = faker.helpers.arrayElements(typeMapping.filter(type => type.typeFor === "contact")) as ContactType[];
+      const chosenContactTypes = faker.helpers.arrayElements(contactTypes);
       chosenContactTypes.forEach(type => {
           const chosenContactValue = chooseContactValue(type.value);
           const contact = { typeId: type.typeId, value: chosenContactValue, type: { value: type.value } };
-          vendor.contacts!.push(contact);
+          vendor.contacts.push(contact);
       });
 
-      yield vendor;
+      yield { vendor, products };
   }
-
   logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
 }
 
-export function* generateProductsForVendor(vendor: Vendor, productCount: number): Generator<Product> {
-  for (let i = 0; i < productCount; i++) {
+export async function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, productsAssigned: number): AsyncGenerator<Product> {
+  for (let i = productsAssigned; i < productsAssigned + productsPerVendor; i++) {
     const productId = i + 1;
     const asin = faker.string.nanoid(10).toUpperCase();
     const title = faker.commerce.productName().replace(/'/g, "''");

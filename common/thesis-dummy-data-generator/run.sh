@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-npm install && tsc && node --max-old-space-size=16384 dist2/data-generator.js "$1"
+npm install && tsc && node --max-old-space-size=16384 dist/data-generator.js "$1"

@@ -1,4 +1,4 @@
-import { createWriteStream, WriteStream } from "fs";
+import { createWriteStream, WriteStream, mkdirSync } from "fs";
 import { DataStream, MapCallback } from "scramjet";
 import { CustomLogger as logger } from "./utils";
 import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
@@ -18,17 +18,17 @@ export function mapAndDumpStream(
 
   return stream
     .map(mapCallback)
-    .join(',\n')
-    .batch(ARRAY_MAX_ALLOWED_LENGTH) // we batch the data by default 65535 records
-    .flatten()
+    .join('\n')
+    // .batch(ARRAY_MAX_ALLOWED_LENGTH) // we batch the data by default 65535 records
+    // .flatten()
     .catch(console.error)
-    .pipe(outputFileStream)
-    .on("error", console.error)
-    .on("end", () =>{
-      outputFileStream.write(";\n");
-      outputFileStream.close();
-      logger.info(`Finished generating ${entityCount} records of type ${entityType}.`)}
-    );
+    .pipe(
+      outputFileStream
+      .on("error", console.error)
+      .on("end", () =>{
+        logger.info(`Finished generating ${entityCount} records of type ${entityType}.`)}
+      )
+    )
 }
 
 // const DataStream = {
