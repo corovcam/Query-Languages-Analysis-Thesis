@@ -78,3 +78,7 @@ export interface Tag {
   interestedPeople?: Set<number>,
   postsTagged?: Set<number>,
 }
+
+export type countriesByBrand = Record<string, Set<string>>;
+
+export type brandVendorsByProductId = Record<number, { brand: string, vendorCountry: string }>;

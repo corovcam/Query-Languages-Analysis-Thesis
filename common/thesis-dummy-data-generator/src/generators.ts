@@ -1,6 +1,7 @@
 import { CustomLogger as logger, CustomFaker, capitalizeFirstLetter } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
-import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
+import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, brandVendorsByProductId, countriesByBrand } from './types';
+import { DataStream } from 'scramjet';
 
 const faker = CustomFaker.faker;
 
@@ -24,7 +25,7 @@ export function chooseContactValue(type: ContactType["value"] | string): string 
   }
 }
 
-export async function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): AsyncGenerator<{ vendor: Vendor, products: Product[] }> {
+export async function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): AsyncGenerator<Vendor> {
   logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
   let productsAssigned = 0;
   for (let i = 0; i < vendorCount; i++) {
@@ -35,7 +36,6 @@ export async function* generateVendorsProducts(vendorCount = 100, productCount =
       const vendor: Vendor = { vendorId, name: vendorName, country: vendorCountry, products: [], industries: [], contacts: [] };
 
       // Assign Products to Vendor
-      const products = [];
       let productsPerVendor = faker.number.int({ max: MAX_VENDOR_PRODUCTS });
       const productsAssignable = productCount - productsAssigned;
       if (productsPerVendor > productsAssignable) {
@@ -44,7 +44,6 @@ export async function* generateVendorsProducts(vendorCount = 100, productCount =
 
       for await (const product of generateProductsForVendor(vendor, productsPerVendor, productsAssigned)) {
           vendor.products.push(product);
-          products.push(product);
       }
 
       // Update productsAssigned count
@@ -61,7 +60,7 @@ export async function* generateVendorsProducts(vendorCount = 100, productCount =
           vendor.contacts.push(contact);
       });
 
-      yield { vendor, products };
+      yield vendor;
   }
   logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
 }
@@ -83,14 +82,27 @@ export async function* generateProductsForVendor(vendor: Vendor, productsPerVend
         vendorId: vendor.vendorId, name: vendor.name, country: vendor.country
       }
     };
-
-    // // Assign Country to Brand
-    // if (!countriesByBrand.hasOwnProperty(brand)) {
-    //     countriesByBrand[brand] = new Set();
-    // }
-    // countriesByBrand[brand].add(vendorCountry);
-
-    // brandVendorsByProductId[productId] = { brand, vendorCountry };
+    
     yield product;
   }
+}
+
+// Transformers
+
+export async function cassandraTransformVendorProducts(stream: DataStream) {
+    let accumulatorRef: { brandVendorsByProductId: brandVendorsByProductId, countriesByBrand: countriesByBrand };
+
+    await stream.accumulate((acc, product: Product) => {
+        const { brand, vendor: { country: vendorCountry }, productId } = product;
+
+        // Assign Country to Brand
+        if (!acc.countriesByBrand.hasOwnProperty(brand)) {
+            acc.countriesByBrand[brand] = new Set();
+        }
+        acc.countriesByBrand[brand].add(vendorCountry);
+
+        acc.brandVendorsByProductId[productId] = { brand, vendorCountry };
+    }, accumulatorRef = { brandVendorsByProductId: {}, countriesByBrand: {} });
+
+    return accumulatorRef;
 }

@@ -1,6 +1,7 @@
 export const STRING_MAX_ALLOWED_LENGTH = 65535;  // 64KB
 export const ARRAY_MAX_ALLOWED_LENGTH = 1024;  // 1024 elements
 export const fileNames = { // File names for the generated data
+    // SQL
     // Entities
     vendors: 'vendors',
     products: 'products',
@@ -18,6 +19,11 @@ export const fileNames = { // File names for the generated data
     orderContacts: 'order_contacts',
     orderProducts: 'order_products',
     post: 'post',
-    postTags: 'post_tags'
+    postTags: 'post_tags',
+
+    // CQL
+    vendorCountriesByProductBrand: 'vendor_countries_by_product_brand',
+    productsByBrand: 'products_by_brand',
+
 };
 export const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products

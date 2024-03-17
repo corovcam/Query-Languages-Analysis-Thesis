@@ -3,8 +3,8 @@ import { DataStream, MapCallback } from "scramjet";
 import { CustomLogger as logger } from "./utils";
 import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
 
-export function mapAndDumpStream(
-  stream: DataStream,
+export function mapAndDump(
+  streamOrArray: DataStream | any[],
   mapCallback: MapCallback,
   entityType: string,
   entityCount: number,
@@ -16,19 +16,19 @@ export function mapAndDumpStream(
     outputFileStream.write(preamble + '\n');
   }
 
+  let stream: DataStream;
+  if (Array.isArray(streamOrArray)) {
+    stream = DataStream.from(streamOrArray);
+  } else {
+    stream = streamOrArray;
+  }
+
   return stream
     .map(mapCallback)
     .join('\n')
-    // .batch(ARRAY_MAX_ALLOWED_LENGTH) // we batch the data by default 65535 records
-    // .flatten()
     .catch(console.error)
-    .pipe(
-      outputFileStream
-      .on("error", console.error)
-      .on("end", () =>{
-        logger.info(`Finished generating ${entityCount} records of type ${entityType}.`)}
-      )
-    )
+    .pipe(outputFileStream)
+    .on("error", console.error)
 }
 
 // const DataStream = {

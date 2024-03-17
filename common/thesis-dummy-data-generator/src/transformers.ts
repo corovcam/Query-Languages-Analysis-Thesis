@@ -2,6 +2,9 @@ import { createWriteStream } from "fs";
 import { DataStream, MapCallback } from "scramjet";
 import { CustomLogger as logger, isNumber } from "./utils";
 import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
+import { Vendor } from "./types";
+
+// Mappers
 
 export function mapToSQLDump(row: (string | number)[]) {
   const valuesString = row
