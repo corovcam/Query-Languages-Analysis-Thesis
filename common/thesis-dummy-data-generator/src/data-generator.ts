@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { DataStream } from 'scramjet';
+import { DataStream, StringStream } from 'scramjet';
 
 import { generateVendorsProducts, generateProductsForVendor, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
 import { mapToSQLDump, mapToTSV } from './transformers';
-import { mapAndDump } from './plugins';
+import { mapAndDump, mapAndDumpJSONLines } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
 import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
@@ -55,7 +55,7 @@ function generateTypes(typeMapping) {
 function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()) {
     const industryTypes = typeMapping.filter(type => type.typeFor === "industry") as IndustryType[];
     const contactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
-    const vendorProductStream = DataStream
+    const vendorStream = DataStream
         .from(() => generateVendorsProducts(recordCount, recordCount, industryTypes, contactTypes))
         .tee(stream => {
             mapAndDump(
@@ -90,6 +90,14 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
                 `${OUTPUT_DIR}/sql/${fileNames.vendorContacts}.tsv`,
             );
         })
+        .tee(stream => {
+            mapAndDumpJSONLines(
+                stream,
+                `${OUTPUT_DIR}/common/${fileNames.vendors}.jsonl`,
+                ({ vendorId, name, country, contacts }) => ({ vendorId, name, country, contacts })
+            );
+        });
+    const productStream = vendorStream
         .flatMap(({ products }) => products)
         // CQL 
         .tee(async (stream) => {
@@ -127,6 +135,10 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
             )
         })
         .catch(console.error);
+    mapAndDumpJSONLines(
+        productStream,
+        `${OUTPUT_DIR}/common/${fileNames.products}.jsonl`
+    );
 }
 
 function generatePeople(peopleCount, customerCount = peopleCount, tagCount) {
@@ -504,6 +516,7 @@ function main() {
         
         OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
 
+        fs.mkdirSync(`${OUTPUT_DIR}/common`, { recursive: true });
         fs.mkdirSync(`${OUTPUT_DIR}/sql`, { recursive: true });
         fs.mkdirSync(`${OUTPUT_DIR}/cql`, { recursive: true });
 

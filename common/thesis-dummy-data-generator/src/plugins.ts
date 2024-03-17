@@ -31,6 +31,22 @@ export function mapAndDump(
     .on("error", console.error)
 }
 
+export function mapAndDumpJSONLines(
+  stream: DataStream,
+  outputFilePath: string,
+  mapCallback?: MapCallback, // Optional
+): WriteStream {
+  const outputFileStream = createWriteStream(outputFilePath);
+
+  const mappedStream = mapCallback ? stream.map(mapCallback) : stream;
+
+  return mappedStream
+    .JSONStringify('\n')
+    .catch(console.error)
+    .pipe(outputFileStream)
+    .on("error", console.error)
+}
+
 // const DataStream = {
 //   mapAndDumpStream(
 //     mapCallback: MapCallback,
