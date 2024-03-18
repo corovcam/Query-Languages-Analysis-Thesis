@@ -1,6 +1,6 @@
 import fs from "fs";
 import pino, { BaseLogger } from "pino";
-import { Faker, SimpleFaker, faker } from "@faker-js/faker";
+import { Faker, SimpleFaker, en, faker } from "@faker-js/faker";
 
 // export const createLogger = (startDateTime: Date) => pino({
 //     level: process.env.PINO_LOG_LEVEL || 'debug',
@@ -29,8 +29,10 @@ export class CustomLogger {
   private static logFilePath: string;
   private static logFileStream: fs.WriteStream;
   private static logger: BaseLogger | Console;
+  public static batchSizeToLog: number;
 
-  public static initialize(startDateTime: Date) {
+  public static initialize(startDateTime: Date, entityCount: number, percentageToLog = 5) {
+    CustomLogger.batchSizeToLog = Math.ceil(entityCount * (percentageToLog / 100));
     CustomLogger.logFilePath = `logs/${startDateTime
       .toISOString()
       .replace(/:/g, "-")}.log`;
@@ -44,6 +46,12 @@ export class CustomLogger {
     this.logFileStream.write(timestamp + "\t" + data.toString() + "\n");
     this.logger.info(timestamp, ...data);
   }
+
+  // public static logBatchInfo(entitiesWritten: number, entityType: string) {
+  //   if (entitiesWritten % CustomLogger.batchSizeToLog === 0) {
+  //     this.info(`Generated ${entitiesWritten} ${entityType}`);
+  //   }
+  // }
 }
 
 export class CustomFaker {
@@ -51,8 +59,8 @@ export class CustomFaker {
 
   public static initialize() {
     // Using same seed and ref date for all faker functions to ensure consistency and reproducibility
-    this.faker.seed(123);
-    this.faker.setDefaultRefDate("2000-01-01T00:00:00.000Z");
+    CustomFaker.faker.seed(123);
+    CustomFaker.faker.setDefaultRefDate("2000-01-01T00:00:00.000Z");
   }
 }
 

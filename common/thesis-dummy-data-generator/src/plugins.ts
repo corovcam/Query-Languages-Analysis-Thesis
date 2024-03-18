@@ -1,5 +1,5 @@
 import { createWriteStream, WriteStream, mkdirSync } from "fs";
-import { DataStream, MapCallback } from "scramjet";
+import { DataStream, MapCallback, StringStream } from "scramjet";
 import { CustomLogger as logger } from "./utils";
 import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
 
@@ -34,17 +34,21 @@ export function mapAndDump(
 export function mapAndDumpJSONLines(
   stream: DataStream,
   outputFilePath: string,
+  containsSet: boolean = false, // Optional
   mapCallback?: MapCallback, // Optional
 ): WriteStream {
   const outputFileStream = createWriteStream(outputFilePath);
 
   const mappedStream = mapCallback ? stream.map(mapCallback) : stream;
 
-  return mappedStream
-    .JSONStringify('\n')
+  const JSONStringifiedStream = containsSet ? 
+    mappedStream.toStringStream((obj) => JSON.stringify(obj, (_key, value) => (value instanceof Set ? [...value] : value))).append('\n')
+    : mappedStream.JSONStringify('\n');
+
+  return JSONStringifiedStream
     .catch(console.error)
     .pipe(outputFileStream)
-    .on("error", console.error)
+    .on("error", console.error);
 }
 
 // const DataStream = {
