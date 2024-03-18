@@ -135,16 +135,16 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
                 `${OUTPUT_DIR}/sql/${fileNames.vendorProducts}.tsv`
             )
         })
-        .catch(console.error);
+        .catch(logger.error);
     mapAndDumpJSONLines(
         productStream,
         `${OUTPUT_DIR}/common/${fileNames.products}.jsonl`,
     );
 }
 
-function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number) {
-    const peopleStream = DataStream
-        .from(() => generatePeople(peopleCount, customerCount, tagCount))
+function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]) {
+    DataStream
+        .from(() => generatePeople(peopleCount, customerCount, tagCount, tags))
         // SQL Person, CQL Person_By_Birthday_Indexed tables
         .tee(stream => {
             mapAndDump(
@@ -189,12 +189,13 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 `${OUTPUT_DIR}/sql/${fileNames.personTags}.tsv`
             );
         })
-        .catch(console.error);
-    mapAndDumpJSONLines(
-        peopleStream,
-        `${OUTPUT_DIR}/common/${fileNames.people}.jsonl`,
-        true
-    );
+        .catch(logger.error);
+    // return peopleStream;
+    // mapAndDumpJSONLines(
+    //     peopleStream,
+    //     `${OUTPUT_DIR}/common/${fileNames.people}.jsonl`,
+    //     true
+    // );
 }
 
 function tagStream(tagCount = 100) {
@@ -209,16 +210,17 @@ function tagStream(tagCount = 100) {
                 `${OUTPUT_DIR}/${fileNames.tags}.tsv`
             );
         })
-        .catch(console.error);
-    mapAndDumpJSONLines(
-        tagStream,
-        `${OUTPUT_DIR}/common/${fileNames.tags}.jsonl`,
-    );
+        .catch(logger.error);
+    return tagStream;
+    // return mapAndDumpJSONLines(
+    //     tagStream,
+    //     `${OUTPUT_DIR}/common/${fileNames.tags}.jsonl`,
+    // );
 }
 
-function postStream(postCount: number, peopleCount: number) {
-    const postStream = DataStream
-        .from(() => generatePosts(postCount, peopleCount))
+function postStream(postCount: number, peopleCount: number, tags?: Tag[]) {
+    DataStream
+        .from(() => generatePosts(postCount, peopleCount, tags))
         .tee(stream => {
             mapAndDump(
                 stream,
@@ -241,8 +243,8 @@ function postStream(postCount: number, peopleCount: number) {
                 `${OUTPUT_DIR}/sql/${fileNames.postTags}.tsv`
             );
         })
-        .catch(console.error);
-    return postStream;
+        .catch(logger.error);
+    // return postStream;
     // mapAndDumpJSONLines(
     //     postStream,
     //     `${OUTPUT_DIR}/common/${fileNames.post}.jsonl`,
@@ -483,6 +485,30 @@ function writeCassandraOrderVendorContacts(cqlFileName = 'data.cql') {
 //     return { relationalData, cassandraData };
 // }
 
+async function cassandraPipeline(recordCount: number) {
+    // const typeMapping = getTypeMapping();
+    // vendorProductStream(recordCount, typeMapping);
+    
+    const tagStreamOut = tagStream(recordCount);
+    const tags: Tag[] = await 
+        // StringStream.from(fs.createReadStream(`${OUTPUT_DIR}/common/${fileNames.tags}.jsonl`, 'utf-8'))
+        tagStreamOut
+        // .JSONParse()
+        .map((obj: Tag) => ({...obj, interestedPeople: new Set(), postsTagged: new Set()}))
+        .toArray();
+
+    const customerCount = faker.number.int({ min: Math.floor(recordCount / 2), max: recordCount });
+    peopleStream(recordCount, customerCount, recordCount, tags);
+    postStream(recordCount, recordCount, tags);
+
+    // Write updated tags to file
+    mapAndDumpJSONLines(
+        DataStream.from(tags),
+        `${OUTPUT_DIR}/common/${fileNames.tags}_updated.jsonl`,
+        true
+    );
+}
+
 function main() {
     const isDataDirSet = process.argv.length > 1;
     if (isDataDirSet) {
@@ -503,7 +529,7 @@ function main() {
         logger.info(`Started generating data for ${recordCount} records`);
         // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
 
-        const typeMapping = getTypeMapping();
+        // const typeMapping = getTypeMapping();
         // vendorProductStream(recordCount, typeMapping);
 
         // tagStream(recordCount);
@@ -511,7 +537,9 @@ function main() {
         // const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
         // peopleStream(recordCount, customerCount, recordCount);
 
-        postStream(recordCount, recordCount);
+        // postStream(recordCount, recordCount);
+
+        cassandraPipeline(recordCount);
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);

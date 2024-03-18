@@ -26,9 +26,10 @@ export function mapAndDump(
   return stream
     .map(mapCallback)
     .join('\n')
-    .catch(console.error)
+    .catch(logger.error)
     .pipe(outputFileStream)
-    .on("error", console.error)
+    .on("error", logger.error)
+    .on("finish", () => { logger.info(`Written ${entityCount} records of type ${entityType} to ${outputFilePath}.`); });
 }
 
 export function mapAndDumpJSONLines(
@@ -46,9 +47,10 @@ export function mapAndDumpJSONLines(
     : mappedStream.JSONStringify('\n');
 
   return JSONStringifiedStream
-    .catch(console.error)
+    .catch(logger.error)
     .pipe(outputFileStream)
-    .on("error", console.error);
+    .on("error", logger.error)
+    .on('finish', () => { logger.info(`Finished writing to ${outputFilePath}.`); });
 }
 
 // const DataStream = {
@@ -68,9 +70,9 @@ export function mapAndDumpJSONLines(
 //       .map(mapCallback)
 //       .batch(ARRAY_MAX_ALLOWED_LENGTH) // we batch the data by default 65535 records
 //       .join('')
-//       .catch(console.error)
+//       .catch(logger.error)
 //       .pipe(outputFileStream)
-//       .on("error", console.error)
+//       .on("error", logger.error)
 //       .on("end", () =>{
 //         outputFileStream.write(";\n");
 //         outputFileStream.close();

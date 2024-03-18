@@ -47,11 +47,11 @@ export class CustomLogger {
     this.logger.info(timestamp, ...data);
   }
 
-  // public static logBatchInfo(entitiesWritten: number, entityType: string) {
-  //   if (entitiesWritten % CustomLogger.batchSizeToLog === 0) {
-  //     this.info(`Generated ${entitiesWritten} ${entityType}`);
-  //   }
-  // }
+  public static error(...data: any) {
+    const timestamp = `[${new Date().toISOString()}] `;
+    this.logFileStream.write(timestamp + "\t" + data.toString() + "\n");
+    this.logger.error(timestamp, ...data);
+  }
 }
 
 export class CustomFaker {

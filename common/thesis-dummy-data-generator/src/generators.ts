@@ -95,7 +95,7 @@ async function* generateProductsForVendor(vendor: Vendor, productsPerVendor: num
   }
 }
 
-export async function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number) {
+export async function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): AsyncGenerator<Person> {
   logger.info(`Generating data for ${peopleCount} people and ${customerCount} customers`);
 
   // TODO: ENOURMOUSLY INNEFECTIVE - O(22n^2) algorithm - need to erase Array allocations, splice method and rewrite to Stream processing
@@ -137,11 +137,8 @@ export async function* generatePeople(peopleCount: number, customerCount = peopl
           const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
           const tagId = tagIds[randomIndex];
 
-          // PEOPLE_OBJECTS[personId - 1].tags.add(tagId);
-          // TAG_OBJECTS[tagId - 1].interestedPeople.add(personId).add(-1);
-          // personTags.push(`(${personId}, ${tagId})`);
-
           person.tags.add(tagId);
+          tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
 
           tagIds.splice(randomIndex, 1);
       }
@@ -173,9 +170,6 @@ export async function* generateTags(tagCount = 100) {
   for (const [i, tagValue] of randomTags.entries()) {
       const tag: Tag = { tagId: i + 1, value: tagValue };
 
-      // TAG_OBJECTS.push({ tagId: i + 1, value: randomTags[i], interestedPeople: new Set(), postsTagged: new Set() });
-      // tags.push(`(${i + 1}, '${randomTags[i]}')`);
-
       if (i % logger.batchSizeToLog === 0) {
           logger.info(`Generated ${i + 1} tags`);
       }
@@ -186,7 +180,7 @@ export async function* generateTags(tagCount = 100) {
   logger.info(`Generated data for ${tagCount} tags`);
 }
 
-export async function* generatePosts(postCount: number, peopleCount: number) {
+export async function* generatePosts(postCount: number, peopleCount: number, tags?: Tag[]) {
   logger.info(`Generating data for ${postCount} posts`);
 
   for (let i = 0; i < postCount; i++) {
@@ -197,7 +191,6 @@ export async function* generatePosts(postCount: number, peopleCount: number) {
       const postContent = postCount < 128000 ? faker.lorem.paragraphs({ min: 1, max: 5 }) : "";
       const postLength = postContent.length;
 
-      // posts.push(`(${postId}, ${personId}, '${faker.image.url()}', '${creationDate}', '${faker.internet.ip()}', '${faker.internet.userAgent()}', '${language}', '${postContent}', ${postLength})`);
       const post: Post = {
           postId, personId, imageFile: faker.image.url(), creationDate, locationIP: faker.internet.ip(),
           browserUsed: faker.internet.userAgent(), language, content: postContent, length: postLength, tags: []
@@ -210,10 +203,9 @@ export async function* generatePosts(postCount: number, peopleCount: number) {
           const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
           const tagId = tagIds[randomIndex];
 
-          // TAG_OBJECTS[tagId - 1].postsTagged.add(postId).add(-1);
-          // postTags.push(`(${postId}, ${tagId})`);
-
+          tags && tags[tagId - 1].postsTagged.add(postId).add(-1);
           post.tags.push(tagId);
+
           tagIds.splice(randomIndex, 1);
       }
 
