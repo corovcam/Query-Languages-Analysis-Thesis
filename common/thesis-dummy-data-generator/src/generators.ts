@@ -172,7 +172,32 @@ export async function* generatePeople(peopleCount: number, customerCount = peopl
   //     people.map(person => `INSERT INTO Person_By_Birthday_Indexed (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${person};\n`).join("");
 }
 
-// Transformers
+export async function* generateTags(tagCount = 100) {
+  logger.info(`Generating data for ${tagCount} tags`);
+
+  let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
+  // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
+  // so we need to generate more tags to reach the required count
+  randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(() => faker.company.buzzNoun().replace(/'/g, "''"), tagCount - randomTags.length));
+  randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, faker.string.nanoid)) : randomTags;
+
+  for (const [i, tagValue] of randomTags.entries()) {
+      const tag: Tag = { tagId: i + 1, value: tagValue };
+
+      // TAG_OBJECTS.push({ tagId: i + 1, value: randomTags[i], interestedPeople: new Set(), postsTagged: new Set() });
+      // tags.push(`(${i + 1}, '${randomTags[i]}')`);
+
+      if (i % logger.batchSizeToLog === 0) {
+          logger.info(`Generated ${i + 1} tags`);
+      }
+
+      yield tag;
+  }
+
+  logger.info(`Generated data for ${tagCount} tags`);
+}
+
+// Transformers/Denormalizers
 
 export async function cassandraTransformVendorProducts(stream: DataStream) {
     let accumulatorRef: { brandVendorsByProductId: brandVendorsByProductId, countriesByBrand: countriesByBrand };

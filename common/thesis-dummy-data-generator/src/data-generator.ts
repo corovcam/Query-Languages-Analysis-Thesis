@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { DataStream, StringStream } from 'scramjet';
 
-import { generateVendorsProducts, generatePeople, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
+import { generateVendorsProducts, generateTags, generatePeople, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
 import { mapToSQLDump, mapToTSV } from './transformers';
 import { mapAndDump, mapAndDumpJSONLines } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
@@ -197,6 +197,25 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
     );
 }
 
+function tagStream(tagCount = 100) {
+    const tagStream = DataStream
+        .from(() => generateTags(tagCount))
+        .tee(stream => {
+            mapAndDump(
+                stream,
+                ({ tagId, value }) => mapToTSV([tagId, value]),
+                fileNames.tags,
+                tagCount,
+                `${OUTPUT_DIR}/${fileNames.tags}.tsv`
+            );
+        })
+        .catch(console.error);
+    mapAndDumpJSONLines(
+        tagStream,
+        `${OUTPUT_DIR}/common/${fileNames.tags}.jsonl`,
+    );
+}
+
 function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[], sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
 
@@ -307,26 +326,6 @@ function generateCassandraOrderTables(cqlFileName) {
 
     logger.info("Generated data for Cassandra tables:", "Orders_By_Customer", "Order", "Orders_By_Product", "Orders_By_Person");
     return orderInserts + ordersByProductInserts + ordersByPerson + ordersByCustomer;
-}
-
-function generateTags(tagCount = 100) {
-    logger.info(`Generating data for ${tagCount} tags`);
-
-    let tags = [];
-
-    let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
-    // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
-    // so we need to generate more tags to reach the required count
-    randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(() => faker.company.buzzNoun().replace(/'/g, "''"), tagCount - randomTags.length));
-    randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, faker.string.nanoid)) : randomTags;
-
-    randomTags.forEach((tag, index) => {
-        // TAG_OBJECTS.push({ tagId: index + 1, value: tag, interestedPeople: new Set(), postsTagged: new Set() });
-        tags.push(`(${index + 1}, '${tag}')`);
-    });
-
-    logger.info(`Generated data for ${tagCount} tags`);
-    return `INSERT INTO Tag (tagId, value) VALUES ${tags.join(", \n")};\n`;
 }
 
 function generatePosts(postCount, peopleCount) {
@@ -508,7 +507,8 @@ function main() {
 
         const typeMapping = getTypeMapping();
         // vendorProductStream(recordCount, typeMapping);
-        peopleStream(recordCount, recordCount, recordCount);
+        // peopleStream(recordCount, recordCount, recordCount);
+        tagStream(recordCount);
         
     } else {
         console.log("Please provide the record count as an argument");
