@@ -95,7 +95,7 @@ function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, p
   }
 }
 
-export async function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): AsyncGenerator<Person> {
+export function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): Generator<Person> {
   logger.info(`Generating data for ${peopleCount} people and ${customerCount} customers`);
 
   // TODO: ENOURMOUSLY INNEFECTIVE - O(22n^2) algorithm - need to erase Array allocations, splice method and rewrite to Stream processing
@@ -158,7 +158,7 @@ export async function* generatePeople(peopleCount: number, customerCount = peopl
   logger.info(`Generated data for ${peopleCount} people and ${customerCount} customers`);
 }
 
-export async function* generateTags(tagCount = 100) {
+export function* generateTags(tagCount = 100) {
   logger.info(`Generating data for ${tagCount} tags`);
 
   let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
@@ -180,7 +180,7 @@ export async function* generateTags(tagCount = 100) {
   logger.info(`Generated data for ${tagCount} tags`);
 }
 
-export async function* generatePosts(postCount: number, peopleCount: number, tags?: Tag[]) {
+export function* generatePosts(postCount: number, peopleCount: number, tags?: Tag[]) {
   logger.info(`Generating data for ${postCount} posts`);
 
   for (let i = 0; i < postCount; i++) {
@@ -219,7 +219,7 @@ export async function* generatePosts(postCount: number, peopleCount: number, tag
   logger.info(`Generated data for ${postCount} posts`);
 }
 
-export async function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, contactTypes: ContactType[]) {
+export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, contactTypes: ContactType[]) {
   logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
 
   let orderId = 1;
