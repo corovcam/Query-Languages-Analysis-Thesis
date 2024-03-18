@@ -1,6 +1,6 @@
 import { CustomLogger as logger, CustomFaker, capitalizeFirstLetter } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
-import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, brandVendorsByProductId, countriesByBrand } from './types';
+import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, brandVendorsByProductId, countriesByBrand, Post } from './types';
 import { DataStream } from 'scramjet';
 
 const faker = CustomFaker.faker;
@@ -159,17 +159,6 @@ export async function* generatePeople(peopleCount: number, customerCount = peopl
   }
 
   logger.info(`Generated data for ${peopleCount} people and ${customerCount} customers`);
-
-  // const relationalData = `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${people.join(", \n")};\n` +
-  //     `INSERT INTO Customer (customerId, personId) VALUES ${customers.join(", \n")};\n` +
-  //     `INSERT INTO Person_Person (personId1, personId2) VALUES ${friends.join(", \n")};\n` +
-  //     `INSERT INTO Person_Tags (personId, tagId) VALUES ${personTags.join(", \n")};\n`;
-
-  // const cassandraData = PEOPLE_OBJECTS.map(p => {
-  //     const person = `(${p.personId}, '${p.firstName}', '${p.lastName}', '${p.gender}', '${p.birthday}', '${p.street}', '${p.city}', '${p.postalCode}', '${p.country}', ${p.friends.size})`;
-  //     return `INSERT INTO Person (personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friendCount) VALUES ${person};\n`;
-  // }).join("") +
-  //     people.map(person => `INSERT INTO Person_By_Birthday_Indexed (personId, firstName, lastName, gender, birthday, street, city, postalCode, country) VALUES ${person};\n`).join("");
 }
 
 export async function* generateTags(tagCount = 100) {
@@ -195,6 +184,47 @@ export async function* generateTags(tagCount = 100) {
   }
 
   logger.info(`Generated data for ${tagCount} tags`);
+}
+
+export async function* generatePosts(postCount: number, peopleCount: number) {
+  logger.info(`Generating data for ${postCount} posts`);
+
+  for (let i = 0; i < postCount; i++) {
+      const postId = i + 1;
+      const personId = faker.number.int({ min: 1, max: peopleCount });
+      const creationDate = faker.date.recent().toISOString().slice(0, -1);
+      const language = faker.helpers.arrayElement(['English', 'Spanish', 'French', 'German', 'Chinese']);
+      const postContent = postCount < 128000 ? faker.lorem.paragraphs({ min: 1, max: 5 }) : "";
+      const postLength = postContent.length;
+
+      // posts.push(`(${postId}, ${personId}, '${faker.image.url()}', '${creationDate}', '${faker.internet.ip()}', '${faker.internet.userAgent()}', '${language}', '${postContent}', ${postLength})`);
+      const post: Post = {
+          postId, personId, imageFile: faker.image.url(), creationDate, locationIP: faker.internet.ip(),
+          browserUsed: faker.internet.userAgent(), language, content: postContent, length: postLength, tags: []
+      };
+      
+      // Assign Tags to Post (Post_Tags)
+      let tagIds = Array.from({ length: postCount }, (value, index) => index + 1);
+      let tagCountPerPost = faker.number.int({ min: 0, max: 10 });
+      for (let j = 0; j < tagCountPerPost; j++) {
+          const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
+          const tagId = tagIds[randomIndex];
+
+          // TAG_OBJECTS[tagId - 1].postsTagged.add(postId).add(-1);
+          // postTags.push(`(${postId}, ${tagId})`);
+
+          post.tags.push(tagId);
+          tagIds.splice(randomIndex, 1);
+      }
+
+      if (i % logger.batchSizeToLog === 0) {
+          logger.info(`Generated ${i + 1} posts`);
+      }
+
+      yield post;
+  }
+
+  logger.info(`Generated data for ${postCount} posts`);
 }
 
 // Transformers/Denormalizers

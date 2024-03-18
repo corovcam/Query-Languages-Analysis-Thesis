@@ -79,6 +79,20 @@ export interface Tag {
   postsTagged?: Set<number>,
 }
 
+export interface Post {
+  postId: number,
+  personId: number,
+  imageFile: string,
+  creationDate: string,
+  locationIP: string,
+  browserUsed: string,
+  language: string,
+  content: string, // only for postCount < 128000 otherwise empty string
+  length: number,
+  // Cassandra additional attributes
+  tags?: number[],
+}
+
 export type countriesByBrand = Record<string, Set<string>>;
 
 export type brandVendorsByProductId = Record<number, { brand: string, vendorCountry: string }>;

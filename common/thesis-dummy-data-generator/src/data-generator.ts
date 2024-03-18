@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { DataStream, StringStream } from 'scramjet';
 
-import { generateVendorsProducts, generateTags, generatePeople, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
+import { generateVendorsProducts, generateTags, generatePeople, generatePosts, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
 import { mapToSQLDump, mapToTSV } from './transformers';
 import { mapAndDump, mapAndDumpJSONLines } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
@@ -216,6 +216,39 @@ function tagStream(tagCount = 100) {
     );
 }
 
+function postStream(postCount: number, peopleCount: number) {
+    const postStream = DataStream
+        .from(() => generatePosts(postCount, peopleCount))
+        .tee(stream => {
+            mapAndDump(
+                stream,
+                ({ postId, personId, imageFile, creationDate, locationIP, browserUsed, language, content, length }) => 
+                    mapToTSV([postId, personId, imageFile, creationDate, locationIP, browserUsed, language, content, length]),
+                fileNames.post,
+                postCount,
+                `${OUTPUT_DIR}/sql/${fileNames.post}.tsv`
+            );
+        })
+        .tee(stream => {
+            const postTagsStream = stream.flatMap(
+                ({ postId, tags }) => Array.from(tags).map(tagId => ({ postId, tagId }))
+            );
+            mapAndDump(
+                postTagsStream,
+                ({ postId, tagId }) => mapToTSV([postId, tagId]),
+                fileNames.postTags,
+                postCount,
+                `${OUTPUT_DIR}/sql/${fileNames.postTags}.tsv`
+            );
+        })
+        .catch(console.error);
+    return postStream;
+    // mapAndDumpJSONLines(
+    //     postStream,
+    //     `${OUTPUT_DIR}/common/${fileNames.post}.jsonl`,
+    // );
+}
+
 function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[], sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
     logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
 
@@ -327,41 +360,6 @@ function generateCassandraOrderTables(cqlFileName) {
     logger.info("Generated data for Cassandra tables:", "Orders_By_Customer", "Order", "Orders_By_Product", "Orders_By_Person");
     return orderInserts + ordersByProductInserts + ordersByPerson + ordersByCustomer;
 }
-
-function generatePosts(postCount, peopleCount) {
-    console.log(`Generating data for ${postCount} posts`);
-    logger.info(`Generating data for ${postCount} posts`);
-
-    let posts = [];
-    let postTags = [];
-
-    for (let i = 0; i < postCount; i++) {
-        const postId = i + 1;
-        const personId = faker.number.int({ min: 1, max: peopleCount });
-        const creationDate = faker.date.recent().toISOString().slice(0, -1);
-        const language = faker.helpers.arrayElement(['English', 'Spanish', 'French', 'German', 'Chinese']);
-        const postContent = postCount < 128000 ? faker.lorem.paragraphs({ min: 1, max: 5 }) : "";
-        const postLength = postContent.length;
-        posts.push(`(${postId}, ${personId}, '${faker.image.url()}', '${creationDate}', '${faker.internet.ip()}', '${faker.internet.userAgent()}', '${language}', '${postContent}', ${postLength})`);
-
-        // Assign Tags to Post (Post_Tags)
-        let tagIds = Array.from({ length: postCount }, (value, index) => index + 1);
-        let tagCountPerPost = faker.number.int({ min: 0, max: 10 });
-        for (let j = 0; j < tagCountPerPost; j++) {
-            const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
-            const tagId = tagIds[randomIndex];
-
-            // TAG_OBJECTS[tagId - 1].postsTagged.add(postId).add(-1);
-            postTags.push(`(${postId}, ${tagId})`);
-            tagIds.splice(randomIndex, 1);
-        }
-    }
-
-    logger.info(`Generated data for ${postCount} posts`);
-    return `INSERT INTO Post (postId, personId, imageFile, creationDate, locationIP, browserUsed, language, content, length) VALUES ${posts.join(", \n")};\n` +
-        `INSERT INTO Post_Tags (postId, tagId) VALUES ${postTags.join(", \n")};\n`;
-}
-
 
 function generateCassandraTagsContacts(cqlFileName = 'data.cql') {
     logger.info("Generating Cassandra tables:", "Tag", "Contact", "Vendor_Contacts_By_Order_Contact");
@@ -507,9 +505,13 @@ function main() {
 
         const typeMapping = getTypeMapping();
         // vendorProductStream(recordCount, typeMapping);
-        // peopleStream(recordCount, recordCount, recordCount);
-        tagStream(recordCount);
-        
+
+        // tagStream(recordCount);
+
+        // const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
+        // peopleStream(recordCount, customerCount, recordCount);
+
+        postStream(recordCount, recordCount);
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);
