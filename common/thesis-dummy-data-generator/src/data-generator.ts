@@ -145,6 +145,7 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
 function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number) {
     const peopleStream = DataStream
         .from(() => generatePeople(peopleCount, customerCount, tagCount))
+        // SQL Person, CQL Person_By_Birthday_Indexed tables
         .tee(stream => {
             mapAndDump(
                 stream,
@@ -152,6 +153,16 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 fileNames.people,
                 peopleCount,
                 `${OUTPUT_DIR}/${fileNames.people}.tsv`
+            );
+        })
+        // CQL Person
+        .tee(stream => {
+            mapAndDump(
+                stream,
+                ({ personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends }) => mapToTSV([personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends.size]),
+                fileNames.people,
+                peopleCount,
+                `${OUTPUT_DIR}/cql/${fileNames.people}.tsv`
             );
         })
         .tee(stream => {
