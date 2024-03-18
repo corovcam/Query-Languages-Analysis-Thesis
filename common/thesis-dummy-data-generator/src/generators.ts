@@ -25,7 +25,7 @@ export function chooseContactValue(type: ContactType["value"] | string): string 
   }
 }
 
-export async function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): AsyncGenerator<Vendor> {
+export function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): Generator<Vendor> {
   logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
   let productsAssigned = 0;
   for (let i = 0; i < vendorCount; i++) {
@@ -42,7 +42,7 @@ export async function* generateVendorsProducts(vendorCount = 100, productCount =
           productsPerVendor = productsAssignable;
       }
 
-      for await (const product of generateProductsForVendor(vendor, productsPerVendor, productsAssigned)) {
+      for (const product of generateProductsForVendor(vendor, productsPerVendor, productsAssigned)) {
           vendor.products.push(product);
       }
 
@@ -69,7 +69,7 @@ export async function* generateVendorsProducts(vendorCount = 100, productCount =
   logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
 }
 
-async function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, productsAssigned: number): AsyncGenerator<Product> {
+function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, productsAssigned: number): Generator<Product> {
   for (let i = productsAssigned; i < productsAssigned + productsPerVendor; i++) {
     const productId = i + 1;
     const asin = faker.string.nanoid(10).toUpperCase();
@@ -217,6 +217,66 @@ export async function* generatePosts(postCount: number, peopleCount: number, tag
   }
 
   logger.info(`Generated data for ${postCount} posts`);
+}
+
+export async function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, contactTypes: ContactType[]) {
+  logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
+
+  let orderId = 1;
+  for (let i = 0; i < customerCount; i++) {
+      const customerId = i + 1;
+
+      const orderCount = faker.number.int({ min: 1, max: maxOrdersPerCustomer });
+      for (let j = 0; j < orderCount; j++) {
+          // orders.push(`(${orderId}, ${customerId})`);
+
+          const order: Order = { orderId, customer: { customerId }, contacts: [], products: [] };
+
+          // ORDER_OBJECTS.push({ orderId, customer: { customerId }, contacts: [], products: [] });
+
+          // Assign Contacts to Order
+          // @ts-ignore
+          const chosenContactTypes = faker.helpers.arrayElements(contactTypes, { min: 1 });
+          chosenContactTypes.forEach(type => {
+              const chosenContactValue = chooseContactValue(type.value);
+              // ORDER_OBJECTS[orderId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } })
+              // orderContacts.push(`(${orderId}, ${type.typeId}, '${chosenContactValue}')`);
+              order.contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } });
+          });
+
+          // Assign Products to Order
+          let productIdArray = Array.from({ length: productCount }, (value, index) => index + 1);
+          let productsPerOrder = faker.number.int({ min: 1, max: 5 });
+          for (let j = 0; j < productsPerOrder; j++) {
+              const randomIndex = faker.number.int({ min: 0, max: productIdArray.length - 1 });
+              const productId = productIdArray[randomIndex];
+              const quantity = faker.number.int({ min: 1, max: 5 });
+
+              // ORDER_OBJECTS[orderId - 1].products.push({ productId, quantity });
+              // orderProducts.push(`(${orderId}, ${productId}, ${quantity})`);
+              order.products.push({ productId, quantity });
+
+              productIdArray.splice(randomIndex, 1);
+          }
+
+          if (i % logger.batchSizeToLog === 0) {
+              logger.info(`Generated ${i + 1} orders for ${customerId}`);
+          }
+
+          yield order;
+
+          orderId++;
+      }
+  }
+
+  logger.info(`Generated data for ${orderId - 1} orders`);
+
+  // const relationalData = `INSERT INTO \`Order\` (orderId, customerId) VALUES ${orders.join(", \n")};\n` +
+  //     `INSERT INTO Order_Contacts (orderId, typeId, value) VALUES ${orderContacts.join(", \n")};\n` +
+  //     `INSERT INTO Order_Products (orderId, productId, quantity) VALUES ${orderProducts.join(", \n")};\n`;
+
+  // const cassandraData = "";
+  // const cassandraData = generateCassandraOrderTables(cqlFileName);
 }
 
 // Transformers/Denormalizers

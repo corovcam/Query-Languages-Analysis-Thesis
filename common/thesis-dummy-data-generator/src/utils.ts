@@ -1,25 +1,6 @@
 import fs from "fs";
 import pino, { BaseLogger } from "pino";
-import { Faker, SimpleFaker, en, faker } from "@faker-js/faker";
-
-// export const createLogger = (startDateTime: Date) => pino({
-//     level: process.env.PINO_LOG_LEVEL || 'debug',
-//     timestamp: pino.stdTimeFunctions.isoTime,
-//     transport: {
-//         targets: [
-//             {
-//                 target: 'pino/file',
-//                 options: { destination: `logs/${startDateTime.toISOString().replace(/:/g, "-")}.log`, mkdir: true }
-//             },
-//             {
-//                 target: 'pino-pretty',
-//                 options: {
-//                     colorize: true
-//                 }
-//             }
-//         ]
-//     }
-// });
+import { faker } from "@faker-js/faker";
 
 export function isNumber(n: any) {
   return !isNaN(parseFloat(n)) && isFinite(n);

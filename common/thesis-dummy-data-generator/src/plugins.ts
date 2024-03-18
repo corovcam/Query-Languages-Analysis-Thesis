@@ -7,7 +7,7 @@ export function mapAndDump(
   streamOrArray: DataStream | any[],
   mapCallback: MapCallback,
   entityType: string,
-  entityCount: number,
+  entityCount: number = null,
   outputFilePath: string,
   preamble?: string,
 ): WriteStream {
@@ -29,7 +29,11 @@ export function mapAndDump(
     .catch(logger.error)
     .pipe(outputFileStream)
     .on("error", logger.error)
-    .on("finish", () => { logger.info(`Written ${entityCount} records of type ${entityType} to ${outputFilePath}.`); });
+    .on("finish", () => { 
+      entityCount ? 
+        logger.info(`Written ${entityCount} records of type ${entityType} to ${outputFilePath}.`) 
+        : logger.info(`Finished writing records of type ${entityType} to ${outputFilePath}.`); 
+    });
 }
 
 export function mapAndDumpJSONLines(

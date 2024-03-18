@@ -48,16 +48,17 @@ export interface Person {
 
 export interface Customer {
   customerId: number,
-  person: Person,
+  // Cassandra additional attributes
+  person?: Person,
 }
 
 export interface Product {
   productId: number,
-  asin: string,
-  title: string,
-  price: number | string,
-  brand: string,
-  imageUrl: string,
+  asin?: string,
+  title?: string,
+  price?: number | string,
+  brand?: string,
+  imageUrl?: string,
   // Cassandra additional attributes
   vendor?: Vendor,
   quantity?: number,

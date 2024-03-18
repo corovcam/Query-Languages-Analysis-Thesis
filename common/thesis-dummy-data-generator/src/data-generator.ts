@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { DataStream, StringStream } from 'scramjet';
 
-import { generateVendorsProducts, generateTags, generatePeople, generatePosts, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
+import { generateVendorsProducts, generateTags, generatePeople, generatePosts, generateOrders, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
 import { mapToSQLDump, mapToTSV } from './transformers';
 import { mapAndDump, mapAndDumpJSONLines } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
@@ -73,8 +73,8 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
             mapAndDump(
                 industryTypeStream,
                 ({ vendorId, industryId }) => mapToTSV([vendorId, industryId]), 
-                fileNames.vendors, 
-                recordCount, 
+                fileNames.industries, 
+                null, 
                 `${OUTPUT_DIR}/sql/${fileNames.industries}.tsv`,
             );
         })
@@ -85,8 +85,8 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
             mapAndDump(
                 contactTypeStream,
                 ({ vendorId, contactId }) => mapToTSV([vendorId, contactId]), 
-                fileNames.vendors, 
-                recordCount, 
+                fileNames.vendorContacts, 
+                null, 
                 `${OUTPUT_DIR}/sql/${fileNames.vendorContacts}.tsv`,
             );
         })
@@ -111,7 +111,7 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
                 countriesByBrandDenormalized,
                 ({ brand, country }) => mapToTSV([brand, country]),
                 fileNames.vendorCountriesByProductBrand,
-                recordCount,
+                null,
                 `${OUTPUT_DIR}/cql/${fileNames.vendorCountriesByProductBrand}.tsv`
             );
         })
@@ -143,7 +143,7 @@ function vendorProductStream(recordCount: number, typeMapping = getTypeMapping()
 }
 
 function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]) {
-    DataStream
+    const peopleStream = DataStream
         .from(() => generatePeople(peopleCount, customerCount, tagCount, tags))
         // SQL Person, CQL Person_By_Birthday_Indexed tables
         .tee(stream => {
@@ -173,7 +173,7 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 personPersonStream,
                 ({ personId, friendId }) => mapToTSV([personId, friendId]),
                 fileNames.personPerson,
-                peopleCount,
+                null,
                 `${OUTPUT_DIR}/sql/${fileNames.personPerson}.tsv`
             );
         })
@@ -185,12 +185,12 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 personTagsStream,
                 ({ personId, tagId }) => mapToTSV([personId, tagId]),
                 fileNames.personTags,
-                peopleCount,
+                null,
                 `${OUTPUT_DIR}/sql/${fileNames.personTags}.tsv`
             );
         })
         .catch(logger.error);
-    // return peopleStream;
+    return peopleStream;
     // mapAndDumpJSONLines(
     //     peopleStream,
     //     `${OUTPUT_DIR}/common/${fileNames.people}.jsonl`,
@@ -219,7 +219,7 @@ function tagStream(tagCount = 100) {
 }
 
 function postStream(postCount: number, peopleCount: number, tags?: Tag[]) {
-    DataStream
+    const postStream = DataStream
         .from(() => generatePosts(postCount, peopleCount, tags))
         .tee(stream => {
             mapAndDump(
@@ -239,73 +239,57 @@ function postStream(postCount: number, peopleCount: number, tags?: Tag[]) {
                 postTagsStream,
                 ({ postId, tagId }) => mapToTSV([postId, tagId]),
                 fileNames.postTags,
-                postCount,
+                null,
                 `${OUTPUT_DIR}/sql/${fileNames.postTags}.tsv`
             );
         })
         .catch(logger.error);
-    // return postStream;
+    return postStream;
     // mapAndDumpJSONLines(
     //     postStream,
     //     `${OUTPUT_DIR}/common/${fileNames.post}.jsonl`,
     // );
 }
 
-function generateOrders(customerCount, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[], sqlFileName = 'data.sql', cqlFileName = 'data.cql') {
-    logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
-
-    let orders = [];
-    let orderContacts = [];
-    let orderProducts = [];
-
-    // TODO: Handle random product assignment ?
-    const filteredContactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
-
-    let orderId = 1;
-    for (let i = 0; i < customerCount; i++) {
-        const customerId = i + 1;
-
-        const orderCount = faker.number.int({ min: 1, max: maxOrdersPerCustomer });
-        for (let j = 0; j < orderCount; j++) {
-            orders.push(`(${orderId}, ${customerId})`);
-
-            // ORDER_OBJECTS.push({ orderId, customer: { customerId }, contacts: [], products: [] });
-
-            // Assign Contacts to Order
-            // @ts-ignore
-            const chosenContactTypes = faker.helpers.arrayElements(filteredContactTypes, { min: 1 });
-            chosenContactTypes.forEach(type => {
-                const chosenContactValue = chooseContactValue(type.value);
-                // ORDER_OBJECTS[orderId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } })
-                orderContacts.push(`(${orderId}, ${type.typeId}, '${chosenContactValue}')`);
-            });
-
-            // Assign Products to Order
-            let productIdArray = Array.from({ length: productCount }, (value, index) => index + 1);
-            let productsPerOrder = faker.number.int({ min: 1, max: 5 });
-            for (let j = 0; j < productsPerOrder; j++) {
-                const randomIndex = faker.number.int({ min: 0, max: productIdArray.length - 1 });
-                const productId = productIdArray[randomIndex];
-                const quantity = faker.number.int({ min: 1, max: 5 });
-
-                // ORDER_OBJECTS[orderId - 1].products.push({ productId, quantity });
-                orderProducts.push(`(${orderId}, ${productId}, ${quantity})`);
-                productIdArray.splice(randomIndex, 1);
-            }
-
-            orderId++;
-        }
-    }
-
-    const relationalData = `INSERT INTO \`Order\` (orderId, customerId) VALUES ${orders.join(", \n")};\n` +
-        `INSERT INTO Order_Contacts (orderId, typeId, value) VALUES ${orderContacts.join(", \n")};\n` +
-        `INSERT INTO Order_Products (orderId, productId, quantity) VALUES ${orderProducts.join(", \n")};\n`;
-
-    const cassandraData = "";
-    // const cassandraData = generateCassandraOrderTables(cqlFileName);
-
-    logger.info(`Generated data for ${orderId - 1} orders`);
-    return { relationalData, cassandraData };
+function orderStream(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[]) {
+    const contactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
+    const orderStream = DataStream
+        .from(() => generateOrders(customerCount, maxOrdersPerCustomer, productCount, contactTypes))
+        .tee(stream => {
+            mapAndDump(
+                stream,
+                ({ orderId, customer: { customerId } }) => mapToTSV([orderId, customerId]),
+                fileNames.orders,
+                productCount,
+                `${OUTPUT_DIR}/sql/${fileNames.products}.tsv`
+            );
+        })
+        .tee(stream => {
+            const orderContactsStream = stream.flatMap(
+                ({ orderId, contacts }) => contacts.map(({ typeId, value }) => ({ orderId, typeId, value }))
+            );
+            mapAndDump(
+                orderContactsStream,
+                ({ orderId, typeId, value }) => mapToTSV([orderId, typeId, value]),
+                fileNames.orderContacts,
+                null,
+                `${OUTPUT_DIR}/sql/${fileNames.orderContacts}.tsv`
+            );
+        })
+        .tee(stream => {
+            const orderProductsStream = stream.flatMap(
+                ({ orderId, products }) => products.map(({ productId, quantity }) => ({ orderId, productId, quantity }))
+            );
+            mapAndDump(
+                orderProductsStream,
+                ({ orderId, productId, quantity }) => mapToTSV([orderId, productId, quantity]),
+                fileNames.orderProducts,
+                null,
+                `${OUTPUT_DIR}/sql/${fileNames.orderProducts}.tsv`
+            );
+        })
+        .catch(logger.error);
+    return orderStream;
 }
 
 function generateCassandraOrderTables(cqlFileName) {
@@ -485,7 +469,7 @@ function writeCassandraOrderVendorContacts(cqlFileName = 'data.cql') {
 //     return { relationalData, cassandraData };
 // }
 
-async function cassandraPipeline(recordCount: number) {
+async function cassandraTagPersonPostPipeline(recordCount: number) {
     // const typeMapping = getTypeMapping();
     // vendorProductStream(recordCount, typeMapping);
     
@@ -529,17 +513,16 @@ function main() {
         logger.info(`Started generating data for ${recordCount} records`);
         // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
 
-        // const typeMapping = getTypeMapping();
-        // vendorProductStream(recordCount, typeMapping);
+        const typeMapping = getTypeMapping();
+        vendorProductStream(recordCount, typeMapping);
 
         // tagStream(recordCount);
-
-        // const customerCount = faker.number.int({ min: Math.floor(peopleCount / 2), max: peopleCount });
+        const customerCount = faker.number.int({ min: Math.floor(recordCount / 2), max: recordCount });
         // peopleStream(recordCount, customerCount, recordCount);
-
         // postStream(recordCount, recordCount);
 
-        cassandraPipeline(recordCount);
+        // cassandraTagPersonPostPipeline(recordCount);
+        // orderStream(customerCount, 3, recordCount, typeMapping);
     } else {
         console.log("Please provide the record count as an argument");
         process.exit(1);
