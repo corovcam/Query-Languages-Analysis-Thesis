@@ -3,12 +3,12 @@ const fs = require("fs");
 const iterations = 20;
 const recordVolume = 256000;
 const outFilePath = `logs/queries/results_${new Date().toISOString().replace(/:/g, '-')}.csv`;
-const timeoutMS = 300000;
-let time;
+const maxTimeMS = 30;
+let time, timeout;
 
 fs.appendFileSync(outFilePath, 'db,record_volume,query,iteration,time_in_seconds\n');
 
-// Helper function to record query stats
+// Helper functions
 function recordStats(queryName, iteration, time) {
   fs.appendFileSync(outFilePath, `mongodb,${recordVolume},${queryName},${iteration},${time}\n`);
 }
@@ -18,8 +18,28 @@ function log(message) {
   console.log(`${timestamp}\t${message}`);
 }
 
+function killLongRunningOps() {
+  currOp = db.currentOp();
+  for (oper in currOp.inprog) {
+    op = currOp.inprog[oper - 0];
+    if (op.op == "command" && op.ns.startsWith("ecommerce")) {
+      log("Killing opId: " + op.opid + " running for over secs: " + op.secs_running);
+      db.killOp(op.opid);
+    }
+  }
+};
+
+function startTimeout() {
+  const timeout = setTimeout(() => {
+    log('Timeout reached, killing long running operations...');
+    killLongRunningOps();
+    throw new Error('Timeout reached');
+  }, maxTimeMS);
+  return timeout;
+}
+
 // Set cursor (query) timeout to 5 minutes
-db.adminCommand({ setParameter: 1, cursorTimeoutMillis: timeoutMS });
+db.adminCommand({ setParameter: 1, cursorTimeoutMillis: maxTimeMS });
 
 // 1. Selection, Projection, Source (of data)
 
@@ -29,7 +49,7 @@ log('Started testing query 1.1');
 try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
-    time = db.vendors.find({ name: "Bauch - Denesik" }, { name: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.vendors.find({ name: "Bauch - Denesik" }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('1.1', i, time);
   }
 } catch (e) {
@@ -47,7 +67,7 @@ log('Started testing query 1.2');
 try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
-    time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('1.2', i, time);
   }
 } catch (e) {
@@ -62,7 +82,7 @@ log('Started testing query 1.3');
 try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
-    time = db.vendors.find({ _id: 24 }, { name: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.vendors.find({ _id: 24 }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('1.3', i, time);
   }
 } catch (e) {
@@ -80,7 +100,7 @@ log('Started testing query 1.4');
 try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
-    time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('1.4', i, time);
   }
 } catch (e) {
@@ -97,10 +117,13 @@ log('Started testing query 2.1');
 try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.products.explain("executionStats").aggregate([{ $group: { _id: "$brand", productCount: { $sum: 1 } } }]).executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('2.1', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('2.1', -1, -1);
   log(e);
 }
@@ -129,6 +152,7 @@ log('Started testing query 3.1');
 try {
   for (let i = 0; i < iterations; i++) {
     db.types.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.types.explain("executionStats").aggregate([
       {
         $lookup: {
@@ -164,10 +188,12 @@ try {
           },
         }
       }
-    ], { maxTimeMS: timeoutMS }).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('3.1', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('3.1', -1, -1);
   log(e);
 }
@@ -179,7 +205,7 @@ log('Started testing query 3.2');
 try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
-    time = db.products.find().maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.products.find().maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('3.2', i, time);
   }
 } catch (e) {
@@ -197,43 +223,46 @@ log('Finished testing query 3.2');
 
 // Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
 log('Started testing query 3.3');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     db.orders.getPlanCache().clear();
-//     db.vendors.getPlanCache().clear();
-//     time = db.orders.explain("executionStats").aggregate([
-//       {
-//         $lookup: {
-//           from: "products",
-//           localField: "_id",
-//           foreignField: "products.inOrders.orderId",
-//           as: "containsProducts"
-//         }
-//       },
-//       {
-//         $unwind: "$containsProducts"
-//       },
-//       {
-//         $lookup: {
-//           from: "vendors",
-//           localField: "containsProducts.productId",
-//           foreignField: "manufacturesProducts.productId",
-//           as: "containsProducts.vendors"
-//         }
-//       },
-//       {
-//         $unset: [
-//           "containsProducts.vendors.manufacturesProducts",
-//           "containsProducts.vendors.contacts"
-//         ],
-//       },
-//     ], { maxTimeMS: 30 }).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
-//     recordStats('3.3', i, time);
-//   }
-// } catch (e) {
-//   recordStats('3.3', -1, -1);
-//   log(e);
-// }
+try {
+  for (let i = 0; i < iterations; i++) {
+    db.orders.getPlanCache().clear();
+    db.vendors.getPlanCache().clear();
+    timeout = startTimeout();
+    time = db.orders.explain("executionStats").aggregate([
+      {
+        $lookup: {
+          from: "products",
+          localField: "_id",
+          foreignField: "products.inOrders.orderId",
+          as: "containsProducts"
+        }
+      },
+      {
+        $unwind: "$containsProducts"
+      },
+      {
+        $lookup: {
+          from: "vendors",
+          localField: "containsProducts.productId",
+          foreignField: "manufacturesProducts.productId",
+          as: "containsProducts.vendors"
+        }
+      },
+      {
+        $unset: [
+          "containsProducts.vendors.manufacturesProducts",
+          "containsProducts.vendors.contacts"
+        ],
+      },
+    ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
+    recordStats('3.3', i, time);
+  }
+} catch (e) {
+  clearTimeout(timeout);
+  recordStats('3.3', -1, -1);
+  log(e);
+}
 log('Finished testing query 3.3');
 
 // 3.4 Complex Join 2 (having more than 1 friend)
@@ -244,6 +273,7 @@ log('Started testing query 3.4');
 try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.persons.explain("executionStats").aggregate([
       {
         $unwind: "$knowsPeople"
@@ -272,9 +302,11 @@ try {
       },
       { $project: { person: 0, knowsPeople: 0 } }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('3.4', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('3.4', -1, -1);
   log(e);
 }
@@ -288,6 +320,7 @@ log('Started testing query 4.1');
 try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.persons.explain("executionStats").aggregate([
       {
         $graphLookup: {
@@ -311,9 +344,11 @@ try {
         }
       },
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('4.1', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('4.1', -1, -1);
   log(e);
 }
@@ -325,6 +360,7 @@ log('Started testing query 4.2');
 try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.persons.explain("executionStats").aggregate([
       {
         $match: {
@@ -370,9 +406,11 @@ try {
         }
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('4.2', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('4.2', -1, -1);
   log(e);
 }
@@ -394,7 +432,7 @@ try {
           else: 0
         }
       }
-    }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('5', i, time);
   }
 } catch (e) {
@@ -410,6 +448,7 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
     db.orders.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.vendors.explain("executionStats").aggregate([
       {
         $unwind: "$contacts"
@@ -451,9 +490,11 @@ try {
         }
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('6', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('6', -1, -1);
   log(e);
 }
@@ -472,7 +513,7 @@ try {
       ]
     }, {
       commonTag: "$value"
-    }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('7', i, time);
   }
 } catch (e) {
@@ -490,6 +531,7 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
     db.orders.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.persons.explain("executionStats").aggregate([
       {
         $lookup: {
@@ -511,9 +553,11 @@ try {
         }
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('8.1', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('8.1', -1, -1);
   log(e);
 }
@@ -530,7 +574,7 @@ try {
     }, {
       firstName: 1,
       lastName: 1
-    }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('8.2', i, time);
   }
 } catch (e) {
@@ -547,7 +591,7 @@ log('Started testing query 9.1');
 try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
-    time = db.products.find().sort({ brand: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.products.find().sort({ brand: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('9.1', i, time);
   }
 } catch (e) {
@@ -562,7 +606,7 @@ log('Started testing query 9.2');
 try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
-    time = db.products.find().sort({ _id: 1 }).maxTimeMS(timeoutMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
+    time = db.products.find().sort({ _id: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
     recordStats('9.2', i, time);
   }
 } catch (e) {
@@ -577,6 +621,7 @@ log('Started testing query 10');
 try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.vendors.explain("executionStats").aggregate([
       {
         $unwind: "$manufacturesProducts"
@@ -603,9 +648,11 @@ try {
         }
       },
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('10', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('10', -1, -1);
   log(e);
 }
@@ -617,6 +664,7 @@ log('Started testing query 11');
 try {
   for (let i = 0; i < iterations; i++) {
     db.orders.getPlanCache().clear();
+    timeout = startTimeout();
     time = db.orders.explain("executionStats").aggregate([
       {
         $group: {
@@ -625,9 +673,11 @@ try {
         }
       }
     ]).executionStats.executionTimeMillis / 1000;
+    clearTimeout(timeout);
     recordStats('11', i, time);
   }
 } catch (e) {
+  clearTimeout(timeout);
   recordStats('11', -1, -1);
   log(e);
 }
