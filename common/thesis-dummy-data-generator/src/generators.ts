@@ -112,36 +112,67 @@ export function* generatePeople(peopleCount: number, customerCount = peopleCount
 
       const person: Person = { personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends: new Set(), tags: new Set(), ordersCreated: new Set([-1]) };
 
-      // PEOPLE_OBJECTS.push({ personId, firstName, lastName, gender, birthday, street, city, postalCode, country, friends: new Set(), tags: new Set(), ordersCreated: new Set([-1]) });
-      // people.push(`(${personId}, '${firstName}', '${lastName}', '${gender}', '${birthday}', '${street}', '${city}', '${postalCode}', '${country}')`);
+      const friendGenerator = (function* () {
+          let friendCount = faker.number.int({ min: 0, max: 10 });
+          let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
+          friendIds.splice(personId - 1, 1);
+          for (let j = 0; j < friendCount; j++) {
+              const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
+              const friendId = friendIds[randomIndex];
+
+              yield friendId;
+              friendIds.splice(randomIndex, 1);
+          }
+      });
+
+      for (const friendId of friendGenerator()) {
+          person.friends.add(friendId);
+      }
 
       // TODO: O(11n) algorithm - Refactor to Stream processing, erase Array allocations, splice method
       // Assign Friends to Person (Person_Person)
-      let friendCount = faker.number.int({ min: 0, max: 10 });
-      let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
-      friendIds.splice(personId - 1, 1);
-      for (let j = 0; j < friendCount; j++) {
-          const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
-          const friendId = friendIds[randomIndex];
+      // let friendCount = faker.number.int({ min: 0, max: 10 });
+      // let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
+      // friendIds.splice(personId - 1, 1);
+      // for (let j = 0; j < friendCount; j++) {
+      //     const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
+      //     const friendId = friendIds[randomIndex];
 
-          person.friends.add(friendId);
+      //     person.friends.add(friendId);
 
-          friendIds.splice(randomIndex, 1);
+      //     friendIds.splice(randomIndex, 1);
+      // }
+
+      const tagGenerator = (function* () {
+          let tagIds = Array.from({ length: tagCount }, (value, index) => index + 1);
+          let tagCountPerPerson = faker.number.int({ min: 0, max: 10 });
+          for (let j = 0; j < tagCountPerPerson; j++) {
+              const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
+              const tagId = tagIds[randomIndex];
+
+              yield tagId;
+              tagIds.splice(randomIndex, 1);
+          }
+      });
+
+      for (const tagId of tagGenerator()) {
+          person.tags.add(tagId);
+          tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
       }
 
       // TODO: O(11n) algorithm - Refactor to Stream processing, erase Array allocations, splice method
       // Assign Tags to Person (Person_Tags)
-      let tagIds = Array.from({ length: tagCount }, (value, index) => index + 1);
-      let tagCountPerPerson = faker.number.int({ min: 0, max: 10 });
-      for (let j = 0; j < tagCountPerPerson; j++) {
-          const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
-          const tagId = tagIds[randomIndex];
+      // let tagIds = Array.from({ length: tagCount }, (value, index) => index + 1);
+      // let tagCountPerPerson = faker.number.int({ min: 0, max: 10 });
+      // for (let j = 0; j < tagCountPerPerson; j++) {
+      //     const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
+      //     const tagId = tagIds[randomIndex];
 
-          person.tags.add(tagId);
-          tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
+      //     person.tags.add(tagId);
+      //     tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
 
-          tagIds.splice(randomIndex, 1);
-      }
+      //     tagIds.splice(randomIndex, 1);
+      // }
 
       if (i < customerCount) {
           const customerId = i + 1;
@@ -297,4 +328,17 @@ export async function cassandraTransformVendorProducts(stream: DataStream) {
     }, accumulatorRef = { brandVendorsByProductId: {}, countriesByBrand: {} });
 
     return accumulatorRef;
+}
+
+export function* generateFriends(peopleCount: number, personId: number) {
+  let friendCount = faker.number.int({ min: 0, max: 10 });
+  let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
+  friendIds.splice(personId - 1, 1);
+  for (let j = 0; j < friendCount; j++) {
+      const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
+      const friendId = friendIds[randomIndex];
+
+      yield friendId;
+      friendIds.splice(randomIndex, 1);
+  }
 }

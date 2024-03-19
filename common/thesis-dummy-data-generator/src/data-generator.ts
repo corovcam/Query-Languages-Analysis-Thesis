@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { DataStream, StringStream } from 'scramjet';
 
-import { generateVendorsProducts, generateTags, generatePeople, generatePosts, generateOrders, getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
+import { generateVendorsProducts, generateTags, generatePeople, generatePosts, generateOrders,  getTypeMapping, chooseContactValue, cassandraTransformVendorProducts } from './generators';
 import { mapToSQLDump, mapToTSV } from './transformers';
 import { mapAndDump, mapAndDumpJSONLines } from './plugins';
 import { CustomLogger, CustomFaker, capitalizeFirstLetter } from './utils';
@@ -155,16 +155,20 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 `${OUTPUT_DIR}/${fileNames.people}.tsv`
             );
         })
-        // CQL Person
+        // SQL Person_Tags
         .tee(stream => {
+            const personTagsStream = stream.flatMap(
+                ({ personId, tags }) => Array.from(tags).map(tagId => ({ personId, tagId }))
+            );
             mapAndDump(
-                stream,
-                ({ personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends }) => mapToTSV([personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends.size]),
-                fileNames.people,
-                peopleCount,
-                `${OUTPUT_DIR}/cql/${fileNames.people}.tsv`
+                personTagsStream,
+                ({ personId, tagId }) => mapToTSV([personId, tagId]),
+                fileNames.personTags,
+                null,
+                `${OUTPUT_DIR}/sql/${fileNames.personTags}.tsv`
             );
         })
+        // SQL Person_Person
         .tee(stream => {
             const personPersonStream = stream.flatMap(
                 ({ personId, friends }) => Array.from(friends).map(friendId => ({ personId, friendId }))
@@ -177,16 +181,14 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
                 `${OUTPUT_DIR}/sql/${fileNames.personPerson}.tsv`
             );
         })
+        // CQL Person
         .tee(stream => {
-            const personTagsStream = stream.flatMap(
-                ({ personId, tags }) => Array.from(tags).map(tagId => ({ personId, tagId }))
-            );
             mapAndDump(
-                personTagsStream,
-                ({ personId, tagId }) => mapToTSV([personId, tagId]),
-                fileNames.personTags,
-                null,
-                `${OUTPUT_DIR}/sql/${fileNames.personTags}.tsv`
+                stream,
+                ({ personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends }) => mapToTSV([personId, gender, firstName, lastName, birthday, street, city, postalCode, country, friends.size]),
+                fileNames.people,
+                peopleCount,
+                `${OUTPUT_DIR}/cql/${fileNames.people}.tsv`
             );
         })
         .catch(logger.error);
@@ -514,11 +516,11 @@ function main() {
         // writeToFiles(generateData(parseInt(process.argv[2]), sqlFileName, cqlFileName), sqlFileName, cqlFileName);
 
         const typeMapping = getTypeMapping();
-        vendorProductStream(recordCount, typeMapping);
+        // vendorProductStream(recordCount, typeMapping);
 
         // tagStream(recordCount);
         const customerCount = faker.number.int({ min: Math.floor(recordCount / 2), max: recordCount });
-        // peopleStream(recordCount, customerCount, recordCount);
+        peopleStream(recordCount, customerCount, recordCount);
         // postStream(recordCount, recordCount);
 
         // cassandraTagPersonPostPipeline(recordCount);
