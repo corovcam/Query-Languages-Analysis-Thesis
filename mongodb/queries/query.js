@@ -74,6 +74,14 @@ db.products.find();
 // Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
 db.orders.aggregate([
   {
+    $lookup: {
+      from: "products",
+      localField: "_id",
+      foreignField: "products.inOrders.orderId",
+      as: "containsProducts"
+    }
+  },
+  {
     $unwind: "$containsProducts"
   },
   {
