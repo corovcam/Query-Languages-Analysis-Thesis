@@ -24,3 +24,8 @@
     - are not used by default - check db.clearQueryCaches() - outputs -1
   - page caches - cannot start the instance with NEO4J_server_memory_pagecache_size set to 0
 - Execution time in PROFILE is in ms
+
+
+## Stats
+- 256k:
+  - DB Size: 968MB (via `du -hc /var/lib/neo4j/data/databases/neo4j/*store.db*`)

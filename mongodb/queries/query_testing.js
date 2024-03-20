@@ -3,7 +3,7 @@ const fs = require("fs");
 const iterations = 20;
 const recordVolume = 256000;
 const outFilePath = `logs/queries/results_${new Date().toISOString().replace(/:/g, '-')}.csv`;
-const maxTimeMS = 30;
+const maxTimeMS = 300000;
 let time, timeout;
 
 fs.appendFileSync(outFilePath, 'db,record_volume,query,iteration,time_in_seconds\n');
