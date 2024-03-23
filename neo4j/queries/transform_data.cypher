@@ -11,3 +11,7 @@ CREATE INDEX idx_vendor_vendorId IF NOT EXISTS FOR (v:Vendor) ON (v.vendorId);
 
 MATCH (p:Person)
 SET p.birthday = date(p.birthday);
+
+// MATCH (p:Person)
+// WITH split(p.birthday, ' ') AS datetime
+// SET p.birthday = date(datetime[0]);

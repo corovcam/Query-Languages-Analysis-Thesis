@@ -3,22 +3,39 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-log_file="../logs/neo4j-etl-tool_$timestamp.log"
+log_file="/neo4j/logs/neo4j-etl-tool_$timestamp.log"
+
+# export NEO4J_HOME=/var/lib/neo4j
+# Requires JAVA_HOME to be set to a JDK 8 installation or higher
+# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+# echo "[$(date +"%Y-%m-%d %T")] Set \$JAVA_HOME variable to $JAVA_HOME" |& tee -a "$log_file"
 
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
-
-# Requires JAVA_HOME to be set to a JDK 8 installation or higher
 ./neo4j-etl-cli-1.6.0/bin/neo4j-etl export \
+  --debug \
   --mapping-file mysql_ecommerce_mapping.json \
-  --rdbms:password test \
-  --rdbms:user test \
-  --rdbms:url "jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false&useCursorFetch=true&allowPublicKeyRetrieval=true" \
+  --rdbms:password root \
+  --rdbms:user root \
+  --rdbms:url "jdbc:mysql://mysql:3306/ecommerce?autoReconnect=true&useSSL=false&useCursorFetch=true&allowPublicKeyRetrieval=true" \
   --options-file import-tool-options.json \
-  --using cypher:fromSQL \
-  --unwind-batch-size 1000 \
-  --tx-batch-size 10000 \
+  --using bulk:neo4j-import \
+  --csv-directory "/neo4j/neo4j-etl-tool/tmp/$timestamp" \
+  --import-tool "$NEO4J_HOME/bin" \
+  --destination /data/databases/neo4j/ \
+  --force \
+  --quote '"' \
   --neo4j:url neo4j://localhost:7687 \
   --neo4j:user neo4j \
   --neo4j:password neo4j |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool failed" |& tee -a "$log_file"
-
+  # --force \ force deletes the whole database at /data/databases/neo4j/
+  # --unwind-batch-size 1000 \
+  # --tx-batch-size 10000 \
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool finished" |& tee -a "$log_file"
+
+sed -i '1,2d' /neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params
+
+cd "$NEO4J_HOME/bin" || { echo "[$(date +"%Y-%m-%d %T")] Failed to change directory to $NEO4J_HOME" |& tee -a "$log_file"; exit 1; }
+
+echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import started" |& tee -a "$log_file"
+./neo4j-admin database import full --verbose --overwrite-destination @/neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import failed" |& tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import finished" |& tee -a "$log_file"

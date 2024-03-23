@@ -21,3 +21,4 @@ data_slice2.sql
 cassandra.yaml
 synopsis.md
 **/*.tsv
+**/tmp
