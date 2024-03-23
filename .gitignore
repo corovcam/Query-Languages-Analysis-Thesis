@@ -2,6 +2,7 @@ sqlite/data
 todo.md
 .idea/
 .vscode/
+**/logs/**/*.lck
 **/logs/**/*.log
 **/logs/**/*.csv
 **/exports/**/*.json*
