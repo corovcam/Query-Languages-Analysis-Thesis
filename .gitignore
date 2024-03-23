@@ -22,3 +22,4 @@ cassandra.yaml
 synopsis.md
 **/*.tsv
 **/tmp
+dumps

@@ -10,6 +10,9 @@ log_file="/neo4j/logs/neo4j-etl-tool_$timestamp.log"
 # export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # echo "[$(date +"%Y-%m-%d %T")] Set \$JAVA_HOME variable to $JAVA_HOME" |& tee -a "$log_file"
 
+# Neo4j instance must be stopped first (or docker container restarted) before proceeding with this script
+# neo4j stop
+
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
 ./neo4j-etl-cli-1.6.0/bin/neo4j-etl export \
   --debug \
@@ -31,6 +34,8 @@ echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
   # --unwind-batch-size 1000 \
   # --tx-batch-size 10000 \
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool finished" |& tee -a "$log_file"
+
+chmod -R 777 /neo4j/neo4j-etl-tool/tmp || echo "[$(date +"%Y-%m-%d %T")] Failed to change permissions for /neo4j/neo4j-etl-tool/tmp/$timestamp" |& tee -a "$log_file"
 
 sed -i '1,2d' /neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params
 
