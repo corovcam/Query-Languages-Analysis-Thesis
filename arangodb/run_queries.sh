@@ -9,7 +9,8 @@ query_result_file="logs/queries/query_result_$timestamp.log"
 echo "[$(date +"%Y-%m-%d %T")] Starting query testing" 2>&1 | tee -a "$log_file"
 arangosh \
   --server.authentication false \
-  --console.audit-file \
+  --log.level trace \
   --server.request-timeout 300 \
+  --console.audit-file \
   "$query_result_file" < queries/query_testing.js 2>&1 | tee -a "$log_file"
 echo "[$(date +"%Y-%m-%d %T")] Finished query testing" 2>&1 | tee -a "$log_file"

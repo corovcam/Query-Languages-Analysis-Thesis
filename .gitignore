@@ -23,4 +23,5 @@ cassandra.yaml
 synopsis.md
 **/*.tsv
 **/tmp
-dumps
+dumps/*
+!data_old.sql
