@@ -19,188 +19,188 @@ function log(message) {
   console.log(`${timestamp}\t${message}`);
 }
 
-// // 1. Selection, Projection, Source (of data)
+// 1. Selection, Projection, Source (of data)
 
-// // 1.1 Non-Indexed Selection
+// 1.1 Non-Indexed Selection
 
-// log('Started testing query 1.1');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR v IN vendors
-//     FILTER v.name == 'Bauch - Denesik'
-//     RETURN { vendorId: v.vendorId, name: v.name }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 1.1');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR v IN vendors
+    FILTER v.name == 'Bauch - Denesik'
+    RETURN { vendorId: v.vendorId, name: v.name }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '1.1', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '1.1', -1, -1]);
-// }
-// log('Finished testing query 1.1');
+    recordStats(['arangodb', recordVolume, '1.1', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '1.1', -1, -1]);
+}
+log('Finished testing query 1.1');
 
-// // 1.2 Non-Indexed Selection - Range Query
+// 1.2 Non-Indexed Selection - Range Query
 
-// try {
-//   db.persons.dropIndex('idx_person_birthday');
-// } catch (e) {
-//   // index does not exist
-//   log(e);
-// }
+try {
+  db.persons.dropIndex('idx_person_birthday');
+} catch (e) {
+  // index does not exist
+  log(e);
+}
 
-// log('Started testing query 1.2');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR p IN persons
-//       FILTER DATE_TIMESTAMP(p.birthday) >= DATE_TIMESTAMP('1980-01-01') && DATE_TIMESTAMP(p.birthday) <= DATE_TIMESTAMP('1990-12-31')
-//       RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 1.2');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR p IN persons
+      FILTER DATE_TIMESTAMP(p.birthday) >= DATE_TIMESTAMP('1980-01-01') && DATE_TIMESTAMP(p.birthday) <= DATE_TIMESTAMP('1990-12-31')
+      RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '1.2', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '1.2', -1, -1]);
-// }
-// log('Finished testing query 1.2');
+    recordStats(['arangodb', recordVolume, '1.2', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '1.2', -1, -1]);
+}
+log('Finished testing query 1.2');
 
-// // 1.3 Indexed Columns
+// 1.3 Indexed Columns
 
-// db.vendors.ensureIndex(
-//   { type: "persistent", name: "idx_vendors_vendorID", unique: true, fields: ["vendorId"] }
-// );
+db.vendors.ensureIndex(
+  { type: "persistent", name: "idx_vendors_vendorID", unique: true, fields: ["vendorId"] }
+);
 
-// log('Started testing query 1.3');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR n IN vendors
-//       FILTER n.vendorId == 24
-//       RETURN { vendorId: n.vendorId, name: n.name }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 1.3');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR n IN vendors
+      FILTER n.vendorId == 24
+      RETURN { vendorId: n.vendorId, name: n.name }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '1.3', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '1.3', -1, -1]);
-// }
-// log('Finished testing query 1.3');
+    recordStats(['arangodb', recordVolume, '1.3', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '1.3', -1, -1]);
+}
+log('Finished testing query 1.3');
 
-// // 1.4 Indexed Columns - Range Query
+// 1.4 Indexed Columns - Range Query
 
-// db.persons.ensureIndex(
-//   { type: "persistent", name: "idx_person_birthday", unique: false, fields: ["birthday"] }
-// );
+db.persons.ensureIndex(
+  { type: "persistent", name: "idx_person_birthday", unique: false, fields: ["birthday"] }
+);
 
-// log('Started testing query 1.4');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR p IN persons
-//       FILTER DATE_TIMESTAMP(p.birthday) >= DATE_TIMESTAMP('1980-01-01') && DATE_TIMESTAMP(p.birthday) <= DATE_TIMESTAMP('1990-12-31')
-//       RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 1.4');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR p IN persons
+      FILTER DATE_TIMESTAMP(p.birthday) >= DATE_TIMESTAMP('1980-01-01') && DATE_TIMESTAMP(p.birthday) <= DATE_TIMESTAMP('1990-12-31')
+      RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '1.4', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '1.4', -1, -1]);
-// }
-// log('Finished testing query 1.4');
+    recordStats(['arangodb', recordVolume, '1.4', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '1.4', -1, -1]);
+}
+log('Finished testing query 1.4');
 
-// // 2. Aggregation
+// 2. Aggregation
 
-// // 2.1 COUNT
+// 2.1 COUNT
 
-// log('Started testing query 2.1');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR pr IN products
-//       COLLECT brand = pr.brand WITH COUNT INTO productCount
-//       RETURN { brand: brand, productCount: productCount }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 2.1');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR pr IN products
+      COLLECT brand = pr.brand WITH COUNT INTO productCount
+      RETURN { brand: brand, productCount: productCount }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '2.1', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '2.1', -1, -1]);
-// }
-// log('Finished testing query 2.1');
+    recordStats(['arangodb', recordVolume, '2.1', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '2.1', -1, -1]);
+}
+log('Finished testing query 2.1');
 
-// // 2.2 MAX
+// 2.2 MAX
 
-// log('Started testing query 2.2');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR pr IN products
-//       COLLECT brand = pr.brand
-//       AGGREGATE maxPrice = MAX(pr.price)
-//       RETURN { brand: brand, maxPrice: maxPrice }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 2.2');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR pr IN products
+      COLLECT brand = pr.brand
+      AGGREGATE maxPrice = MAX(pr.price)
+      RETURN { brand: brand, maxPrice: maxPrice }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '2.2', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '2.2', -1, -1]);
-// }
-// log('Finished testing query 2.2');
+    recordStats(['arangodb', recordVolume, '2.2', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '2.2', -1, -1]);
+}
+log('Finished testing query 2.2');
 
-// // 3. Join
+// 3. Join
 
-// // 3.1 Non-Indexed Node/Relationship keys
+// 3.1 Non-Indexed Node/Relationship keys
 
-// // TODO: Drop indexes for this query
-// // Primary Indexes cannot be dropped: https://docs.arangodb.com/3.11/index-and-search/indexing/basics/#primary-index
-// // Need to change the query? 
+// TODO: Drop indexes for this query
+// Primary Indexes cannot be dropped: https://docs.arangodb.com/3.11/index-and-search/indexing/basics/#primary-index
+// Need to change the query? 
 
-// // Match all Orders and Vendors sharing the same Contact Type
-// // TODO: Rewrite to start iteration with i=1
-// log('Started testing query 3.1');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//       FOR o IN orders
-//         FOR t, oc IN OUTBOUND o contactType
-//           FOR v, vc IN OUTBOUND t contactType
-//             RETURN DISTINCT { typeId: t, order: o, orderContact: oc, vendor: v, vendorContact: vc }
-//     `).getExtra().stats.executionTime;
+// Match all Orders and Vendors sharing the same Contact Type
+// TODO: Rewrite to start iteration with i=1
+log('Started testing query 3.1');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+      FOR o IN orders
+        FOR t, oc IN OUTBOUND o contactType
+          FOR v, vc IN OUTBOUND t contactType
+            RETURN DISTINCT { typeId: t, order: o, orderContact: oc, vendor: v, vendorContact: vc }
+    `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '3.1', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '3.1', -1, -1]);
-// }
-// log('Finished testing query 3.1');
+    recordStats(['arangodb', recordVolume, '3.1', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '3.1', -1, -1]);
+}
+log('Finished testing query 3.1');
 
-// // 3.2 Indexed Node/Relationship keys
+// 3.2 Indexed Node/Relationship keys
 
-// // Match all Products contained in Orders
+// Match all Products contained in Orders
 
-// log('Started testing query 3.2');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     time = db._query(aql`
-//     FOR o IN orders
-//       FOR pr, cp IN OUTBOUND o containsProducts
-//         RETURN { product: pr, orderId: o.orderId, quantity: cp.rel.quantity }
-//   `).getExtra().stats.executionTime;
+log('Started testing query 3.2');
+try {
+  for (let i = 0; i < iterations; i++) {
+    time = db._query(aql`
+    FOR o IN orders
+      FOR pr, cp IN OUTBOUND o containsProducts
+        RETURN { product: pr, orderId: o.orderId, quantity: cp.rel.quantity }
+  `).getExtra().stats.executionTime;
 
-//     recordStats(['arangodb', recordVolume, '3.2', i, time]);
-//   }
-// } catch (e) {
-//   log(e);
-//   recordStats(['arangodb', recordVolume, '3.2', -1, -1]);
-// }
-// log('Finished testing query 3.2');
+    recordStats(['arangodb', recordVolume, '3.2', i, time]);
+  }
+} catch (e) {
+  log(e);
+  recordStats(['arangodb', recordVolume, '3.2', -1, -1]);
+}
+log('Finished testing query 3.2');
 
 // 3.3 Complex Join 1
 
