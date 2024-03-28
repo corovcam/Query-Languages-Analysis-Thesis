@@ -2,7 +2,7 @@
 
 set -u
 
-record_volume=256000
+record_volume=512000
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"

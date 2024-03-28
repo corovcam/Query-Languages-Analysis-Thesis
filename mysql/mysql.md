@@ -23,3 +23,49 @@
     ```
 
 - jdbc conn string: jdbc:mysql://127.0.0.1/ecommerce?sslMode=preferred&autoReconnect=true&autoReconnectForPools=true
+
+## Stats
+
+- Volumes:
+  - 256k
+    ```
+    Table,Size (kB)
+    Post,187600
+    Order_Contacts,128544
+    Person_Person,82048
+    Person_Tags,82048
+    Post_Tags,82048
+    Order_Products,63616
+    Vendor_Contacts,62768
+    Vendor_Products,45136
+    Product,35392
+    Person,30272
+    Industry,19488
+    Order,16416
+    Vendor,14864
+    Tag,12816
+    Customer,8224
+    Type,16
+    ```
+
+- Row count
+  - 256k
+    ```
+    table_name,exact_row_count
+    Customer,170627
+    Industry,383829
+    Order,341365
+    Order_Contacts,1024095
+    Order_Products,1025494
+    Person,256000
+    Person_Person,1279600
+    Person_Tags,1281585
+    Post,256000
+    Post_Tags,1279277
+    Product,256000
+    Tag,256000
+    Type,13
+    Vendor,256000
+    Vendor_Contacts,511961
+    Vendor_Products,702504
+    ```
