@@ -47,6 +47,26 @@
     Customer,8224
     Type,16
     ```
+  - 512k:
+    ```
+    Table,Size (kB)
+    Order_Contacts,275360
+    Person_Person,162000
+    Person_Tags,151744
+    Post_Tags,146624
+    Order_Products,137440
+    Post,126096
+    Vendor_Contacts,124416
+    Product,71264
+    Person,59984
+    Industry,50256
+    Order,32832
+    Vendor,30272
+    Tag,25136
+    Vendor_Products,22560
+    Customer,16416
+    Type,16
+    ```
 
 - Row count
   - 256k
@@ -68,4 +88,24 @@
     Vendor,256000
     Vendor_Contacts,511961
     Vendor_Products,702504
+    ```
+  - 512k
+    ```
+    table_name,exact_row_count
+    Customer,371187
+    Industry,1023699
+    Order,742467
+    Order_Contacts,2227401
+    Order_Products,2225484
+    Person,512000
+    Person_Person,2561390
+    Person_Tags,2557056
+    Post,512000
+    Post_Tags,2562686
+    Product,512000
+    Tag,512000
+    Type,13
+    Vendor,512000
+    Vendor_Contacts,1023509
+    Vendor_Products,512000
     ```

@@ -28,4 +28,35 @@
 
 ## Stats
 - 256k:
-  - DB Size: 968MB (via `du -hc /var/lib/neo4j/data/databases/neo4j/*store.db*`)
+  - DB Size: 923MB (via `du -hc /var/lib/neo4j/data/databases/neo4j/*store.db*`)
+  ```
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db.names
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db.names.id
+  26M	/var/lib/neo4j/data/databases/neo4j/neostore.nodestore.db
+  52K	/var/lib/neo4j/data/databases/neo4j/neostore.nodestore.db.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.nodestore.db.labels
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.nodestore.db.labels.id
+  289M	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.arrays
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.arrays.id
+  52K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.index
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.index.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.index.keys
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.index.keys.id
+  321M	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.strings
+  52K	/var/lib/neo4j/data/databases/neo4j/neostore.propertystore.db.strings.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshipgroupstore.db
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshipgroupstore.db.id
+  289M	/var/lib/neo4j/data/databases/neo4j/neostore.relationshipstore.db
+  52K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshipstore.db.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshiptypestore.db
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshiptypestore.db.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshiptypestore.db.names
+  40K	/var/lib/neo4j/data/databases/neo4j/neostore.relationshiptypestore.db.names.id
+  8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.schemastore.db
+  52K	/var/lib/neo4j/data/databases/neo4j/neostore.schemastore.db.id
+  923M	total
+  ```
