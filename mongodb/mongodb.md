@@ -132,3 +132,45 @@ Instance ▸ database ▸ collections ▸ documents
     - solution: remove orders.containsProducts array
 - Query 8.2 Without Lookup
     - 
+
+
+### Stats
+- 256k:
+```
+{
+  db: 'ecommerce',
+  collections: Long('6'),
+  views: Long('0'),
+  objects: Long('1365378'),
+  avgObjSize: 428.21240125445115,
+  dataSize: 570968.546875,
+  storageSize: 261276,
+  indexes: Long('11'),
+  indexSize: 31064,
+  totalSize: 292340,
+  scaleFactor: Long('1024'),
+  fsUsedSize: 78891432,
+  fsTotalSize: 80446960,
+  ok: 1
+}
+```
+```
+ecommerce.types | size: 423 
+(0.00 GB) | storageSize: 20480 
+(0.00 GB)
+ecommerce.products | size: 84124154 
+(0.08 GB) | storageSize: 33284096 
+(0.03 GB)
+ecommerce.persons | size: 69921320 
+(0.07 GB) | storageSize: 38309888 
+(0.04 GB)
+ecommerce.tags | size: 40206394 
+(0.04 GB) | storageSize: 27447296 
+(0.03 GB)
+ecommerce.orders | size: 189349097 
+(0.18 GB) | storageSize: 74444800 
+(0.07 GB)
+ecommerce.vendors | size: 201070404 
+(0.19 GB) | storageSize: 94040064 
+(0.09 GB)
+```

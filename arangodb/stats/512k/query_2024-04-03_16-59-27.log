@@ -1,0 +1,161 @@
+[2024-04-03 16:59:27] Starting query testing
+2024-04-03T16:59:28Z [201] TRACE {config} checking root location '/'
+2024-04-03T16:59:28Z [201] TRACE {config} checking config file '/arangodb/etc/relative/arangosh.conf'
+2024-04-03T16:59:28Z [201] TRACE {config} checking config file '/etc/arangodb3/arangosh.conf'
+2024-04-03T16:59:28Z [201] DEBUG {config} found config file '/etc/arangodb3/arangosh.conf'
+2024-04-03T16:59:28Z [201] TRACE {config} checking override '/etc/arangodb3/arangosh.conf.local'
+2024-04-03T16:59:28Z [201] TRACE {config} no override file found
+2024-04-03T16:59:28Z [201] DEBUG {config} loading '/etc/arangodb3/arangosh.conf'
+2024-04-03T16:59:28Z [201] DEBUG [f6e04] {config} using default language 'en_US_US'
+Logging input and output to 'logs/queries/query_result_2024-04-03_16-59-27.log'.
+2024-04-03T16:59:29Z [201] DEBUG [3906e] {general} connecting to ip endpoint 'http+tcp://127.0.0.1:8529'
+2024-04-03T16:59:29Z [201] TRACE [6f759] {general} bind to address '127.0.0.1', port 8529
+
+                                       _     
+  __ _ _ __ __ _ _ __   __ _  ___  ___| |__  
+ / _` | '__/ _` | '_ \ / _` |/ _ \/ __| '_ \ 
+| (_| | | | (_| | | | | (_| | (_) \__ \ | | |
+ \__,_|_|  \__,_|_| |_|\__, |\___/|___/_| |_|
+                       |___/                 
+
+arangosh (ArangoDB 3.11.3 [linux] 64bit, using jemalloc, build refs/tags/v3.11.3 5425e89ccc5, VPack 0.2.1, RocksDB 7.2.0, ICU 64.2, V8 7.9.317, OpenSSL 3.0.10 1 Aug 2023)
+Copyright (c) ArangoDB GmbH
+
+Command-line history will be persisted when the shell is exited. You can use `--console.history false` to turn this off
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3 [SINGLE, server], database: '_system', username: 'root'
+
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/scaffolding.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/internal.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/errors.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/exitcodes.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'client/bootstrap/modules/internal.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/vm.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/console.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/assert.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/buffer.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/fs.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/path.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/events.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules/process.js'
+2024-04-03T16:59:29Z [201] TRACE [edc8d] {general} loaded JavaScript file 'common/bootstrap/modules.js'
+2024-04-03T16:59:29Z [201] DEBUG [3906e] {general} connecting to ip endpoint 'http+ssl://telemetrics.arangodb.com:443'
+2024-04-03T16:59:29Z [201] TRACE [6f759] {general} bind to address '34.96.111.4', port 443
+2024-04-03T16:59:29Z [201] TRACE [d6bdb] {general} downloading file. endpoint: ssl://www.arangodb.com:443, relative URL: https://www.arangodb.com/versions.php?version=3.11.3&platform=linux&engine=rocksdb&license=community&source=arangosh&hash=eJwz1HUDAl0T3dK87Lz88jyFpKL88uLUIgBaSgg5
+2024-04-03T16:59:29Z [201] DEBUG [3906e] {general} connecting to ip endpoint 'http+ssl://www.arangodb.com:443'
+2024-04-03T16:59:29Z [201] TRACE [6f759] {general} bind to address '104.26.0.87', port 443
+2024-04-03T16:59:29Z [201] TRACE [b3d52] {general} SSL connection opened: TLS_AES_256_GCM_SHA384, TLSv1.3 (256 bits)
+2024-04-03T16:59:29Z [201] TRACE [b3d52] {general} SSL connection opened: TLS_AES_256_GCM_SHA384, TLSv1.3 (256 bits)
+2024-04-03T16:59:30Z [201] TRACE [d6bdb] {general} downloading file. endpoint: tcp://arangodb.com:80, relative URL: http://arangodb.com/versions.php?version=3.11.3&platform=linux&engine=rocksdb&license=community&source=arangosh&hash=eJwz1HUDAl0T3dK87Lz88jyFpKL88uLUIgBaSgg5
+2024-04-03T16:59:30Z [201] DEBUG [3906e] {general} connecting to ip endpoint 'http+tcp://arangodb.com:80'
+2024-04-03T16:59:30Z [201] TRACE [6f759] {general} bind to address '104.26.0.87', port 80
+Type 'tutorial' for a tutorial or 'help' to see common examples
+2024-04-03T16:59:30Z [201] TRACE [edc8d] {general} loaded JavaScript file 'client/client.js'
+
+
+
+
+
+
+true
+
+
+
+
+
+
+2024-04-03T16:59:30Z [201] INFO [99d80] {general} [2024-04-03T16:59:30.623Z]\tStarted testing query 1.1
+
+
+2024-04-03T16:59:33Z [201] INFO [99d80] {general} [2024-04-03T16:59:33.699Z]\tFinished testing query 1.1
+
+
+true
+
+2024-04-03T16:59:33Z [201] INFO [99d80] {general} [2024-04-03T16:59:33.701Z]\tStarted testing query 1.2
+
+
+2024-04-03T16:59:45Z [201] INFO [99d80] {general} [2024-04-03T16:59:45.961Z]\tFinished testing query 1.2
+
+
+{ 
+  "cacheEnabled" : false, 
+  "deduplicate" : true, 
+  "estimates" : true, 
+  "fields" : [ 
+    "vendorId" 
+  ], 
+  "id" : "vendors/36412", 
+  "isNewlyCreated" : false, 
+  "name" : "idx_vendors_vendorID", 
+  "selectivityEstimate" : 1, 
+  "sparse" : false, 
+  "type" : "persistent", 
+  "unique" : true, 
+  "code" : 200 
+}
+
+2024-04-03T16:59:45Z [201] INFO [99d80] {general} [2024-04-03T16:59:45.964Z]\tStarted testing query 1.3
+
+
+2024-04-03T16:59:45Z [201] INFO [99d80] {general} [2024-04-03T16:59:45.982Z]\tFinished testing query 1.3
+
+
+{ 
+  "cacheEnabled" : false, 
+  "deduplicate" : true, 
+  "estimates" : true, 
+  "fields" : [ 
+    "birthday" 
+  ], 
+  "id" : "persons/34545335", 
+  "isNewlyCreated" : true, 
+  "name" : "idx_person_birthday", 
+  "selectivityEstimate" : 0.5276990466374646, 
+  "sparse" : false, 
+  "type" : "persistent", 
+  "unique" : false, 
+  "code" : 201 
+}
+
+2024-04-03T16:59:48Z [201] INFO [99d80] {general} [2024-04-03T16:59:48.231Z]\tStarted testing query 1.4
+
+
+2024-04-03T16:59:58Z [201] INFO [99d80] {general} [2024-04-03T16:59:58.567Z]\tFinished testing query 1.4
+
+
+
+2024-04-03T16:59:58Z [201] INFO [99d80] {general} [2024-04-03T16:59:58.568Z]\tStarted testing query 2.1
+
+
+2024-04-03T17:00:09Z [201] INFO [99d80] {general} [2024-04-03T17:00:09.159Z]\tFinished testing query 2.1
+
+
+2024-04-03T17:00:09Z [201] INFO [99d80] {general} [2024-04-03T17:00:09.159Z]\tStarted testing query 2.2
+
+
+2024-04-03T17:00:21Z [201] INFO [99d80] {general} [2024-04-03T17:00:21.429Z]\tFinished testing query 2.2
+
+
+
+
+
+
+
+
+2024-04-03T17:00:21Z [201] INFO [99d80] {general} [2024-04-03T17:00:21.429Z]\tStarted testing query 3.1
+
+2024-04-03T17:05:21Z [201] INFO [99d80] {general} [2024-04-03T17:05:21.758Z]\tArangoError 2000: Request timeout
+
+2024-04-03T17:05:21Z [201] INFO [99d80] {general} [2024-04-03T17:05:21.758Z]\tFinished testing query 3.1
+
+
+
+2024-04-03T17:05:21Z [201] INFO [99d80] {general} [2024-04-03T17:05:21.781Z]\tStarted testing query 3.2
+
+
+2024-04-03T17:16:40Z [201] INFO [99d80] {general} [2024-04-03T17:16:40.754Z]\tFinished testing query 3.2
+
+
+
+2024-04-03T17:16:40Z [201] INFO [99d80] {general} [2024-04-03T17:16:40.831Z]\tStarted testing query 3.3
+

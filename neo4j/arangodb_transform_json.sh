@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Tested with Node 20.10
+# Run outside container
+# Tested with Node 20.8.0
 
 set -euo pipefail
 
