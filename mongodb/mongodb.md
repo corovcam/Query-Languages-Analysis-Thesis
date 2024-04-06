@@ -174,3 +174,22 @@ ecommerce.vendors | size: 201070404
 (0.19 GB) | storageSize: 94040064 
 (0.09 GB)
 ```
+- 512k:
+```
+{
+  db: 'ecommerce',
+  collections: Long('6'),
+  views: Long('0'),
+  objects: Long('2790480'),
+  avgObjSize: 372.3840514893495,
+  dataSize: 1014775.6328125,
+  storageSize: 812232,
+  indexes: Long('11'),
+  indexSize: 69152,
+  totalSize: 881384,
+  scaleFactor: Long('1024'),
+  fsUsedSize: 65666108,
+  fsTotalSize: 80446960,
+  ok: 1
+}
+```

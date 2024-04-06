@@ -1,0 +1,58 @@
+[2024-03-19 11:30:06] Query testing started
+[2024-03-19T11:30:07.051Z]	Started testing query 1.1
+[2024-03-19T11:30:09.550Z]	Finished testing query 1.1
+[2024-03-19T11:30:09.556Z]	Started testing query 1.2
+[2024-03-19T11:30:11.927Z]	Finished testing query 1.2
+[2024-03-19T11:30:11.928Z]	Started testing query 1.3
+[2024-03-19T11:30:11.997Z]	Finished testing query 1.3
+[2024-03-19T11:30:12.488Z]	Started testing query 1.4
+[2024-03-19T11:30:15.319Z]	Finished testing query 1.4
+[2024-03-19T11:30:15.319Z]	Started testing query 2.1
+[2024-03-19T11:30:18.558Z]	Finished testing query 2.1
+[2024-03-19T11:30:18.559Z]	Started testing query 2.2
+[2024-03-19T11:30:22.362Z]	Finished testing query 2.2
+[2024-03-19T11:30:22.363Z]	Started testing query 3.1
+[2024-03-19T11:30:23.040Z]	MongoServerError: Used too much memory for a single array. Memory limit: 104857600 bytes. The array contains 186021 elements and is of size 104857151 bytes. The element being added has size 574 bytes.
+[2024-03-19T11:30:23.040Z]	Finished testing query 3.1
+[2024-03-19T11:30:23.040Z]	Started testing query 3.2
+[2024-03-19T11:30:24.588Z]	Finished testing query 3.2
+[2024-03-19T11:30:24.588Z]	Started testing query 3.3
+[2024-03-19T11:35:24.603Z]	Timeout reached, killing long running operations...
+[2024-03-19T11:35:24.615Z]	Killing opId: 1131 running for over secs: 300
+Uncaught Error: Timeout reached
+[2024-03-19T11:35:24.619Z]	MongoServerError: operation was interrupted
+[2024-03-19T11:35:24.619Z]	Finished testing query 3.3
+[2024-03-19T11:35:24.619Z]	Started testing query 3.4
+[2024-03-19T11:39:00.783Z]	Finished testing query 3.4
+[2024-03-19T11:39:00.783Z]	Started testing query 4.1
+[2024-03-19T11:44:00.790Z]	Timeout reached, killing long running operations...
+[2024-03-19T11:44:00.795Z]	Killing opId: 7648 running for over secs: 300
+Uncaught Error: Timeout reached
+[2024-03-19T11:44:01.149Z]	MongoServerError: operation was interrupted
+[2024-03-19T11:44:01.149Z]	Finished testing query 4.1
+[2024-03-19T11:44:01.150Z]	Started testing query 4.2
+[2024-03-19T11:47:50.429Z]	MongoServerError: $graphLookup reached maximum memory consumption
+[2024-03-19T11:47:50.429Z]	Finished testing query 4.2
+[2024-03-19T11:47:50.429Z]	Started testing query 5
+[2024-03-19T11:47:58.573Z]	Finished testing query 5
+[2024-03-19T11:47:58.574Z]	Started testing query 6
+[2024-03-19T11:50:24.409Z]	Finished testing query 6
+[2024-03-19T11:50:24.410Z]	Started testing query 7
+[2024-03-19T11:50:29.799Z]	Finished testing query 7
+[2024-03-19T11:50:29.799Z]	Started testing query 8.1
+[2024-03-19T11:55:29.803Z]	Timeout reached, killing long running operations...
+[2024-03-19T11:55:29.810Z]	Killing opId: 16426 running for over secs: 300
+Uncaught Error: Timeout reached
+[2024-03-19T11:55:29.815Z]	MongoServerError: operation was interrupted
+[2024-03-19T11:55:29.815Z]	Finished testing query 8.1
+[2024-03-19T11:55:29.815Z]	Started testing query 8.2
+[2024-03-19T11:55:31.899Z]	Finished testing query 8.2
+[2024-03-19T11:55:31.900Z]	Started testing query 9.1
+[2024-03-19T11:55:38.434Z]	Finished testing query 9.1
+[2024-03-19T11:55:38.434Z]	Started testing query 9.2
+[2024-03-19T11:55:43.184Z]	Finished testing query 9.2
+[2024-03-19T11:55:43.185Z]	Started testing query 10
+[2024-03-19T11:56:45.442Z]	Finished testing query 10
+[2024-03-19T11:56:45.443Z]	Started testing query 11
+[2024-03-19T11:56:51.321Z]	Finished testing query 11
+[2024-03-19 11:56:51] Query testing finished
