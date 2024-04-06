@@ -27,3 +27,5 @@ dumps/*
 !data_old.sql
 *.tar.gz
 mysql/exports/*
+cassandra/**/csv/*
+dsbulk

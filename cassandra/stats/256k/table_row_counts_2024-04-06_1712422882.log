@@ -1,0 +1,130 @@
+[2024-04-06 17:01:22] Counting table rows
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-249207
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-472712
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-523570
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-534296
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-566248
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-719678
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-740400
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-707784
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-789545
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-925961
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-061254
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-142979
+Operation directory: /home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-196552
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 49,656 | 293.94 | 1,098.91 | 1,098.91
+Operation COUNT_20240406-170126-061254 completed successfully in 4 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+240,927 |      0 | 43,883 | 635.66 | 1,904.21 | 1,904.21
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+270,111 |      0 | 48,044 | 340.21 | 1,333.79 | 1,677.72
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+241,884 |      0 | 43,374 | 630.12 | 2,566.91 | 2,566.91
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+287,718 |      0 | 51,189 | 452.06 | 1,333.79 | 1,333.79
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+154,636 |      0 | 27,471 | 607.11 | 1,300.23 | 1,300.23
+ total | failed | rows/s |  p50ms |  p99ms | p999ms
+70,295 |      0 | 12,175 | 380.68 | 960.50 | 960.50
+Operation COUNT_20240406-170125-740400 completed successfully in 4 seconds.
+total | failed | rows/s | p50ms | p99ms | p999ms
+    0 |      0 |      0 |  0.00 |  0.00 |   0.00
+Operation COUNT_20240406-170125-534296 completed successfully in 3 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+341,365 |      0 | 50,152 | 385.69 | 1,333.79 | 1,677.72
+Operation COUNT_20240406-170125-249207 completed successfully in 6 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+128,803 |      0 | 20,268 | 853.62 | 2,097.15 | 2,097.15
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+146,984 |      0 | 23,323 | 728.17 | 1,400.90 | 1,400.90
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+160,333 |      0 | 24,112 | 655.32 | 1,035.99 | 1,035.99
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-061254/checkpoint.csv
+256000
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 34,919 | 601.07 | 1,300.23 | 1,300.23
+Operation COUNT_20240406-170125-707784 completed successfully in 6 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+179,552 |      0 | 25,137 | 623.36 | 1,518.34 | 1,518.34
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+161,446 |      0 | 22,906 | 726.62 | 1,988.10 | 1,988.10
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 32,828 | 590.64 | 1,400.90 | 1,400.90
+Operation COUNT_20240406-170125-472712 completed successfully in 6 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-740400/checkpoint.csv
+70295
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+249,404 |      0 | 32,521 | 546.56 | 1,035.99 | 1,035.99
+Operation COUNT_20240406-170126-196552 completed successfully in 5 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 31,672 | 651.56 | 2,097.15 | 2,097.15
+Operation COUNT_20240406-170125-925961 completed successfully in 6 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 32,079 | 551.14 | 1,518.34 | 1,518.34
+Operation COUNT_20240406-170125-789545 completed successfully in 5 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+256,000 |      0 | 32,160 | 587.77 | 1,988.10 | 1,988.10
+Operation COUNT_20240406-170126-142979 completed successfully in 5 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-249207/checkpoint.csv
+341365
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-534296/checkpoint.csv
+0
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-707784/checkpoint.csv
+256000
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+1,025,494 |      0 | 104,526 | 281.63 | 1,090.52 | 1,333.79
+Operation COUNT_20240406-170125-523570 completed successfully in 9 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-472712/checkpoint.csv
+256000
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+717,835 |      0 | 68,352 | 491.74 | 1,828.72 | 1,904.21
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-925961/checkpoint.csv
+256000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-196552/checkpoint.csv
+249404
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-789545/checkpoint.csv
+256000
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+1,072,736 |      0 | 101,124 | 326.96 | 1,325.40 | 2,566.91
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170126-142979/checkpoint.csv
+256000
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+1,535,754 |      0 | 129,414 | 258.06 | 1,308.62 | 2,566.91
+Operation COUNT_20240406-170125-566248 completed successfully in 11 seconds.
+    total | failed | rows/s |  p50ms |    p99ms |   p999ms
+1,025,494 |      0 | 85,261 | 397.39 | 1,778.38 | 1,904.21
+Operation COUNT_20240406-170125-719678 completed successfully in 11 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-523570/checkpoint.csv
+1025494
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-566248/checkpoint.csv
+1535754
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/home/corovcak/Query-Languages-Analysis-Thesis/cassandra/logs/COUNT_20240406-170125-719678/checkpoint.csv
+1025494
+[2024-04-06 17:01:42] Finished counting table rows

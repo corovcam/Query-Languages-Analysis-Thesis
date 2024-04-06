@@ -61,3 +61,6 @@ Instance ▸ keyspaces ▸ tables ▸ rows ▸columns
 - Setting request timeout (read_request_timeout, range_request_timeout, request_timeout) to 5 minutes:
   - https://docs.datastax.com/en/dse/5.1/docs/managing/configure/configure-cassandra-yaml.html
   - Mounted as config volume in docker-compose.yml
+
+## Stats
+- Size on disk for each Table using `nodetool tablestats -H ecommerce` command

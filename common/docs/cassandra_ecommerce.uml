@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>9aec20d7-e5fa-41cb-a010-b8380b72193c.SCHEMA:ecommerce</OriginalElement>
+  <nodes>
+    <node x="-309.0" y="79.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.person</node>
+    <node x="340.5935430463577" y="676.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.orders_by_person</node>
+    <node x="342.8791390728478" y="963.4801324503311">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.vendor_countries_by_product_brand</node>
+    <node x="-309.0" y="889.25">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.tag</node>
+    <node x="355.58609271523187" y="139.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.contact</node>
+    <node x="302.3903145695366" y="851.5">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.orders_by_customer</node>
+    <node x="-33.706953642384065" y="127.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.products_by_brand</node>
+    <node x="-309.0" y="387.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.orders_by_product</node>
+    <node x="22.6951572847683" y="901.25">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.vendor</node>
+    <node x="-309.0" y="665.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.vendor_contacts_by_order_contact</node>
+    <node x="678.1870860927154" y="378.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.Order</node>
+    <node x="656.8791390728478" y="127.0">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.product</node>
+    <node x="44.79677152317885" y="380.5">9aec20d7-e5fa-41cb-a010-b8380b72193c.TABLE:ecommerce.person_by_birthday_indexed</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Series Parallel" zoom="0.35503306392358563" showDependencies="false" x="174.07771109271516" y="566.2354900662249" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
