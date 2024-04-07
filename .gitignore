@@ -29,3 +29,4 @@ dumps/*
 mysql/exports/*
 cassandra/**/csv/*
 dsbulk
+cassandra/dumps

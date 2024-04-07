@@ -27,3 +27,5 @@ echo "[$(date +"%Y-%m-%d %T")] Counting table rows" |& tee -a "$log_file"
 { echo "Vendor_countries_by_product_brand,$(java -jar dsbulk/dsbulk-1.11.0.jar count -k ecommerce -t vendor_countries_by_product_brand |& tee -a "$log_file" | tail -1)" | tee -a "$counts_csv_file"; } &
 wait
 echo "[$(date +"%Y-%m-%d %T")] Finished counting table rows" |& tee -a "$log_file"
+
+chmod 777 -R logs/COUNT*
