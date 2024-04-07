@@ -1,0 +1,14 @@
+table,row_count
+Vendor_contacts_by_order_contact,0
+Vendor_countries_by_product_brand,131735
+Person_by_birthday_indexed,512000
+Products_by_brand,512000
+Vendor,512000
+Tag,512000
+Product,512000
+Orders_by_customer,742467
+Orders_by_person,512000
+Person,512000
+Orders_by_product,2225484
+Contact,3250910
+Order,2225484

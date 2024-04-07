@@ -1,0 +1,154 @@
+[2024-04-07 14:29:20] Counting table rows
+Operation directory: /cassandra/logs/COUNT_20240407-142923-666524
+Operation directory: /cassandra/logs/COUNT_20240407-142923-903508
+Operation directory: /cassandra/logs/COUNT_20240407-142923-783470
+Operation directory: /cassandra/logs/COUNT_20240407-142924-101589
+Operation directory: /cassandra/logs/COUNT_20240407-142924-099557
+Operation directory: /cassandra/logs/COUNT_20240407-142924-161745
+Operation directory: /cassandra/logs/COUNT_20240407-142924-346962
+Operation directory: /cassandra/logs/COUNT_20240407-142924-356258
+Operation directory: /cassandra/logs/COUNT_20240407-142924-401195
+Operation directory: /cassandra/logs/COUNT_20240407-142924-805813
+Operation directory: /cassandra/logs/COUNT_20240407-142924-892242
+Operation directory: /cassandra/logs/COUNT_20240407-142924-761163
+Operation directory: /cassandra/logs/COUNT_20240407-142924-912264
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+262,388 |      0 | 46,619 | 509.27 | 1,090.52 | 1,090.52
+  total | failed | rows/s |  p50ms |  p99ms | p999ms
+442,522 |      0 | 77,436 | 337.61 | 973.08 | 973.08
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+183,175 |      0 | 31,955 | 623.33 | 1,686.11 | 1,686.11
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+166,346 |      0 | 28,307 | 670.01 | 1,149.24 | 1,149.24
+  total | failed | rows/s |  p50ms |  p99ms | p999ms
+111,668 |      0 | 19,007 | 411.88 | 910.16 | 910.16
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+184,593 |      0 | 30,981 | 581.94 | 2,516.58 | 2,516.58
+total | failed | rows/s | p50ms | p99ms | p999ms
+    0 |      0 |      0 |  0.00 |  0.00 |   0.00
+Operation COUNT_20240407-142924-805813 completed successfully in 4 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+180,000 |      0 | 29,003 | 839.24 | 1,518.34 | 1,518.34
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+161,778 |      0 | 25,463 | 814.79 | 1,224.74 | 1,224.74
+  total | failed | rows/s |  p50ms |  p99ms | p999ms
+131,735 |      0 | 20,364 | 425.01 | 910.16 | 910.16
+Operation COUNT_20240407-142924-101589 completed successfully in 5 seconds.
+  total | failed | rows/s |  p50ms |  p99ms | p999ms
+179,279 |      0 | 28,387 | 591.99 | 889.19 | 889.19
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+125,518 |      0 | 19,465 | 937.99 | 1,317.01 | 1,317.01
+  total | failed | rows/s |    p50ms |    p99ms |   p999ms
+108,912 |      0 | 16,752 | 1,371.03 | 1,912.60 | 1,912.60
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+168,209 |      0 | 24,606 | 821.51 | 1,619.00 | 1,619.00
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-805813/checkpoint.csv
+0
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-101589/checkpoint.csv
+131735
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+508,864 |      0 | 47,541 | 598.84 | 1,392.51 | 1,426.06
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+799,733 |      0 | 74,435 | 429.49 | 1,098.91 | 1,308.62
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 46,944 | 597.73 | 1,392.51 | 1,426.06
+Operation COUNT_20240407-142923-903508 completed successfully in 10 seconds.
+  total | failed | rows/s |  p50ms |  p99ms | p999ms
+512,000 |      0 | 49,162 | 467.44 | 885.00 | 889.19
+Operation COUNT_20240407-142924-356258 completed successfully in 9 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+486,959 |      0 | 44,719 | 600.73 | 1,073.74 | 1,686.11
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+446,823 |      0 | 41,026 | 626.93 | 1,400.90 | 1,400.90
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+564,256 |      0 | 51,463 | 491.42 | 1,124.07 | 2,516.58
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+530,077 |      0 | 46,746 | 688.04 | 1,375.73 | 1,518.34
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 44,401 | 591.52 | 1,073.74 | 1,686.11
+Operation COUNT_20240407-142924-099557 completed successfully in 10 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+477,187 |      0 | 42,011 | 609.95 | 1,224.74 | 1,224.74
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+439,937 |      0 | 38,372 | 671.43 | 1,317.01 | 1,317.01
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 42,818 | 600.32 | 1,149.24 | 1,400.90
+Operation COUNT_20240407-142924-346962 completed successfully in 11 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 43,269 | 591.92 | 1,082.13 | 1,224.74
+Operation COUNT_20240407-142924-401195 completed successfully in 10 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+377,064 |      0 | 32,757 | 904.17 | 1,912.60 | 1,912.60
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142923-903508/checkpoint.csv
+512000
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+742,467 |      0 | 59,826 | 433.55 | 1,124.07 | 2,516.58
+Operation COUNT_20240407-142924-161745 completed successfully in 11 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 45,042 | 554.02 | 1,484.78 | 1,619.00
+Operation COUNT_20240407-142924-912264 completed successfully in 9 seconds.
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+512,000 |      0 | 41,559 | 628.53 | 1,283.46 | 1,317.01
+Operation COUNT_20240407-142924-761163 completed successfully in 10 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-356258/checkpoint.csv
+512000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-099557/checkpoint.csv
+512000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-346962/checkpoint.csv
+512000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-401195/checkpoint.csv
+512000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-161745/checkpoint.csv
+742467
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-912264/checkpoint.csv
+512000
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-761163/checkpoint.csv
+512000
+    total | failed |  rows/s |  p50ms |  p99ms |   p999ms
+2,172,579 |      0 | 137,966 | 250.45 | 973.08 | 1,308.62
+    total | failed |  rows/s |  p50ms |  p99ms |   p999ms
+2,225,484 |      0 | 140,009 | 245.74 | 973.08 | 1,308.62
+Operation COUNT_20240407-142923-666524 completed successfully in 15 seconds.
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+1,761,317 |      0 | 107,772 | 321.76 | 1,358.95 | 1,518.34
+    total | failed | rows/s |  p50ms |    p99ms |   p999ms
+1,241,881 |      0 | 75,210 | 438.39 | 1,702.89 | 1,912.60
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142923-666524/checkpoint.csv
+2225484
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+3,250,910 |      0 | 158,868 | 220.20 | 1,140.85 | 1,518.34
+Operation COUNT_20240407-142923-783470 completed successfully in 19 seconds.
+    total | failed |  rows/s |  p50ms |    p99ms |   p999ms
+2,225,484 |      0 | 109,636 | 308.83 | 1,610.61 | 1,912.60
+Operation COUNT_20240407-142924-892242 completed successfully in 18 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142923-783470/checkpoint.csv
+3250910
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240407-142924-892242/checkpoint.csv
+2225484
+[2024-04-07 14:29:50] Finished counting table rows
