@@ -56,6 +56,8 @@ GROUP BY brand;
 -- 3.1
 
 -- Return all Orders and Vendors sharing the same Contact typeId
+-- This one was intentionally left out for 4k+ experiments because it takes a lot of disk space (more than 9GB of disk space during 4k experiments)
+-- and it is impractical to export/transform/load (also it is not very useful in real-world scenarios)
 SELECT *
 FROM Vendor_Contacts_By_Order_Contact;
 
