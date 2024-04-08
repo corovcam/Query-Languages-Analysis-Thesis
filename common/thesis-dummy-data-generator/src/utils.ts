@@ -11,8 +11,14 @@ export class CustomLogger {
   private static logger: Console;
   public static batchSizeToLog: number;
 
-  public static initialize(startDateTime: Date, entityCount: number, percentageToLog = 5) {
-    CustomLogger.batchSizeToLog = Math.ceil(entityCount * (percentageToLog / 100));
+  public static initialize(
+    startDateTime: Date,
+    entityCount: number,
+    percentageToLog = 5
+  ) {
+    CustomLogger.batchSizeToLog = Math.ceil(
+      entityCount * (percentageToLog / 100)
+    );
     CustomLogger.logFilePath = `logs/${startDateTime
       .toISOString()
       .replace(/:/g, "-")}.log`;
@@ -45,5 +51,5 @@ export class CustomFaker {
 }
 
 export function capitalizeFirstLetter(string: string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -2,8 +2,7 @@ import fs from 'fs';
 import { DataStream } from 'scramjet';
 
 import { generateVendorsProducts, generateTags, generatePeople, generatePosts, generateOrders, generateTypeMapping } from './generators';
-import { mapToCSV } from './transformers';
-import { mapAndDump } from './plugins';
+import { mapToCSV, mapAndDump } from './transformers';
 import { CustomLogger, CustomFaker } from './utils';
 import { fileNames } from './constants';
 import { Tag, Type, ContactType, IndustryType } from './types';
