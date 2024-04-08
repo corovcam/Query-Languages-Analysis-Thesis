@@ -1,23 +1,125 @@
-# Query-Languages-Analysis-Thesis
+# Analysis of Query Languages in Modern Database Systems
 
-## Introduction
+NoSQL and multi-model systems represent so-called variety of big data, i.e., enables to represent data in different (or combined) logical models and formats. In addition to the relational model, we also distinguish, e.g., hierarchical (document) and graph data, hence the scope and efficiency of querying over these representations differ.
 
-This repository contains the source code for my bachelor thesis. The thesis is about analysis of query languages in modern database systems.
+The goal of this thesis is to focus on various data models (e.g., document, column, graph, relational) and to compare typical query languages for these data models in terms of expressive power and run-time efficiency, taking into account scalability with varying number of stored data.
 
-## Query Languages Analysis
+We will analyze the current state of knowledge. Then, we will select 6 candidates for comparison and statically compare the expressive power of the supported query languages. Next, based on the static comparison, we will propose query scenarios and perform dynamic query comparison over the selected database systems using the proposed queries. Finally, we will suggest appropriate recommendations or discuss open questions and challenges in querying over various data.
 
-Check individual "notes.md" files in each database folder.
+## Repository Structure
 
-## Schema
+The top-level repository structure contains folders for all databases used in the thesis. Since we use Docker to set up all DBMS containers, `docker-compose.yml` defines the services, their volumes, and configurations used for testing.
 
-### SQLite/MySQL
+The repository is structure as follows (along with some important files and folders mentioned):
 
-[![](https://mermaid.ink/img/pako:eNqdVltv2jAU_iuRnwGRtNzyVgGdqqqAuEzqhIRMYoLVxGaO040F_vscJ4RgG0aXF4jPd27fuTgp8KiPgAsQG2AYMBgtiSWe78PRYDy1jod6nabF22oyHQ8W_fnMcq0liCBJNtDjCUP-EtzQ6o9H86eT1hbGKpg2GgL8MhosZvPpu0StUUhJEK84zcA5vAQcab1-SK35-2QowThe0c0Zp3r9B7zIScZ8OBgzPQVchYqIx9PB0IDMsX0R6_htOLUOB-legiWGMh9VKDsDqQxgMpzOxqMi0rO9XP9YMXbp2aOEQ0xKcg14Ux0q4PsZyyMsWJiMZ_OTxZXHEOTn3BSkfFvNn76VIaww4YKMmN_UqFDyQeivSuDSeSWQS-McBmeokJiRJ9dVgBKp2lxWmr9lT8wZJoH1iYhP2YtvTV7PsiTBfiFZZH8Xr5oegRHSDj2aEM72Vi44qq2qe98x6iceV9wXQhhjoh1yzMOKYx95OIKhMIQ9PZ41g8TXTnEULFioxKhOXyXWbKTNPEkJ3--QPK9Zz3oSnzBMUKmkuitH4WZhjIar1J0BR23rfN2yIaHSrJyt9BoD5uwVE_mE62HJ_WJqRCm41odeEnMaSUUtWGU9qGGbHP5_RZXddiu_L9Qze8SusX4mkIjW36vlELOvVQMG9xej3OLpLWYNxnaIxZSYWC-2XnpdxWBug1nMR6adEsIrgkC0MWKVVSA2OMcRstaY8a0P95qG-EGI64mWvFaDpTGHYV98Y1zbcsa0V3r2siin3G2tuhdixzx11b1-k1fzPBcNYTKc3UOpMfk7y36xV2GAnvHFej7VRF6wmJKBONBLTD0pfJkYNri4N8X0x8g3dAYJEuHSUCBxOxOucBwiEvCtgYCrvJ5YuJdVUANiXiKIffFdKu0tAd8i0bsgu419yD6yGznDwYTT2Z54wOUsQTWQ7DKqii9Z4G5gGIvTHSTATcFv4NYfmu3GY7vVbTq9h3ar2e62a2APXLtrN2y77XS6rd5D07Gd9rEG_lAqbDgNp2W3mp1er9Oyna7deZQGf0hh7hX5mFP2ln9Iy-_p41-sm1YK?type=png)](https://mermaid.live/edit#pako:eNqdVltv2jAU_iuRnwGRtNzyVgGdqqqAuEzqhIRMYoLVxGaO040F_vscJ4RgG0aXF4jPd27fuTgp8KiPgAsQG2AYMBgtiSWe78PRYDy1jod6nabF22oyHQ8W_fnMcq0liCBJNtDjCUP-EtzQ6o9H86eT1hbGKpg2GgL8MhosZvPpu0StUUhJEK84zcA5vAQcab1-SK35-2QowThe0c0Zp3r9B7zIScZ8OBgzPQVchYqIx9PB0IDMsX0R6_htOLUOB-legiWGMh9VKDsDqQxgMpzOxqMi0rO9XP9YMXbp2aOEQ0xKcg14Ux0q4PsZyyMsWJiMZ_OTxZXHEOTn3BSkfFvNn76VIaww4YKMmN_UqFDyQeivSuDSeSWQS-McBmeokJiRJ9dVgBKp2lxWmr9lT8wZJoH1iYhP2YtvTV7PsiTBfiFZZH8Xr5oegRHSDj2aEM72Vi44qq2qe98x6iceV9wXQhhjoh1yzMOKYx95OIKhMIQ9PZ41g8TXTnEULFioxKhOXyXWbKTNPEkJ3--QPK9Zz3oSnzBMUKmkuitH4WZhjIar1J0BR23rfN2yIaHSrJyt9BoD5uwVE_mE62HJ_WJqRCm41odeEnMaSUUtWGU9qGGbHP5_RZXddiu_L9Qze8SusX4mkIjW36vlELOvVQMG9xej3OLpLWYNxnaIxZSYWC-2XnpdxWBug1nMR6adEsIrgkC0MWKVVSA2OMcRstaY8a0P95qG-EGI64mWvFaDpTGHYV98Y1zbcsa0V3r2siin3G2tuhdixzx11b1-k1fzPBcNYTKc3UOpMfk7y36xV2GAnvHFej7VRF6wmJKBONBLTD0pfJkYNri4N8X0x8g3dAYJEuHSUCBxOxOucBwiEvCtgYCrvJ5YuJdVUANiXiKIffFdKu0tAd8i0bsgu419yD6yGznDwYTT2Z54wOUsQTWQ7DKqii9Z4G5gGIvTHSTATcFv4NYfmu3GY7vVbTq9h3ar2e62a2APXLtrN2y77XS6rd5D07Gd9rEG_lAqbDgNp2W3mp1er9Oyna7deZQGf0hh7hX5mFP2ln9Iy-_p41-sm1YK)
+- `common/` - contains common files and scripts for all databases
+  - `docs/` - contains extra documentation files (e.g. schema diagrams)
+  - `thesis-dummy-data-generator/` - contains scripts for generating pseudo-random relational data
+- `mysql/` - contains MySQL database files and scripts
+  - `data/` - configuration files mounted to the MySQL container
+  - `dumps/` - contains MySQL SQL and/or CSV dumps copied from generated `common/thesis-dummy-data-generator/data_<entity_count>*` folder
+  - `exports/` - contains (denormalized) exported data from MySQL database (later imported into Cassandra)
+  - `queries/` - contains SQL queries for MySQL
+    - `testing/` - contains individual files with individual queries used for testing
+    - **`query.sql`** - complete list of queries and their descriptions (check comments for more details)
+    - **`schema.sql`** - complete schema of the MySQL database (check comments for more details)
+- `sqlite/` - contains SQLite database files and scripts (is similar to MySQL structure, so only differences are mentioned)
+  - `data/` - database file (`ecommerce.db`) mounted to the SQLite container
+  - _`sqlite3-analyzer`_[^1] - binary for analyzing SQLite database and generating statistics about tables
+- `neo4j/` - contains Neo4j database files and scripts
+  - `arangodb-json-transform/` - NPM package for transforming exported JSON data from Neo4j to ArangoDB JSON format
+  - `dumps/` - contains Neo4j database dumps (entire database files in binary format)
+  - `exports/` - contains exported JSON documents from Neo4j (later transformed to ArangoDB JSON format)
+    - `edges/` - each file inside this folder contains JSON Lines of edges (relationships) generated by `export_to_json.sh`
+    - `nodes/` - each file inside this folder contains JSON Lines of nodes (vertices) generated by `export_to_json.sh`
+  - `neo4j-etl-tool/` - contains _Neo4j ETL tool_[^2] files for importing data from CSV files (tested with version 1.6.0)
+    - `neo4-etl-cli-1.6.0/` - contains release files downloaded from above GitHub repository
+      - `bin/neo4j-etl` - binary for running ETL tool
+  - `queries/` - contains Cypher queries for Neo4j
+    - **`query.cypher`** - complete list of queries and their descriptions (check comments for more details)
+- `arangodb/` - contains ArangoDB database files and scripts
+  - `dumps/` - contains ArangoDB database dumps (copied from exported `neo4j/exports` folder)
+  - `queries/` - contains AQL queries for ArangoDB
+    - **`query.js`** - definition of AQL queries and their descriptions (check comments for more details)
+    - **`query_testing.js`** - entire testing script with error handling for running AQL queries and generating logs
+- `cassandra/` - contains Cassandra database files and scripts
+  - `data/` - configuration file `cassandra.yaml` mounted to the Cassandra container
+  - `dsbulk/` - contains _DataStax Bulk Loader (dsbulk)_[^3] JAR file for loading and counting data in Cassandra (tested with version 1.11.0)
+  - `dumps/` - contains Cassandra CQL dumps or CSV files copied from exported `mysql/exports` folder
+  - `queries/` - contains CQL queries for Cassandra
+    - **`query.cql`** - complete list of queries and their descriptions (check comments for more details)
+    - **`schema.cql`** - complete schema of the Cassandra database (check comments for more details)
+- `mongodb/` - contains MongoDB database files and scripts
+  - `dumps/` - contains MongoDB database dumps (generated with `dumps.sh`)
+  - `queries/` - contains MongoDB queries for MongoDB
+    - **`query.js`** - complete list of queries and their descriptions (check comments for more details)
+    - **`query_testing.js`** - entire testing script with error handling similar to ArangoDB
+  - `thesis-relational-migrator-mapping*` - these are configuration files used to setup _MongoDB Relational Migrator_[^4] tool (tested with version 1.5.0)
 
-### Neo4j/ArangoDB
+Folders and files common to most of the databases directories:
 
-![](/common/docs/graph_diagram.png)
+- `logs/` - contains all logs generated from scripts
+  - `queries/` - contains logs from query testing invoked by `run_queries.sh`
+- `queries/` - contains queries for each database system
+  - `testing/` - contains individual files with individual queries used for testing
+- `stats/` - contains final statistics generated from queries, imports, and exports (later used for analysis)
+- `dumps` - contains database dumps or exported data from other databases (used for importing data)
 
-### MongoDB
+### Scripts
 
-![](/common/docs/mongo_schema_2.png)
+Some scripts are common for all databases, some are specific to a particular DBMSs. Some like `init.sh` and `run_queries.sh` require manual variable editing to select required data directories.
+
+Common scripts:
+
+- `/run_queries.sh` - convenience script for running all queries for selected databases (in parallel)
+- `/init.sh` - convenience script for inializing all databases (creating schemas, importing data, etc.) for selected databases (in parallel)
+- `<dbms>`
+  - `run_queries.sh`, `/init.sh` - individual scripts for running queries or initializing (see comments for more details)
+
+Notable scripts and flows:
+
+- `common/thesis-dummy-data-generator/run.sh` - run as `./run.sh <entity_count>` to CSV files with `<entity_count>` number as reference count for top-level entities
+- `mysql`
+  1. - `csv_init.sh` - initialize with CSV files as source of data
+     - `init.sh` - initialize with SQL dump as source of data (older method used with small datasets)
+  2. `cassandra_export_to_csv.sh` - transform MySQL tables to denormalized CSV files for importing into Cassandra
+- `neo4j`
+  - `neo4j-tool-tool/`
+    1. `import.sh` - automatically run _Neo4j ETL tool CLI_ and subsequently import data using `neo4j-admin database import full` command
+  1. `export_to_json.sh` - export Neo4j vertices and relationships to JSON Lines format
+  2. `arangodb_transform_json.sh` - transform exported JSON Lines to ArangoDB JSON format
+- `cassandra`
+  1. - `dsbulk_init.sh` - initialize Cassandra with CSV files as source of data
+     - `init.sh` - initialize with CQL dump as source of data (older method used with small datasets)
+  2. `count_table_rows.sh` - count rows in each table in Cassandra using `dsbulk count`
+  3. `table_stats.sh` - generate statistics for each table in Cassandra using `nodetool tablestats`
+
+[^1]: https://www.sqlite.org/sqlanalyze.html
+[^2]: https://neo4j.com/labs/etl-tool/
+[^3]: https://github.com/datastax/dsbulk
+[^4]: https://www.mongodb.com/docs/relational-migrator/
+
+https://github.com/neo4j-contrib/neo4j-etl/releases/tag/1.6.0
+https://github.com/datastax/dsbulk/releases/tag/1.11.0
+https://migrator-installer-repository.s3.ap-southeast-2.amazonaws.com/index.html#1.5.0/
+
+## Getting Started
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+Check individual `*.md* files in each database folder.
