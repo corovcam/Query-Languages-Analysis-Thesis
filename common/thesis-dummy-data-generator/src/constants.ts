@@ -1,29 +1,21 @@
-export const STRING_MAX_ALLOWED_LENGTH = 65535;  // 64KB
-export const ARRAY_MAX_ALLOWED_LENGTH = 1024;  // 1024 elements
 export const fileNames = { // File names for the generated data
-    // SQL
     // Entities
-    vendors: 'vendors',
-    products: 'products',
-    people: 'people',
-    orders: 'orders',
-    tags: 'tags',
-    types: 'types',
+    vendors: 'Vendor',
+    products: 'Product',
+    people: 'Person',
+    orders: 'Order',
+    tags: 'Tag',
+    types: 'Type',
     // Relationships
-    vendorProducts: 'vendor_products',
-    industries: 'industries',
-    vendorContacts: 'vendor_contacts',
-    customer: 'customer',
-    personPerson: 'person_person',
-    personTags: 'person_tags',
-    orderContacts: 'order_contacts',
-    orderProducts: 'order_products',
-    post: 'post',
-    postTags: 'post_tags',
-
-    // CQL
-    vendorCountriesByProductBrand: 'vendor_countries_by_product_brand',
-    productsByBrand: 'products_by_brand',
-
+    vendorProducts: 'Vendor_Products',
+    industries: 'Industry',
+    vendorContacts: 'Vendor_Contacts',
+    customer: 'Customer',
+    personPerson: 'Person_Person',
+    personTags: 'Person_Tags',
+    orderContacts: 'Order_Contacts',
+    orderProducts: 'Order_Products',
+    post: 'Post',
+    postTags: 'Post_Tags',
 };
 export const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products

@@ -1,11 +1,10 @@
 import { CustomLogger as logger, CustomFaker, capitalizeFirstLetter } from './utils';
-import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
-import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, brandVendorsByProductId, countriesByBrand, Post } from './types';
-import { DataStream } from 'scramjet';
+import { MAX_VENDOR_PRODUCTS } from './constants';
+import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, Post } from './types';
 
 const faker = CustomFaker.faker;
 
-export function getTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
+export function generateTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
   const industryTypes = faker.helpers.uniqueArray(() => faker.commerce.department().replace(/'/g, "''"), industryCount);
   let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
   typeMapping.push(...industryTypes.map((type, index) => ({ typeId: index + 1 + contactTypes.length, typeFor: "industry", value: type })));
@@ -98,7 +97,6 @@ function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, p
 export function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): Generator<Person> {
   logger.info(`Generating data for ${peopleCount} people and ${customerCount} customers`);
 
-  // TODO: ENOURMOUSLY INNEFECTIVE - O(22n^2) algorithm - need to erase Array allocations, splice method and rewrite to Stream processing
   for (let i = 0; i < peopleCount; i++) {
       const personId = i + 1;
       const gender = faker.person.sexType();
@@ -129,20 +127,6 @@ export function* generatePeople(peopleCount: number, customerCount = peopleCount
           person.friends.add(friendId);
       }
 
-      // TODO: O(11n) algorithm - Refactor to Stream processing, erase Array allocations, splice method
-      // Assign Friends to Person (Person_Person)
-      // let friendCount = faker.number.int({ min: 0, max: 10 });
-      // let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
-      // friendIds.splice(personId - 1, 1);
-      // for (let j = 0; j < friendCount; j++) {
-      //     const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
-      //     const friendId = friendIds[randomIndex];
-
-      //     person.friends.add(friendId);
-
-      //     friendIds.splice(randomIndex, 1);
-      // }
-
       const tagGenerator = (function* () {
           let tagIds = Array.from({ length: tagCount }, (value, index) => index + 1);
           let tagCountPerPerson = faker.number.int({ min: 0, max: 10 });
@@ -159,20 +143,6 @@ export function* generatePeople(peopleCount: number, customerCount = peopleCount
           person.tags.add(tagId);
           tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
       }
-
-      // TODO: O(11n) algorithm - Refactor to Stream processing, erase Array allocations, splice method
-      // Assign Tags to Person (Person_Tags)
-      // let tagIds = Array.from({ length: tagCount }, (value, index) => index + 1);
-      // let tagCountPerPerson = faker.number.int({ min: 0, max: 10 });
-      // for (let j = 0; j < tagCountPerPerson; j++) {
-      //     const randomIndex = faker.number.int({ min: 0, max: tagIds.length - 1 });
-      //     const tagId = tagIds[randomIndex];
-
-      //     person.tags.add(tagId);
-      //     tags && tags[tagId - 1].interestedPeople.add(personId).add(-1);
-
-      //     tagIds.splice(randomIndex, 1);
-      // }
 
       if (i < customerCount) {
           const customerId = i + 1;
@@ -259,19 +229,13 @@ export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3,
 
       const orderCount = faker.number.int({ min: 1, max: maxOrdersPerCustomer });
       for (let j = 0; j < orderCount; j++) {
-          // orders.push(`(${orderId}, ${customerId})`);
-
           const order: Order = { orderId, customer: { customerId }, contacts: [], products: [] };
-
-          // ORDER_OBJECTS.push({ orderId, customer: { customerId }, contacts: [], products: [] });
 
           // Assign Contacts to Order
           // @ts-ignore
           const chosenContactTypes = faker.helpers.arrayElements(contactTypes, { min: 1 });
           chosenContactTypes.forEach(type => {
               const chosenContactValue = chooseContactValue(type.value);
-              // ORDER_OBJECTS[orderId - 1].contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } })
-              // orderContacts.push(`(${orderId}, ${type.typeId}, '${chosenContactValue}')`);
               order.contacts.push({ typeId: type.typeId, value: chosenContactValue, type: { value: type.value } });
           });
 
@@ -283,8 +247,6 @@ export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3,
               const productId = productIdArray[randomIndex];
               const quantity = faker.number.int({ min: 1, max: 5 });
 
-              // ORDER_OBJECTS[orderId - 1].products.push({ productId, quantity });
-              // orderProducts.push(`(${orderId}, ${productId}, ${quantity})`);
               order.products.push({ productId, quantity });
 
               productIdArray.splice(randomIndex, 1);
@@ -301,44 +263,4 @@ export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3,
   }
 
   logger.info(`Generated data for ${orderId - 1} orders`);
-
-  // const relationalData = `INSERT INTO \`Order\` (orderId, customerId) VALUES ${orders.join(", \n")};\n` +
-  //     `INSERT INTO Order_Contacts (orderId, typeId, value) VALUES ${orderContacts.join(", \n")};\n` +
-  //     `INSERT INTO Order_Products (orderId, productId, quantity) VALUES ${orderProducts.join(", \n")};\n`;
-
-  // const cassandraData = "";
-  // const cassandraData = generateCassandraOrderTables(cqlFileName);
-}
-
-// Transformers/Denormalizers
-
-export async function cassandraTransformVendorProducts(stream: DataStream) {
-    let accumulatorRef: { brandVendorsByProductId: brandVendorsByProductId, countriesByBrand: countriesByBrand };
-
-    await stream.accumulate((acc, product: Product) => {
-        const { brand, vendor: { country: vendorCountry }, productId } = product;
-
-        // Assign Country to Brand
-        if (!acc.countriesByBrand.hasOwnProperty(brand)) {
-            acc.countriesByBrand[brand] = new Set();
-        }
-        acc.countriesByBrand[brand].add(vendorCountry);
-
-        acc.brandVendorsByProductId[productId] = { brand, vendorCountry };
-    }, accumulatorRef = { brandVendorsByProductId: {}, countriesByBrand: {} });
-
-    return accumulatorRef;
-}
-
-export function* generateFriends(peopleCount: number, personId: number) {
-  let friendCount = faker.number.int({ min: 0, max: 10 });
-  let friendIds = Array.from({ length: peopleCount }, (value, index) => index + 1);
-  friendIds.splice(personId - 1, 1);
-  for (let j = 0; j < friendCount; j++) {
-      const randomIndex = faker.number.int({ min: 0, max: friendIds.length - 1 });
-      const friendId = friendIds[randomIndex];
-
-      yield friendId;
-      friendIds.splice(randomIndex, 1);
-  }
 }

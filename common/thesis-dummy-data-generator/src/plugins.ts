@@ -1,7 +1,6 @@
-import { createWriteStream, WriteStream, mkdirSync } from "fs";
-import { DataStream, MapCallback, StringStream } from "scramjet";
+import { createWriteStream } from "fs";
+import { DataStream, MapCallback } from "scramjet";
 import { CustomLogger as logger } from "./utils";
-import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
 
 export function mapAndDump(
   streamOrArray: DataStream | any[],
@@ -10,7 +9,7 @@ export function mapAndDump(
   entityCount: number = null,
   outputFilePath: string,
   preamble?: string,
-): WriteStream {
+): Promise<void> {
   const outputFileStream = createWriteStream(outputFilePath);
   if (preamble) {
     outputFileStream.write(preamble + '\n');
@@ -23,17 +22,23 @@ export function mapAndDump(
     stream = streamOrArray;
   }
 
-  return stream
-    .map(mapCallback)
-    .join('\n')
-    .catch(logger.error)
-    .pipe(outputFileStream)
-    .on("error", logger.error)
-    .on("finish", () => { 
-      entityCount ? 
-        logger.info(`Written ${entityCount} records of type ${entityType} to ${outputFilePath}.`) 
-        : logger.info(`Finished writing records of type ${entityType} to ${outputFilePath}.`); 
-    });
+  return new Promise<void>((resolve, reject) => {
+    stream.map(mapCallback)
+      .join('\n')
+      .catch(logger.error)
+      .pipe(outputFileStream)
+      .on("error", (e) => {
+        logger.error(e);
+        reject(e);
+      })
+      .on("close", () => { 
+        entityCount ? 
+          logger.info(`Written ${entityCount} records of type ${entityType} to ${outputFilePath}.`) 
+          : logger.info(`Finished writing records of type ${entityType} to ${outputFilePath}.`); 
+        resolve();
+      });
+    }
+  );
 }
 
 export function mapAndDumpJSONLines(
@@ -41,7 +46,7 @@ export function mapAndDumpJSONLines(
   outputFilePath: string,
   containsSet: boolean = false, // Optional
   mapCallback?: MapCallback, // Optional
-): WriteStream {
+): Promise<void> {
   const outputFileStream = createWriteStream(outputFilePath);
 
   const mappedStream = mapCallback ? stream.map(mapCallback) : stream;
@@ -50,39 +55,18 @@ export function mapAndDumpJSONLines(
     mappedStream.toStringStream((obj) => JSON.stringify(obj, (_key, value) => (value instanceof Set ? [...value] : value))).append('\n')
     : mappedStream.JSONStringify('\n');
 
-  return JSONStringifiedStream
-    .catch(logger.error)
-    .pipe(outputFileStream)
-    .on("error", logger.error)
-    .on('finish', () => { logger.info(`Finished writing to ${outputFilePath}.`); });
+  return new Promise<void>((resolve, reject) => {
+    JSONStringifiedStream
+      .catch(logger.error)
+      .pipe(outputFileStream)
+      .on("error", (e) => {
+        logger.error(e);
+        reject(e);
+      })
+      .on('close', () => { 
+        logger.info(`Finished writing to ${outputFilePath}.`);
+        resolve();
+      });
+    }
+  );
 }
-
-// const DataStream = {
-//   mapAndDumpStream(
-//     mapCallback: MapCallback,
-//     entityType: string,
-//     entityCount: number,
-//     outputFilePath: string,
-//     preamble?: string,
-//   ) {
-//     const outputFileStream = createWriteStream(outputFilePath);
-//     if (preamble) {
-//       outputFileStream.write(preamble + '\n');
-//     }
-//     const self = this as DataStreamType;
-//     return self
-//       .map(mapCallback)
-//       .batch(ARRAY_MAX_ALLOWED_LENGTH) // we batch the data by default 65535 records
-//       .join('')
-//       .catch(logger.error)
-//       .pipe(outputFileStream)
-//       .on("error", logger.error)
-//       .on("end", () =>{
-//         outputFileStream.write(";\n");
-//         outputFileStream.close();
-//         logger.info(`Finished generating ${entityCount} records of type ${entityType}.`)}
-//       );
-//   }
-// }
-
-// module.exports = { DataStream }

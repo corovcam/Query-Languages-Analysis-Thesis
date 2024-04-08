@@ -1,5 +1,4 @@
 import fs from "fs";
-import pino, { BaseLogger } from "pino";
 import { faker } from "@faker-js/faker";
 
 export function isNumber(n: any) {
@@ -9,7 +8,7 @@ export function isNumber(n: any) {
 export class CustomLogger {
   private static logFilePath: string;
   private static logFileStream: fs.WriteStream;
-  private static logger: BaseLogger | Console;
+  private static logger: Console;
   public static batchSizeToLog: number;
 
   public static initialize(startDateTime: Date, entityCount: number, percentageToLog = 5) {

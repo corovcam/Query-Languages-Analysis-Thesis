@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { faker } from '@faker-js/faker';
-import { createLogger } from './utils';
+// import { createLogger } from './utils';
 import { STRING_MAX_ALLOWED_LENGTH, ARRAY_MAX_ALLOWED_LENGTH, MAX_VENDOR_PRODUCTS, fileNames } from './constants';
 
 import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType } from './types';
@@ -573,7 +573,7 @@ function main() {
         const recordCount = parseInt(process.argv[2]);
 
         const currentDateTime = new Date();
-        logger = createLogger(currentDateTime);
+        logger = console;
         OUTPUT_DIR = `data_${recordCount}_${currentDateTime.toISOString().replace(/:/g, "-")}`;
 
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });

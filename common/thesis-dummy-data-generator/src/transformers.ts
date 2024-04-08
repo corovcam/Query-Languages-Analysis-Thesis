@@ -1,8 +1,4 @@
-import { createWriteStream } from "fs";
-import { DataStream, MapCallback } from "scramjet";
 import { CustomLogger as logger, isNumber } from "./utils";
-import { ARRAY_MAX_ALLOWED_LENGTH } from "./constants";
-import { Vendor } from "./types";
 
 // Mappers
 
@@ -21,7 +17,7 @@ export function mapToSQLDump(row: (string | number)[]) {
   return `(${valuesString})`;
 }
 
-export function mapToTSV(row: (string | number)[]) {
+export function mapToCSV(row: (string | number)[]) {
   const valuesString = row
     .map((value) => {
       if (isNumber(value)) {
@@ -32,6 +28,6 @@ export function mapToTSV(row: (string | number)[]) {
         return `'${value.toString()}'`;
       }
     })
-    .join('\t');
+    .join(',');
   return valuesString;
 }

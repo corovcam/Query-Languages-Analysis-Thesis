@@ -12,8 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
-    "pino": "^8.19.0",
-    "pino-pretty": "^10.3.1",
     "scramjet": "^4.37.0"
   },
   "devDependencies": {

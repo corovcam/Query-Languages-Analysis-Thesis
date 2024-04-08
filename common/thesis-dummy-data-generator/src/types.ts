@@ -93,7 +93,3 @@ export interface Post {
   // Cassandra additional attributes
   tags?: number[],
 }
-
-export type countriesByBrand = Record<string, Set<string>>;
-
-export type brandVendorsByProductId = Record<number, { brand: string, vendorCountry: string }>;
