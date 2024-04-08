@@ -1,8 +1,3 @@
--- TODO: Repeat each query 20 times
--- todo: 1000 records for each entity
--- todo: 4000, 256000
--- todo: Set limit for each query to 5 mins
-
 -- 1. Selection, Projection, Source (of data)
 
 -- 1.1 Non-Indexed Columns

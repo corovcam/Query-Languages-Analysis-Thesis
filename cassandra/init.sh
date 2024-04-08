@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_file="data_1k"
+data_file="dumps/data_256k"
 
 log_file="logs/init_$timestamp.log"
 
