@@ -105,21 +105,14 @@ https://migrator-installer-repository.s3.ap-southeast-2.amazonaws.com/index.html
 
 ## Getting Started
 
+### ETL Flow
+
+![ETL Flow](common/docs/etl-flowchart.drawio.svg)
+
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 Check individual `*.md* files in each database folder.
