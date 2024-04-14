@@ -60,11 +60,6 @@ FROM Product P
 
 -- 3.3 Complex Join 1
 
--- SELECT *
--- FROM Product P
---          INNER JOIN Order_Products OP on P.productId = OP.productId
---          INNER JOIN `Order` O on OP.orderId = O.orderId;
-
 -- Complex query with JOINS to retrieve order details
 SELECT *
 FROM `Order` o

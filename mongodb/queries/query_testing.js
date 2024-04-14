@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const iterations = 20;
-const recordVolume = 512000;
+const recordVolume = 512000; // NOTE: Change this for every experiment with different data volume
 const outFilePath = `logs/queries/results_${new Date().toISOString().replace(/:/g, '-')}.csv`;
 const maxTimeMS = 300000;
 let time, timeout;
@@ -144,7 +144,7 @@ try {
 }
 log('Finished testing query 2.2');
 
-// 3. Join ( TODO: One complex JOIN in mongoDB)
+// 3. Join
 
 // 3.1 Non-Indexed Attributes
 
@@ -199,6 +199,43 @@ try {
 }
 log('Finished testing query 3.1');
 
+// Use this only for < 256k entity experiments
+
+// log('Started testing query 3.1');
+// try {
+//   for (let i = 0; i < iterations; i++) {
+//     db.types.getPlanCache().clear();
+//     timeout = startTimeout();
+//     time = db.types.explain("executionStats").aggregate([
+//       {
+//         $unwind: "$orderContacts"
+//       },
+//       {
+//         $unwind: "$vendorContacts"
+//       },
+//       {
+//         $project: {
+//           orderContact: {
+//             orderId: "$orderContacts.orderId",
+//             value: "$orderContacts.value",
+//           },
+//           vendorContact: {
+//             vendorId: "$vendorContacts.vendorId",
+//             value: "$vendorContacts.value",
+//           },
+//         }
+//       }
+//     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+//     clearTimeout(timeout);
+//     recordStats('3.1', i, time);
+//   }
+// } catch (e) {
+//   clearTimeout(timeout);
+//   recordStats('3.1', -1, -1);
+//   log(e);
+// }
+// log('Finished testing query 3.1');
+
 // 3.2 Indexed Attributes
 
 log('Started testing query 3.2');
@@ -217,9 +254,6 @@ log('Finished testing query 3.2');
 // 3.3 Complex Join 1
 
 // Complex query with "lookup" to retrieve order details
-
-// TODO: Not working at the moment, cause "vendor" is not embedded in "orders.containsProducts" array
-// db.orders.find();
 
 // Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
 log('Started testing query 3.3');
@@ -265,10 +299,46 @@ try {
 }
 log('Finished testing query 3.3');
 
+// Uncomment this only for < 256k entity experiments
+
+// log('Started testing query 3.3');
+// try {
+//   for (let i = 0; i < iterations; i++) {
+//     db.orders.getPlanCache().clear();
+//     db.vendors.getPlanCache().clear();
+//     timeout = startTimeout();
+//     time = db.orders.explain("executionStats")aggregate([
+//       {
+//         $unwind: "$containsProducts"
+//       },
+//       {
+//         $lookup: {
+//           from: "vendors",
+//           localField: "containsProducts.productId",
+//           foreignField: "manufacturesProducts.productId",
+//           as: "containsProducts.vendors"
+//         }
+//       },
+//       {
+//         $unset: [
+//           "containsProducts.vendors.manufacturesProducts",
+//           "containsProducts.vendors.contacts"
+//         ],
+//       },
+//     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+//     clearTimeout(timeout);
+//     recordStats('3.3', i, time);
+//   }
+// } catch (e) {
+//   clearTimeout(timeout);
+//   recordStats('3.3', -1, -1);
+//   log(e);
+// }
+// log('Finished testing query 3.3');
+
 // 3.4 Complex Join 2 (having more than 1 friend)
 
 // Follower Count (not both way friendship)
-// TODO: Look for possible optimizations... maybe embed whole Person object in knowsPeople array
 log('Started testing query 3.4');
 try {
   for (let i = 0; i < iterations; i++) {

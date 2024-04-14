@@ -32,13 +32,55 @@ db.products.aggregate([{ $group: { _id: "$brand", productCount: { $sum: 1 } } }]
 
 db.products.aggregate([{ $group: { _id: "$brand", maxPrice: { $max: "$price" } } }]);
 
-// 3. Join ( TODO: One complex JOIN in mongoDB)
+// 3. Join
 
 // 3.1 Non-Indexed Attributes
 
 // Join vendorContacts and orderContacts on the type of contact (the same document)
 
+// Query 3.1 hit the !BSONObj size not supported! error with `BSONObj size: 16806194 (0x1007132) is invalid. Size must be between 0 and 16793600(16MB)` with 256k volume import
+// Solution could be not to embed both arrays in the same document, but to split them into separate documents and use $lookup to join them in the query and that is why we have two queries for 3.1 below
+
+// < 256k volume experiments
 db.types.aggregate([
+  {
+    $unwind: "$orderContacts"
+  },
+  {
+    $unwind: "$vendorContacts"
+  },
+  {
+    $project: {
+      orderContact: {
+        orderId: "$orderContacts.orderId",
+        value: "$orderContacts.value",
+      },
+      vendorContact: {
+        vendorId: "$vendorContacts.vendorId",
+        value: "$vendorContacts.value",
+      },
+    }
+  }
+]);
+
+// >= 256k volume experiments
+db.types.aggregate([
+  {
+    $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "contacts.typeId",
+      as: "orderContacts"
+    }
+  },
+  {
+    $lookup: {
+      from: "vendors",
+      localField: "_id",
+      foreignField: "contacts.typeId",
+      as: "vendorContacts"
+    }
+  },
   {
     $unwind: "$orderContacts"
   },
@@ -68,10 +110,42 @@ db.products.find();
 
 // Complex query with "lookup" to retrieve order details
 
-// TODO: Not working at the moment, cause "vendor" is not embedded in "orders.containsProducts" array
+// Cannot embed "vendor" in "orders.containsProducts" cause MongoDB Relational Migrator fails to migrate it (probably due to circular reference) - so the following query is not possible
 // db.orders.find();
 
 // Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
+// < 256k volume experiments
+db.orders.aggregate([
+  {
+    $unwind: "$containsProducts"
+  },
+  {
+    $lookup: {
+      from: "vendors",
+      localField: "containsProducts.productId",
+      foreignField: "manufacturesProducts.productId",
+      as: "containsProducts.vendors"
+    }
+  },
+  {
+    $unset: [
+      "containsProducts.vendors.manufacturesProducts",
+      "containsProducts.vendors.contacts"
+    ],
+  },
+]);
+
+/*
+Enormous waiting time for MongoDB Relational Migrator to migrate orders.containsProducts array
+  - Waiting time: almost 74 hours with 4 retries and various errors:
+    - `java.io.EOFException: Can not read response from server. Expected to read 4 bytes, read 0 bytes before connection was unexpectedly lost.`
+    - `java.net.SocketTimeoutException: Read timed out`
+  - First run took 2 weeks, and the entire testing server froze (probably due to memory leak and unrestricted page swapping)
+  - https://stackoverflow.com/questions/13950496/what-is-java-io-eofexception-message-can-not-read-response-from-server-expect
+  - problem turned out to be in MySQL halting the connection unexpectedly
+  - solution: remove orders.containsProducts array
+*/
+// >= 256k volume experiments
 db.orders.aggregate([
   {
     $lookup: {
@@ -103,7 +177,6 @@ db.orders.aggregate([
 // 3.4 Complex Join 2 (having more than 1 friend)
 
 // Follower Count (not both way friendship)
-// TODO: Look for possible optimizations... maybe embed whole Person object in knowsPeople array
 db.persons.aggregate([
   {
     $unwind: "$knowsPeople"
@@ -165,9 +238,6 @@ db.persons.aggregate([
 
 // This one stops traverses in BFS until it finds the target person (not necessarily the shortest path)
 // The target person in not included in the result
-// TODO: Find better soluton for shortest path? Or maybe it does not exist?
-// https://stackoverflow.com/questions/42333529/mongodb-node-js-and-shortest-path-function-any-option-available
-
 // The result set is not the same as in previous databases, but the path is included in the result
 // It basically performs BFS until it finds the target person, stops and prints each visited node
 // The backtracking is not possible in mongoDB, but can be done in application layer
@@ -184,7 +254,7 @@ db.persons.aggregate([
       connectFromField: "knowsPeople",
       connectToField: "_id",
       as: "relationships",
-      // maxDepth: 3,
+      // maxDepth: 3, // NOTE: if not set, it will run into `MongoServerError: $graphLookup reached maximum memory consumption` in 256k volume experiments
       depthField: "depth",
       restrictSearchWithMatch: {
         _id: { $ne: 10 }
@@ -286,7 +356,6 @@ db.vendors.aggregate([
 // Find common tags between posts AND persons
 // Since id arrays of postTags and personTags are embedded in "tags" collection
 // we can just find tag object with non-empty arrays of both postTags and personTags
-// TODO: Rewrite data model to explicitly use $setIntersection operator?
 db.tags.find({
   $and: [
     { interestedPeople: { $exists: true, $ne: [] } },
@@ -360,7 +429,7 @@ db.vendors.aggregate([
   {
     $unwind: "$manufacturesProducts"
   },
-  // $group stage is used except of db.collection.distinct() method
+  // $group stage is used instead of db.collection.distinct() method
   {
     $group: {
       _id: {

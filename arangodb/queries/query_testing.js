@@ -2,7 +2,7 @@ const { db, aql } = require("@arangodb");
 const fs = require("fs");
 
 const iterations = 20;
-const recordVolume = 256000;
+const recordVolume = 256000; // NOTE: Change this for every experiment with different data volume
 const outFilePath = `logs/queries/results_${new Date().toISOString().replace(/:/g, '-')}.csv`;
 let time;
 

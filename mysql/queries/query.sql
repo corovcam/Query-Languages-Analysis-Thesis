@@ -95,8 +95,11 @@ HAVING COUNT(*) > 1;
 
 -- 4.1. Direct and Indirect Relationship Traversal up to a certain depth
 
+-- NOTE: Guessing the max recursion depth will never exceed 10 million 
 SET SESSION cte_max_recursion_depth = 10000000;
 
+-- This query doesn't perform well with large datasets. It's recommended to limit the recursion depth.
+-- This is just an illustration of how it can be done with relational data. For large datasets, consider using graph databases.
 -- Find all direct and indirect relationships between people
 WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
                                               personId2 AS relatedPersonId,
@@ -115,9 +118,10 @@ FROM PersonRelationships;
 
 -- 4.2. Shortest path
 
--- TODO: Guessing the max recursion depth to be 10 million ??
+-- NOTE: Guessing the max recursion depth will never exceed 10 million 
 SET SESSION cte_max_recursion_depth = 10000000;
 
+-- This is just an illustration of how it can be done with relational data. For large datasets, consider using graph databases.
 -- Find the shortest path between two persons using WITH RECURSIVE
 WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId2 AS targetPersonId,
@@ -194,10 +198,6 @@ FROM Person_Tags
          JOIN Tag ON Person_Tags.tagId = Tag.tagId
 ORDER BY tagId;
 
--- In this query, we're using INTERSECT to find common tags between posts and persons.
--- The result includes the tag ID and value that are shared between the two tables.
--- The ORDER BY clause is used to sort the results by tag ID for better presentation.
-
 -- 8. Difference
 
 -- Find people who have not made any orders
@@ -205,7 +205,7 @@ ORDER BY tagId;
 -- All people
 SELECT personId, firstName, lastName
 FROM Person
-WHERE personId NOT IN ( -- EXCEPT is not supported in MySQL, it is available in >8.0 though ????
+WHERE personId NOT IN ( -- EXCEPT is not supported in used MySQL version
 -- People who have made orders
     SELECT Person.personId
     FROM Person

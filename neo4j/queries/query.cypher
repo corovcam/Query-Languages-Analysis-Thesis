@@ -64,8 +64,6 @@ CREATE LOOKUP INDEX rel_type_lookup_index IF NOT EXISTS FOR () - [r] - () ON EAC
 MATCH (o:Order)-[cp:CONTAINS_PRODUCTS]->(p:Product)
 RETURN properties(p), o.orderId, cp.quantity;
 
-// TODO: Should I RETURN properties(p) or p (as whole Node)? What's the difference in Query performance?
-
 // 3.3 Complex Join 1
 
 // Match all important information about Orders, Customers, People, Products and Vendors
