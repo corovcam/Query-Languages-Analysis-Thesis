@@ -1,0 +1,17 @@
+"table_name","exact_row_count"
+"Customer",774
+"Industry",1499
+"Order",1568
+"Order_Contacts",4704
+"Order_Products",4777
+"Person",1000
+"Person_Person",5140
+"Person_Tags",4790
+"Post",1000
+"Post_Tags",5026
+"Product",1000
+"Tag",1000
+"Type",13
+"Vendor",1000
+"Vendor_Contacts",2037
+"Vendor_Products",2719

@@ -67,7 +67,7 @@ Folders and files common to most of the databases directories:
 
 ### Scripts
 
-Some scripts are common for all databases, some are specific to a particular DBMSs. Some like `init.sh` and `run_queries.sh` require manual variable editing to select required data directories.
+Some scripts are common for all databases, some are specific to a particular DBMS. Some like `init.sh` and `run_queries.sh` require manual variable editing to select required data directories.
 
 Common scripts:
 
