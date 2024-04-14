@@ -12,7 +12,7 @@ log_file="/neo4j/logs/neo4j-etl-tool_$timestamp.log"
 
 # NOTE: Neo4j instance must be stopped first before proceeding with this script
 # If you get an error like "WARNING: Neo4j is running! You can run neo4j-import tool only if the database is offline"
-# then you need to stop the Neo4j instance first:
+# then you need to stop the Neo4j instance first (sometimes twice in a row):
 # `neo4j stop`
 
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
