@@ -1,0 +1,998 @@
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = JMImplementation:type=MBeanServerDelegate
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = JMImplementation:type=MBeanServerDelegate
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object JMImplementation:type=MBeanServerDelegate
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered JMImplementation:type=MBeanServerDelegate
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.RuntimeImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=Runtime
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=Runtime
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=Runtime
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=Runtime
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for com.sun.management.internal.HotSpotThreadImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=Threading
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=Threading
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=Threading
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=Threading
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for com.sun.management.internal.OperatingSystemImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=OperatingSystem
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=OperatingSystem
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=OperatingSystem
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=OperatingSystem
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryManagerImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=CodeCacheManager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=CodeCacheManager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=CodeCacheManager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=CodeCacheManager,type=MemoryManager
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryManagerImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=Metaspace Manager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=Metaspace Manager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=Metaspace Manager,type=MemoryManager
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=Metaspace Manager,type=MemoryManager
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=Metaspace,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=Metaspace,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=Metaspace,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=Metaspace,type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=Compressed Class Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=Compressed Class Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=Compressed Class Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=Compressed Class Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=G1 Eden Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=G1 Eden Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=G1 Eden Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=G1 Eden Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=G1 Old Gen,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=G1 Old Gen,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=G1 Old Gen,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=G1 Old Gen,type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=G1 Survivor Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=G1 Survivor Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=G1 Survivor Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=G1 Survivor Space,type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryPoolImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.CompilationImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=Compilation
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=Compilation
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=Compilation
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=Compilation
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.MemoryImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=Memory
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=Memory
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=Memory
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=Memory
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.ManagementFactoryHelper$PlatformLoggingImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.util.logging:type=Logging
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.util.logging:type=Logging
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.util.logging:type=Logging
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.util.logging:type=Logging
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.ClassLoadingImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:type=ClassLoading
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:type=ClassLoading
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:type=ClassLoading
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:type=ClassLoading
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = com.sun.management:type=DiagnosticCommand
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = com.sun.management:type=DiagnosticCommand
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object com.sun.management:type=DiagnosticCommand
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered com.sun.management:type=DiagnosticCommand
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for com.sun.management.internal.GarbageCollectorExtImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=G1 Young Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=G1 Young Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=G1 Young Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=G1 Young Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for com.sun.management.internal.GarbageCollectorExtImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.lang:name=G1 Old Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.lang:name=G1 Old Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.lang:name=G1 Old Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.lang:name=G1 Old Generation,type=GarbageCollector
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for com.sun.management.internal.HotSpotDiagnostic
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = com.sun.management:type=HotSpotDiagnostic
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = com.sun.management:type=HotSpotDiagnostic
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object com.sun.management:type=HotSpotDiagnostic
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered com.sun.management:type=HotSpotDiagnostic
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.ManagementFactoryHelper$1
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.nio:name=mapped,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.nio:name=mapped,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.nio:name=mapped,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.nio:name=mapped,type=BufferPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.ManagementFactoryHelper$1
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.nio:name=direct,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.nio:name=direct,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.nio:name=direct,type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.nio:name=direct,type=BufferPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for sun.management.ManagementFactoryHelper$1
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = java.nio:name=mapped - 'non-volatile memory',type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = java.nio:name=mapped - 'non-volatile memory',type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object java.nio:name=mapped - 'non-volatile memory',type=BufferPool
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered java.nio:name=mapped - 'non-volatile memory',type=BufferPool
+2024-04-14 14:48:38 FINER  javax.management.StandardMBean getMBeanInfo Building MBeanInfo for jdk.management.jfr.FlightRecorderMXBeanImpl
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = jdk.management.jfr:type=FlightRecorder
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = jdk.management.jfr:type=FlightRecorder
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object jdk.management.jfr:type=FlightRecorder
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered jdk.management.jfr:type=FlightRecorder
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository contains name = org.apache.logging.log4j2:type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = org.apache.logging.log4j2:type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = org.apache.logging.log4j2:type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object org.apache.logging.log4j2:type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered org.apache.logging.log4j2:type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository contains name = org.apache.logging.log4j2:type=5bc2b487,component=StatusLogger
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = org.apache.logging.log4j2:type=5bc2b487,component=StatusLogger
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = org.apache.logging.log4j2:type=5bc2b487,component=StatusLogger
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object org.apache.logging.log4j2:component=StatusLogger,type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered org.apache.logging.log4j2:type=5bc2b487,component=StatusLogger
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository contains name = org.apache.logging.log4j2:type=5bc2b487,component=ContextSelector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = org.apache.logging.log4j2:type=5bc2b487,component=ContextSelector
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = org.apache.logging.log4j2:type=5bc2b487,component=ContextSelector
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object org.apache.logging.log4j2:component=ContextSelector,type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered org.apache.logging.log4j2:type=5bc2b487,component=ContextSelector
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository contains name = org.apache.logging.log4j2:type=5bc2b487,component=Appenders,name=DefaultConsole-2
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerDynamicMBean ObjectName = org.apache.logging.log4j2:type=5bc2b487,component=Appenders,name=DefaultConsole-2
+2024-04-14 14:48:38 FINER  com.sun.jmx.mbeanserver.Repository addMBean name = org.apache.logging.log4j2:type=5bc2b487,component=Appenders,name=DefaultConsole-2
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor registerWithRepository Send create notification of object org.apache.logging.log4j2:component=Appenders,name=DefaultConsole-2,type=5bc2b487
+2024-04-14 14:48:38 FINER  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor sendNotification JMX.mbean.registered org.apache.logging.log4j2:type=5bc2b487,component=Appenders,name=DefaultConsole-2
+2024-04-14 14:48:38 INFO   org.neo4j.driver.internal.logging.JULogger info Routing driver instance 1548946718 created for server address localhost:7687
+2024-04-14 14:48:38 INFO   org.neo4j.shell.log.ShellLogger info Connecting to database ...
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost(127.0.0.1):7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.processId: 432 (auto-detected)
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Djava.net.preferIPv4Stack: false
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Djava.net.preferIPv6Addresses: false
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Loopback interface: lo (lo, 127.0.0.1)
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug /proc/sys/net/core/somaxconn: 4096
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.machineId: 02:42:ac:ff:fe:15:00:03 (auto-detected)
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.leakDetection.level: simple
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.leakDetection.targetRecords: 4
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.numHeapArenas: 16
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.numDirectArenas: 16
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.pageSize: 8192
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.maxOrder: 9
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.chunkSize: 4194304
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.smallCacheSize: 256
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.normalCacheSize: 64
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.cacheTrimInterval: 8192
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.useCacheForAllThreads: false
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.allocator.type: pooled
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.threadLocalDirectBufferSize: 0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] Channel [id: 0x87c9818d, L:/127.0.0.1:49410 - R:/127.0.0.1:7687] connected, initiating bolt handshake
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.buffer.checkAccessible: true
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.buffer.checkBounds: true
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@d105465
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][] C: [Bolt Handshake] [0x6060b017, 197381, 132100, 260, 3]
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.recycler.maxCapacityPerThread: 4096
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.recycler.ratio: 8
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.recycler.chunkSize: 32
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.recycler.blocking: false
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][] S: [Bolt Handshake] 5.3
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][] C: HELLO {routing={address: "localhost:7687"}, bolt_agent={product: "neo4j-java/5.11.0-ea56edc8c126b032c4a7dd8c4c571ec35419ca44", language: "Java/17.0.8.1", language_details: "Optional[Eclipse Adoptium; OpenJDK 64-Bit Server VM; 17.0.8.1+1]", platform: "Linux; 5.15.0-101-generic; amd64"}, user_agent="neo4j-cypher-shell/v5.12.0"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] C: 0130b101a387726f7574696e67a187616464726573738e6c6f63616c686f73743a373638378a626f6c745f6167656e74a48770726f64756374d03a6e656f346a2d6a6176612f352e31312e302d65613536656463386331323662303332633461376464386334633537316563333534313963613434886c616e67756167658d4a6176612f31372e302e382e31d0106c616e67756167655f64657461696c73d0404f7074696f6e616c5b45636c697073652041646f707469756d3b204f70656e4a444b2036342d4269742053657276657220564d3b2031372e302e382e312b315d88706c6174666f726dd0204c696e75783b20352e31352e302d3130312d67656e657269633b20616d6436348a757365725f6167656e74d01a6e656f346a2d6379706865722d7368656c6c2f76352e31322e30
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x87c9818d] created. Local address: /127.0.0.1:49410, remote address: /127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x87c9818d] acquired from the pool. Local address: /127.0.0.1:49410, remote address: /127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][] C: LOGON {principal="", scheme="basic", credentials="******"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] C: 0028b16aa3897072696e636970616c8086736368656d658562617369638b63726564656e7469616c7380
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] S: 0055b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d378568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][] S: b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d378568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][] S: SUCCESS {server="Neo4j/5.12.0", connection_id="bolt-7", hints={connection.recv_timeout_seconds: 120}}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: ROUTE {address="localhost:7687"} [] null null
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: 001cb366a187616464726573738e6c6f63616c686f73743a3736383790a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0091b170a1827274a3877365727665727393a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c65855752495445a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c658452454144a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c6585524f5554458374746cc9012c826462856e656f346a
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: b170a1827274a3877365727665727393a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c65855752495445a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c658452454144a289616464726573736573918e6c6f63616c686f73743a3736383784726f6c6585524f5554458374746cc9012c826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: SUCCESS {rt={servers: [{addresses: ["localhost:7687"], role: "WRITE"}, {addresses: ["localhost:7687"], role: "READ"}, {addresses: ["localhost:7687"], role: "ROUTE"}], ttl: 300, db: "neo4j"}}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: 0002b00f
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x87c9818d] released back to the pool
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Routing table handler for database 'neo4j' is added.
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Fetched cluster composition for database 'neo4j'. ClusterComposition{readers=[localhost:7687], writers=[localhost:7687], routers=[localhost:7687], expirationTimestamp=1713106418580, databaseName=neo4j}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Updated routing table for database 'neo4j'. Ttl 1713106418580, currentTime 1713106118590, routers [localhost:7687], writers [localhost:7687], readers [localhost:7687], database 'neo4j'
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] Channel [id: 0xb9051058, L:/127.0.0.1:49418 - R:localhost/127.0.0.1:7687] connected, initiating bolt handshake
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][] C: [Bolt Handshake] [0x6060b017, 197381, 132100, 260, 3]
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][] S: [Bolt Handshake] 5.3
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][] C: HELLO {routing={address: "localhost:7687"}, bolt_agent={product: "neo4j-java/5.11.0-ea56edc8c126b032c4a7dd8c4c571ec35419ca44", language: "Java/17.0.8.1", language_details: "Optional[Eclipse Adoptium; OpenJDK 64-Bit Server VM; 17.0.8.1+1]", platform: "Linux; 5.15.0-101-generic; amd64"}, user_agent="neo4j-cypher-shell/v5.12.0"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] C: 0130b101a387726f7574696e67a187616464726573738e6c6f63616c686f73743a373638378a626f6c745f6167656e74a48770726f64756374d03a6e656f346a2d6a6176612f352e31312e302d65613536656463386331323662303332633461376464386334633537316563333534313963613434886c616e67756167658d4a6176612f31372e302e382e31d0106c616e67756167655f64657461696c73d0404f7074696f6e616c5b45636c697073652041646f707469756d3b204f70656e4a444b2036342d4269742053657276657220564d3b2031372e302e382e312b315d88706c6174666f726dd0204c696e75783b20352e31352e302d3130312d67656e657269633b20616d6436348a757365725f6167656e74d01a6e656f346a2d6379706865722d7368656c6c2f76352e31322e30
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] created. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][] C: LOGON {principal="", scheme="basic", credentials="******"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] C: 0028b16aa3897072696e636970616c8086736368656d658562617369638b63726564656e7469616c7380
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] S: 0055b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d388568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][] S: b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d388568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][] S: SUCCESS {server="Neo4j/5.12.0", connection_id="bolt-8", hints={connection.recv_timeout_seconds: 120}}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL db.ping()" {} {tx_metadata={type: "system", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 004fb3108e43414c4c2064622e70696e672829a0a28b74785f6d65746164617461a284747970658673797374656d83617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 001cb170a287745f666972737410866669656c6473918773756363657373
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737410866669656c6473918773756363657373
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["success"], t_first=16}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0004b17191c3
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b17191c3
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD [TRUE]
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737401826462856e656f346a
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737401826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=1, db="neo4j"}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] Channel [id: 0x7ee44d3c, L:/127.0.0.1:49420 - R:localhost/127.0.0.1:7687] connected, initiating bolt handshake
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][] C: [Bolt Handshake] [0x6060b017, 197381, 132100, 260, 3]
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][] S: [Bolt Handshake] 5.3
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][] C: HELLO {routing={address: "localhost:7687"}, bolt_agent={product: "neo4j-java/5.11.0-ea56edc8c126b032c4a7dd8c4c571ec35419ca44", language: "Java/17.0.8.1", language_details: "Optional[Eclipse Adoptium; OpenJDK 64-Bit Server VM; 17.0.8.1+1]", platform: "Linux; 5.15.0-101-generic; amd64"}, user_agent="neo4j-cypher-shell/v5.12.0"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] C: 0130b101a387726f7574696e67a187616464726573738e6c6f63616c686f73743a373638378a626f6c745f6167656e74a48770726f64756374d03a6e656f346a2d6a6176612f352e31312e302d65613536656463386331323662303332633461376464386334633537316563333534313963613434886c616e67756167658d4a6176612f31372e302e382e31d0106c616e67756167655f64657461696c73d0404f7074696f6e616c5b45636c697073652041646f707469756d3b204f70656e4a444b2036342d4269742053657276657220564d3b2031372e302e382e312b315d88706c6174666f726dd0204c696e75783b20352e31352e302d3130312d67656e657269633b20616d6436348a757365725f6167656e74d01a6e656f346a2d6379706865722d7368656c6c2f76352e31322e30
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] created. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][] C: LOGON {principal="", scheme="basic", credentials="******"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] C: 0028b16aa3897072696e636970616c8086736368656d658562617369638b63726564656e7469616c7380
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] S: 0055b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d398568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][] S: b170a3867365727665728c4e656f346a2f352e31322e308d636f6e6e656374696f6e5f696486626f6c742d398568696e7473a1d01f636f6e6e656374696f6e2e726563765f74696d656f75745f7365636f6e647378
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][] S: SUCCESS {server="Neo4j/5.12.0", connection_id="bolt-9", hints={connection.recv_timeout_seconds: 120}}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL dbms.licenseAgreementDetails()" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "system", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0091b310d02343414c4c2064626d732e6c6963656e736541677265656d656e7444657461696c732829a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658673797374656d83617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 010fb17fa284636f6465d02b4e656f2e436c69656e744572726f722e50726f6365647572652e50726f6365647572654e6f74466f756e64876d657373616765d0d05468657265206973206e6f2070726f636564757265207769746820746865206e616d65206064626d732e6c6963656e736541677265656d656e7444657461696c7360207265676973746572656420666f72207468697320646174616261736520696e7374616e63652e20506c6561736520656e7375726520796f75277665207370656c6c6564207468652070726f636564757265206e616d6520636f72726563746c7920616e642074686174207468652070726f6365647572652069732070726f7065726c79206465706c6f7965642e
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b17fa284636f6465d02b4e656f2e436c69656e744572726f722e50726f6365647572652e50726f6365647572654e6f74466f756e64876d657373616765d0d05468657265206973206e6f2070726f636564757265207769746820746865206e616d65206064626d732e6c6963656e736541677265656d656e7444657461696c7360207265676973746572656420666f72207468697320646174616261736520696e7374616e63652e20506c6561736520656e7375726520796f75277665207370656c6c6564207468652070726f636564757265206e616d6520636f72726563746c7920616e642074686174207468652070726f6365647572652069732070726f7065726c79206465706c6f7965642e
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: FAILURE Neo.ClientError.Procedure.ProcedureNotFound "There is no procedure with the name `dbms.licenseAgreementDetails` registered for this database instance. Please ensure you've spelled the procedure name correctly and that the procedure is properly deployed."
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0002b07e
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b07e
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: IGNORED
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:38 WARNING org.neo4j.shell.log.ShellLogger warn Failed to fetch trial status
+org.neo4j.driver.exceptions.ClientException: There is no procedure with the name `dbms.licenseAgreementDetails` registered for this database instance. Please ensure you've spelled the procedure name correctly and that the procedure is properly deployed.
+	at org.neo4j.driver.internal.util.Futures.blockingGet(Futures.java:110)
+	at org.neo4j.driver.internal.InternalSession.run(InternalSession.java:63)
+	at org.neo4j.driver.internal.InternalSession.run(InternalSession.java:58)
+	at org.neo4j.driver.internal.InternalSession.run(InternalSession.java:53)
+	at org.neo4j.shell.state.BoltStateHandler.getTrialStatus(BoltStateHandler.java:344)
+	at org.neo4j.shell.state.BoltStateHandler.reconnectAndPing(BoltStateHandler.java:283)
+	at org.neo4j.shell.state.BoltStateHandler.connect(BoltStateHandler.java:249)
+	at org.neo4j.shell.CypherShell.connect(CypherShell.java:166)
+	at org.neo4j.shell.Main.connectMaybeInteractively(Main.java:208)
+	at org.neo4j.shell.Main.runShell(Main.java:166)
+	at org.neo4j.shell.Main.startShell(Main.java:141)
+	at org.neo4j.shell.Main.main(Main.java:123)
+	Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+		at org.neo4j.driver.internal.util.ErrorUtil.newNeo4jError(ErrorUtil.java:78)
+		at org.neo4j.driver.internal.async.inbound.InboundMessageDispatcher.handleFailureMessage(InboundMessageDispatcher.java:113)
+		at org.neo4j.driver.internal.messaging.common.CommonMessageReader.unpackFailureMessage(CommonMessageReader.java:64)
+		at org.neo4j.driver.internal.messaging.common.CommonMessageReader.read(CommonMessageReader.java:48)
+		at org.neo4j.driver.internal.async.inbound.InboundMessageHandler.channelRead0(InboundMessageHandler.java:80)
+		at org.neo4j.driver.internal.async.inbound.InboundMessageHandler.channelRead0(InboundMessageHandler.java:36)
+		at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:99)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+		at org.neo4j.driver.internal.async.inbound.MessageDecoder.channelRead(MessageDecoder.java:42)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:333)
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:454)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:38 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (vendor:Vendor) RETURN vendor;",
+    "exports/nodes/vendors.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH (vendor:Vendor) RETURN vendor;",
+    "exports/nodes/vendors.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0125b310d100b143414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d41544348202876656e646f723a56656e646f72292052455455524e2076656e646f723b222c0a20202020226578706f7274732f6e6f6465732f76656e646f72732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737427866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737427866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=39}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b1719cd01a6578706f7274732f6e6f6465732f76656e646f72732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c90bb857c907d0ff00c3c0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01a6578706f7274732f6e6f6465732f76656e646f72732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c90bb857c907d0ff00c3c0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/nodes/vendors.json", "statement: cols(1)", "json", 1000, 0, 3000, 87, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737474826462856e656f346a
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737474826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=116, db="neo4j"}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:38 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (product:Product) RETURN product;",
+    "exports/nodes/products.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH (product:Product) RETURN product;",
+    "exports/nodes/products.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0129b310d100b543414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d41544348202870726f647563743a50726f64756374292052455455524e2070726f647563743b222c0a20202020226578706f7274732f6e6f6465732f70726f64756374732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737422866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737422866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=34}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0048b1719cd01b6578706f7274732f6e6f6465732f70726f64756374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c917703bc907d0ff00c3c0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01b6578706f7274732f6e6f6465732f70726f64756374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c917703bc907d0ff00c3c0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/nodes/products.json", "statement: cols(1)", "json", 1000, 0, 6000, 59, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737445826462856e656f346a
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737445826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=69, db="neo4j"}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:38 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (order:Order) RETURN order;",
+    "exports/nodes/orders.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH (order:Order) RETURN order;",
+    "exports/nodes/orders.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0121b310d100ad43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d4154434820286f726465723a4f72646572292052455455524e206f726465723b222c0a20202020226578706f7274732f6e6f6465732f6f72646572732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:38 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:38 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f666972737419866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737419866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=25}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0046b1719cd0196578706f7274732f6e6f6465732f6f72646572732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec9062000c906200ec90c40ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd0196578706f7274732f6e6f6465732f6f72646572732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec9062000c906200ec90c40ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/nodes/orders.json", "statement: cols(1)", "json", 1568, 0, 1568, 14, 3136, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737416826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737416826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=22, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (type:Type) RETURN type;",
+    "exports/nodes/types.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH (type:Type) RETURN type;",
+    "exports/nodes/types.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 011db310d100a943414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028747970653a54797065292052455455524e20747970653b222c0a20202020226578706f7274732f6e6f6465732f74797065732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=32}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 003fb1719cd0186578706f7274732f6e6f6465732f74797065732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e0d001a021aff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd0186578706f7274732f6e6f6465732f74797065732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e0d001a021aff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/nodes/types.json", "statement: cols(1)", "json", 13, 0, 26, 2, 26, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173740c826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173740c826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=12, db="neo4j"}
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (customer:Customer) RETURN customer;",
+    "exports/nodes/customers.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH (customer:Customer) RETURN customer;",
+    "exports/nodes/customers.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 012db310d100b943414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028637573746f6d65723a437573746f6d6572292052455455524e20637573746f6d65723b222c0a20202020226578706f7274732f6e6f6465732f637573746f6d6572732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f666972737431866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737431866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=49}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0049b1719cd01c6578706f7274732f6e6f6465732f637573746f6d6572732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec9030600c9030608c9060cff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd01c6578706f7274732f6e6f6465732f637573746f6d6572732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec9030600c9030608c9060cff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/nodes/customers.json", "statement: cols(1)", "json", 774, 0, 774, 8, 1548, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737412826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737412826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=18, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (person:Person) RETURN person;",
+    "exports/nodes/persons.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH (person:Person) RETURN person;",
+    "exports/nodes/persons.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0125b310d100b143414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028706572736f6e3a506572736f6e292052455455524e20706572736f6e3b222c0a20202020226578706f7274732f6e6f6465732f706572736f6e732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737423866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737423866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=35}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b1719cd01a6578706f7274732f6e6f6465732f706572736f6e732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c9232823c907d0ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01a6578706f7274732f6e6f6465732f706572736f6e732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c9232823c907d0ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/nodes/persons.json", "statement: cols(1)", "json", 1000, 0, 9000, 35, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173742f826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173742f826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=47, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (post:Post) RETURN post;",
+    "exports/nodes/posts.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH (post:Post) RETURN post;",
+    "exports/nodes/posts.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 011db310d100a943414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028706f73743a506f7374292052455455524e20706f73743b222c0a20202020226578706f7274732f6e6f6465732f706f7374732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f666972737421866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737421866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=33}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b1719cd0186578706f7274732f6e6f6465732f706f7374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c91f402bc907d0ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd0186578706f7274732f6e6f6465732f706f7374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c91f402bc907d0ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/nodes/posts.json", "statement: cols(1)", "json", 1000, 0, 8000, 43, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737436826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737436826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=54, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH (tag:Tag) RETURN tag;",
+    "exports/nodes/tags.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH (tag:Tag) RETURN tag;",
+    "exports/nodes/tags.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0119b310d100a543414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d4154434820287461673a546167292052455455524e207461673b222c0a20202020226578706f7274732f6e6f6465732f746167732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=31}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0044b1719cd0176578706f7274732f6e6f6465732f746167732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c907d00ac907d0ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd0176578706f7274732f6e6f6465732f746167732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6ec903e800c907d00ac907d0ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/nodes/tags.json", "statement: cols(1)", "json", 1000, 0, 2000, 10, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173741a826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173741a826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=26, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[contact_type:CONTACT_TYPE]->() RETURN *;",
+    "exports/edges/contactType.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[contact_type:CONTACT_TYPE]->() RETURN *;",
+    "exports/edges/contactType.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0137b310d100c343414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b636f6e746163745f747970653a434f4e544143545f545950455d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f636f6e74616374547970652e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=31}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 004db1719cd01e6578706f7274732f65646765732f636f6e74616374547970652e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c91a55c91a55c900b3c934aaff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd01e6578706f7274732f65646765732f636f6e74616374547970652e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c91a55c91a55c900b3c934aaff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/edges/contactType.json", "statement: cols(1)", "json", 0, 6741, 6741, 179, 13482, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0047b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900cd826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900cd826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=205, db="neo4j"}
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[contains_products:CONTAINS_PRODUCTS]->() RETURN *;",
+    "exports/edges/containsProducts.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[contains_products:CONTAINS_PRODUCTS]->() RETURN *;",
+    "exports/edges/containsProducts.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0146b310d100d243414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b636f6e7461696e735f70726f64756374733a434f4e5441494e535f50524f44554354535d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f636f6e7461696e7350726f64756374732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=32}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0052b1719cd0236578706f7274732f65646765732f636f6e7461696e7350726f64756374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c912a9c912a9c9008cc92552ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd0236578706f7274732f65646765732f636f6e7461696e7350726f64756374732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c912a9c912a9c9008cc92552ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/edges/containsProducts.json", "statement: cols(1)", "json", 0, 4777, 4777, 140, 9554, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c9009b826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c9009b826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=155, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[created_by:CREATED_BY]->() RETURN *;",
+    "exports/edges/createdBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[created_by:CREATED_BY]->() RETURN *;",
+    "exports/edges/createdBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0131b310d100bd43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b637265617465645f62793a435245415445445f42595d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6372656174656442792e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=32}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0047b1719cd01c6578706f7274732f65646765732f6372656174656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c903e8003ec907d0ff00c3c0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd01c6578706f7274732f65646765732f6372656174656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c903e8003ec907d0ff00c3c0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/edges/createdBy.json", "statement: cols(1)", "json", 0, 1000, 0, 62, 2000, -1, 0, TRUE, NULL]
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173744c826462856e656f346a
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c6173744c826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=76, db="neo4j"}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:39 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[has_interest:HAS_INTEREST]->() RETURN *;",
+    "exports/edges/hasInterest.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[has_interest:HAS_INTEREST]->() RETURN *;",
+    "exports/edges/hasInterest.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0137b310d100c343414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b6861735f696e7465726573743a4841535f494e5445524553545d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f686173496e7465726573742e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:39 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:39 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f66697273742f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f66697273742f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=47}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 004bb1719cd01e6578706f7274732f65646765732f686173496e7465726573742e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c912b600c9009bc9256cff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01e6578706f7274732f65646765732f686173496e7465726573742e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c912b600c9009bc9256cff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/edges/hasInterest.json", "statement: cols(1)", "json", 0, 4790, 0, 155, 9580, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900a8826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900a8826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=168, db="neo4j"}
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[has_tag:HAS_TAG]->() RETURN *;",
+    "exports/edges/hasTag.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[has_tag:HAS_TAG]->() RETURN *;",
+    "exports/edges/hasTag.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0128b310d100b443414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b6861735f7461673a4841535f5441475d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6861735461672e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=31}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0046b1719cd0196578706f7274732f65646765732f6861735461672e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c913a200c9009cc92744ff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd0196578706f7274732f65646765732f6861735461672e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c913a200c9009cc92744ff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/edges/hasTag.json", "statement: cols(1)", "json", 0, 5026, 0, 156, 10052, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0047b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900a7826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c900a7826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=167, db="neo4j"}
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[industry_type:INDUSTRY_TYPE]->() RETURN *;",
+    "exports/edges/industryType.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[industry_type:INDUSTRY_TYPE]->() RETURN *;",
+    "exports/edges/industryType.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 013ab310d100c643414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b696e6475737472795f747970653a494e4455535452595f545950455d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f696e647573747279547970652e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f66697273742b866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f66697273742b866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=43}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 004ab1719cd01f6578706f7274732f65646765732f696e647573747279547970652e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c905db0013c90bb6ff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01f6578706f7274732f65646765732f696e647573747279547970652e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c905db0013c90bb6ff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/edges/industryType.json", "statement: cols(1)", "json", 0, 1499, 0, 19, 2998, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737423826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737423826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=35, db="neo4j"}
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[is_person:IS_PERSON]->() RETURN *;",
+    "exports/edges/isPerson.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[is_person:IS_PERSON]->() RETURN *;",
+    "exports/edges/isPerson.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 012eb310d100ba43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b69735f706572736f6e3a49535f504552534f4e5d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6973506572736f6e2e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=31}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0046b1719cd01b6578706f7274732f65646765732f6973506572736f6e2e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c903060017c9060cff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd01b6578706f7274732f65646765732f6973506572736f6e2e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c903060017c9060cff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/edges/isPerson.json", "statement: cols(1)", "json", 0, 774, 0, 23, 1548, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737424826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737424826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=36, db="neo4j"}
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[knows:KNOWS]->() RETURN *;",
+    "exports/edges/knows.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[knows:KNOWS]->() RETURN *;",
+    "exports/edges/knows.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0123b310d100af43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b6b6e6f77733a4b4e4f57535d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6b6e6f77732e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f666972737421866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f666972737421866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=33}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b1719cd0186578706f7274732f65646765732f6b6e6f77732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c9141400c900f7c92828ff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd0186578706f7274732f65646765732f6b6e6f77732e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c9141400c900f7c92828ff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/edges/knows.json", "statement: cols(1)", "json", 0, 5140, 0, 247, 10280, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c90103826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c617374c90103826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=259, db="neo4j"}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[manufactured_by:MANUFACTURED_BY]->() RETURN *;",
+    "exports/edges/manufacturedBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] acquired from the pool. Local address: /127.0.0.1:49418, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[manufactured_by:MANUFACTURED_BY]->() RETURN *;",
+    "exports/edges/manufacturedBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0140b310d100cc43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b6d616e7566616374757265645f62793a4d414e5546414354555245445f42595d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6d616e75666163747572656442792e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: PULL {n=1000}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 006cb170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a287745f666972737420866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=32}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 004cb1719cd0216578706f7274732f65646765732f6d616e75666163747572656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c90a9f004bc9153eff00c3c0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b1719cd0216578706f7274732f65646765732f6d616e75666163747572656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c90a9f004bc9153eff00c3c0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: RECORD ["exports/edges/manufacturedBy.json", "statement: cols(1)", "json", 0, 2719, 0, 75, 5438, -1, 0, TRUE, NULL]
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737456826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737456826462856e656f346a
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=86, db="neo4j"}
+2024-04-14 14:48:40 INFO   org.neo4j.shell.log.ShellLogger info Executing cypher: CALL apoc.export.json.query(
+    "MATCH ()-[ordered_by:ORDERED_BY]->() RETURN *;",
+    "exports/edges/orderedBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: RESET
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Selected writer with address: 'localhost:7687' and active connections: 1
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace Acquiring a connection from pool towards localhost:7687
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b00f
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] acquired from the pool. Local address: /127.0.0.1:49420, remote address: localhost/127.0.0.1:7687
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RUN "CALL apoc.export.json.query(
+    "MATCH ()-[ordered_by:ORDERED_BY]->() RETURN *;",
+    "exports/edges/orderedBy.json",
+    {useTypes:true,writeNodeProperties:true,jsonFormat:"JSON_LINES"}
+)" {} {bookmarks=["FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ"], tx_metadata={type: "user-direct", app: "cypher-shell_v5.12.0"}, db="neo4j"}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0003b170a0
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: 0000
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0131b310d100bd43414c4c2061706f632e6578706f72742e6a736f6e2e7175657279280a20202020224d415443482028292d5b6f7264657265645f62793a4f5244455245445f42595d2d3e28292052455455524e202a3b222c0a20202020226578706f7274732f65646765732f6f72646572656442792e6a736f6e222c0a202020207b75736554797065733a747275652c77726974654e6f646550726f706572746965733a747275652c6a736f6e466f726d61743a224a534f4e5f4c494e4553227d0a29a0a389626f6f6b6d61726b7391d01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518b74785f6d65746164617461a284747970658b757365722d64697265637483617070d0146379706865722d7368656c6c5f76352e31322e30826462856e656f346a
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] S: b170a0
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: PULL {n=1000}
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] S: SUCCESS {}
+2024-04-14 14:48:40 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0008b13fa1816ec903e8
+2024-04-14 14:48:40 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0xb9051058] released back to the pool
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 006cb170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a287745f66697273741f866669656c64739c8466696c6586736f7572636586666f726d6174856e6f6465738d72656c6174696f6e73686970738a70726f706572746965738474696d6584726f777389626174636853697a65876261746368657384646f6e658464617461
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {fields=["file", "source", "format", "nodes", "relationships", "properties", "time", "rows", "batchSize", "batches", "done", "data"], t_first=31}
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0047b1719cd01c6578706f7274732f65646765732f6f72646572656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c90620000bc90c40ff00c3c0
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b1719cd01c6578706f7274732f65646765732f6f72646572656442792e6a736f6ed01273746174656d656e743a20636f6c73283129846a736f6e00c90620000bc90c40ff00c3c0
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: RECORD ["exports/edges/orderedBy.json", "statement: cols(1)", "json", 0, 1568, 0, 11, 3136, -1, 0, TRUE, NULL]
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0045b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737414826462856e656f346a
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a488626f6f6b6d61726bd01f46423a6b63775171774c4f78735944536e326f416e315467714b5a42774b518474797065817286745f6c61737414826462856e656f346a
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {bookmark="FB:kcwQqwLOxsYDSn2oAn1TgqKZBwKQ", type="r", t_last=20, db="neo4j"}
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: RESET
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b00f
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0003b170a0
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: 0000
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] S: b170a0
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] S: SUCCESS {}
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug Channel [0x7ee44d3c] released back to the pool
+2024-04-14 14:48:41 INFO   org.neo4j.driver.internal.logging.JULogger info Closing driver instance 1548946718
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] C: GOODBYE
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0xb9051058][localhost:7687][bolt-8] C: 0002b002
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: GOODBYE
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] C: 0002b002
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] C: GOODBYE
+2024-04-14 14:48:41 FINEST org.neo4j.driver.internal.logging.JULogger trace [0x7ee44d3c][localhost:7687][bolt-9] C: 0002b002
+2024-04-14 14:48:41 INFO   org.neo4j.driver.internal.logging.JULogger info Closing connection pool towards localhost(127.0.0.1):7687
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0xb9051058][localhost:7687][bolt-8] Channel is inactive
+2024-04-14 14:48:41 INFO   org.neo4j.driver.internal.logging.JULogger info Closing connection pool towards localhost:7687
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x87c9818d][localhost(127.0.0.1):7687][bolt-7] Channel is inactive
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug [0x7ee44d3c][localhost:7687][bolt-9] Channel is inactive
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug Freed 5 thread-local buffer(s) from thread: Neo4jDriverIO-2-2
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug Freed 9 thread-local buffer(s) from thread: Neo4jDriverIO-2-5
+2024-04-14 14:48:41 FINE   org.neo4j.driver.internal.logging.JULogger debug Freed 9 thread-local buffer(s) from thread: Neo4jDriverIO-2-7

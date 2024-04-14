@@ -28,7 +28,7 @@
 
 ## Stats
 - 256k:
-  - DB Size: 923MB (via `du -hc /var/lib/neo4j/data/databases/neo4j/*store.db*`)
+  - DB Size: 923MB (via `du -hc /var/lib/neo4j/data/databases/neo4j/*store.db*` inside container)
   ```
   8.0K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db
   40K	/var/lib/neo4j/data/databases/neo4j/neostore.labeltokenstore.db.id

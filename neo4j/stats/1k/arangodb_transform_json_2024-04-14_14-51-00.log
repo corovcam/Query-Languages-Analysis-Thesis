@@ -1,0 +1,38 @@
+[2024-04-14 14:51:01] ArangoDB JSON documents transformation started.
+[2024-04-14T14:51:01.276Z]	Transforming customers.json to ArangoDB format.
+[2024-04-14T14:51:01.290Z]	Transforming orders.json to ArangoDB format.
+[2024-04-14T14:51:01.290Z]	Transforming persons.json to ArangoDB format.
+[2024-04-14T14:51:01.291Z]	Transforming posts.json to ArangoDB format.
+[2024-04-14T14:51:01.291Z]	Transforming products.json to ArangoDB format.
+[2024-04-14T14:51:01.291Z]	Transforming tags.json to ArangoDB format.
+[2024-04-14T14:51:01.292Z]	Transforming types.json to ArangoDB format.
+[2024-04-14T14:51:01.292Z]	Transforming vendors.json to ArangoDB format.
+[2024-04-14T14:51:01.293Z]	Transforming contactType.json to ArangoDB format.
+[2024-04-14T14:51:01.294Z]	Transforming containsProducts.json to ArangoDB format.
+[2024-04-14T14:51:01.294Z]	Transforming createdBy.json to ArangoDB format.
+[2024-04-14T14:51:01.295Z]	Transforming hasInterest.json to ArangoDB format.
+[2024-04-14T14:51:01.295Z]	Transforming hasTag.json to ArangoDB format.
+[2024-04-14T14:51:01.297Z]	Transforming industryType.json to ArangoDB format.
+[2024-04-14T14:51:01.298Z]	Transforming isPerson.json to ArangoDB format.
+[2024-04-14T14:51:01.299Z]	Transforming knows.json to ArangoDB format.
+[2024-04-14T14:51:01.299Z]	Transforming manufacturedBy.json to ArangoDB format.
+[2024-04-14T14:51:01.300Z]	Transforming orderedBy.json to ArangoDB format.
+[2024-04-14T14:51:01.392Z]	Finished transforming types.json to ArangoDB format.
+[2024-04-14T14:51:01.427Z]	Finished transforming customers.json to ArangoDB format.
+[2024-04-14T14:51:01.448Z]	Finished transforming orders.json to ArangoDB format.
+[2024-04-14T14:51:01.448Z]	Finished transforming tags.json to ArangoDB format.
+[2024-04-14T14:51:01.466Z]	Finished transforming isPerson.json to ArangoDB format.
+[2024-04-14T14:51:01.501Z]	Finished transforming industryType.json to ArangoDB format.
+[2024-04-14T14:51:01.501Z]	Finished transforming vendors.json to ArangoDB format.
+[2024-04-14T14:51:01.512Z]	Finished transforming orderedBy.json to ArangoDB format.
+[2024-04-14T14:51:01.543Z]	Finished transforming createdBy.json to ArangoDB format.
+[2024-04-14T14:51:01.568Z]	Finished transforming products.json to ArangoDB format.
+[2024-04-14T14:51:01.577Z]	Finished transforming manufacturedBy.json to ArangoDB format.
+[2024-04-14T14:51:01.597Z]	Finished transforming persons.json to ArangoDB format.
+[2024-04-14T14:51:01.654Z]	Finished transforming hasInterest.json to ArangoDB format.
+[2024-04-14T14:51:01.654Z]	Finished transforming containsProducts.json to ArangoDB format.
+[2024-04-14T14:51:01.658Z]	Finished transforming knows.json to ArangoDB format.
+[2024-04-14T14:51:01.684Z]	Finished transforming hasTag.json to ArangoDB format.
+[2024-04-14T14:51:01.685Z]	Finished transforming contactType.json to ArangoDB format.
+[2024-04-14T14:51:01.686Z]	Finished transforming posts.json to ArangoDB format.
+[2024-04-14 14:51:01] ArangoDB JSON documents transformation finished.

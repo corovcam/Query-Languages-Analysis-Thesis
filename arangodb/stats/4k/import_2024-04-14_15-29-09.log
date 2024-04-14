@@ -1,0 +1,425 @@
+[2024-04-14 15:29:09] Starting init
+[2024-04-14 15:29:09] Creating nodes
+[2024-04-14 15:29:09] Importing customers
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             customers
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/customers.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [797] INFO [9ddf3] {general} processed 70.6 KB (3%) of input file
+
+created:          2071
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing customers
+[2024-04-14 15:29:09] Importing orders
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             orders
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/orders.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [816] INFO [9ddf3] {general} processed 127.3 KB (3%) of input file
+
+created:          4097
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing orders
+[2024-04-14 15:29:09] Importing persons
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             persons
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/persons.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [835] INFO [9ddf3] {general} processed 893.4 KB (3%) of input file
+
+created:          4000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing persons
+[2024-04-14 15:29:09] Importing posts
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             posts
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/posts.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [854] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:09Z [854] INFO [9ddf3] {general} processed 2.0 MB (37%) of input file
+2024-04-14T15:29:09Z [854] INFO [9ddf3] {general} processed 3.0 MB (71%) of input file
+
+created:          4000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing posts
+[2024-04-14 15:29:09] Importing products
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             products
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/products.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [873] INFO [9ddf3] {general} processed 739.3 KB (3%) of input file
+
+created:          4000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing products
+[2024-04-14 15:29:09] Importing tags
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             tags
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/tags.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [892] INFO [9ddf3] {general} processed 189.4 KB (3%) of input file
+
+created:          4000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing tags
+[2024-04-14 15:29:09] Importing types
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             types
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/types.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+
+created:          13
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing types
+[2024-04-14 15:29:09] Importing vendors
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             vendors
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/nodes/vendors.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [930] INFO [9ddf3] {general} processed 337.6 KB (3%) of input file
+
+created:          4000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:09] Finished importing vendors
+[2024-04-14 15:29:09] Finished creating nodes
+[2024-04-14 15:29:09] Creating edges
+[2024-04-14 15:29:09] Importing contactType
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             contactType
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/contactType.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:09Z [955] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:09Z [955] INFO [9ddf3] {general} processed 1.9 MB (58%) of input file
+
+created:          20873
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:10] Finished importing contactType
+[2024-04-14 15:29:10] Importing containsProducts
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             containsProducts
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/containsProducts.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:10Z [974] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:10Z [974] INFO [9ddf3] {general} processed 1.1 MB (94%) of input file
+
+created:          16986
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:11] Finished importing containsProducts
+[2024-04-14 15:29:11] Importing createdBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             createdBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/createdBy.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:11Z [993] INFO [9ddf3] {general} processed 271.0 KB (3%) of input file
+
+created:          4999
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:11] Finished importing createdBy
+[2024-04-14 15:29:11] Importing hasInterest
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             hasInterest
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/hasInterest.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:11Z [1012] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:11Z [1012] INFO [9ddf3] {general} processed 1.3 MB (81%) of input file
+
+created:          24978
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:12] Finished importing hasInterest
+[2024-04-14 15:29:12] Importing hasTag
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             hasTag
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/hasTag.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:12Z [1031] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:12Z [1031] INFO [9ddf3] {general} processed 1.2 MB (85%) of input file
+
+created:          24719
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:12] Finished importing hasTag
+[2024-04-14 15:29:12] Importing industryType
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             industryType
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/industryType.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:12Z [1050] INFO [9ddf3] {general} processed 361.6 KB (3%) of input file
+
+created:          7100
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:13] Finished importing industryType
+[2024-04-14 15:29:13] Importing isPerson
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             isPerson
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/isPerson.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:13Z [1069] INFO [9ddf3] {general} processed 120.4 KB (3%) of input file
+
+created:          2071
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:13] Finished importing isPerson
+[2024-04-14 15:29:13] Importing knows
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             knows
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/knows.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:13Z [1088] INFO [9ddf3] {general} processed 1.0 MB (3%) of input file
+2024-04-14T15:29:13Z [1088] INFO [9ddf3] {general} processed 1.4 MB (76%) of input file
+
+created:          25249
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:13] Finished importing knows
+[2024-04-14 15:29:13] Importing manufacturedBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             manufacturedBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/manufacturedBy.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:13Z [1107] INFO [9ddf3] {general} processed 717.1 KB (3%) of input file
+
+created:          12694
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:14] Finished importing manufacturedBy
+[2024-04-14 15:29:14] Importing orderedBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             orderedBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_4k/edges/orderedBy.json
+file type:              json
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-14T15:29:14Z [1126] INFO [9ddf3] {general} processed 319.1 KB (3%) of input file
+
+created:          5645
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-14 15:29:14] Finished importing orderedBy
+[2024-04-14 15:29:14] Finished creating edges

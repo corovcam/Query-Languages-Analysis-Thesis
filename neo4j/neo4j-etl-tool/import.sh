@@ -10,8 +10,10 @@ log_file="/neo4j/logs/neo4j-etl-tool_$timestamp.log"
 # export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # echo "[$(date +"%Y-%m-%d %T")] Set \$JAVA_HOME variable to $JAVA_HOME" |& tee -a "$log_file"
 
-# Neo4j instance must be stopped first (or docker container restarted) before proceeding with this script
-# neo4j stop
+# NOTE: Neo4j instance must be stopped first before proceeding with this script
+# If you get an error like "WARNING: Neo4j is running! You can run neo4j-import tool only if the database is offline"
+# then you need to stop the Neo4j instance first:
+# `neo4j stop`
 
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
 ./neo4j-etl-cli-1.6.0/bin/neo4j-etl export \
