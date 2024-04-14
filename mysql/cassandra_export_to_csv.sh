@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-log_file="logs/init_$timestamp.log"
+log_file="logs/cassandra_export_to_csv_$timestamp.log"
 
 mkdir -p exports
 
