@@ -81,10 +81,8 @@ CREATE TABLE Vendor_Contacts_By_Order_Contact
 (
     typeId             BIGINT,
     orderId            BIGINT,
-    -- orderContactTypeId BIGINT, -- TODO: Should I include this for it to be the same as SQL DBs?
     orderContactValue  TEXT,
     vendorId           BIGINT,
-    -- vendorContactTypeId BIGINT,
     vendorContactValue TEXT,
     PRIMARY KEY ((typeId, orderId, orderContactValue), vendorId, vendorContactValue)
 ) WITH COMMENT = 'Order and Vendor contacts by Order Contact type'

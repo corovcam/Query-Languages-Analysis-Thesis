@@ -83,17 +83,16 @@ WHERE friendCount > 1
 
 -- 4.1. Both way traversal
 
--- Find all direct and indirect relationships between people
+-- Find all direct and indirect relationships between people (higly inefficient)
 -- SELECT *
 -- FROM Person_Relationships;
--- HIGHLY INEFFICIENT
 
 -- 4.2. Shortest path
 
 -- Find the shortest path between two people - NOT POSSIBLE IN CASSANDRA
 -- Only by explicitly inserting each and every shortest path between all tuples of (person1id, person2id)
 -- in a specific table Shortest_Paths_By_Person, etc.
--- I find it highly ineffective to use Cassandra for calculating shortest paths this way
+-- We find it highly ineffective to use Cassandra for calculating shortest paths this way
 -- its better to use graph db
 
 -- 5. Optional Traversal
