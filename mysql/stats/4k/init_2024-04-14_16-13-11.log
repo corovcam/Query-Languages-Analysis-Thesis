@@ -1,0 +1,14 @@
+[2024-04-14 16:13:11] Started creating schema
+mysql: [Warning] World-writable config file '/etc/mysql/conf.d/my.cnf' is ignored.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] World-writable config file '/etc/mysql/conf.d/my.cnf' is ignored.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-14 16:13:12] Finished creating schema
+[2024-04-14 16:13:12] Importing data
+mysql: [Warning] World-writable config file '/etc/mysql/conf.d/my.cnf' is ignored.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-14 16:13:14] Finished importing data
+[2024-04-14 16:13:14] Setting up profiling
+mysql: [Warning] World-writable config file '/etc/mysql/conf.d/my.cnf' is ignored.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-14 16:13:14] Finished setting up profiling

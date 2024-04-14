@@ -135,7 +135,51 @@ Instance ▸ database ▸ collections ▸ documents
 
 
 ### Stats
+- 1k:
+    - ETL time: 11sec
+    - DB sizes with `db.stats({scale: 1024});`
+```
+{
+  db: 'ecommerce',
+  collections: Long('6'),
+  views: Long('0'),
+  objects: Long('5581'),
+  avgObjSize: 694.7246013259272,
+  dataSize: 3786.384765625,
+  storageSize: 1664,
+  indexes: Long('8'),
+  indexSize: 204,
+  totalSize: 1868,
+  scaleFactor: Long('1024'),
+  fsUsedSize: 70656652,
+  fsTotalSize: 80446960,
+  ok: 1
+}
+```
+- 4k:
+    - ETL time: 60sec
+    - DB sizes with `db.stats({scale: 1024});`
+```
+{
+  db: 'ecommerce',
+  collections: Long('6'),
+  views: Long('0'),
+  objects: Long('20110'),
+  avgObjSize: 607.0190949776231,
+  dataSize: 11921.048828125,
+  storageSize: 7024,
+  indexes: Long('8'),
+  indexSize: 444,
+  totalSize: 7468,
+  scaleFactor: Long('1024'),
+  fsUsedSize: 70735860,
+  fsTotalSize: 80446960,
+  ok: 1
+}
+```
 - 256k:
+    - ETL time: 10min
+    - DB sizes with `db.stats({scale: 1024});`
 ```
 {
   db: 'ecommerce',
@@ -175,6 +219,8 @@ ecommerce.vendors | size: 201070404
 (0.09 GB)
 ```
 - 512k:
+    - ETL time: 25min
+    - DB sizes with `db.stats({scale: 1024});`
 ```
 {
   db: 'ecommerce',

@@ -10,3 +10,5 @@ mkdir -p exports
 echo "[$(date +"%Y-%m-%d %T")] Exporting to CSV" |& tee -a "$log_file"
 mysql --user=root --password=root ecommerce < ./queries/cassandra_export_to_csv.sql |& tee -a "$log_file"
 echo "[$(date +"%Y-%m-%d %T")] Finished exporting to CSV" |& tee -a "$log_file"
+
+chmod -R 777 exports

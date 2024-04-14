@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_dir="dumps/data_512k"
+data_dir="dumps/data_1k"
 log_file="logs/dsbulk_import_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Creating schema" |& tee -a "$log_file"
@@ -33,10 +33,10 @@ java -jar dsbulk/dsbulk-1.11.0.jar load -k ecommerce -t products_by_brand -url "
 echo "[$(date +"%Y-%m-%d %T")] Finished importing Products_By_Brand table" |& tee -a "$log_file"
 
 # Dropped in 4k+ experiments
-# echo "[$(date +"%Y-%m-%d %T")] Importing Vendor_Contacts_By_Order_Contact table" |& tee -a "$log_file"
-# java -jar dsbulk/dsbulk-1.11.0.jar load -k ecommerce -t vendor_contacts_by_order_contact -url "$data_dir"/vendor_contacts_by_order_contact.csv -header false --connector.csv.quote '\"' \
-#   -m 'typeid, orderid, ordercontactvalue, vendorid, vendorcontactvalue' |& tee -a "$log_file"
-# echo "[$(date +"%Y-%m-%d %T")] Finished importing Vendor_Contacts_By_Order_Contact table" |& tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Importing Vendor_Contacts_By_Order_Contact table" |& tee -a "$log_file"
+java -jar dsbulk/dsbulk-1.11.0.jar load -k ecommerce -t vendor_contacts_by_order_contact -url "$data_dir"/vendor_contacts_by_order_contact.csv -header false --connector.csv.quote '\"' \
+  -m 'typeid, orderid, ordercontactvalue, vendorid, vendorcontactvalue' |& tee -a "$log_file"
+echo "[$(date +"%Y-%m-%d %T")] Finished importing Vendor_Contacts_By_Order_Contact table" |& tee -a "$log_file"
 
 echo "[$(date +"%Y-%m-%d %T")] Importing Orders_By_Product table" |& tee -a "$log_file"
 java -jar dsbulk/dsbulk-1.11.0.jar load -k ecommerce -t orders_by_product -url "$data_dir"/orders_by_product.csv -header false --connector.csv.quote '\"' \

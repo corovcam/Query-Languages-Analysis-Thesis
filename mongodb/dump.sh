@@ -2,7 +2,7 @@
 
 timestamp=$(date +"%Y-%m-%d_%s")
 
-data_dir="dumps/data_512k"
+data_dir="dumps/data_4k"
 log_file="logs/dump_$timestamp.log"
 
 mkdir -p "$data_dir"

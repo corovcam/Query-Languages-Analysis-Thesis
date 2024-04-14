@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-data_file="data_1k"
+data_file="data_4k"
 log_file="logs/init_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Started creating schema" |& tee -a "$log_file"

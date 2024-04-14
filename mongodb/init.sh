@@ -7,7 +7,7 @@ set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
 
-data_dir="data_256k/ecommerce"
+data_dir="data_1k/ecommerce"
 log_file="logs/init_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Inserting collections" |& tee -a "$log_file"
