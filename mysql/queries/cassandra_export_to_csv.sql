@@ -46,14 +46,14 @@ FROM Product;
 -- Query 3.1.: Return all Orders and Vendors sharing the same Contact typeId
 -- This one was intentionally left out as it would require a self-join on the Order_Contacts table which would result in a large Cartesian product
 -- The file takes more than 9GB of disk space during 4k experiments
-SELECT OC.typeId,
-       OC.orderId,
-       OC.value,
-       VC.vendorId,
-       VC.value
-INTO OUTFILE '/mysql/exports/vendor_contacts_by_order_contact.csv' FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY "\\" LINES TERMINATED BY '\n'
-FROM Order_Contacts OC
-         INNER JOIN Vendor_Contacts VC on VC.typeId = OC.typeId;
+-- SELECT OC.typeId,
+--        OC.orderId,
+--        OC.value,
+--        VC.vendorId,
+--        VC.value
+-- INTO OUTFILE '/mysql/exports/vendor_contacts_by_order_contact.csv' FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY "\\" LINES TERMINATED BY '\n'
+-- FROM Order_Contacts OC
+--          INNER JOIN Vendor_Contacts VC on VC.typeId = OC.typeId;
 
 -- Query 3.2.: Return all Products and the orderIds, quantities of the orders they were ordered in
 SELECT P.*,

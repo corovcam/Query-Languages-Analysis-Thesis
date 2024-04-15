@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_dir="dumps/data_1k"
+data_dir="dumps/data_256k"
 log_file="logs/dsbulk_import_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Creating schema" |& tee -a "$log_file"
