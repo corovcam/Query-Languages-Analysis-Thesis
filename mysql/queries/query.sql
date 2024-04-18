@@ -5,7 +5,7 @@
 -- Select vendor with the name 'Bauch - Denesik'
 SELECT vendorId, name
 FROM Vendor
-WHERE name = 'Bauch - Denesik';
+WHERE name = 'Bauch - Denesik'; -- TODO: Change to Fleui cause of different data !!!!!!
 
 -- 1.2 Non-Indexed Columns - Range Query
 

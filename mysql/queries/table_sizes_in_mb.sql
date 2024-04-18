@@ -8,3 +8,10 @@ WHERE
 ORDER BY
   (DATA_LENGTH + INDEX_LENGTH)
 DESC;
+
+SELECT
+  (SUM(DATA_LENGTH) + SUM(INDEX_LENGTH)) / 1024 / 1024 AS `Total Size (MB)`
+FROM
+  information_schema.TABLES
+WHERE
+    TABLE_SCHEMA = "ecommerce";

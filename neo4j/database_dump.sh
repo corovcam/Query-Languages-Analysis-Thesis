@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# 1. Remove neo4j service container 
+# 2. Run this outside neo4j container
+
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/database_dump_$timestamp.log"
 
 # Must be absolute path
-dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_512k"
+dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_128k"
 
 mkdir -p "$dump_dir"
 chmod -R 777 "$dump_dir"

@@ -3,7 +3,7 @@
 set -eu
 
 # Only JSON Lines format is supported for now
-data_dir="dumps/data_1k"
+data_dir="dumps/data_128k"
 
 for file in "$data_dir"/**/*.json; do
     fullFilename=$(basename "$file")

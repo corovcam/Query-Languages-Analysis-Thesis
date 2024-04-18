@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 1. Shut down neo4j service container 
+# 2. Run this outside neo4j container
+
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")

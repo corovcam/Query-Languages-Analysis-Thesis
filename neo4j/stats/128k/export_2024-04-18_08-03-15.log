@@ -1,0 +1,38 @@
+[2024-04-18 08:03:15] JSON export started
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/vendors.json", "statement: cols(1)", "json", 128000, 0, 384000, 1640, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/products.json", "statement: cols(1)", "json", 128000, 0, 768000, 2223, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/orders.json", "statement: cols(1)", "json", 180319, 0, 180319, 739, 360638, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/types.json", "statement: cols(1)", "json", 13, 0, 26, 2, 26, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/customers.json", "statement: cols(1)", "json", 90031, 0, 90031, 384, 180062, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/persons.json", "statement: cols(1)", "json", 128000, 0, 1152000, 3118, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/posts.json", "statement: cols(1)", "json", 128000, 0, 1024000, 3006, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/nodes/tags.json", "statement: cols(1)", "json", 128000, 0, 256000, 822, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/contactType.json", "statement: cols(1)", "json", 0, 797047, 797047, 10592, 1594094, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/containsProducts.json", "statement: cols(1)", "json", 0, 541120, 541120, 11358, 1082240, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/createdBy.json", "statement: cols(1)", "json", 0, 128000, 0, 4594, 256000, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/hasInterest.json", "statement: cols(1)", "json", 0, 639129, 0, 15795, 1278258, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/hasTag.json", "statement: cols(1)", "json", 0, 640300, 0, 15840, 1280600, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/industryType.json", "statement: cols(1)", "json", 0, 191869, 0, 2640, 383738, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/isPerson.json", "statement: cols(1)", "json", 0, 90031, 0, 1897, 180062, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/knows.json", "statement: cols(1)", "json", 0, 641403, 0, 24560, 1282806, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/manufacturedBy.json", "statement: cols(1)", "json", 0, 352397, 0, 7579, 704794, -1, 0, TRUE, NULL
+file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+"exports/edges/orderedBy.json", "statement: cols(1)", "json", 0, 180319, 0, 1477, 360638, -1, 0, TRUE, NULL
+[2024-04-18 08:05:07] JSON export finished

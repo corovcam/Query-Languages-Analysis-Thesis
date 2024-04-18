@@ -107,6 +107,31 @@
     Customer,16416
     Type,16
     ```
+- 128k:
+```
+Table,Size (MB)
+Post,92
+Order_Contacts,67
+Person_Person,41
+Person_Tags,41
+Post_Tags,41
+Order_Products,33
+Vendor_Contacts,31
+Vendor_Products,23
+Product,18
+Person,16
+Industry,10
+Order,9
+Vendor,8
+Tag,7
+Customer,5
+Type,0
+```
+
+```
+Total Size (MB)
+441.06250000
+```
 
 - Row count
   - 256k
