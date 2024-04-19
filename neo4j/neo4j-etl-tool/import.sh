@@ -32,9 +32,6 @@ echo "[$(date +"%Y-%m-%d %T")] Neo4j ETl Tool started" |& tee -a "$log_file"
   --neo4j:url neo4j://localhost:7687 \
   --neo4j:user neo4j \
   --neo4j:password neo4j |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool failed" |& tee -a "$log_file"
-  # --force \ force deletes the whole database at /data/databases/neo4j/
-  # --unwind-batch-size 1000 \
-  # --tx-batch-size 10000 \
 echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool finished" |& tee -a "$log_file"
 
 chmod -R 777 /neo4j/neo4j-etl-tool/tmp || echo "[$(date +"%Y-%m-%d %T")] Failed to change permissions for /neo4j/neo4j-etl-tool/tmp/$timestamp" |& tee -a "$log_file"

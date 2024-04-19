@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-data_dir="dumps/data_4k"
+data_dir="dumps/data_4k" # NOTE: Change this to the dump directory you want to import
 log_file="logs/init_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Started creating schema" |& tee -a "$log_file"

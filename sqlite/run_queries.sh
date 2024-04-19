@@ -2,7 +2,7 @@
 
 set -eu
 
-record_volume=128000
+record_volume=128000 # NOTE: Change this to the tested record volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"

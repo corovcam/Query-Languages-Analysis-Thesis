@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-data_dir="dumps/data_128k" # Change this to the directory containing the csv files
+data_dir="dumps/data_128k" # NOTE: Change this to the directory containing the csv files
 
 timestamp=$(date +"%Y-%m-%d_%s")
 log_file="logs/dsbulk_import_$timestamp.log"

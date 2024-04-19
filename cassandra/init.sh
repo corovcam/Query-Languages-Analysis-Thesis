@@ -3,7 +3,7 @@
 set -euo pipefail
 
 timestamp=$(date +"%Y-%m-%d_%s")
-data_file="dumps/data_256k.cql" # Change this to the desired data file
+data_file="dumps/data_256k.cql" # NOTE: Change this to the desired data file
 
 log_file="logs/init_$timestamp.log"
 
