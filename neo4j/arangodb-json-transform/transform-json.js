@@ -2,6 +2,11 @@ import { createReadStream, readdir, createWriteStream, mkdirSync } from 'fs';
 import { pipeline } from 'stream';
 import split2 from 'split2';
 
+/**
+ * Process a JSON chunk of nodes and yield the transformed JSON string in ArangoDB format.
+ * @param {Iterator} stream JSON chunk stream
+ * @returns {string}
+ */
 async function* processJSONChunkOfNodes(stream) {
   for await (const nodeObj of stream) {
     const node = Object.values(nodeObj)[0];
@@ -10,6 +15,11 @@ async function* processJSONChunkOfNodes(stream) {
   }
 }
 
+/**
+ * Process a JSON chunk of edges and yield the transformed JSON string in ArangoDB format.
+ * @param {Iterator} stream JSON chunk stream
+ * @returns {string}
+ */
 async function* processJSONChunkOfEdges(stream) {
   for await (const edgeObj of stream) {
     const rel = Object.values(edgeObj)[0];
@@ -22,6 +32,13 @@ async function* processJSONChunkOfEdges(stream) {
   }
 }
 
+/**
+ * Stream files in a directory and process each file with the given processJSONChunk function.
+ * @param {string} dirname Input directory name
+ * @param {string} outDirName Output directory name
+ * @param {AsyncGenerator<string>} processJSONChunk Function to process each JSON chunk
+ * @param {(e: Error) => void} onError Error handler
+ */
 function streamFilesInDirectory(dirname, outDirName, processJSONChunk, onError) {
   readdir(dirname, function(err, filenames) {
     if (err) {

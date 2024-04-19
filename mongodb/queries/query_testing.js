@@ -1,7 +1,12 @@
 const fs = require("fs");
 
+if (!process.env.RECORD_VOLUME) {
+  console.log("You have to specify record_volume variable.");
+  process.exit(1);
+}
+
 const iterations = 20;
-const recordVolume = 512000; // NOTE: Change this for every experiment with different data volume
+const recordVolume = process.env.RECORD_VOLUME;
 const outFilePath = `logs/queries/results_${new Date().toISOString().replace(/:/g, '-')}.csv`;
 const maxTimeMS = 300000;
 let time, timeout;

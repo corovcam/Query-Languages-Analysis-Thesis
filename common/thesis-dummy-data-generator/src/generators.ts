@@ -4,13 +4,24 @@ import { Vendor, Product, Person, Order, Tag, Type, ContactType, IndustryType, P
 
 const faker = CustomFaker.faker;
 
-export function generateTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]) {
+/**
+ * Generates a mapping of contact types and industry types.
+ * @param industryCount The number of industry types to generate.
+ * @param contactTypes An array of contact types.
+ * @returns An array of Type objects representing the mapping of contact types and industry types.
+ */
+export function generateTypeMapping(industryCount = 10, contactTypes = ["Email", "Phone", "Address"]): Type[] {
   const industryTypes = faker.helpers.uniqueArray(() => faker.commerce.department().replace(/'/g, "''"), industryCount);
   let typeMapping = contactTypes.map((type, index) => ({ typeId: index + 1, typeFor: "contact", value: type }));
   typeMapping.push(...industryTypes.map((type, index) => ({ typeId: index + 1 + contactTypes.length, typeFor: "industry", value: type })));
   return typeMapping as Type[];
 }
 
+/**
+ * Chooses a random value based on the contact type.
+ * @param type The contact type to choose a value for.
+ * @returns A string representing the chosen value.
+ */
 export function chooseContactValue(type: ContactType["value"] | string): string {
   switch (type.toLowerCase()) {
       case "email":
@@ -24,6 +35,14 @@ export function chooseContactValue(type: ContactType["value"] | string): string 
   }
 }
 
+/** 
+ * A generator function that yields Vendors and for each Vendor generates Products, Industries, and Contacts.
+ * @param vendorCount The number of vendors to generate.
+ * @param productCount The number of products to generate.
+ * @param industryTypes An array of IndustryType objects.
+ * @param contactTypes An array of ContactType objects.
+ * @returns A Vendor object.
+ */
 export function* generateVendorsProducts(vendorCount = 100, productCount = 1000, industryTypes: IndustryType[], contactTypes: ContactType[]): Generator<Vendor> {
   logger.info(`Generating data for ${vendorCount} vendors and ${productCount} products`);
   let productsAssigned = 0;
@@ -68,6 +87,13 @@ export function* generateVendorsProducts(vendorCount = 100, productCount = 1000,
   logger.info(`Generated data for ${vendorCount} vendors and ${productsAssigned} products`);
 }
 
+/**
+ * A generator function that yields Products for a Vendor.
+ * @param vendor The Vendor object to generate products for.
+ * @param productsPerVendor The number of products to generate for the Vendor.
+ * @param productsAssigned The number of products already assigned to previous Vendors.
+ * @returns A Product object.
+ */
 function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, productsAssigned: number): Generator<Product> {
   for (let i = productsAssigned; i < productsAssigned + productsPerVendor; i++) {
     const productId = i + 1;
@@ -94,6 +120,14 @@ function* generateProductsForVendor(vendor: Vendor, productsPerVendor: number, p
   }
 }
 
+/**
+ * A generator function that yields People and for each Person generates Friends, Tags, and Customer ID.
+ * @param peopleCount The number of people to generate.
+ * @param customerCount The number of customers to generate.
+ * @param tagCount The number of tags to generate.
+ * @param tags An array of Tag objects.
+ * @returns A Person object.
+ */
 export function* generatePeople(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): Generator<Person> {
   logger.info(`Generating data for ${peopleCount} people and ${customerCount} customers`);
 
@@ -159,12 +193,17 @@ export function* generatePeople(peopleCount: number, customerCount = peopleCount
   logger.info(`Generated data for ${peopleCount} people and ${customerCount} customers`);
 }
 
-export function* generateTags(tagCount = 100) {
+/**
+ * A generator function that yields Tags.
+ * @param tagCount The number of tags to generate.
+ * @returns A Tag object.
+ */
+export function* generateTags(tagCount = 100): Generator<Tag> {
   logger.info(`Generating data for ${tagCount} tags`);
 
   let randomTags = faker.helpers.uniqueArray(faker.lorem.word, tagCount);
   // faker.helpers.uniqueArray() can sometimes return less than the required number of unique elements
-  // so we need to generate more tags to reach the required count
+  // so we need to generate more tags to reach the required count by using artificial nanoid strings
   randomTags.length < tagCount && randomTags.push(...faker.helpers.uniqueArray(() => faker.company.buzzNoun().replace(/'/g, "''"), tagCount - randomTags.length));
   randomTags = randomTags.length < tagCount ? randomTags.concat(Array.from({ length: tagCount - randomTags.length }, faker.string.nanoid)) : randomTags;
 
@@ -181,7 +220,14 @@ export function* generateTags(tagCount = 100) {
   logger.info(`Generated data for ${tagCount} tags`);
 }
 
-export function* generatePosts(postCount: number, peopleCount: number, tags?: Tag[]) {
+/**
+ * A generator function that yields Posts and to each Post assigns some Tags.
+ * @param postCount The number of posts to generate.
+ * @param peopleCount The number of people to generate.
+ * @param tags An array of Tag objects.
+ * @returns A Post object.
+ */
+export function* generatePosts(postCount: number, peopleCount: number, tags?: Tag[]): Generator<Post> {
   logger.info(`Generating data for ${postCount} posts`);
 
   for (let i = 0; i < postCount; i++) {
@@ -220,7 +266,15 @@ export function* generatePosts(postCount: number, peopleCount: number, tags?: Ta
   logger.info(`Generated data for ${postCount} posts`);
 }
 
-export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, contactTypes: ContactType[]) {
+/**
+ * A generator function that yields Orders and to each Order assigns Contacts and Products.
+ * @param customerCount The number of customers to generate.
+ * @param maxOrdersPerCustomer The maximum number of orders per customer.
+ * @param productCount The number of products to generate.
+ * @param contactTypes An array of ContactType objects.
+ * @returns An Order object.
+ */
+export function* generateOrders(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, contactTypes: ContactType[]): Generator<Order> {
   logger.info(`Generating orders for ${customerCount} customers and ${maxOrdersPerCustomer} orders per customer`);
 
   let orderId = 1;

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Use this script to count the number of rows in each table of the Cassandra database.
+
 # Run outside container
 
 set -euo pipefail

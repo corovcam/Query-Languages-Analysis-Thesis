@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-record_volume=256000
+record_volume=256000 # NOTE: Change this to the desired record volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"
@@ -12,7 +12,7 @@ echo "db,record_volume,query,iteration,time_in_seconds" | tee -a "$query_csv_fil
 
 echo "[$(date +"%Y-%m-%d %T")] Query testing started" |& tee -a "$log_file"
 
-for file in queries/testing/3-1.cypher; do
+for file in queries/testing/*.cypher; do
     fullFilename=$(basename "$file")
     filename=${fullFilename%.*}
     for i in {1..20}; do

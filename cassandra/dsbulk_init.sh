@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Use this if you have the generated data present in the form of the CSV files
+
 set -euo pipefail
 
 data_dir="dumps/data_128k" # NOTE: Change this to the directory containing the csv files

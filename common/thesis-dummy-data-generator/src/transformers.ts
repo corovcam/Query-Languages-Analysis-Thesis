@@ -4,6 +4,11 @@ import { CustomLogger as logger, isNumber } from "./utils";
 
 // Stream transformer functions
 
+/**
+ * Maps a row of data to a SQL INSERT statement.
+ * @param row A row of data to be transformed.
+ * @returns A string representing a SQL INSERT statement.
+ */
 export function mapToSQLDump(row: (string | number)[]) {
   const valuesString = row
     .map((value) => {
@@ -19,6 +24,11 @@ export function mapToSQLDump(row: (string | number)[]) {
   return `(${valuesString})`;
 }
 
+/**
+ * Maps a row of data to a CSV row.
+ * @param row A row of data to be transformed.
+ * @returns A string representing a CSV row.
+ */
 export function mapToCSV(row: (string | number)[]) {
   const valuesString = row
     .map((value) => {
@@ -36,6 +46,16 @@ export function mapToCSV(row: (string | number)[]) {
 
 // Stream transformation and dumping functions
 
+/**
+ * Used for dumping stream of data to a file.
+ * @param streamOrArray A DataStream or an array of data to be dumped.
+ * @param mapCallback A transforming function that maps a chunk of data to another format.
+ * @param entityType The type of entity being dumped.
+ * @param entityCount The number of entities being dumped.
+ * @param outputFilePath The path to the output file.
+ * @param preamble Optional preamble to be written to the output file. (at the start)
+ * @returns A Promise that resolves when the dumping is complete.
+ */
 export function mapAndDump(
   streamOrArray: DataStream | any[],
   mapCallback: MapCallback,

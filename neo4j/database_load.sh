@@ -9,7 +9,7 @@ timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/database_load_$timestamp.log"
 
 # Must be absolute path
-dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_256k" # Change this to the directory where the dump is located
+dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_256k" # NOTE: Change this to the directory where the dump is located
 
 # https://neo4j.com/docs/operations-manual/current/docker/dump-load/
 echo "[$(date +"%Y-%m-%d %T")] Database load started" |& tee -a "$log_file"

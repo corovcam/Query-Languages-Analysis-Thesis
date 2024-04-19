@@ -28,6 +28,5 @@ dumps/*
 *.tar.gz
 mysql/exports/*
 cassandra/**/csv/*
-dsbulk
 cassandra/dumps
 time-diff.js

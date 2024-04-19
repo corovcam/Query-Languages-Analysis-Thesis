@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Used to dump the current state of the MongoDB database to BSON files.
+
 timestamp=$(date +"%Y-%m-%d_%s")
 
 data_dir="dumps/data_4k"

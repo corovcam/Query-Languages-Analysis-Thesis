@@ -5,6 +5,9 @@ export function isNumber(n: any) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+/**
+ * Custom logger class to log to console and file.
+ */
 export class CustomLogger {
   private static logFilePath: string;
   private static logFileStream: fs.WriteStream;
@@ -40,6 +43,9 @@ export class CustomLogger {
   }
 }
 
+/**
+ * Custom Faker class to ensure consistent and reproducible data generation.
+ */
 export class CustomFaker {
   public static faker = faker;
 

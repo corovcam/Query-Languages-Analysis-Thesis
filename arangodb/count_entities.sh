@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Use this to get the number of records for each collection in the ArangoDB database.
+
 set -eu
 
 # Only JSON Lines format is supported for now

@@ -58,7 +58,7 @@ The repository is structure as follows (along with some important files and fold
     - **`query.js`** - complete list of queries and their descriptions (check comments for more details)
     - **`query_testing.js`** - entire testing script with error handling similar to ArangoDB
   - `relational-migrator/` - contains installation and configuration files for _MongoDB Relational Migrator_
-    - `mongodb-relational-migrator_1.5.0_amd64.deb` - installation file for Debian based systems
+    - `mongodb-relational-migrator_1.5.0_amd64.deb` - installation file for Debian based systems (NOTE: **GIT LFS** is required to download this file!)
     - `ecommerce-mapping*.relmig` - these are configuration files used to setup _MongoDB Relational Migrator_[^4] tool (tested with version 1.5.0)
 
 Folders and files common to most of the databases directories:

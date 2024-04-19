@@ -1,3 +1,4 @@
+/** File name constant. Change this in case you wish to have different file names (not recommended). */
 export const fileNames = { // File names for the generated data
     // Entities
     vendors: 'Vendor',
@@ -6,6 +7,7 @@ export const fileNames = { // File names for the generated data
     orders: 'Order',
     tags: 'Tag',
     types: 'Type',
+    post: 'Post',
     // Relationships
     vendorProducts: 'Vendor_Products',
     industries: 'Industry',
@@ -15,7 +17,8 @@ export const fileNames = { // File names for the generated data
     personTags: 'Person_Tags',
     orderContacts: 'Order_Contacts',
     orderProducts: 'Order_Products',
-    post: 'Post',
     postTags: 'Post_Tags',
 };
+
+/** Maximum number of products per vendor. */
 export const MAX_VENDOR_PRODUCTS = 20; // Each vendor can have at most 20 products

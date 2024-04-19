@@ -15,6 +15,10 @@ let OUTPUT_DIR: string;
 
 // SQLite, MySQL dummy data generator
 
+/**  
+ * Generates and dumps Type entities to CSV.
+ * @returns A promise that resolves with the generated Type entities.
+*/
 function typeStream(): Promise<Type[]> {
     const typeMappingPromise = DataStream
         .from(generateTypeMapping())
@@ -32,7 +36,13 @@ function typeStream(): Promise<Type[]> {
     return typeMappingPromise;
 }
 
-function vendorProductStream(recordCount: number, typeMapping: Type[]) {
+/**
+ * Generates and dumps Vendor, Industry, Contact, Product data to CSV.
+ * @param recordCount The number of records to generate.
+ * @param typeMapping The Type entities to use for generating the Contact and Industry tables.
+ * @returns A promise that resolves when the data generation and dumping is complete.
+ */
+function vendorProductStream(recordCount: number, typeMapping: Type[]): Promise<void> {
     const industryTypes = typeMapping.filter(type => type.typeFor === "industry") as IndustryType[];
     const contactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
     const vendorStream = DataStream
@@ -72,15 +82,7 @@ function vendorProductStream(recordCount: number, typeMapping: Type[]) {
                 null, 
                 `${OUTPUT_DIR}/${fileNames.vendorContacts}.csv`,
             );
-        })
-        // .tee(stream => {
-        //     mapAndDumpJSONLines(
-        //         stream,
-        //         `${OUTPUT_DIR}/common/${fileNames.vendors}.jsonl`,
-        //         false,
-        //         ({ vendorId, name, country, contacts }) => ({ vendorId, name, country, contacts })
-        //     );
-        // });
+        });
     const productStream = vendorStream
         .flatMap(({ products }) => products)
         // SQL Product
@@ -103,15 +105,24 @@ function vendorProductStream(recordCount: number, typeMapping: Type[]) {
                 `${OUTPUT_DIR}/${fileNames.vendorProducts}.csv`
             )
         })
-        .catch(logger.error);
+        .catch(logger.error)
     return productStream.whenEnd();
+    // Example of how to dump to JSONL
     // return mapAndDumpJSONLines(
     //     productStream,
     //     `${OUTPUT_DIR}/common/${fileNames.products}.jsonl`,
     // );
 }
 
-function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]) {
+/**
+ * Generates and dumps Person, Customer, Person_Tags, Person_Person data to CSV.
+ * @param peopleCount The number of people to generate.
+ * @param customerCount The number of customers to generate.
+ * @param tagCount The number of tags to generate.
+ * @param tags The Tag entities to use for generating the Person_Tags.
+ * @returns A promise that resolves when the data generation and dumping is complete.
+ */
+function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount: number, tags?: Tag[]): Promise<void> {
     const peopleStream = DataStream
         .from(() => generatePeople(peopleCount, customerCount, tagCount, tags))
         // SQL Person
@@ -163,14 +174,14 @@ function peopleStream(peopleCount: number, customerCount = peopleCount, tagCount
         })
         .catch(logger.error);
     return peopleStream.whenEnd();
-    // mapAndDumpJSONLines(
-    //     peopleStream,
-    //     `${OUTPUT_DIR}/common/${fileNames.people}.jsonl`,
-    //     true
-    // );
 }
 
-function tagStream(tagCount = 100) {
+/**
+ * Generates and dumps Tag entities to CSV.
+ * @param tagCount The number of tags to generate.
+ * @returns A promise that resolves when the data generation and dumping is complete.
+ */
+function tagStream(tagCount = 100): Promise<void> {
     const tagStream = DataStream
         .from(() => generateTags(tagCount))
         // SQL Tag
@@ -185,13 +196,16 @@ function tagStream(tagCount = 100) {
         })
         .catch(logger.error);
     return tagStream.whenEnd();
-    // return mapAndDumpJSONLines(
-    //     tagStream,
-    //     `${OUTPUT_DIR}/common/${fileNames.tags}.jsonl`,
-    // );
 }
 
-function postStream(postCount: number, peopleCount: number, tags?: Tag[]) {
+/**
+ * Generates and dumps Post, Post_Tags data to CSV.
+ * @param postCount The number of posts to generate.
+ * @param peopleCount The number of people to generate.
+ * @param tags The Tag entities to use for generating the Post_Tags.
+ * @returns A promise that resolves when the data generation and dumping is complete.
+ */
+function postStream(postCount: number, peopleCount: number, tags?: Tag[]): Promise<void> {
     const postStream = DataStream
         .from(() => generatePosts(postCount, peopleCount, tags))
         // SQL Post
@@ -220,13 +234,17 @@ function postStream(postCount: number, peopleCount: number, tags?: Tag[]) {
         })
         .catch(logger.error);
     return postStream.whenEnd();
-    // mapAndDumpJSONLines(
-    //     postStream,
-    //     `${OUTPUT_DIR}/common/${fileNames.post}.jsonl`,
-    // );
 }
 
-function orderStream(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[]) {
+/**
+ * Generates and dumps Order, Order_Contacts, Order_Products data to CSV.
+ * @param customerCount The number of customers to generate.
+ * @param maxOrdersPerCustomer The maximum number of orders per customer.
+ * @param productCount The number of products to generate.
+ * @param typeMapping The Type entities to use for generating the Order_Contacts entities.
+ * @returns A promise that resolves when the data generation and dumping is complete.
+ */
+function orderStream(customerCount: number, maxOrdersPerCustomer = 3, productCount: number, typeMapping: Type[]): Promise<void> {
     const contactTypes = typeMapping.filter(type => type.typeFor === "contact") as ContactType[];
     const orderStream = DataStream
         .from(() => generateOrders(customerCount, maxOrdersPerCustomer, productCount, contactTypes))
@@ -270,6 +288,9 @@ function orderStream(customerCount: number, maxOrdersPerCustomer = 3, productCou
     return orderStream.whenEnd();
 }
 
+/**
+ * Main function that generates and dumps all entities.
+ */
 async function main() {
     const isDataDirSet = process.argv.length > 1;
     if (isDataDirSet) {
