@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-record_volume=512000
+record_volume=128000 # Change this to the desired testing record volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"

@@ -1,0 +1,136 @@
+[2024-04-18 08:19:22] Creating schema
+[2024-04-18 08:19:27] Finished creating schema
+[2024-04-18 08:19:27] Importing data from csv
+[2024-04-18 08:19:27] Importing Vendor table
+Operation directory: /cassandra/logs/LOAD_20240418-081928-741771
+ total | failed | rows/s | p50ms | p99ms | p999ms | batches
+51,712 |      0 |  9,726 |  2.45 | 13.04 | 654.31 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 19,195 |  1.64 | 11.34 | 140.51 |    1.00
+Operation LOAD_20240418-081928-741771 completed successfully in 6 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-081928-741771/checkpoint.csv
+[2024-04-18 08:19:38] Finished importing Vendor table
+[2024-04-18 08:19:38] Importing Person table
+Operation directory: /cassandra/logs/LOAD_20240418-081939-403750
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 25,333 |  1.31 | 11.73 | 114.82 |    1.00
+Operation LOAD_20240418-081939-403750 completed successfully in 4 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-081939-403750/checkpoint.csv
+[2024-04-18 08:19:47] Finished importing Person table
+[2024-04-18 08:19:47] Importing Person_by_birthday_indexed table
+Operation directory: /cassandra/logs/LOAD_20240418-081947-939863
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 28,394 |  1.29 | 10.62 | 115.87 |    1.00
+Operation LOAD_20240418-081947-939863 completed successfully in 4 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-081947-939863/checkpoint.csv
+[2024-04-18 08:19:55] Finished importing Person_by_birthday_indexed table
+[2024-04-18 08:19:55] Importing Products_By_Brand table
+Operation directory: /cassandra/logs/LOAD_20240418-081956-144704
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 42,269 |  1.55 | 14.02 | 204.47 |    3.34
+Operation LOAD_20240418-081956-144704 completed successfully in 2 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-081956-144704/checkpoint.csv
+[2024-04-18 08:20:02] Finished importing Products_By_Brand table
+[2024-04-18 08:20:02] Importing Orders_By_Product table
+Operation directory: /cassandra/logs/LOAD_20240418-082002-764651
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+171,264 |      0 | 32,699 |  1.19 |  9.96 | 100.14 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+496,249 |      0 | 48,439 |  1.06 |  8.29 |  64.23 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+541,120 |      0 | 49,694 |  1.05 |  8.16 |  63.18 |    1.00
+Operation LOAD_20240418-082002-764651 completed successfully in 10 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082002-764651/checkpoint.csv
+[2024-04-18 08:20:16] Finished importing Orders_By_Product table
+[2024-04-18 08:20:16] Importing Order table
+Operation directory: /cassandra/logs/LOAD_20240418-082017-294177
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+124,928 |      0 | 23,862 |  1.55 | 13.70 | 126.88 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+354,176 |      0 | 34,574 |  1.46 | 12.98 |  80.74 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+598,912 |      0 | 39,310 |  1.46 | 12.39 |  79.17 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+779,648 |      0 | 38,520 |  1.40 | 12.06 |  79.69 |    1.00
+    total | failed | rows/s | p50ms | p99ms | p999ms | batches
+1,011,919 |      0 | 40,100 |  1.39 | 11.99 |  79.17 |    1.00
+    total | failed | rows/s | p50ms | p99ms | p999ms | batches
+1,230,080 |      0 | 40,673 |  1.40 | 12.12 |  79.17 |    1.00
+    total | failed | rows/s | p50ms | p99ms | p999ms | batches
+1,432,320 |      0 | 40,635 |  1.38 | 12.12 |  79.17 |    1.00
+    total | failed | rows/s | p50ms | p99ms | p999ms | batches
+1,487,271 |      0 | 41,063 |  1.39 | 12.12 |  78.64 |    1.00
+Operation LOAD_20240418-082017-294177 completed successfully in 36 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082017-294177/checkpoint.csv
+[2024-04-18 08:20:56] Finished importing Order table
+[2024-04-18 08:20:56] Importing Contact table
+Operation directory: /cassandra/logs/LOAD_20240418-082057-009839
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+172,800 |      0 | 33,317 |  1.04 |  8.13 | 108.00 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+549,760 |      0 | 53,939 |  1.04 |  7.47 |  61.34 |    1.00
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+797,047 |      0 | 58,135 |  1.03 |  7.63 |  52.69 |    1.00
+Operation LOAD_20240418-082057-009839 completed successfully in 13 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082057-009839/checkpoint.csv
+[2024-04-18 08:21:13] Finished importing Contact table
+[2024-04-18 08:21:13] Importing Tag table
+Operation directory: /cassandra/logs/LOAD_20240418-082114-286157
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 26,608 |  1.31 |  9.04 | 110.10 |    1.00
+Operation LOAD_20240418-082114-286157 completed successfully in 4 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082114-286157/checkpoint.csv
+[2024-04-18 08:21:22] Finished importing Tag table
+[2024-04-18 08:21:22] Importing Orders_By_Person table
+Operation directory: /cassandra/logs/LOAD_20240418-082122-733120
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 28,107 |  1.13 |  8.39 | 146.80 |    1.00
+Operation LOAD_20240418-082122-733120 completed successfully in 4 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082122-733120/checkpoint.csv
+[2024-04-18 08:21:30] Finished importing Orders_By_Person table
+[2024-04-18 08:21:30] Importing Product table
+Operation directory: /cassandra/logs/LOAD_20240418-082130-801194
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+128,000 |      0 | 30,813 |  1.24 |  9.18 | 110.10 |    1.00
+Operation LOAD_20240418-082130-801194 completed successfully in 3 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082130-801194/checkpoint.csv
+[2024-04-18 08:21:37] Finished importing Product table
+[2024-04-18 08:21:37] Importing Vendor_Countries_By_Product_Brand table
+Operation directory: /cassandra/logs/LOAD_20240418-082138-561566
+  total | failed |  rows/s | p50ms | p99ms |   p999ms | batches
+241,167 |      0 | 113,306 |  3.14 | 85.46 | 1,115.68 |   16.41
+Operation LOAD_20240418-082138-561566 completed successfully in 1 second.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082138-561566/checkpoint.csv
+[2024-04-18 08:21:43] Finished importing Vendor_Countries_By_Product_Brand table
+[2024-04-18 08:21:43] Importing Orders_By_Customer table
+Operation directory: /cassandra/logs/LOAD_20240418-082144-282489
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+180,319 |      0 | 39,476 |  1.43 | 10.16 | 196.08 |    2.03
+Operation LOAD_20240418-082144-282489 completed successfully in 4 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/LOAD_20240418-082144-282489/checkpoint.csv
+[2024-04-18 08:21:51] Finished importing Orders_By_Customer table
+[2024-04-18 08:21:51] Finished importing data from csv

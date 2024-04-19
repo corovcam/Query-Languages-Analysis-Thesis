@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
+data_dir="dumps/data_128k" # Change this to the directory containing the csv files
+
 timestamp=$(date +"%Y-%m-%d_%s")
-data_dir="dumps/data_256k"
 log_file="logs/dsbulk_import_$timestamp.log"
 
 echo "[$(date +"%Y-%m-%d %T")] Creating schema" |& tee -a "$log_file"
