@@ -15,8 +15,8 @@ CREATE INDEX idx_vendor_vendorId IF NOT EXISTS FOR (v:Vendor) ON (v.vendorId);
 
 CALL db.awaitIndexes(300);
 
-// MATCH (p:Person)
-// SET p.birthday = date(p.birthday);
+MATCH (p:Person) 
+SET p.birthday = date(p.birthday);
 
-MATCH (p:Person)
-SET p.birthday = date(split(p.birthday, ' ')[0]);
+// MATCH (p:Person)
+// SET p.birthday = date(split(p.birthday, ' ')[0]);
