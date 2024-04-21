@@ -190,7 +190,7 @@ Tools and software required for filtering the results:
     3. Run the _Sync Job_ by following this [guide](https://www.mongodb.com/docs/relational-migrator/jobs/creating-jobs/).
         - *NOTE:* Both, the MySQL and MongoDB containers must be running before running the sync job.
         - *NOTE:* Use the default settings for the sync job. Use `root` as username and password for MySQL and leave defaults for MongoDB.
-        - *NOTE:* `Drop destination collections` must be checked to avoid conflicts with existing data!
+        - *NOTE:* `Drop destination collections before migration` must be checked to avoid conflicts with existing data!
     4. Check the import stats and logs for any errors or warnings.
 9. For Neo4j, you can use `neo4j-etl-tool/import.sh` script to automatically run the ETL tool and import data into Neo4j.
     1. Run the script inside the Neo4j container:
