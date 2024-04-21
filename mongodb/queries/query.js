@@ -210,6 +210,10 @@ db.persons.aggregate([
 
 // 4.1 Find all direct and indirect relationships between people up to 4 (0, 1, 2, 3) levels deep
 
+// NOTE: This query is the best possible approximation of neighborhood search in MongoDB
+// It does not reflect the same results in higher volume datasets as in all other DBMSs and should not be
+// taken into consideration when comparing with other systems. Take it only as a demonstration of MongoDB's
+// graph traversal capabilities. 
 db.persons.aggregate([
   {
     $graphLookup: {
@@ -236,7 +240,7 @@ db.persons.aggregate([
 
 // 4.2 Find the shortest path between two persons using $graphLookup
 
-// This one stops traverses in BFS until it finds the target person (not necessarily the shortest path)
+// NOTE: This one stops traverses in BFS until it finds the target person (not necessarily the shortest path)
 // The target person in not included in the result
 // The result set is not the same as in previous databases, but the path is included in the result
 // It basically performs BFS until it finds the target person, stops and prints each visited node

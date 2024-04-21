@@ -55,10 +55,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
     time = db.vendors.find({ name: "Bauch - Denesik" }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.1', i, time);
+    recordStats('1-1', i, time);
   }
 } catch (e) {
-  recordStats('1.1', -1, -1);
+  recordStats('1-1', -1, -1);
   log(e);
 }
 log('Finished testing query 1.1');
@@ -73,10 +73,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
     time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.2', i, time);
+    recordStats('1-2', i, time);
   }
 } catch (e) {
-  recordStats('1.2', -1, -1);
+  recordStats('1-2', -1, -1);
   log(e);
 }
 log('Finished testing query 1.2');
@@ -88,10 +88,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
     time = db.vendors.find({ _id: 24 }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.3', i, time);
+    recordStats('1-3', i, time);
   }
 } catch (e) {
-  recordStats('1.3', -1, -1);
+  recordStats('1-3', -1, -1);
   log(e);
 }
 log('Finished testing query 1.3');
@@ -106,10 +106,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
     time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.4', i, time);
+    recordStats('1-4', i, time);
   }
 } catch (e) {
-  recordStats('1.4', -1, -1);
+  recordStats('1-4', -1, -1);
   log(e);
 }
 log('Finished testing query 1.4');
@@ -125,11 +125,11 @@ try {
     timeout = startTimeout();
     time = db.products.explain("executionStats").aggregate([{ $group: { _id: "$brand", productCount: { $sum: 1 } } }]).executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('2.1', i, time);
+    recordStats('2-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('2.1', -1, -1);
+  recordStats('2-1', -1, -1);
   log(e);
 }
 log('Finished testing query 2.1');
@@ -141,10 +141,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.explain("executionStats").aggregate([{ $group: { _id: "$brand", maxPrice: { $max: "$price" } } }]).executionStats.executionTimeMillis / 1000;
-    recordStats('2.2', i, time);
+    recordStats('2-2', i, time);
   }
 } catch (e) {
-  recordStats('2.2', -1, -1);
+  recordStats('2-2', -1, -1);
   log(e);
 }
 log('Finished testing query 2.2');
@@ -196,11 +196,11 @@ if (recordVolume >= 128000) {
         }
       ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
       clearTimeout(timeout);
-      recordStats('3.1', i, time);
+      recordStats('3-1', i, time);
     }
   } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.1', -1, -1);
+    recordStats('3-1', -1, -1);
     log(e);
   }
   log('Finished testing query 3.1');
@@ -232,11 +232,11 @@ if (recordVolume >= 128000) {
         }
       ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
       clearTimeout(timeout);
-      recordStats('3.1', i, time);
+      recordStats('3-1', i, time);
     }
   } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.1', -1, -1);
+    recordStats('3-1', -1, -1);
     log(e);
   }
   log('Finished testing query 3.1');
@@ -249,10 +249,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('3.2', i, time);
+    recordStats('3-2', i, time);
   }
 } catch (e) {
-  recordStats('3.2', -1, -1);
+  recordStats('3-2', -1, -1);
   log(e);
 }
 log('Finished testing query 3.2');
@@ -297,11 +297,11 @@ if (recordVolume >= 128000) {
         },
       ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
       clearTimeout(timeout);
-      recordStats('3.3', i, time);
+      recordStats('3-3', i, time);
     }
   } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.3', -1, -1);
+    recordStats('3-3', -1, -1);
     log(e);
   }
   log('Finished testing query 3.3');
@@ -333,11 +333,11 @@ if (recordVolume >= 128000) {
         },
       ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
       clearTimeout(timeout);
-      recordStats('3.3', i, time);
+      recordStats('3-3', i, time);
     }
   } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.3', -1, -1);
+    recordStats('3-3', -1, -1);
     log(e);
   }
   log('Finished testing query 3.3');
@@ -380,11 +380,11 @@ try {
       { $project: { person: 0, knowsPeople: 0 } }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('3.4', i, time);
+    recordStats('3-4', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('3.4', -1, -1);
+  recordStats('3-4', -1, -1);
   log(e);
 }
 log('Finished testing query 3.4');
@@ -422,11 +422,11 @@ try {
       },
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('4.1', i, time);
+    recordStats('4-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('4.1', -1, -1);
+  recordStats('4-1', -1, -1);
   log(e);
 }
 log('Finished testing query 4.1');
@@ -484,11 +484,11 @@ try {
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('4.2', i, time);
+    recordStats('4-2', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('4.2', -1, -1);
+  recordStats('4-2', -1, -1);
   log(e);
 }
 log('Finished testing query 4.2');
@@ -631,11 +631,11 @@ try {
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('8.1', i, time);
+    recordStats('8-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('8.1', -1, -1);
+  recordStats('8-1', -1, -1);
   log(e);
 }
 log('Finished testing query 8.1');
@@ -652,10 +652,10 @@ try {
       firstName: 1,
       lastName: 1
     }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('8.2', i, time);
+    recordStats('8-2', i, time);
   }
 } catch (e) {
-  recordStats('8.2', -1, -1);
+  recordStats('8-2', -1, -1);
   log(e);
 }
 log('Finished testing query 8.2');
@@ -669,10 +669,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().sort({ brand: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('9.1', i, time);
+    recordStats('9-1', i, time);
   }
 } catch (e) {
-  recordStats('9.1', -1, -1);
+  recordStats('9-1', -1, -1);
   log(e);
 }
 log('Finished testing query 9.1');
@@ -684,10 +684,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().sort({ _id: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('9.2', i, time);
+    recordStats('9-2', i, time);
   }
 } catch (e) {
-  recordStats('9.2', -1, -1);
+  recordStats('9-2', -1, -1);
   log(e);
 }
 log('Finished testing query 9.2');
