@@ -30,4 +30,3 @@ mysql/exports/*
 cassandra/**/csv/*
 cassandra/dumps
 time-diff.js
-results*.csv
