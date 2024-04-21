@@ -177,6 +177,27 @@ Instance ▸ database ▸ collections ▸ documents
   ok: 1
 }
 ```
+- 128k:
+    - ETL time: 5min
+    - DB sizes with `db.stats({scale: 1024});`
+```
+{
+  db: 'ecommerce',
+  collections: Long('6'),
+  views: Long('0'),
+  objects: Long('692332'),
+  avgObjSize: 432.0068262047688,
+  dataSize: 292082.177734375,
+  storageSize: 203732,
+  indexes: Long('10'),
+  indexSize: 17332,
+  totalSize: 221064,
+  scaleFactor: Long('1024'),
+  fsUsedSize: 70432932,
+  fsTotalSize: 80446960,
+  ok: 1
+}
+```
 - 256k:
     - ETL time: 10min
     - DB sizes with `db.stats({scale: 1024});`
