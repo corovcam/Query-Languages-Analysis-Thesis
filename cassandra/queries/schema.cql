@@ -92,7 +92,6 @@ CREATE TABLE Vendor_Contacts_By_Order_Contact
             };
 
 -- Query 3.2.: Return all Products and the orderIds, quantities of the orders they were ordered in
-// TODO: Maybe embed the order information into the Product table?
 CREATE TABLE Orders_By_Product
 (
     productId BIGINT,
