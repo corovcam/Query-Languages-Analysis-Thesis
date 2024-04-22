@@ -19,7 +19,7 @@ CREATE TABLE Vendor
 
 -- Query 1.2: Select people born between 1980-01-01 and 1990-12-31 (without index)
 -- Query 3.4: Find all people having more than 1 friend
--- Query 5.1: Get a list of all people and their friend count (0 if they have no friends)
+-- Query 5: Get a list of all people and their friend count (0 if they have no friends)
 CREATE TABLE Person
 (
     personId    BIGINT,

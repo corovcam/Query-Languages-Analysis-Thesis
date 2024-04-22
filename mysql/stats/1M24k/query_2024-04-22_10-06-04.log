@@ -1,0 +1,1716 @@
+[2024-04-22 10:06:04] Setting up profiling
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:04] Finished setting up profiling
+[2024-04-22 10:06:04] Query testing started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:04] Query 1-1 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:05] Query 1-1 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:05] Query 1-1 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:06] Query 1-1 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:06] Query 1-1 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:06] Query 1-1 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:06] Query 1-1 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:07] Query 1-1 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:07] Query 1-1 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:08] Query 1-1 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:08] Query 1-1 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:09] Query 1-1 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:09] Query 1-1 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:09] Query 1-1 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:09] Query 1-1 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:10] Query 1-1 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:10] Query 1-1 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:11] Query 1-1 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:11] Query 1-1 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:11] Query 1-1 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:11] Query 1-1 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:12] Query 1-1 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:12] Query 1-1 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:13] Query 1-1 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:13] Query 1-1 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:14] Query 1-1 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:14] Query 1-1 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:14] Query 1-1 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:14] Query 1-1 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:15] Query 1-1 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:15] Query 1-1 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:16] Query 1-1 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:16] Query 1-1 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:17] Query 1-1 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:17] Query 1-1 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:17] Query 1-1 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:17] Query 1-1 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:18] Query 1-1 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:18] Query 1-1 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:19] Query 1-1 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:19] Query 1-2 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:20] Query 1-2 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:20] Query 1-2 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:22] Query 1-2 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:22] Query 1-2 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:23] Query 1-2 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:23] Query 1-2 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:25] Query 1-2 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:25] Query 1-2 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:26] Query 1-2 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:26] Query 1-2 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:27] Query 1-2 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:27] Query 1-2 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:29] Query 1-2 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:29] Query 1-2 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:30] Query 1-2 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:30] Query 1-2 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:32] Query 1-2 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:32] Query 1-2 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:33] Query 1-2 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:33] Query 1-2 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:35] Query 1-2 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:35] Query 1-2 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:36] Query 1-2 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:36] Query 1-2 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:37] Query 1-2 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:37] Query 1-2 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:39] Query 1-2 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:39] Query 1-2 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:40] Query 1-2 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:40] Query 1-2 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:42] Query 1-2 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:42] Query 1-2 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:43] Query 1-2 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:43] Query 1-2 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:44] Query 1-2 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:44] Query 1-2 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:46] Query 1-2 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:46] Query 1-2 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:47] Query 1-2 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:47] Query 1-3 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:47] Query 1-3 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:47] Query 1-3 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:47] Query 1-3 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:48] Query 1-3 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-3 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:49] Query 1-4 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:53] Query 1-4 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:53] Query 1-4 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:55] Query 1-4 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:55] Query 1-4 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:56] Query 1-4 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:56] Query 1-4 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:58] Query 1-4 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:58] Query 1-4 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:59] Query 1-4 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:06:59] Query 1-4 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:00] Query 1-4 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:00] Query 1-4 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:02] Query 1-4 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:02] Query 1-4 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:03] Query 1-4 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:03] Query 1-4 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:05] Query 1-4 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:05] Query 1-4 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:06] Query 1-4 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:06] Query 1-4 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:07] Query 1-4 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:08] Query 1-4 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:09] Query 1-4 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:09] Query 1-4 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:10] Query 1-4 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:10] Query 1-4 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:12] Query 1-4 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:12] Query 1-4 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:13] Query 1-4 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:13] Query 1-4 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:15] Query 1-4 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:15] Query 1-4 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:16] Query 1-4 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:16] Query 1-4 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:17] Query 1-4 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:17] Query 1-4 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:19] Query 1-4 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:19] Query 1-4 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:20] Query 1-4 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:20] Query 10 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:27] Query 10 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:27] Query 10 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:34] Query 10 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:34] Query 10 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:39] Query 10 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:39] Query 10 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:45] Query 10 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:45] Query 10 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:52] Query 10 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:07:52] Query 10 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:00] Query 10 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:00] Query 10 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:08] Query 10 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:08] Query 10 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:16] Query 10 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:16] Query 10 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:24] Query 10 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:24] Query 10 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:33] Query 10 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:33] Query 10 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:41] Query 10 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:41] Query 10 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:48] Query 10 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:48] Query 10 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:56] Query 10 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:08:56] Query 10 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:05] Query 10 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:05] Query 10 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:15] Query 10 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:15] Query 10 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:23] Query 10 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:23] Query 10 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:31] Query 10 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:31] Query 10 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:41] Query 10 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:41] Query 10 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:49] Query 10 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:49] Query 10 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:58] Query 10 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:09:59] Query 11 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:03] Query 11 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:03] Query 11 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:10] Query 11 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:10] Query 11 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:15] Query 11 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:15] Query 11 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:22] Query 11 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:22] Query 11 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:30] Query 11 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:30] Query 11 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:36] Query 11 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:36] Query 11 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:43] Query 11 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:43] Query 11 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:51] Query 11 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:51] Query 11 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:58] Query 11 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:10:58] Query 11 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:05] Query 11 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:05] Query 11 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:13] Query 11 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:13] Query 11 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:20] Query 11 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:20] Query 11 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:27] Query 11 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:27] Query 11 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:35] Query 11 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:35] Query 11 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:42] Query 11 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:42] Query 11 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:49] Query 11 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:49] Query 11 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:56] Query 11 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:11:56] Query 11 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:03] Query 11 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:03] Query 11 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:11] Query 11 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:11] Query 11 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:18] Query 11 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:18] Query 2-1 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:21] Query 2-1 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:21] Query 2-1 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:23] Query 2-1 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:23] Query 2-1 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:25] Query 2-1 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:25] Query 2-1 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:27] Query 2-1 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:27] Query 2-1 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:29] Query 2-1 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:29] Query 2-1 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:31] Query 2-1 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:31] Query 2-1 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:33] Query 2-1 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:33] Query 2-1 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:35] Query 2-1 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:35] Query 2-1 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:37] Query 2-1 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:37] Query 2-1 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:39] Query 2-1 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:39] Query 2-1 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:41] Query 2-1 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:41] Query 2-1 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:43] Query 2-1 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:43] Query 2-1 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:45] Query 2-1 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:45] Query 2-1 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:47] Query 2-1 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:47] Query 2-1 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:49] Query 2-1 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:49] Query 2-1 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:51] Query 2-1 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:51] Query 2-1 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:53] Query 2-1 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:53] Query 2-1 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:55] Query 2-1 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:55] Query 2-1 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:57] Query 2-1 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:57] Query 2-1 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:59] Query 2-1 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:12:59] Query 2-2 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:01] Query 2-2 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:01] Query 2-2 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:03] Query 2-2 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:03] Query 2-2 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:05] Query 2-2 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:05] Query 2-2 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:07] Query 2-2 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:07] Query 2-2 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:09] Query 2-2 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:09] Query 2-2 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:11] Query 2-2 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:11] Query 2-2 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:13] Query 2-2 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:13] Query 2-2 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:15] Query 2-2 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:15] Query 2-2 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:17] Query 2-2 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:17] Query 2-2 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:19] Query 2-2 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:19] Query 2-2 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:21] Query 2-2 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:21] Query 2-2 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:23] Query 2-2 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:23] Query 2-2 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:25] Query 2-2 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:25] Query 2-2 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:27] Query 2-2 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:27] Query 2-2 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:29] Query 2-2 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:29] Query 2-2 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:31] Query 2-2 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:31] Query 2-2 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:33] Query 2-2 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:33] Query 2-2 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:35] Query 2-2 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:35] Query 2-2 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:37] Query 2-2 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:37] Query 2-2 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:39] Query 2-2 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:13:39] Query 3-1 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:18:32] Query 3-2 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:19:31] Query 3-2 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:19:31] Query 3-2 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:20:26] Query 3-2 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:20:26] Query 3-2 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:21:19] Query 3-2 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:21:19] Query 3-2 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:22:11] Query 3-2 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:22:11] Query 3-2 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:23:02] Query 3-2 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:23:02] Query 3-2 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:23:47] Query 3-2 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:23:47] Query 3-2 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:24:39] Query 3-2 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:24:39] Query 3-2 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:25:21] Query 3-2 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:25:21] Query 3-2 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:26:13] Query 3-2 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:26:13] Query 3-2 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:27:04] Query 3-2 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:27:04] Query 3-2 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:27:56] Query 3-2 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:27:56] Query 3-2 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:28:48] Query 3-2 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:28:48] Query 3-2 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:29:40] Query 3-2 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:29:40] Query 3-2 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:30:32] Query 3-2 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:30:32] Query 3-2 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:31:24] Query 3-2 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:31:24] Query 3-2 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:32:15] Query 3-2 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:32:15] Query 3-2 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:33:08] Query 3-2 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:33:08] Query 3-2 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:33:55] Query 3-2 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:33:55] Query 3-2 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:34:46] Query 3-2 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:34:46] Query 3-2 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:35:38] Query 3-2 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:35:38] Query 3-3 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:37:58] Query 3-3 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:37:58] Query 3-3 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:40:14] Query 3-3 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:40:14] Query 3-3 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:42:05] Query 3-3 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:42:05] Query 3-3 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:44:23] Query 3-3 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:44:23] Query 3-3 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:46:52] Query 3-3 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:46:52] Query 3-3 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:49:21] Query 3-3 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:49:21] Query 3-3 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:51:44] Query 3-3 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:51:44] Query 3-3 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:54:10] Query 3-3 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:54:10] Query 3-3 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:56:33] Query 3-3 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:56:33] Query 3-3 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:58:58] Query 3-3 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 10:58:58] Query 3-3 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:01:26] Query 3-3 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:01:26] Query 3-3 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:03:53] Query 3-3 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:03:53] Query 3-3 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:06:19] Query 3-3 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:06:19] Query 3-3 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:08:41] Query 3-3 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:08:41] Query 3-3 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:11:02] Query 3-3 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:11:02] Query 3-3 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:13:22] Query 3-3 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:13:22] Query 3-3 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:15:45] Query 3-3 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:15:45] Query 3-3 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:18:11] Query 3-3 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:18:11] Query 3-3 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:20:37] Query 3-3 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:20:37] Query 3-3 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:22:52] Query 3-3 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:22:52] Query 3-4 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:02] Query 3-4 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:02] Query 3-4 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:10] Query 3-4 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:10] Query 3-4 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:19] Query 3-4 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:19] Query 3-4 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:27] Query 3-4 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:27] Query 3-4 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:36] Query 3-4 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:36] Query 3-4 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:45] Query 3-4 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:45] Query 3-4 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:53] Query 3-4 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:23:53] Query 3-4 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:02] Query 3-4 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:02] Query 3-4 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:11] Query 3-4 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:11] Query 3-4 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:19] Query 3-4 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:19] Query 3-4 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:27] Query 3-4 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:27] Query 3-4 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:36] Query 3-4 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:36] Query 3-4 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:45] Query 3-4 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:45] Query 3-4 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:53] Query 3-4 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:24:53] Query 3-4 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:01] Query 3-4 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:02] Query 3-4 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:10] Query 3-4 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:10] Query 3-4 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:19] Query 3-4 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:19] Query 3-4 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:27] Query 3-4 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:27] Query 3-4 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:36] Query 3-4 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:36] Query 3-4 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:44] Query 3-4 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:25:44] Query 4-1 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1114 (HY000) at line 6: The table '/tmp/#sql1_360_0' is full
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:27:53] Query 4-2 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1114 (HY000) at line 7: The table '/tmp/#sql1_362_0' is full
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:31:25] Query 5 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:32:17] Query 5 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:32:17] Query 5 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:33:09] Query 5 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:33:09] Query 5 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:34:03] Query 5 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:34:03] Query 5 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:34:56] Query 5 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:34:56] Query 5 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:35:48] Query 5 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:35:48] Query 5 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:36:36] Query 5 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:36:36] Query 5 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:37:32] Query 5 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:37:32] Query 5 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:38:24] Query 5 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:38:24] Query 5 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:39:15] Query 5 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:39:15] Query 5 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:40:08] Query 5 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:40:08] Query 5 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:41:00] Query 5 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:41:00] Query 5 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:41:53] Query 5 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:41:53] Query 5 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:42:46] Query 5 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:42:46] Query 5 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:43:39] Query 5 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:43:39] Query 5 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:44:31] Query 5 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:44:31] Query 5 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:45:21] Query 5 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:45:21] Query 5 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:46:11] Query 5 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:46:11] Query 5 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:47:04] Query 5 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:47:05] Query 5 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:47:57] Query 5 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:47:57] Query 5 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:48:47] Query 5 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:48:47] Query 6 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:50:52] Query 6 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:50:52] Query 6 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:52:49] Query 6 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:52:49] Query 6 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:54:45] Query 6 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:54:45] Query 6 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:56:38] Query 6 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:56:38] Query 6 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:58:30] Query 6 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 11:58:30] Query 6 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:00:26] Query 6 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:00:26] Query 6 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:02:24] Query 6 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:02:24] Query 6 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:04:20] Query 6 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:04:20] Query 6 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:06:13] Query 6 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:06:13] Query 6 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:08:04] Query 6 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:08:04] Query 6 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:09:59] Query 6 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:09:59] Query 6 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:11:52] Query 6 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:11:52] Query 6 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:13:50] Query 6 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:13:50] Query 6 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:15:50] Query 6 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:15:50] Query 6 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:17:47] Query 6 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:17:47] Query 6 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:19:41] Query 6 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:19:41] Query 6 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:21:35] Query 6 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:21:35] Query 6 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:23:25] Query 6 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:23:25] Query 6 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:25:22] Query 6 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:25:22] Query 6 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:27:14] Query 6 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:27:14] Query 7 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:28:06] Query 7 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:28:06] Query 7 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:28:51] Query 7 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:28:51] Query 7 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:29:35] Query 7 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:29:35] Query 7 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:30:17] Query 7 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:30:17] Query 7 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:31:03] Query 7 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:31:03] Query 7 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:31:48] Query 7 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:31:48] Query 7 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:32:32] Query 7 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:32:32] Query 7 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:33:16] Query 7 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:33:16] Query 7 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:34:01] Query 7 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:34:01] Query 7 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:34:45] Query 7 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:34:45] Query 7 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:35:27] Query 7 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:35:27] Query 7 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:36:13] Query 7 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:36:13] Query 7 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:36:57] Query 7 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:36:57] Query 7 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:37:40] Query 7 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:37:40] Query 7 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:38:24] Query 7 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:38:24] Query 7 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:39:10] Query 7 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:39:10] Query 7 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:39:55] Query 7 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:39:55] Query 7 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:40:40] Query 7 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:40:40] Query 7 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:41:23] Query 7 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:41:23] Query 7 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:06] Query 7 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:06] Query 8 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:16] Query 8 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:16] Query 8 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:27] Query 8 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:27] Query 8 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:37] Query 8 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:37] Query 8 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:47] Query 8 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:47] Query 8 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:57] Query 8 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:42:57] Query 8 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:08] Query 8 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:08] Query 8 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:18] Query 8 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:18] Query 8 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:28] Query 8 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:28] Query 8 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:38] Query 8 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:38] Query 8 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:48] Query 8 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:48] Query 8 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:58] Query 8 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:43:58] Query 8 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:09] Query 8 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:09] Query 8 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:19] Query 8 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:19] Query 8 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:30] Query 8 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:30] Query 8 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:41] Query 8 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:41] Query 8 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:51] Query 8 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:44:51] Query 8 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:02] Query 8 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:02] Query 8 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:12] Query 8 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:12] Query 8 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:22] Query 8 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:22] Query 8 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:35] Query 8 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:35] Query 9-1 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:40] Query 9-1 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:40] Query 9-1 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:43] Query 9-1 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:43] Query 9-1 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:47] Query 9-1 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:48] Query 9-1 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:51] Query 9-1 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:52] Query 9-1 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:55] Query 9-1 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:55] Query 9-1 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:59] Query 9-1 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:45:59] Query 9-1 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:03] Query 9-1 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:03] Query 9-1 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:07] Query 9-1 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:07] Query 9-1 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:11] Query 9-1 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:11] Query 9-1 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:15] Query 9-1 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:15] Query 9-1 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:19] Query 9-1 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:19] Query 9-1 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:23] Query 9-1 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:23] Query 9-1 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:27] Query 9-1 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:27] Query 9-1 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:31] Query 9-1 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:31] Query 9-1 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:35] Query 9-1 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:35] Query 9-1 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:39] Query 9-1 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:39] Query 9-1 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:43] Query 9-1 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:43] Query 9-1 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:47] Query 9-1 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:47] Query 9-1 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:51] Query 9-1 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:51] Query 9-1 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:55] Query 9-1 - iteration 20 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:55] Query 9-2 - iteration 1 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:58] Query 9-2 - iteration 1 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:46:58] Query 9-2 - iteration 2 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:01] Query 9-2 - iteration 2 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:01] Query 9-2 - iteration 3 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:04] Query 9-2 - iteration 3 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:04] Query 9-2 - iteration 4 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:06] Query 9-2 - iteration 4 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:06] Query 9-2 - iteration 5 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:09] Query 9-2 - iteration 5 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:09] Query 9-2 - iteration 6 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:12] Query 9-2 - iteration 6 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:12] Query 9-2 - iteration 7 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:15] Query 9-2 - iteration 7 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:15] Query 9-2 - iteration 8 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:18] Query 9-2 - iteration 8 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:18] Query 9-2 - iteration 9 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:20] Query 9-2 - iteration 9 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:21] Query 9-2 - iteration 10 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:23] Query 9-2 - iteration 10 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:23] Query 9-2 - iteration 11 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:26] Query 9-2 - iteration 11 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:26] Query 9-2 - iteration 12 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:29] Query 9-2 - iteration 12 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:29] Query 9-2 - iteration 13 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:32] Query 9-2 - iteration 13 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:32] Query 9-2 - iteration 14 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:34] Query 9-2 - iteration 14 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:34] Query 9-2 - iteration 15 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:37] Query 9-2 - iteration 15 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:37] Query 9-2 - iteration 16 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:40] Query 9-2 - iteration 16 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:40] Query 9-2 - iteration 17 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:43] Query 9-2 - iteration 17 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:43] Query 9-2 - iteration 18 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:45] Query 9-2 - iteration 18 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:45] Query 9-2 - iteration 19 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:48] Query 9-2 - iteration 19 finished
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:48] Query 9-2 - iteration 20 started
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-22 12:47:51] Query 9-2 - iteration 20 finished
+[2024-04-22 12:47:51] Query testing finished

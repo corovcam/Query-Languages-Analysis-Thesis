@@ -97,8 +97,6 @@ WHERE friendCount > 1
 
 -- 5. Optional Traversal
 
--- 5.1
-
 -- Get a list of all people and their friend count (0 if they have no friends)
 SELECT *
 FROM Person;
@@ -120,7 +118,6 @@ SELECT tagId, value
 FROM Tag
 WHERE interestedPeople CONTAINS -1 AND postsTagged CONTAINS -1
     ALLOW FILTERING;
--- TODO: We can also create a secondary index on the "interestedPeople" and "postsTagged" columns to avoid ALLOW FILTERING
 
 -- 8. Difference
 

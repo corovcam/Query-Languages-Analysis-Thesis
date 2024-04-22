@@ -1,0 +1,17 @@
+table_name,exact_row_count
+Customer,953371
+Industry,2047593
+Order,1905923
+Order_Contacts,5717769
+Order_Products,5717344
+Person,1024000
+Person_Person,5125904
+Person_Tags,5113446
+Post,1024000
+Post_Tags,5118511
+Product,1024000
+Tag,1024000
+Type,13
+Vendor,1024000
+Vendor_Contacts,2048689
+Vendor_Products,1024000

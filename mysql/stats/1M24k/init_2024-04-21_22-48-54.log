@@ -1,0 +1,10 @@
+[2024-04-21 22:48:54] Started creating schema
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-21 22:48:55] Finished creating schema
+[2024-04-21 22:48:55] Importing data
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-21 23:09:05] Finished importing data
+[2024-04-21 23:09:05] Setting up profiling
+mysql: [Warning] Using a password on the command line interface can be insecure.
+[2024-04-21 23:09:05] Finished setting up profiling
