@@ -260,3 +260,42 @@ ecommerce.vendors | size: 201070404
   ok: 1
 }
 ```
+- 1M24k:
+    - ETL time: 1 hour 21 min
+    - DB sizes with `db.stats({scale: 1024});`
+```
+{
+  "db": "ecommerce",
+  "collections": 6,
+  "views": 0,
+  "objects": 6001936,
+  "avgObjSize": 393.3969614137838,
+  "dataSize": 2305804.0869140625,
+  "storageSize": 1756816,
+  "indexes": 11,
+  "indexSize": 155108,
+  "totalSize": 1911924,
+  "scaleFactor": 1024,
+  "fsUsedSize": 77320364,
+  "fsTotalSize": 80446960,
+  "ok": 1
+}
+```
+```
+{
+  "db": "ecommerce",
+  "collections": 6,
+  "views": 0,
+  "objects": 6001936,
+  "avgObjSize": 393.3969614137838,
+  "dataSize": 2251.761803627014,
+  "storageSize": 1715.640625,
+  "indexes": 11,
+  "indexSize": 151.47265625,
+  "totalSize": 1867.11328125,
+  "scaleFactor": 1048576,
+  "fsUsedSize": 75508.21875,
+  "fsTotalSize": 78561.484375,
+  "ok": 1
+}
+```

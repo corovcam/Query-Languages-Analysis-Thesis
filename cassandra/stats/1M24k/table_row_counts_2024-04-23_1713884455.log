@@ -1,0 +1,14 @@
+[2024-04-23 15:00:55] Counting table rows
+Operation directory: /cassandra/logs/COUNT_20240423-150056-190437
+    total | failed |  rows/s | p50ms |  p99ms | p999ms
+2,537,061 |      0 | 491,182 | 75.69 | 155.19 | 197.13
+    total | failed |  rows/s | p50ms |  p99ms | p999ms
+5,367,739 |      0 | 527,396 | 72.86 | 143.65 | 173.02
+    total | failed |  rows/s | p50ms |  p99ms | p999ms
+7,766,458 |      0 | 516,320 | 71.22 | 138.41 | 173.02
+Operation COUNT_20240423-150056-190437 completed successfully in 14 seconds.
+Checkpoints for the current operation were written to checkpoint.csv.
+To resume the current operation, re-run it with the same settings, and add the following command line flag:
+--dsbulk.log.checkpoint.file=/cassandra/logs/COUNT_20240423-150056-190437/checkpoint.csv
+7766458
+[2024-04-23 15:01:14] Finished counting table rows

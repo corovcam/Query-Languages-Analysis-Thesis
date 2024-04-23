@@ -14,10 +14,12 @@ The repository is structure as follows (along with some important files and fold
 
 - `common/` - contains common files and scripts for all databases
   - `docs/` - contains extra documentation files (e.g. schema diagrams)
-  - `thesis-dummy-data-generator/` - contains scripts for generating pseudo-random relational data
+  - `thesis-dummy-data-generator/` - contains TypeScript NPM project for generating pseudo-random relational data using [Faker.js](https://fakerjs.dev/) and [Scramjet](https://docs.scramjet.org/category/framework) framework
   - `count_table_rows.sql` - for MySQL and SQLite
-  - `filter_results.ipynb` - Jupyter Notebook for filtering and analyzing experiment results
-  - `results.csv` - CSV file containing all results from experiments in the form `db,record_volume,query,iteration,time_in_seconds`
+  - `filter_results.ipynb` - Jupyter Notebook for filtering and processing experiment results
+  - `results.csv` - a combined CSV file containing all results from experiments with a header: `db,record_volume,query,iteration,time_in_seconds`
+  - `db_sizes.csv` - a CSV file containing database sizes in MB for each database system and record volume
+  - `filtered_results.csv` - post-processed CSV file
 - `mysql/` - contains MySQL database files and scripts
   - `data/` - configuration files mounted to the MySQL container
   - `dumps/` - contains MySQL SQL and/or CSV dumps copied from generated `common/thesis-dummy-data-generator/data_<entity_count>*` folder
