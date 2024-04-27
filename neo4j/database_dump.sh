@@ -9,7 +9,7 @@ timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/database_dump_$timestamp.log"
 
 # Must be absolute path
-dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_128k" # NOTE: Change this to the directory where the dump will be located
+dump_dir="$HOME/Query-Languages-Analysis-Thesis/neo4j/dumps/data_1M24k" # NOTE: Change this to the directory where the dump will be located
 
 mkdir -p "$dump_dir"
 chmod -R 777 "$dump_dir"

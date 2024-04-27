@@ -44,7 +44,7 @@ services:
     volumes:
       - neo4j_data:/data
       - ./neo4j:/neo4j
-    # Enable for Neo4j ETL Tool MySQL link
+    # NOTE: Enable for Neo4j ETL Tool MySQL link
     # links: 
     #   - mysql
     restart: always

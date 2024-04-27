@@ -162,10 +162,6 @@ log('Finished testing query 2.2');
 
 // 3.1 Non-Indexed Node/Relationship keys
 
-// TODO: Drop indexes for this query
-// Primary Indexes cannot be dropped: https://docs.arangodb.com/3.11/index-and-search/indexing/basics/#primary-index
-// Need to change the query? 
-
 // Match all Orders and Vendors sharing the same Contact Type
 log('Started testing query 3.1');
 try {

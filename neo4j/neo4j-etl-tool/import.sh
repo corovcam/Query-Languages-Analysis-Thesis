@@ -36,10 +36,17 @@ echo "[$(date +"%Y-%m-%d %T")] Neo4j ETL Tool finished" |& tee -a "$log_file"
 
 chmod -R 777 /neo4j/neo4j-etl-tool/tmp || echo "[$(date +"%Y-%m-%d %T")] Failed to change permissions for /neo4j/neo4j-etl-tool/tmp/$timestamp" |& tee -a "$log_file"
 
+# Preprocess the config file to remove the first two lines - the new neo4j-admin import does not support them
 sed -i '1,2d' /neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params
 
 cd "$NEO4J_HOME/bin" || { echo "[$(date +"%Y-%m-%d %T")] Failed to change directory to $NEO4J_HOME" |& tee -a "$log_file"; exit 1; }
 
 echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import started" |& tee -a "$log_file"
+# Could be maybe better to use something like this to import the data outside of docker container(to avoid stopping neo4j multiple times):
+# docker run --interactive --tty --rm \
+#     --volume=query-languages-analysis-thesis_neo4j_data:/data \
+#     --volume=../.:/neo4j \
+#     neo4j/neo4j-admin:5.12.0 \
+# ./neo4j-admin database import full --verbose --overwrite-destination @/neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import failed" |& tee -a "$log_file"
 ./neo4j-admin database import full --verbose --overwrite-destination @/neo4j/neo4j-etl-tool/tmp/"$timestamp"/csv-001/neo4j-admin-import-params |& tee -a "$log_file" || echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import failed" |& tee -a "$log_file"
 echo "[$(date +"%Y-%m-%d %T")] Neo4j bulk import finished" |& tee -a "$log_file"

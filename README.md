@@ -116,6 +116,7 @@ Tools and software required for running the experiments:
 - Docker Compose (tested with v2.24.5)
 - Node.js (v20.8+)
 - NPM
+- Java (tested with OpenJDK 11.0.22)
 
 Tools that need to be (downloaded and) installed manually: (for reproducibility, binaries and installation files are already included in the respective folders)
 - Neo4j ETL Tool (v1.6.0) - download link: https://github.com/neo4j-contrib/neo4j-etl/releases/tag/1.6.0

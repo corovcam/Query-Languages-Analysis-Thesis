@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-record_volume=512000 # NOTE: Change this to the desired record volume
+record_volume=1024000 # NOTE: Change this to the desired record volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"

@@ -1,0 +1,299 @@
+[2024-04-25 14:03:21] Neo4j ETl Tool started
+INFO: Reading options from file import-tool-options.json.
+INFO: Reading metadata mapping from file: mysql_ecommerce_mapping.json
+INFO: Running ETL on Neo4j 5.12.0 - COMMUNITY
+INFO: Exporting from RDBMS to CSV...
+INFO: CSV directory: /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001
+FINE: Executing command 'chmod 0777 /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001'
+FINER: Command finished [Command: 'chmod 0777 /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001', CommandResult { ExitValue: 0, Stdout: '', Stderr: '', DurationMillis: 20 }]
+FINE: Connecting to database...
+FINE: Connected to database
+INFO: Writing CSV headers for node NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50
+INFO: Writing CSV headers for node NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696
+INFO: Writing CSV headers for node NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35
+INFO: Writing CSV headers for node NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886
+INFO: Writing CSV headers for node NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4
+INFO: Writing CSV headers for node NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54
+INFO: Writing CSV headers for node NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7
+FINEST: SELECT `ecommerce`.`Order`.`orderId` AS `orderId`, `ecommerce`.`Order`.`orderId` AS `orderId`, "Order" AS `_NODE_LABEL_` FROM `ecommerce`.`Order`
+FINEST: SELECT `ecommerce`.`Vendor`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor`.`name` AS `name`, `ecommerce`.`Vendor`.`country` AS `country`, "Vendor" AS `_NODE_LABEL_` FROM `ecommerce`.`Vendor`
+FINEST: SELECT `ecommerce`.`Tag`.`tagId` AS `tagId`, `ecommerce`.`Tag`.`tagId` AS `tagId`, `ecommerce`.`Tag`.`value` AS `value`, "Tag" AS `_NODE_LABEL_` FROM `ecommerce`.`Tag`
+FINEST: SELECT `ecommerce`.`Product`.`productId` AS `productId`, `ecommerce`.`Product`.`productId` AS `productId`, `ecommerce`.`Product`.`asin` AS `asin`, `ecommerce`.`Product`.`imageUrl` AS `imageUrl`, `ecommerce`.`Product`.`title` AS `title`, `ecommerce`.`Product`.`price` AS `price`, `ecommerce`.`Product`.`brand` AS `brand`, "Product" AS `_NODE_LABEL_` FROM `ecommerce`.`Product`
+FINEST: SELECT `ecommerce`.`Person`.`personId` AS `personId`, `ecommerce`.`Person`.`personId` AS `personId`, `ecommerce`.`Person`.`city` AS `city`, `ecommerce`.`Person`.`country` AS `country`, `ecommerce`.`Person`.`firstName` AS `firstName`, `ecommerce`.`Person`.`lastName` AS `lastName`, `ecommerce`.`Person`.`gender` AS `gender`, `ecommerce`.`Person`.`postalCode` AS `postalCode`, `ecommerce`.`Person`.`birthday` AS `birthday`, `ecommerce`.`Person`.`street` AS `street`, "Person" AS `_NODE_LABEL_` FROM `ecommerce`.`Person`
+INFO: Writing CSV headers for relationship REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2
+FINEST: SELECT `ecommerce`.`Type`.`typeId` AS `typeId`, `ecommerce`.`Type`.`typeId` AS `typeId`, `ecommerce`.`Type`.`value` AS `value`, "Type" AS `_NODE_LABEL_` FROM `ecommerce`.`Type`
+INFO: Writing CSV headers for relationship REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4
+INFO: Writing CSV headers for relationship REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6
+INFO: Writing CSV headers for relationship REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8
+INFO: Writing CSV headers for relationship REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c
+INFO: Writing CSV headers for relationship REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27
+INFO: Writing CSV headers for relationship REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2
+INFO: Writing CSV headers for relationship REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4
+FINEST: SELECT `ecommerce`.`Customer`.`customerId` AS `customerId`, `ecommerce`.`Customer`.`customerId` AS `customerId`, "Customer" AS `_NODE_LABEL_` FROM `ecommerce`.`Customer`
+INFO: Writing CSV headers for relationship REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff
+INFO: Writing CSV headers for node NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4
+INFO: Writing CSV headers for relationship REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec
+FINEST: SELECT `ecommerce`.`Customer`.`customerId` AS `customerId`, `ecommerce`.`Customer`.`personId` AS `personId`, "IS_PERSON" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Customer`
+INFO: Writing CSV headers for relationship REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024
+FINEST: SELECT `ecommerce`.`Person_Tags`.`personId` AS `personId`, `ecommerce`.`Person_Tags`.`tagId` AS `tagId`, "HAS_INTEREST" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Person_Tags`
+FINEST: SELECT `ecommerce`.`Vendor_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Vendor_Contacts`.`vendorId` AS `vendorId`, `ecommerce`.`Vendor_Contacts`.`value` AS `value`, "CONTACT_TYPE" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Contacts`
+FINEST: SELECT `ecommerce`.`Industry`.`typeId` AS `typeId`, `ecommerce`.`Industry`.`vendorId` AS `vendorId`, "INDUSTRY_TYPE" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Industry`
+FINEST: SELECT `ecommerce`.`Order_Contacts`.`orderId` AS `orderId`, `ecommerce`.`Order_Contacts`.`typeId` AS `typeId`, `ecommerce`.`Order_Contacts`.`value` AS `value`, "CONTACT_TYPE" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order_Contacts`
+FINEST: SELECT `ecommerce`.`Order_Products`.`orderId` AS `orderId`, `ecommerce`.`Order_Products`.`productId` AS `productId`, "CONTAINS_PRODUCTS" AS `_RELATIONSHIP_TYPE_`, `ecommerce`.`Order_Products`.`quantity` AS `quantity` FROM `ecommerce`.`Order_Products`
+FINEST: SELECT `ecommerce`.`Post_Tags`.`postId` AS `postId`, `ecommerce`.`Post_Tags`.`tagId` AS `tagId`, "HAS_TAG" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Post_Tags`
+FINEST: SELECT `ecommerce`.`Order`.`orderId` AS `orderId`, `ecommerce`.`Order`.`customerId` AS `customerId`, "ORDERED_BY" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Order`
+FINEST: SELECT `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`personId` AS `personId`, "CREATED_BY" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Post`
+FINEST: SELECT `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`postId` AS `postId`, `ecommerce`.`Post`.`content` AS `content`, `ecommerce`.`Post`.`length` AS `length`, `ecommerce`.`Post`.`locationIP` AS `locationIP`, `ecommerce`.`Post`.`language` AS `language`, `ecommerce`.`Post`.`creationDate` AS `creationDate`, `ecommerce`.`Post`.`imageFile` AS `imageFile`, `ecommerce`.`Post`.`browserUsed` AS `browserUsed`, "Post" AS `_NODE_LABEL_` FROM `ecommerce`.`Post`
+FINEST: SELECT `ecommerce`.`Person_Person`.`personId1` AS `personId1`, `ecommerce`.`Person_Person`.`personId2` AS `personId2`, "KNOWS" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Person_Person`
+FINEST: SELECT `ecommerce`.`Vendor_Products`.`productId` AS `productId`, `ecommerce`.`Vendor_Products`.`vendorId` AS `vendorId`, "MANUFACTURED_BY" AS `_RELATIONSHIP_TYPE_` FROM `ecommerce`.`Vendor_Products`
+Export time: 166.311 (s)
+INFO: Creating Neo4j store from CSV...
+FINE: Using java.util.logging as the default logging framework
+FINE: -Dio.netty.eventLoopThreads: 16
+FINE: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+FINE: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+FINE: -Dio.netty.noUnsafe: false
+FINE: Java version: 17
+FINE: sun.misc.Unsafe.theUnsafe: available
+FINE: sun.misc.Unsafe.copyMemory: available
+FINE: sun.misc.Unsafe.storeFence: available
+FINE: java.nio.Buffer.address: available
+FINE: direct buffer constructor: unavailable
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0$5.run(PlatformDependent0.java:287)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:281)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.<clinit>(NioEventLoop.java:83)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:182)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:38)
+	at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:60)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:97)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:92)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:73)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:53)
+	at org.neo4j.driver.internal.async.connection.EventLoopGroupFactory$DriverEventLoopGroup.<init>(EventLoopGroupFactory.java:99)
+	at org.neo4j.driver.internal.async.connection.EventLoopGroupFactory.newEventLoopGroup(EventLoopGroupFactory.java:62)
+	at org.neo4j.driver.internal.async.connection.BootstrapFactory.newBootstrap(BootstrapFactory.java:29)
+	at org.neo4j.driver.internal.DriverFactory.createBootstrap(DriverFactory.java:343)
+	at org.neo4j.driver.internal.DriverFactory.newInstance(DriverFactory.java:87)
+	at org.neo4j.driver.internal.DriverFactory.newInstance(DriverFactory.java:73)
+	at org.neo4j.driver.GraphDatabase.driver(GraphDatabase.java:131)
+	at org.neo4j.driver.GraphDatabase.driver(GraphDatabase.java:122)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getDriver(Neo4jSupport.java:110)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getDriver(Neo4jSupport.java:97)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getVersionOnline(Neo4jSupport.java:80)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.getNeo4jVersion(Neo4jImportImportFromRdbms.java:150)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.isRunning(Neo4jImportImportFromRdbms.java:145)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.extractAndLoad(Neo4jImportImportFromRdbms.java:57)
+	at org.neo4j.etl.cli.rdbms.ImportFromRdbmsCli.run(ImportFromRdbmsCli.java:113)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:42)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:35)
+	at org.neo4j.etl.NeoIntegrationCli.main(NeoIntegrationCli.java:43)
+
+FINE: java.nio.Bits.unaligned: available, true
+FINE: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @23b69a89
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:392)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:674)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:560)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0$7.run(PlatformDependent0.java:409)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:400)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294)
+	at org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:88)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.<clinit>(NioEventLoop.java:83)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:182)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:38)
+	at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:60)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:52)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:97)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:92)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:73)
+	at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:53)
+	at org.neo4j.driver.internal.async.connection.EventLoopGroupFactory$DriverEventLoopGroup.<init>(EventLoopGroupFactory.java:99)
+	at org.neo4j.driver.internal.async.connection.EventLoopGroupFactory.newEventLoopGroup(EventLoopGroupFactory.java:62)
+	at org.neo4j.driver.internal.async.connection.BootstrapFactory.newBootstrap(BootstrapFactory.java:29)
+	at org.neo4j.driver.internal.DriverFactory.createBootstrap(DriverFactory.java:343)
+	at org.neo4j.driver.internal.DriverFactory.newInstance(DriverFactory.java:87)
+	at org.neo4j.driver.internal.DriverFactory.newInstance(DriverFactory.java:73)
+	at org.neo4j.driver.GraphDatabase.driver(GraphDatabase.java:131)
+	at org.neo4j.driver.GraphDatabase.driver(GraphDatabase.java:122)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getDriver(Neo4jSupport.java:110)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getDriver(Neo4jSupport.java:97)
+	at org.neo4j.etl.neo4j.support.Neo4jSupport.getVersionOnline(Neo4jSupport.java:80)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.getNeo4jVersion(Neo4jImportImportFromRdbms.java:150)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.isRunning(Neo4jImportImportFromRdbms.java:145)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.extractAndLoad(Neo4jImportImportFromRdbms.java:57)
+	at org.neo4j.etl.cli.rdbms.ImportFromRdbmsCli.run(ImportFromRdbmsCli.java:113)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:42)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:35)
+	at org.neo4j.etl.NeoIntegrationCli.main(NeoIntegrationCli.java:43)
+
+FINE: java.nio.DirectByteBuffer.<init>(long, int): unavailable
+FINE: sun.misc.Unsafe: available
+FINE: maxDirectMemory: 8413773824 bytes (maybe)
+FINE: -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+FINE: -Dio.netty.bitMode: 64 (sun.arch.data.model)
+FINE: -Dio.netty.maxDirectMemory: -1 bytes
+FINE: -Dio.netty.uninitializedArrayAllocationThreshold: -1
+FINE: java.nio.ByteBuffer.cleaner(): available
+FINE: -Dio.netty.noPreferDirect: false
+FINE: -Dio.netty.noKeySetOptimization: false
+FINE: -Dio.netty.selectorAutoRebuildThreshold: 512
+FINE: org.jctools-core.MpscChunkedArrayQueue: available
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@6f7923a5
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@20ca951f
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@2d778add
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@73302995
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@1838ccb8
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@6c2ed0cd
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@7d9e8ef7
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@f107c50
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@51133c06
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@4b213651
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@4241e0f4
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@4ebff610
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@60410cd
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@44d52de2
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@95e33cc
+FINEST: instrumented a special java.util.Set into: sun.nio.ch.EPollSelectorImpl@38604b81
+INFO: Routing driver instance 176683244 created for server address localhost:7687
+WARNING: Received a recoverable discovery error with server 'localhost(127.0.0.1):7687', will continue discovery with other routing servers if available. Complete failure is reported separately from this entry.
+Unable to connect to Neo4j due to the following exception: Could not perform discovery for database '<default database>'. No routing server available.
+INFO: Importing data into Neo4j
+FINE: Executing command '/var/lib/neo4j/bin/neo4j-admin @/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/neo4j-admin-import-params'
+org.neo4j.etl.process.CommandFailedException: Command failed [Command: '/var/lib/neo4j/bin/neo4j-admin @/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/neo4j-admin-import-params', CommandResult { ExitValue: 2, Stdout: '', Stderr: 'Unmatched arguments from index 0: 'import', '--report-file', '/var/lib/neo4j/import/import.report', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7.csv', '--nodes', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27.csv', '--relationships', '/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2_headers.csv,/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2.csv', '--delimiter', ',', '--array-delimiter', ';', '--id-type', 'STRING', '--multiline-fields', 'true'
+Did you mean: neo4j-admin database import or neo4j-admin server report or neo4j-admin database dump?', DurationMillis: 969 }]
+	at org.neo4j.etl.process.ProcessHandle.await(ProcessHandle.java:84)
+	at org.neo4j.etl.neo4j.importcsv.ImportFromCsvCommand.execute(ImportFromCsvCommand.java:30)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.doImport(Neo4jImportImportFromRdbms.java:171)
+	at org.neo4j.etl.commands.rdbms.importer.Neo4jImportImportFromRdbms.extractAndLoad(Neo4jImportImportFromRdbms.java:60)
+	at org.neo4j.etl.cli.rdbms.ImportFromRdbmsCli.run(ImportFromRdbmsCli.java:113)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:42)
+	at org.neo4j.etl.util.CliRunner.run(CliRunner.java:35)
+	at org.neo4j.etl.NeoIntegrationCli.main(NeoIntegrationCli.java:43)
+It seems 'java' command is not available.
+Please check your JAVA_HOME environment variable.
+Also check if you have a valid Java 8 environment
+[2024-04-25 14:06:09] Neo4j ETL Tool finished
+[2024-04-25 14:06:09] Neo4j bulk import started
+Executing command line: /opt/java/openjdk/bin/java -cp /var/lib/neo4j/plugins/*:/var/lib/neo4j/conf/*:/var/lib/neo4j/lib/* -XX:+UseParallelGC -XX:-OmitStackTraceInFastThrow -XX:+UnlockExperimentalVMOptions -XX:+TrustFinalNonStaticFields -XX:+DisableExplicitGC -Djdk.nio.maxCachedBufferSize=1024 -Dio.netty.tryReflectionSetAccessible=true -XX:+ExitOnOutOfMemoryError -Djdk.tls.ephemeralDHKeySize=2048 -XX:FlightRecorderOptions=stackdepth=256 -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED -Dlog4j2.disable.jmx=true -Dfile.encoding=UTF-8 org.neo4j.cli.AdminTool database import full --overwrite-destination @/neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/neo4j-admin-import-params --verbose
+neo4j 5.12.0
+VM Name: OpenJDK 64-Bit Server VM
+VM Vendor: Eclipse Adoptium
+VM Version: 17.0.8.1+1
+JIT compiler: HotSpot 64-Bit Tiered Compilers
+VM Arguments: [-XX:+UseParallelGC, -XX:-OmitStackTraceInFastThrow, -XX:+UnlockExperimentalVMOptions, -XX:+TrustFinalNonStaticFields, -XX:+DisableExplicitGC, -Djdk.nio.maxCachedBufferSize=1024, -Dio.netty.tryReflectionSetAccessible=true, -XX:+ExitOnOutOfMemoryError, -Djdk.tls.ephemeralDHKeySize=2048, -XX:FlightRecorderOptions=stackdepth=256, -XX:+UnlockDiagnosticVMOptions, -XX:+DebugNonSafepoints, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, -Dlog4j2.disable.jmx=true, -Dfile.encoding=UTF-8]
+Configuration files used (ordered by priority):
+/var/lib/neo4j/conf/neo4j-admin.conf
+/var/lib/neo4j/conf/neo4j.conf
+--------------------
+Neo4j version: 5.12.0
+Importing the contents of these files into /data/databases/neo4j:
+Nodes:
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Product_f9597f4b-22fa-45d3-9889-832d9e521d50.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Order_f7a72a61-fc08-4512-b543-63b3387b8696.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Vendor_6958ef13-aba5-4e45-ac93-ebe931cdad35.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Person_26c33de5-af3a-4339-938d-a27a3186d886.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Type_3f9e5458-34f4-43e1-8c64-c3df932705e4.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Customer_a1ef0a5a-13a5-46c8-98e5-3b2957e18a54.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Tag_4c731a19-0ea2-4922-ac15-886cff4cefa7.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/NODE_ecommerce.Post_06aac0de-e1c3-4b1c-85a3-c23bc0a120c4.csv
+
+Relationships:
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b312cf14-1684-47e1-a9dc-0ae25bd309ff.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Person_b0eb66dd-fef0-4c75-b205-26d4ff3124e2.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_Customer_0fd0a015-07f5-4d19-8f7a-4fff3de017a4.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_INDUSTRY_45380995-dafb-4a59-accf-87819dcafbc8.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORCONTACTS_e17123cd-ff5a-465e-aba5-41a138f84bc6.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONTAGS_6c0f05bf-16e7-45f0-b468-4e6cc77372b4.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_VENDORPRODUCTS_951ee61e-b6d0-4190-af05-81fc9590d024.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_PERSONPERSON_6c5d7b58-49e9-470c-acc2-3292b93a94ec.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERCONTACTS_98fef2ae-a1f5-4e1b-a829-f5e8eb43e68c.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_ORDERPRODUCTS_3359fa3e-440c-4f3b-be36-7f1198d0db27.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2_headers.csv
+  /neo4j/neo4j-etl-tool/tmp/2024-04-25_14-03-21/csv-001/ecommerce/REL_POSTTAGS_15420e3c-8e3d-48f5-a026-6b1f900f13f2.csv
+
+
+Available resources:
+  Total machine memory: 31.34GiB
+  Free machine memory: 23.79GiB
+  Max heap memory : 6.965GiB
+  Max worker threads: 8
+  Configured max memory: 15.36GiB
+  High parallel IO: true
+
+Nodes, started 2024-04-25 14:06:16.601+0000
+[*Nodes:0B/s 517.6MiB-------------------------------------------------------------------------] 790K ∆ 790K[*Nodes:0B/s 540.5MiB-------------------------------------------------------------------------]3.33M ∆2.54M[*Nodes:0B/s 548.1MiB-------------------------------------------------------------------------]4.97M ∆1.64M[*Nodes:0B/s 571.0MiB-------------------------------------------------------------------------]7.45M ∆2.48M[*Nodes:0B/s 571.0MiB-------------------------------------------------------------------------]7.97M ∆ 520K
+Done in 8s 844ms
+Prepare node index, started 2024-04-25 14:06:25.451+0000
+[*:601.5MiB-----------------------------------------------------------------------------------]23.9M ∆23.9M
+Done in 1s 276ms
+Relationships, started 2024-04-25 14:06:26.730+0000
+[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]1.12M ∆1.12M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]6.15M ∆5.03M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]11.0M ∆4.91M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]15.8M ∆4.74M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]20.4M ∆ 4.6M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]24.9M ∆4.56M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]29.3M ∆4.34M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]34.0M ∆4.76M[*Relationships:0B/s 601.5MiB-----------------------------------------------------------------]35.7M ∆1.73M
+Done in 15s 753ms
+Node Degrees, started 2024-04-25 14:06:42.564+0000
+[>--------------------------------------|*CALCULATE:586.1MiB(2)===============================]26.0M ∆26.1M[>----------------------------------------|*CALCULATE:586.1MiB(2)=============================]35.8M ∆9.72M
+Done in 2s 617ms
+Relationship --> Relationship 1-10/10, started 2024-04-25 14:06:45.232+0000
+[>-----------------------------------|*LINK(2)============================|v:412.4MiB/s-------]25.4M ∆25.5M[*>------------------------------------|LINK(3)========================|v:580.4MiB/s----------]35.8M ∆10.3M
+Done in 2s 657ms
+RelationshipGroup 1-10/10, started 2024-04-25 14:06:47.892+0000
+[*>---------------------------------------------------------|v:??-----------------------------] 163K ∆ 163K
+Done in 36ms
+Node --> Relationship, started 2024-04-25 14:06:47.932+0000
+[>:??---------|*>---------------------------------|LINK-------|v:??---------------------------]8.19M ∆8.19M
+Done in 707ms
+Relationship <-- Relationship 1-10/10, started 2024-04-25 14:06:48.644+0000
+[*>--------------------------------|LINK(2)=========================|v:323.5MiB/s-------------]20.0M ∆20.0M[>(2)======================|*LINK(2)===============================|v:386.9MiB/s--------------]35.8M ∆15.8M
+Done in 3s 7ms
+Count groups, started 2024-04-25 14:06:51.671+0000
+[>:|*>-------------------------------------------------------------------------|COUNT:525.2MiB]  327 ∆  327
+Done in 1ms
+Gather, started 2024-04-25 14:06:51.852+0000
+[*CACHE:743.4MiB------------------------------------------------------------------------------]  327 ∆  327
+Done in 64ms
+Write, started 2024-04-25 14:06:51.953+0000
+[*>:??--------------------------------------------------------------------------------------|v]  327 ∆  327
+Done in 20ms
+Node --> Group, started 2024-04-25 14:06:51.984+0000
+[>:|*>----------------------------------|FIRST--------------------------|v:??-----------------]  546 ∆  546
+Done in 1ms
+Node counts and label index build, started 2024-04-25 14:06:52.359+0000
+[>---------------------|*LABEL INDEX-----------------------------------|COUNT:570.9MiB--------]7.99M ∆7.99M
+Done in 1s 46ms
+Relationship counts and relationship type index build, started 2024-04-25 14:06:53.437+0000
+[>------------------------|RELATIONSHIP TYPE IN|*COUNT----------------------------------------]8.01M ∆8.01M[*>--------------------------------|RELATIONSHIP TYPE INDEX--|COUNT(3)========================]34.4M ∆26.4M[>(2)==================|RELATIONSHIP TYPE INDEX------|*COUNT(3)===============================]35.8M ∆1.33M
+Done in 3s 85ms
+
+IMPORT DONE in 43s 335ms. 
+Imported:
+  7979307 nodes
+  35796550 relationships
+  45015122 properties
+Peak memory usage: 623.3MiB
+[2024-04-25 14:06:57] Neo4j bulk import finished
