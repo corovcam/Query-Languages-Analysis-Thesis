@@ -30,7 +30,7 @@ The repository is structure as follows (along with some important files and fold
     - **`schema.sql`** - complete schema of the MySQL database (check comments for more details)
 - `sqlite/` - SQLite database files and scripts (is similar to MySQL structure, so only differences are mentioned)
   - `data/` - database file (`ecommerce.db`) mounted to the SQLite container
-  - _`sqlite3-analyzer`_[^1] - binary for analyzing SQLite database and generating statistics about tables
+  - _`sqlite3-analyzer`_[^1] - binary for analyzing SQLite database and generating statistics about tables called with `sqlite3-analyzer data/ecommerce.db` outside the container, inside `sqlite/` folder
 - `neo4j/` - Neo4j database files and scripts
   - `arangodb-json-transform/` - NPM package for transforming exported JSON data from Neo4j to ArangoDB JSON format
   - `dumps/` - Neo4j database dumps (entire database files in compressed binary format)
