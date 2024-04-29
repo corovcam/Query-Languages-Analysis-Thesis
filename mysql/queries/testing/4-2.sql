@@ -1,6 +1,6 @@
 -- 4.2. Shortest path
 
--- TODO: Guessing the max recursion depth to be 10 million ??
+-- NOTE: Guessing the max recursion depth will never exceed 10 million
 SET SESSION cte_max_recursion_depth = 10000000;
 
 -- Find the shortest path between two persons using WITH RECURSIVE
