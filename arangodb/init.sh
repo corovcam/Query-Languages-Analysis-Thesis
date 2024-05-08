@@ -4,8 +4,8 @@ set -eu
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/import_$timestamp.log"
-data_dir="dumps/data_128k" # NOTE: Change this to data dump directory
-import_file_type="json" # data_256k+ dumps use jsonl format
+data_dir="dumps/data_1M24k" # NOTE: Change this to data dump directory
+import_file_type="jsonl" # data_256k+ dumps use jsonl format
 
 echo "[$(date +"%Y-%m-%d %T")] Starting init" 2>&1 | tee -a "$log_file"
 

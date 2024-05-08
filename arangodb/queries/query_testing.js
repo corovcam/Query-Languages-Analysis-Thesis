@@ -37,11 +37,11 @@ try {
     RETURN { vendorId: v.vendorId, name: v.name }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '1.1', i, time]);
+    recordStats(['arangodb', recordVolume, '1-1', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '1.1', -1, -1]);
+  recordStats(['arangodb', recordVolume, '1-1', -1, -1]);
 }
 log('Finished testing query 1.1');
 
@@ -63,11 +63,11 @@ try {
       RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '1.2', i, time]);
+    recordStats(['arangodb', recordVolume, '1-2', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '1.2', -1, -1]);
+  recordStats(['arangodb', recordVolume, '1-2', -1, -1]);
 }
 log('Finished testing query 1.2');
 
@@ -86,11 +86,11 @@ try {
       RETURN { vendorId: n.vendorId, name: n.name }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '1.3', i, time]);
+    recordStats(['arangodb', recordVolume, '1-3', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '1.3', -1, -1]);
+  recordStats(['arangodb', recordVolume, '1-3', -1, -1]);
 }
 log('Finished testing query 1.3');
 
@@ -109,11 +109,11 @@ try {
       RETURN { personId: p.personId, firstName: p.firstName, lastName: p.lastName, birthday: p.birthday }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '1.4', i, time]);
+    recordStats(['arangodb', recordVolume, '1-4', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '1.4', -1, -1]);
+  recordStats(['arangodb', recordVolume, '1-4', -1, -1]);
 }
 log('Finished testing query 1.4');
 
@@ -130,11 +130,11 @@ try {
       RETURN { brand: brand, productCount: productCount }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '2.1', i, time]);
+    recordStats(['arangodb', recordVolume, '2-1', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '2.1', -1, -1]);
+  recordStats(['arangodb', recordVolume, '2-1', -1, -1]);
 }
 log('Finished testing query 2.1');
 
@@ -150,11 +150,11 @@ try {
       RETURN { brand: brand, maxPrice: maxPrice }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '2.2', i, time]);
+    recordStats(['arangodb', recordVolume, '2-2', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '2.2', -1, -1]);
+  recordStats(['arangodb', recordVolume, '2-2', -1, -1]);
 }
 log('Finished testing query 2.2');
 
@@ -162,12 +162,7 @@ log('Finished testing query 2.2');
 
 // 3.1 Non-Indexed Node/Relationship keys
 
-// TODO: Drop indexes for this query
-// Primary Indexes cannot be dropped: https://docs.arangodb.com/3.11/index-and-search/indexing/basics/#primary-index
-// Need to change the query? 
-
 // Match all Orders and Vendors sharing the same Contact Type
-// TODO: Rewrite to start iteration with i=1
 log('Started testing query 3.1');
 try {
   for (let i = 0; i < iterations; i++) {
@@ -178,11 +173,11 @@ try {
             RETURN DISTINCT { typeId: t, order: o, orderContact: oc, vendor: v, vendorContact: vc }
     `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '3.1', i, time]);
+    recordStats(['arangodb', recordVolume, '3-1', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '3.1', -1, -1]);
+  recordStats(['arangodb', recordVolume, '3-1', -1, -1]);
 }
 log('Finished testing query 3.1');
 
@@ -199,11 +194,11 @@ try {
         RETURN { product: pr, orderId: o.orderId, quantity: cp.rel.quantity }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '3.2', i, time]);
+    recordStats(['arangodb', recordVolume, '3-2', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '3.2', -1, -1]);
+  recordStats(['arangodb', recordVolume, '3-2', -1, -1]);
 }
 log('Finished testing query 3.2');
 
@@ -223,11 +218,11 @@ try {
           RETURN { order: o, customer: c, person: p, product: pr, vendor: v }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '3.3', i, time]);
+    recordStats(['arangodb', recordVolume, '3-3', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '3.3', -1, -1]);
+  recordStats(['arangodb', recordVolume, '3-3', -1, -1]);
 }
 log('Finished testing query 3.3');
 
@@ -244,11 +239,11 @@ try {
         RETURN { person: originalPerson, friendCount: friendCount }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '3.4', i, time]);
+    recordStats(['arangodb', recordVolume, '3-4', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '3.4', -1, -1]);
+  recordStats(['arangodb', recordVolume, '3-4', -1, -1]);
 }
 log('Finished testing query 3.4');
 
@@ -265,11 +260,11 @@ try {
         RETURN DISTINCT { person1: p1, person2: p2 }
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '4.1', i, time]);
+    recordStats(['arangodb', recordVolume, '4-1', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '4.1', -1, -1]);
+  recordStats(['arangodb', recordVolume, '4-1', -1, -1]);
 }
 log('Finished testing query 4.1');
 
@@ -287,11 +282,11 @@ try {
           RETURN v
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '4.2', i, time]);
+    recordStats(['arangodb', recordVolume, '4-2', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '4.2', -1, -1]);
+  recordStats(['arangodb', recordVolume, '4-2', -1, -1]);
 }
 log('Finished testing query 4.2');
 
@@ -421,11 +416,11 @@ try {
       RETURN pr.brand
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '9.1', i, time]);
+    recordStats(['arangodb', recordVolume, '9-1', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '9.1', -1, -1]);
+  recordStats(['arangodb', recordVolume, '9-1', -1, -1]);
 }
 log('Finished testing query 9.1');
 
@@ -442,11 +437,11 @@ try {
       RETURN pr._key
   `).getExtra().stats.executionTime;
 
-    recordStats(['arangodb', recordVolume, '9.2', i, time]);
+    recordStats(['arangodb', recordVolume, '9-2', i, time]);
   }
 } catch (e) {
   log(e);
-  recordStats(['arangodb', recordVolume, '9.2', -1, -1]);
+  recordStats(['arangodb', recordVolume, '9-2', -1, -1]);
 }
 log('Finished testing query 9.2');
 

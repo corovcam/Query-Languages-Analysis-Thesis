@@ -1,0 +1,14 @@
+[2024-04-21 12:59:16] Dumping BSON files
+2024-04-21T12:59:17.807+0000	writing ecommerce.tags to dumps/data_2024-04-21_1713704356/ecommerce/tags.bson
+2024-04-21T12:59:17.808+0000	writing ecommerce.vendors to dumps/data_2024-04-21_1713704356/ecommerce/vendors.bson
+2024-04-21T12:59:17.808+0000	writing ecommerce.persons to dumps/data_2024-04-21_1713704356/ecommerce/persons.bson
+2024-04-21T12:59:17.814+0000	writing ecommerce.orders to dumps/data_2024-04-21_1713704356/ecommerce/orders.bson
+2024-04-21T12:59:17.974+0000	done dumping ecommerce.tags (128000 documents)
+2024-04-21T12:59:17.975+0000	writing ecommerce.products to dumps/data_2024-04-21_1713704356/ecommerce/products.bson
+2024-04-21T12:59:18.049+0000	done dumping ecommerce.persons (128000 documents)
+2024-04-21T12:59:18.049+0000	writing ecommerce.types to dumps/data_2024-04-21_1713704356/ecommerce/types.bson
+2024-04-21T12:59:18.050+0000	done dumping ecommerce.types (13 documents)
+2024-04-21T12:59:18.294+0000	done dumping ecommerce.vendors (128000 documents)
+2024-04-21T12:59:18.298+0000	done dumping ecommerce.products (128000 documents)
+2024-04-21T12:59:18.336+0000	done dumping ecommerce.orders (180319 documents)
+[2024-04-21 12:59:18] Finished dumping BSON files

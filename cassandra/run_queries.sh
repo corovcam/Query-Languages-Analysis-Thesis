@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-record_volume=128000 # NOTE: Change this to the desired testing record volume
+record_volume=1024000 # NOTE: Change this to the desired testing record volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"
@@ -13,6 +13,9 @@ echo "db,record_volume,query,iteration,time_in_seconds" | tee -a "$query_csv_fil
 for file in queries/testing/*.cql; do
     fullFilename=$(basename "$file")
     filename=${fullFilename%.*}
+    if [[ $filename -eq "3-1" ]] && [[ $record_volume -ge 4000 ]]; then
+        continue
+    fi
     for i in {1..20}
     do
         printf "cassandra,%s,%s,%s," "$record_volume" "$filename" "$i" | tee -a "$query_csv_file"

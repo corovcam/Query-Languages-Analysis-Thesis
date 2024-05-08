@@ -55,10 +55,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
     time = db.vendors.find({ name: "Bauch - Denesik" }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.1', i, time);
+    recordStats('1-1', i, time);
   }
 } catch (e) {
-  recordStats('1.1', -1, -1);
+  recordStats('1-1', -1, -1);
   log(e);
 }
 log('Finished testing query 1.1');
@@ -73,10 +73,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
     time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.2', i, time);
+    recordStats('1-2', i, time);
   }
 } catch (e) {
-  recordStats('1.2', -1, -1);
+  recordStats('1-2', -1, -1);
   log(e);
 }
 log('Finished testing query 1.2');
@@ -88,10 +88,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.vendors.getPlanCache().clear();
     time = db.vendors.find({ _id: 24 }, { name: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.3', i, time);
+    recordStats('1-3', i, time);
   }
 } catch (e) {
-  recordStats('1.3', -1, -1);
+  recordStats('1-3', -1, -1);
   log(e);
 }
 log('Finished testing query 1.3');
@@ -106,10 +106,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.persons.getPlanCache().clear();
     time = db.persons.find({ birthday: { $gte: ISODate('1980-01-01'), $lte: ISODate('1990-12-31') } }, { firstName: 1, lastName: 1, birthday: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('1.4', i, time);
+    recordStats('1-4', i, time);
   }
 } catch (e) {
-  recordStats('1.4', -1, -1);
+  recordStats('1-4', -1, -1);
   log(e);
 }
 log('Finished testing query 1.4');
@@ -125,11 +125,11 @@ try {
     timeout = startTimeout();
     time = db.products.explain("executionStats").aggregate([{ $group: { _id: "$brand", productCount: { $sum: 1 } } }]).executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('2.1', i, time);
+    recordStats('2-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('2.1', -1, -1);
+  recordStats('2-1', -1, -1);
   log(e);
 }
 log('Finished testing query 2.1');
@@ -141,10 +141,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.explain("executionStats").aggregate([{ $group: { _id: "$brand", maxPrice: { $max: "$price" } } }]).executionStats.executionTimeMillis / 1000;
-    recordStats('2.2', i, time);
+    recordStats('2-2', i, time);
   }
 } catch (e) {
-  recordStats('2.2', -1, -1);
+  recordStats('2-2', -1, -1);
   log(e);
 }
 log('Finished testing query 2.2');
@@ -153,93 +153,94 @@ log('Finished testing query 2.2');
 
 // 3.1 Non-Indexed Attributes
 
-log('Started testing query 3.1');
-try {
-  for (let i = 0; i < iterations; i++) {
-    db.types.getPlanCache().clear();
-    timeout = startTimeout();
-    time = db.types.explain("executionStats").aggregate([
-      {
-        $lookup: {
-          from: "orders",
-          localField: "_id",
-          foreignField: "contacts.typeId",
-          as: "orderContacts"
+if (recordVolume >= 128000) {
+  log('Started testing query 3.1');
+  try {
+    for (let i = 0; i < iterations; i++) {
+      db.types.getPlanCache().clear();
+      timeout = startTimeout();
+      time = db.types.explain("executionStats").aggregate([
+        {
+          $lookup: {
+            from: "orders",
+            localField: "_id",
+            foreignField: "contacts.typeId",
+            as: "orderContacts"
+          }
+        },
+        {
+          $lookup: {
+            from: "vendors",
+            localField: "_id",
+            foreignField: "contacts.typeId",
+            as: "vendorContacts"
+          }
+        },
+        {
+          $unwind: "$orderContacts"
+        },
+        {
+          $unwind: "$vendorContacts"
+        },
+        {
+          $project: {
+            orderContact: {
+              orderId: "$orderContacts.orderId",
+              value: "$orderContacts.value",
+            },
+            vendorContact: {
+              vendorId: "$vendorContacts.vendorId",
+              value: "$vendorContacts.value",
+            },
+          }
         }
-      },
-      {
-        $lookup: {
-          from: "vendors",
-          localField: "_id",
-          foreignField: "contacts.typeId",
-          as: "vendorContacts"
-        }
-      },
-      {
-        $unwind: "$orderContacts"
-      },
-      {
-        $unwind: "$vendorContacts"
-      },
-      {
-        $project: {
-          orderContact: {
-            orderId: "$orderContacts.orderId",
-            value: "$orderContacts.value",
-          },
-          vendorContact: {
-            vendorId: "$vendorContacts.vendorId",
-            value: "$vendorContacts.value",
-          },
-        }
-      }
-    ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+      ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+      clearTimeout(timeout);
+      recordStats('3-1', i, time);
+    }
+  } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.1', i, time);
+    recordStats('3-1', -1, -1);
+    log(e);
   }
-} catch (e) {
-  clearTimeout(timeout);
-  recordStats('3.1', -1, -1);
-  log(e);
+  log('Finished testing query 3.1');
+} else {
+  // Using this only for < 128k entity experiments
+  log('Started testing query 3.1');
+  try {
+    for (let i = 0; i < iterations; i++) {
+      db.types.getPlanCache().clear();
+      timeout = startTimeout();
+      time = db.types.explain("executionStats").aggregate([
+        {
+          $unwind: "$orderContacts"
+        },
+        {
+          $unwind: "$vendorContacts"
+        },
+        {
+          $project: {
+            orderContact: {
+              orderId: "$orderContacts.orderId",
+              value: "$orderContacts.value",
+            },
+            vendorContact: {
+              vendorId: "$vendorContacts.vendorId",
+              value: "$vendorContacts.value",
+            },
+          }
+        }
+      ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+      clearTimeout(timeout);
+      recordStats('3-1', i, time);
+    }
+  } catch (e) {
+    clearTimeout(timeout);
+    recordStats('3-1', -1, -1);
+    log(e);
+  }
+  log('Finished testing query 3.1');
 }
-log('Finished testing query 3.1');
-
-// Use this only for < 256k entity experiments
-
-// log('Started testing query 3.1');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     db.types.getPlanCache().clear();
-//     timeout = startTimeout();
-//     time = db.types.explain("executionStats").aggregate([
-//       {
-//         $unwind: "$orderContacts"
-//       },
-//       {
-//         $unwind: "$vendorContacts"
-//       },
-//       {
-//         $project: {
-//           orderContact: {
-//             orderId: "$orderContacts.orderId",
-//             value: "$orderContacts.value",
-//           },
-//           vendorContact: {
-//             vendorId: "$vendorContacts.vendorId",
-//             value: "$vendorContacts.value",
-//           },
-//         }
-//       }
-//     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
-//     clearTimeout(timeout);
-//     recordStats('3.1', i, time);
-//   }
-// } catch (e) {
-//   clearTimeout(timeout);
-//   recordStats('3.1', -1, -1);
-//   log(e);
-// }
-// log('Finished testing query 3.1');
 
 // 3.2 Indexed Attributes
 
@@ -248,10 +249,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('3.2', i, time);
+    recordStats('3-2', i, time);
   }
 } catch (e) {
-  recordStats('3.2', -1, -1);
+  recordStats('3-2', -1, -1);
   log(e);
 }
 log('Finished testing query 3.2');
@@ -260,86 +261,87 @@ log('Finished testing query 3.2');
 
 // Complex query with "lookup" to retrieve order details
 
-// Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
-log('Started testing query 3.3');
-try {
-  for (let i = 0; i < iterations; i++) {
-    db.orders.getPlanCache().clear();
-    db.vendors.getPlanCache().clear();
-    timeout = startTimeout();
-    time = db.orders.explain("executionStats").aggregate([
-      {
-        $lookup: {
-          from: "products",
-          localField: "_id",
-          foreignField: "products.inOrders.orderId",
-          as: "containsProducts"
-        }
-      },
-      {
-        $unwind: "$containsProducts"
-      },
-      {
-        $lookup: {
-          from: "vendors",
-          localField: "containsProducts.productId",
-          foreignField: "manufacturesProducts.productId",
-          as: "containsProducts.vendors"
-        }
-      },
-      {
-        $unset: [
-          "containsProducts.vendors.manufacturesProducts",
-          "containsProducts.vendors.contacts"
-        ],
-      },
-    ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+if (recordVolume >= 128000) {
+  // Need to join "vendors" and "orders" on "containsProducts.productId" and "manufacturesProducts.productId" respectively
+  log('Started testing query 3.3');
+  try {
+    for (let i = 0; i < iterations; i++) {
+      db.orders.getPlanCache().clear();
+      db.vendors.getPlanCache().clear();
+      timeout = startTimeout();
+      time = db.orders.explain("executionStats").aggregate([
+        {
+          $lookup: {
+            from: "products",
+            localField: "_id",
+            foreignField: "products.inOrders.orderId",
+            as: "containsProducts"
+          }
+        },
+        {
+          $unwind: "$containsProducts"
+        },
+        {
+          $lookup: {
+            from: "vendors",
+            localField: "containsProducts.productId",
+            foreignField: "manufacturesProducts.productId",
+            as: "containsProducts.vendors"
+          }
+        },
+        {
+          $unset: [
+            "containsProducts.vendors.manufacturesProducts",
+            "containsProducts.vendors.contacts"
+          ],
+        },
+      ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+      clearTimeout(timeout);
+      recordStats('3-3', i, time);
+    }
+  } catch (e) {
     clearTimeout(timeout);
-    recordStats('3.3', i, time);
+    recordStats('3-3', -1, -1);
+    log(e);
   }
-} catch (e) {
-  clearTimeout(timeout);
-  recordStats('3.3', -1, -1);
-  log(e);
+  log('Finished testing query 3.3');
+} else {
+  // Using this only for < 256k entity experiments
+  log('Started testing query 3.3');
+  try {
+    for (let i = 0; i < iterations; i++) {
+      db.orders.getPlanCache().clear();
+      db.vendors.getPlanCache().clear();
+      timeout = startTimeout();
+      time = db.orders.explain("executionStats").aggregate([
+        {
+          $unwind: "$containsProducts"
+        },
+        {
+          $lookup: {
+            from: "vendors",
+            localField: "containsProducts.productId",
+            foreignField: "manufacturesProducts.productId",
+            as: "containsProducts.vendors"
+          }
+        },
+        {
+          $unset: [
+            "containsProducts.vendors.manufacturesProducts",
+            "containsProducts.vendors.contacts"
+          ],
+        },
+      ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
+      clearTimeout(timeout);
+      recordStats('3-3', i, time);
+    }
+  } catch (e) {
+    clearTimeout(timeout);
+    recordStats('3-3', -1, -1);
+    log(e);
+  }
+  log('Finished testing query 3.3');
 }
-log('Finished testing query 3.3');
-
-// Uncomment this only for < 256k entity experiments
-
-// log('Started testing query 3.3');
-// try {
-//   for (let i = 0; i < iterations; i++) {
-//     db.orders.getPlanCache().clear();
-//     db.vendors.getPlanCache().clear();
-//     timeout = startTimeout();
-//     time = db.orders.explain("executionStats")aggregate([
-//       {
-//         $unwind: "$containsProducts"
-//       },
-//       {
-//         $lookup: {
-//           from: "vendors",
-//           localField: "containsProducts.productId",
-//           foreignField: "manufacturesProducts.productId",
-//           as: "containsProducts.vendors"
-//         }
-//       },
-//       {
-//         $unset: [
-//           "containsProducts.vendors.manufacturesProducts",
-//           "containsProducts.vendors.contacts"
-//         ],
-//       },
-//     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
-//     clearTimeout(timeout);
-//     recordStats('3.3', i, time);
-//   }
-// } catch (e) {
-//   clearTimeout(timeout);
-//   recordStats('3.3', -1, -1);
-//   log(e);
-// }
-// log('Finished testing query 3.3');
 
 // 3.4 Complex Join 2 (having more than 1 friend)
 
@@ -378,11 +380,11 @@ try {
       { $project: { person: 0, knowsPeople: 0 } }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('3.4', i, time);
+    recordStats('3-4', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('3.4', -1, -1);
+  recordStats('3-4', -1, -1);
   log(e);
 }
 log('Finished testing query 3.4');
@@ -420,11 +422,11 @@ try {
       },
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('4.1', i, time);
+    recordStats('4-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('4.1', -1, -1);
+  recordStats('4-1', -1, -1);
   log(e);
 }
 log('Finished testing query 4.1');
@@ -482,11 +484,11 @@ try {
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('4.2', i, time);
+    recordStats('4-2', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('4.2', -1, -1);
+  recordStats('4-2', -1, -1);
   log(e);
 }
 log('Finished testing query 4.2');
@@ -629,11 +631,11 @@ try {
       }
     ]).stages[0]["$cursor"].executionStats.executionTimeMillis / 1000;
     clearTimeout(timeout);
-    recordStats('8.1', i, time);
+    recordStats('8-1', i, time);
   }
 } catch (e) {
   clearTimeout(timeout);
-  recordStats('8.1', -1, -1);
+  recordStats('8-1', -1, -1);
   log(e);
 }
 log('Finished testing query 8.1');
@@ -650,10 +652,10 @@ try {
       firstName: 1,
       lastName: 1
     }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('8.2', i, time);
+    recordStats('8-2', i, time);
   }
 } catch (e) {
-  recordStats('8.2', -1, -1);
+  recordStats('8-2', -1, -1);
   log(e);
 }
 log('Finished testing query 8.2');
@@ -667,10 +669,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().sort({ brand: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('9.1', i, time);
+    recordStats('9-1', i, time);
   }
 } catch (e) {
-  recordStats('9.1', -1, -1);
+  recordStats('9-1', -1, -1);
   log(e);
 }
 log('Finished testing query 9.1');
@@ -682,10 +684,10 @@ try {
   for (let i = 0; i < iterations; i++) {
     db.products.getPlanCache().clear();
     time = db.products.find().sort({ _id: 1 }).maxTimeMS(maxTimeMS).explain("executionStats").executionStats.executionTimeMillis / 1000;
-    recordStats('9.2', i, time);
+    recordStats('9-2', i, time);
   }
 } catch (e) {
-  recordStats('9.2', -1, -1);
+  recordStats('9-2', -1, -1);
   log(e);
 }
 log('Finished testing query 9.2');

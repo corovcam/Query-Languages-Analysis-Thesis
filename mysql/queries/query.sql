@@ -5,7 +5,7 @@
 -- Select vendor with the name 'Bauch - Denesik'
 SELECT vendorId, name
 FROM Vendor
-WHERE name = 'Bauch - Denesik'; -- TODO: Change to Fleui cause of different data !!!!!!
+WHERE name = 'Bauch - Denesik';
 
 -- 1.2 Non-Indexed Columns - Range Query
 
@@ -129,7 +129,6 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      1         AS depth
                               FROM Person_Person
                               WHERE personId1 = 774 -- Specify the source person ID
-                                AND personId2 = 12  -- Specify the target person ID
                               UNION
                               SELECT pp.sourcePersonId,
                                      pp.targetPersonId,
@@ -137,10 +136,12 @@ WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      pp.depth + 1 AS depth
                               FROM PersonPath pp
                                        JOIN Person_Person pp2 ON pp.currentPersonId = pp2.personId1
-                              WHERE pp.currentPersonId <> pp.targetPersonId)
+                              WHERE pp.currentPersonId <> 12) -- Specify the target person ID
 SELECT *
 FROM PersonPath
-ORDER BY sourcePersonId, depth, targetPersonId;
+WHERE targetPersonId = 12
+ORDER BY depth
+LIMIT 1;
 
 
 -- 5. Optional Traversal

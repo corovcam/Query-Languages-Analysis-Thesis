@@ -5,6 +5,8 @@ DROP INDEX node_label_lookup_index IF EXISTS;
 
 DROP INDEX rel_type_lookup_index IF EXISTS;
 
+CALL db.awaitIndexes(300);
+
 // Match all Orders and Vendors sharing the same Contact Type
 PROFILE
 MATCH (o:Order)-[oc:CONTACT_TYPE]->(t)-[vc:CONTACT_TYPE]->(v:Vendor)

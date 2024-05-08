@@ -1,0 +1,945 @@
+[2024-04-26 15:12:59] Starting init
+[2024-04-26 15:12:59] Creating nodes
+[2024-04-26 15:12:59] Importing customers
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             customers
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/customers.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 3.1 MB (8%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 4.1 MB (11%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 5.2 MB (14%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 7.3 MB (17%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 8.3 MB (22%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 9.4 MB (25%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 10.4 MB (28%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 11.5 MB (31%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 13.6 MB (34%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 14.6 MB (39%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 15.7 MB (42%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 16.7 MB (45%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 17.8 MB (48%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 19.9 MB (51%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 20.9 MB (56%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 22.0 MB (59%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 23.0 MB (62%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 24.1 MB (65%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 26.2 MB (68%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 27.2 MB (73%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 28.3 MB (76%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 29.3 MB (79%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 30.4 MB (82%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 32.5 MB (85%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 33.5 MB (90%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 34.6 MB (93%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 35.6 MB (96%) of input file
+2024-04-26T15:12:59Z [216] INFO [9ddf3] {general} processed 36.7 MB (99%) of input file
+
+created:          953371
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:04] Finished importing customers
+[2024-04-26 15:13:04] Importing orders
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             orders
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/orders.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 4.1 MB (6%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 6.2 MB (9%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 8.3 MB (12%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 10.4 MB (15%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 12.5 MB (18%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 14.6 MB (21%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 16.7 MB (24%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 18.8 MB (27%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 20.9 MB (30%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 23.0 MB (33%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 25.1 MB (36%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 27.2 MB (39%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 29.3 MB (42%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 31.4 MB (45%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 33.5 MB (48%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 35.6 MB (51%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 37.7 MB (54%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 39.8 MB (57%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 41.9 MB (60%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 44.0 MB (63%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 46.1 MB (66%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 48.2 MB (69%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 50.3 MB (72%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 52.4 MB (75%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 54.5 MB (78%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 56.6 MB (81%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 58.7 MB (84%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 60.8 MB (87%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 62.9 MB (90%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 65.0 MB (93%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 67.1 MB (96%) of input file
+2024-04-26T15:13:04Z [243] INFO [9ddf3] {general} processed 69.2 MB (99%) of input file
+
+created:          1905923
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:09] Finished importing orders
+[2024-04-26 15:13:09] Importing persons
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             persons
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/persons.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:09Z [275] INFO [9ddf3] {general} processed 7.3 MB (3%) of input file
+2024-04-26T15:13:09Z [275] INFO [9ddf3] {general} processed 14.6 MB (6%) of input file
+2024-04-26T15:13:09Z [275] INFO [9ddf3] {general} processed 22.0 MB (9%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 29.3 MB (12%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 36.7 MB (15%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 44.0 MB (18%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 51.3 MB (21%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 58.7 MB (24%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 66.0 MB (27%) of input file
+2024-04-26T15:13:10Z [275] INFO [9ddf3] {general} processed 73.4 MB (30%) of input file
+2024-04-26T15:13:11Z [275] INFO [9ddf3] {general} processed 80.7 MB (33%) of input file
+2024-04-26T15:13:11Z [275] INFO [9ddf3] {general} processed 88.0 MB (36%) of input file
+2024-04-26T15:13:11Z [275] INFO [9ddf3] {general} processed 95.4 MB (39%) of input file
+2024-04-26T15:13:11Z [275] INFO [9ddf3] {general} processed 102.7 MB (42%) of input file
+2024-04-26T15:13:11Z [275] INFO [9ddf3] {general} processed 109.0 MB (45%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 116.3 MB (48%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 123.7 MB (51%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 131.0 MB (54%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 138.4 MB (57%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 145.7 MB (60%) of input file
+2024-04-26T15:13:12Z [275] INFO [9ddf3] {general} processed 153.0 MB (63%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 160.4 MB (66%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 167.7 MB (69%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 175.1 MB (72%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 182.4 MB (75%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 189.7 MB (78%) of input file
+2024-04-26T15:13:13Z [275] INFO [9ddf3] {general} processed 197.1 MB (81%) of input file
+2024-04-26T15:13:14Z [275] INFO [9ddf3] {general} processed 204.4 MB (84%) of input file
+2024-04-26T15:13:14Z [275] INFO [9ddf3] {general} processed 210.7 MB (87%) of input file
+2024-04-26T15:13:14Z [275] INFO [9ddf3] {general} processed 218.1 MB (90%) of input file
+2024-04-26T15:13:14Z [275] INFO [9ddf3] {general} processed 225.4 MB (93%) of input file
+2024-04-26T15:13:14Z [275] INFO [9ddf3] {general} processed 232.7 MB (96%) of input file
+2024-04-26T15:13:15Z [275] INFO [9ddf3] {general} processed 240.1 MB (99%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:16] Finished importing persons
+[2024-04-26 15:13:16] Importing posts
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             posts
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/posts.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 10.4 MB (3%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 20.9 MB (6%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 30.4 MB (9%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 40.8 MB (12%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 51.3 MB (15%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 60.8 MB (18%) of input file
+2024-04-26T15:13:16Z [306] INFO [9ddf3] {general} processed 71.3 MB (21%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 80.7 MB (24%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 91.2 MB (27%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 101.7 MB (30%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 111.1 MB (33%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 121.6 MB (36%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 131.0 MB (39%) of input file
+2024-04-26T15:13:17Z [306] INFO [9ddf3] {general} processed 141.5 MB (42%) of input file
+2024-04-26T15:13:18Z [306] INFO [9ddf3] {general} processed 152.0 MB (45%) of input file
+2024-04-26T15:13:18Z [306] INFO [9ddf3] {general} processed 161.4 MB (48%) of input file
+2024-04-26T15:13:18Z [306] INFO [9ddf3] {general} processed 171.9 MB (51%) of input file
+2024-04-26T15:13:18Z [306] INFO [9ddf3] {general} processed 181.4 MB (54%) of input file
+2024-04-26T15:13:18Z [306] INFO [9ddf3] {general} processed 191.8 MB (57%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 202.3 MB (60%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 211.8 MB (63%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 222.2 MB (66%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 231.7 MB (69%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 242.2 MB (72%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 252.7 MB (75%) of input file
+2024-04-26T15:13:19Z [306] INFO [9ddf3] {general} processed 262.1 MB (78%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 272.6 MB (81%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 282.0 MB (84%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 292.5 MB (87%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 303.0 MB (90%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 312.4 MB (93%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 322.9 MB (96%) of input file
+2024-04-26T15:13:20Z [306] INFO [9ddf3] {general} processed 332.3 MB (99%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:21] Finished importing posts
+[2024-04-26 15:13:21] Importing products
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             products
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/products.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 6.2 MB (3%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 12.5 MB (6%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 17.8 MB (9%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 24.1 MB (12%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 29.3 MB (15%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 35.6 MB (18%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 40.8 MB (21%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 47.1 MB (24%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 52.4 MB (27%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 58.7 MB (30%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 65.0 MB (33%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 70.2 MB (36%) of input file
+2024-04-26T15:13:21Z [338] INFO [9ddf3] {general} processed 76.5 MB (39%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 81.7 MB (42%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 88.0 MB (45%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 93.3 MB (48%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 99.6 MB (51%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 104.8 MB (54%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 111.1 MB (57%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 116.3 MB (60%) of input file
+2024-04-26T15:13:22Z [338] INFO [9ddf3] {general} processed 122.6 MB (63%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 128.9 MB (66%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 134.2 MB (69%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 140.5 MB (72%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 145.7 MB (75%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 152.0 MB (78%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 157.2 MB (81%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 163.5 MB (84%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 168.8 MB (87%) of input file
+2024-04-26T15:13:23Z [338] INFO [9ddf3] {general} processed 175.1 MB (90%) of input file
+2024-04-26T15:13:24Z [338] INFO [9ddf3] {general} processed 181.4 MB (93%) of input file
+2024-04-26T15:13:24Z [338] INFO [9ddf3] {general} processed 186.6 MB (96%) of input file
+2024-04-26T15:13:24Z [338] INFO [9ddf3] {general} processed 192.9 MB (99%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:25] Finished importing products
+[2024-04-26 15:13:25] Importing tags
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             tags
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/tags.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 4.1 MB (6%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 6.2 MB (9%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 8.3 MB (12%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 10.4 MB (15%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 12.5 MB (18%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 14.6 MB (21%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 16.7 MB (24%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 18.8 MB (27%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 20.9 MB (30%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 23.0 MB (34%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 25.1 MB (37%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 27.2 MB (40%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 29.3 MB (43%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 31.4 MB (46%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 33.5 MB (49%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 35.6 MB (52%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 37.7 MB (55%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 39.8 MB (58%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 41.9 MB (62%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 44.0 MB (65%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 46.1 MB (68%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 48.2 MB (71%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 50.3 MB (74%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 52.4 MB (77%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 54.5 MB (80%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 56.6 MB (83%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 58.7 MB (86%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 60.8 MB (90%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 62.9 MB (93%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 65.0 MB (96%) of input file
+2024-04-26T15:13:25Z [364] INFO [9ddf3] {general} processed 67.1 MB (99%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:28] Finished importing tags
+[2024-04-26 15:13:28] Importing types
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             types
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/types.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+
+created:          13
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:28] Finished importing types
+[2024-04-26 15:13:28] Importing vendors
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             vendors
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/nodes/vendors.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 3.1 MB (3%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 6.2 MB (6%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 8.3 MB (9%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 11.5 MB (12%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 14.6 MB (15%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 17.8 MB (19%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 20.9 MB (22%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 24.1 MB (26%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 27.2 MB (29%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 29.3 MB (32%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 32.5 MB (35%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 34.6 MB (38%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 37.7 MB (41%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 40.8 MB (44%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 42.9 MB (47%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 46.1 MB (50%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 48.2 MB (53%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 51.3 MB (56%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 54.5 MB (59%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 56.6 MB (62%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 59.7 MB (65%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 62.9 MB (68%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 66.0 MB (72%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 69.2 MB (75%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 72.3 MB (79%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 75.4 MB (82%) of input file
+2024-04-26T15:13:28Z [408] INFO [9ddf3] {general} processed 77.5 MB (85%) of input file
+2024-04-26T15:13:31Z [408] INFO [9ddf3] {general} processed 80.7 MB (88%) of input file
+2024-04-26T15:13:31Z [408] INFO [9ddf3] {general} processed 82.8 MB (91%) of input file
+2024-04-26T15:13:31Z [408] INFO [9ddf3] {general} processed 85.9 MB (94%) of input file
+2024-04-26T15:13:31Z [408] INFO [9ddf3] {general} processed 89.1 MB (97%) of input file
+2024-04-26T15:13:31Z [408] INFO [9ddf3] {general} processed 90.9 MB (100%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:13:34] Finished importing vendors
+[2024-04-26 15:13:34] Finished creating nodes
+[2024-04-26 15:13:34] Creating edges
+[2024-04-26 15:13:34] Importing contactType
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             contactType
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/contactType.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:13:34Z [443] INFO [9ddf3] {general} processed 24.1 MB (3%) of input file
+2024-04-26T15:13:34Z [443] INFO [9ddf3] {general} processed 47.1 MB (6%) of input file
+2024-04-26T15:13:34Z [443] INFO [9ddf3] {general} processed 70.2 MB (9%) of input file
+2024-04-26T15:13:38Z [443] INFO [9ddf3] {general} processed 93.3 MB (12%) of input file
+2024-04-26T15:13:39Z [443] INFO [9ddf3] {general} processed 116.3 MB (15%) of input file
+2024-04-26T15:13:40Z [443] INFO [9ddf3] {general} processed 139.4 MB (18%) of input file
+2024-04-26T15:13:43Z [443] INFO [9ddf3] {general} processed 162.5 MB (21%) of input file
+2024-04-26T15:13:44Z [443] INFO [9ddf3] {general} processed 186.6 MB (24%) of input file
+2024-04-26T15:13:45Z [443] INFO [9ddf3] {general} processed 209.7 MB (27%) of input file
+2024-04-26T15:13:47Z [443] INFO [9ddf3] {general} processed 232.7 MB (30%) of input file
+2024-04-26T15:13:48Z [443] INFO [9ddf3] {general} processed 255.8 MB (33%) of input file
+2024-04-26T15:13:49Z [443] INFO [9ddf3] {general} processed 278.9 MB (36%) of input file
+2024-04-26T15:13:52Z [443] INFO [9ddf3] {general} processed 301.9 MB (39%) of input file
+2024-04-26T15:13:53Z [443] INFO [9ddf3] {general} processed 325.0 MB (42%) of input file
+2024-04-26T15:13:55Z [443] INFO [9ddf3] {general} processed 349.1 MB (45%) of input file
+2024-04-26T15:13:56Z [443] INFO [9ddf3] {general} processed 372.2 MB (48%) of input file
+2024-04-26T15:13:58Z [443] INFO [9ddf3] {general} processed 395.3 MB (51%) of input file
+2024-04-26T15:13:59Z [443] INFO [9ddf3] {general} processed 418.3 MB (54%) of input file
+2024-04-26T15:14:01Z [443] INFO [9ddf3] {general} processed 441.4 MB (57%) of input file
+2024-04-26T15:14:02Z [443] INFO [9ddf3] {general} processed 464.5 MB (60%) of input file
+2024-04-26T15:14:04Z [443] INFO [9ddf3] {general} processed 487.5 MB (63%) of input file
+2024-04-26T15:14:06Z [443] INFO [9ddf3] {general} processed 511.7 MB (66%) of input file
+2024-04-26T15:14:07Z [443] INFO [9ddf3] {general} processed 534.7 MB (69%) of input file
+2024-04-26T15:14:09Z [443] INFO [9ddf3] {general} processed 557.8 MB (72%) of input file
+2024-04-26T15:14:12Z [443] INFO [9ddf3] {general} processed 580.9 MB (75%) of input file
+2024-04-26T15:14:13Z [443] INFO [9ddf3] {general} processed 603.9 MB (78%) of input file
+2024-04-26T15:14:14Z [443] INFO [9ddf3] {general} processed 627.0 MB (81%) of input file
+2024-04-26T15:14:16Z [443] INFO [9ddf3] {general} processed 650.1 MB (84%) of input file
+2024-04-26T15:14:17Z [443] INFO [9ddf3] {general} processed 674.2 MB (87%) of input file
+2024-04-26T15:14:18Z [443] INFO [9ddf3] {general} processed 697.3 MB (90%) of input file
+2024-04-26T15:14:20Z [443] INFO [9ddf3] {general} processed 720.3 MB (93%) of input file
+2024-04-26T15:14:21Z [443] INFO [9ddf3] {general} processed 743.4 MB (96%) of input file
+2024-04-26T15:14:22Z [443] INFO [9ddf3] {general} processed 766.5 MB (99%) of input file
+
+created:          7766458
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:14:26] Finished importing contactType
+[2024-04-26 15:14:26] Importing containsProducts
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             containsProducts
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/containsProducts.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 12.5 MB (3%) of input file
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 25.1 MB (6%) of input file
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 37.7 MB (9%) of input file
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 50.3 MB (12%) of input file
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 61.8 MB (15%) of input file
+2024-04-26T15:14:26Z [545] INFO [9ddf3] {general} processed 74.4 MB (18%) of input file
+2024-04-26T15:14:32Z [545] INFO [9ddf3] {general} processed 87.0 MB (21%) of input file
+2024-04-26T15:14:32Z [545] INFO [9ddf3] {general} processed 99.6 MB (24%) of input file
+2024-04-26T15:14:33Z [545] INFO [9ddf3] {general} processed 111.1 MB (27%) of input file
+2024-04-26T15:14:34Z [545] INFO [9ddf3] {general} processed 123.7 MB (30%) of input file
+2024-04-26T15:14:34Z [545] INFO [9ddf3] {general} processed 136.3 MB (33%) of input file
+2024-04-26T15:14:38Z [545] INFO [9ddf3] {general} processed 148.8 MB (36%) of input file
+2024-04-26T15:14:39Z [545] INFO [9ddf3] {general} processed 160.4 MB (39%) of input file
+2024-04-26T15:14:39Z [545] INFO [9ddf3] {general} processed 173.0 MB (42%) of input file
+2024-04-26T15:14:40Z [545] INFO [9ddf3] {general} processed 185.5 MB (45%) of input file
+2024-04-26T15:14:41Z [545] INFO [9ddf3] {general} processed 198.1 MB (48%) of input file
+2024-04-26T15:14:42Z [545] INFO [9ddf3] {general} processed 209.7 MB (51%) of input file
+2024-04-26T15:14:44Z [545] INFO [9ddf3] {general} processed 222.2 MB (54%) of input file
+2024-04-26T15:14:45Z [545] INFO [9ddf3] {general} processed 234.8 MB (57%) of input file
+2024-04-26T15:14:47Z [545] INFO [9ddf3] {general} processed 247.4 MB (60%) of input file
+2024-04-26T15:14:47Z [545] INFO [9ddf3] {general} processed 260.0 MB (63%) of input file
+2024-04-26T15:14:48Z [545] INFO [9ddf3] {general} processed 271.5 MB (66%) of input file
+2024-04-26T15:14:51Z [545] INFO [9ddf3] {general} processed 284.1 MB (69%) of input file
+2024-04-26T15:14:52Z [545] INFO [9ddf3] {general} processed 296.7 MB (72%) of input file
+2024-04-26T15:14:53Z [545] INFO [9ddf3] {general} processed 309.3 MB (75%) of input file
+2024-04-26T15:14:53Z [545] INFO [9ddf3] {general} processed 320.8 MB (78%) of input file
+2024-04-26T15:14:55Z [545] INFO [9ddf3] {general} processed 333.4 MB (81%) of input file
+2024-04-26T15:14:55Z [545] INFO [9ddf3] {general} processed 346.0 MB (84%) of input file
+2024-04-26T15:14:58Z [545] INFO [9ddf3] {general} processed 358.6 MB (87%) of input file
+2024-04-26T15:14:59Z [545] INFO [9ddf3] {general} processed 370.1 MB (90%) of input file
+2024-04-26T15:15:00Z [545] INFO [9ddf3] {general} processed 382.7 MB (93%) of input file
+2024-04-26T15:15:00Z [545] INFO [9ddf3] {general} processed 395.3 MB (96%) of input file
+2024-04-26T15:15:02Z [545] INFO [9ddf3] {general} processed 407.8 MB (99%) of input file
+
+created:          5717344
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:15:09] Finished importing containsProducts
+[2024-04-26 15:15:09] Importing createdBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             createdBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/createdBy.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 4.1 MB (6%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 6.2 MB (9%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 8.3 MB (13%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 10.4 MB (16%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 12.5 MB (20%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 14.6 MB (23%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 16.7 MB (27%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 18.8 MB (30%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 20.9 MB (34%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 23.0 MB (37%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 25.1 MB (41%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 27.2 MB (44%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 29.3 MB (48%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 31.4 MB (51%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 33.5 MB (55%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 35.6 MB (58%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 37.7 MB (62%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 39.8 MB (65%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 41.9 MB (68%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 44.0 MB (72%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 46.1 MB (75%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 48.2 MB (79%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 50.3 MB (82%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 52.4 MB (86%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 54.5 MB (89%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 56.6 MB (93%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 58.7 MB (96%) of input file
+2024-04-26T15:15:09Z [679] INFO [9ddf3] {general} processed 60.4 MB (100%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:15:18] Finished importing createdBy
+[2024-04-26 15:15:18] Importing hasInterest
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             hasInterest
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/hasInterest.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 9.4 MB (3%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 17.8 MB (6%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 27.2 MB (9%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 35.6 MB (12%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 45.0 MB (15%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 53.4 MB (18%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 62.9 MB (21%) of input file
+2024-04-26T15:15:18Z [722] INFO [9ddf3] {general} processed 71.3 MB (24%) of input file
+2024-04-26T15:15:23Z [722] INFO [9ddf3] {general} processed 80.7 MB (27%) of input file
+2024-04-26T15:15:24Z [722] INFO [9ddf3] {general} processed 89.1 MB (30%) of input file
+2024-04-26T15:15:25Z [722] INFO [9ddf3] {general} processed 98.5 MB (33%) of input file
+2024-04-26T15:15:25Z [722] INFO [9ddf3] {general} processed 106.9 MB (36%) of input file
+2024-04-26T15:15:26Z [722] INFO [9ddf3] {general} processed 116.3 MB (39%) of input file
+2024-04-26T15:15:27Z [722] INFO [9ddf3] {general} processed 124.7 MB (42%) of input file
+2024-04-26T15:15:28Z [722] INFO [9ddf3] {general} processed 134.2 MB (45%) of input file
+2024-04-26T15:15:29Z [722] INFO [9ddf3] {general} processed 142.6 MB (48%) of input file
+2024-04-26T15:15:31Z [722] INFO [9ddf3] {general} processed 152.0 MB (51%) of input file
+2024-04-26T15:15:32Z [722] INFO [9ddf3] {general} processed 160.4 MB (54%) of input file
+2024-04-26T15:15:33Z [722] INFO [9ddf3] {general} processed 169.8 MB (57%) of input file
+2024-04-26T15:15:33Z [722] INFO [9ddf3] {general} processed 178.2 MB (60%) of input file
+2024-04-26T15:15:35Z [722] INFO [9ddf3] {general} processed 187.6 MB (63%) of input file
+2024-04-26T15:15:36Z [722] INFO [9ddf3] {general} processed 196.0 MB (66%) of input file
+2024-04-26T15:15:36Z [722] INFO [9ddf3] {general} processed 205.5 MB (69%) of input file
+2024-04-26T15:15:37Z [722] INFO [9ddf3] {general} processed 213.9 MB (72%) of input file
+2024-04-26T15:15:39Z [722] INFO [9ddf3] {general} processed 223.3 MB (75%) of input file
+2024-04-26T15:15:39Z [722] INFO [9ddf3] {general} processed 231.7 MB (78%) of input file
+2024-04-26T15:15:41Z [722] INFO [9ddf3] {general} processed 241.1 MB (81%) of input file
+2024-04-26T15:15:42Z [722] INFO [9ddf3] {general} processed 249.5 MB (84%) of input file
+2024-04-26T15:15:43Z [722] INFO [9ddf3] {general} processed 258.9 MB (87%) of input file
+2024-04-26T15:15:45Z [722] INFO [9ddf3] {general} processed 267.3 MB (90%) of input file
+2024-04-26T15:15:46Z [722] INFO [9ddf3] {general} processed 276.8 MB (93%) of input file
+2024-04-26T15:15:47Z [722] INFO [9ddf3] {general} processed 285.2 MB (96%) of input file
+2024-04-26T15:15:48Z [722] INFO [9ddf3] {general} processed 294.6 MB (99%) of input file
+
+created:          5113446
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:15:56] Finished importing hasInterest
+[2024-04-26 15:15:56] Importing hasTag
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             hasTag
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/hasTag.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:15:56Z [808] INFO [9ddf3] {general} processed 9.4 MB (3%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 17.8 MB (6%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 26.2 MB (9%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 34.6 MB (12%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 44.0 MB (15%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 52.4 MB (18%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 60.8 MB (21%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 69.2 MB (24%) of input file
+2024-04-26T15:15:57Z [808] INFO [9ddf3] {general} processed 77.5 MB (27%) of input file
+2024-04-26T15:16:02Z [808] INFO [9ddf3] {general} processed 87.0 MB (30%) of input file
+2024-04-26T15:16:03Z [808] INFO [9ddf3] {general} processed 95.4 MB (33%) of input file
+2024-04-26T15:16:04Z [808] INFO [9ddf3] {general} processed 103.8 MB (36%) of input file
+2024-04-26T15:16:04Z [808] INFO [9ddf3] {general} processed 112.1 MB (39%) of input file
+2024-04-26T15:16:05Z [808] INFO [9ddf3] {general} processed 120.5 MB (42%) of input file
+2024-04-26T15:16:06Z [808] INFO [9ddf3] {general} processed 130.0 MB (45%) of input file
+2024-04-26T15:16:07Z [808] INFO [9ddf3] {general} processed 138.4 MB (48%) of input file
+2024-04-26T15:16:08Z [808] INFO [9ddf3] {general} processed 146.8 MB (51%) of input file
+2024-04-26T15:16:11Z [808] INFO [9ddf3] {general} processed 155.1 MB (54%) of input file
+2024-04-26T15:16:12Z [808] INFO [9ddf3] {general} processed 163.5 MB (57%) of input file
+2024-04-26T15:16:13Z [808] INFO [9ddf3] {general} processed 173.0 MB (60%) of input file
+2024-04-26T15:16:14Z [808] INFO [9ddf3] {general} processed 181.4 MB (63%) of input file
+2024-04-26T15:16:15Z [808] INFO [9ddf3] {general} processed 189.7 MB (66%) of input file
+2024-04-26T15:16:16Z [808] INFO [9ddf3] {general} processed 198.1 MB (69%) of input file
+2024-04-26T15:16:16Z [808] INFO [9ddf3] {general} processed 206.5 MB (72%) of input file
+2024-04-26T15:16:16Z [808] INFO [9ddf3] {general} processed 216.0 MB (75%) of input file
+2024-04-26T15:16:17Z [808] INFO [9ddf3] {general} processed 224.3 MB (78%) of input file
+2024-04-26T15:16:19Z [808] INFO [9ddf3] {general} processed 232.7 MB (81%) of input file
+2024-04-26T15:16:20Z [808] INFO [9ddf3] {general} processed 241.1 MB (84%) of input file
+2024-04-26T15:16:21Z [808] INFO [9ddf3] {general} processed 249.5 MB (87%) of input file
+2024-04-26T15:16:24Z [808] INFO [9ddf3] {general} processed 258.9 MB (90%) of input file
+2024-04-26T15:16:24Z [808] INFO [9ddf3] {general} processed 267.3 MB (93%) of input file
+2024-04-26T15:16:25Z [808] INFO [9ddf3] {general} processed 275.7 MB (96%) of input file
+2024-04-26T15:16:26Z [808] INFO [9ddf3] {general} processed 284.1 MB (99%) of input file
+
+created:          5118511
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:16:34] Finished importing hasTag
+[2024-04-26 15:16:34] Importing industryType
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             industryType
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/industryType.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 4.1 MB (3%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 7.3 MB (6%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 11.5 MB (9%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 14.6 MB (12%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 18.8 MB (15%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 22.0 MB (18%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 26.2 MB (21%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 29.3 MB (24%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 33.5 MB (27%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 36.7 MB (30%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 40.8 MB (33%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 44.0 MB (36%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 47.1 MB (39%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 51.3 MB (42%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 54.5 MB (45%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 58.7 MB (48%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 61.8 MB (51%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 66.0 MB (54%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 69.2 MB (57%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 73.4 MB (60%) of input file
+2024-04-26T15:16:34Z [911] INFO [9ddf3] {general} processed 76.5 MB (63%) of input file
+2024-04-26T15:16:40Z [911] INFO [9ddf3] {general} processed 80.7 MB (66%) of input file
+2024-04-26T15:16:40Z [911] INFO [9ddf3] {general} processed 83.8 MB (69%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 87.0 MB (72%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 91.2 MB (75%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 94.3 MB (78%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 98.5 MB (81%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 101.7 MB (84%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 105.9 MB (87%) of input file
+2024-04-26T15:16:41Z [911] INFO [9ddf3] {general} processed 109.0 MB (90%) of input file
+2024-04-26T15:16:42Z [911] INFO [9ddf3] {general} processed 113.2 MB (93%) of input file
+2024-04-26T15:16:42Z [911] INFO [9ddf3] {general} processed 116.3 MB (96%) of input file
+2024-04-26T15:16:42Z [911] INFO [9ddf3] {general} processed 120.5 MB (99%) of input file
+
+created:          2047593
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:16:50] Finished importing industryType
+[2024-04-26 15:16:50] Importing isPerson
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             isPerson
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/isPerson.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 4.1 MB (6%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 6.2 MB (9%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 8.3 MB (13%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 10.4 MB (16%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 12.5 MB (20%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 14.6 MB (23%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 16.7 MB (27%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 18.8 MB (30%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 20.9 MB (34%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 23.0 MB (37%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 25.1 MB (41%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 27.2 MB (44%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 29.3 MB (48%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 31.4 MB (51%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 33.5 MB (55%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 35.6 MB (58%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 37.7 MB (62%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 39.8 MB (65%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 41.9 MB (69%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 44.0 MB (72%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 46.1 MB (76%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 48.2 MB (79%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 50.3 MB (83%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 52.4 MB (86%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 54.5 MB (90%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 56.6 MB (93%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 58.7 MB (97%) of input file
+2024-04-26T15:16:50Z [970] INFO [9ddf3] {general} processed 60.0 MB (100%) of input file
+
+created:          953371
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:16:58] Finished importing isPerson
+[2024-04-26 15:16:58] Importing knows
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             knows
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/knows.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 9.4 MB (3%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 18.8 MB (6%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 28.3 MB (9%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 37.7 MB (12%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 47.1 MB (15%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 56.6 MB (18%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 66.0 MB (21%) of input file
+2024-04-26T15:16:58Z [1010] INFO [9ddf3] {general} processed 75.4 MB (24%) of input file
+2024-04-26T15:17:02Z [1010] INFO [9ddf3] {general} processed 84.9 MB (27%) of input file
+2024-04-26T15:17:02Z [1010] INFO [9ddf3] {general} processed 94.3 MB (30%) of input file
+2024-04-26T15:17:04Z [1010] INFO [9ddf3] {general} processed 103.8 MB (33%) of input file
+2024-04-26T15:17:05Z [1010] INFO [9ddf3] {general} processed 113.2 MB (36%) of input file
+2024-04-26T15:17:06Z [1010] INFO [9ddf3] {general} processed 122.6 MB (39%) of input file
+2024-04-26T15:17:06Z [1010] INFO [9ddf3] {general} processed 132.1 MB (42%) of input file
+2024-04-26T15:17:07Z [1010] INFO [9ddf3] {general} processed 141.5 MB (45%) of input file
+2024-04-26T15:17:10Z [1010] INFO [9ddf3] {general} processed 150.9 MB (48%) of input file
+2024-04-26T15:17:11Z [1010] INFO [9ddf3] {general} processed 160.4 MB (51%) of input file
+2024-04-26T15:17:12Z [1010] INFO [9ddf3] {general} processed 169.8 MB (54%) of input file
+2024-04-26T15:17:13Z [1010] INFO [9ddf3] {general} processed 178.2 MB (57%) of input file
+2024-04-26T15:17:14Z [1010] INFO [9ddf3] {general} processed 187.6 MB (60%) of input file
+2024-04-26T15:17:15Z [1010] INFO [9ddf3] {general} processed 197.1 MB (63%) of input file
+2024-04-26T15:17:16Z [1010] INFO [9ddf3] {general} processed 206.5 MB (66%) of input file
+2024-04-26T15:17:18Z [1010] INFO [9ddf3] {general} processed 216.0 MB (69%) of input file
+2024-04-26T15:17:19Z [1010] INFO [9ddf3] {general} processed 225.4 MB (72%) of input file
+2024-04-26T15:17:20Z [1010] INFO [9ddf3] {general} processed 234.8 MB (75%) of input file
+2024-04-26T15:17:21Z [1010] INFO [9ddf3] {general} processed 244.3 MB (78%) of input file
+2024-04-26T15:17:22Z [1010] INFO [9ddf3] {general} processed 253.7 MB (81%) of input file
+2024-04-26T15:17:23Z [1010] INFO [9ddf3] {general} processed 263.1 MB (84%) of input file
+2024-04-26T15:17:24Z [1010] INFO [9ddf3] {general} processed 272.6 MB (87%) of input file
+2024-04-26T15:17:26Z [1010] INFO [9ddf3] {general} processed 282.0 MB (90%) of input file
+2024-04-26T15:17:28Z [1010] INFO [9ddf3] {general} processed 291.5 MB (93%) of input file
+2024-04-26T15:17:29Z [1010] INFO [9ddf3] {general} processed 300.9 MB (96%) of input file
+2024-04-26T15:17:29Z [1010] INFO [9ddf3] {general} processed 310.3 MB (99%) of input file
+
+created:          5125904
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:17:37] Finished importing knows
+[2024-04-26 15:17:37] Importing manufacturedBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             manufacturedBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/manufacturedBy.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 2.0 MB (3%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 4.1 MB (6%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 6.2 MB (9%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 8.3 MB (13%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 10.4 MB (16%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 12.5 MB (19%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 14.6 MB (23%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 16.7 MB (26%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 18.8 MB (29%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 20.9 MB (33%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 23.0 MB (36%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 25.1 MB (39%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 27.2 MB (43%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 29.3 MB (46%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 31.4 MB (50%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 33.5 MB (53%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 35.6 MB (56%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 37.7 MB (60%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 39.8 MB (63%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 41.9 MB (66%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 44.0 MB (70%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 46.1 MB (73%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 48.2 MB (76%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 50.3 MB (80%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 52.4 MB (83%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 54.5 MB (87%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 56.6 MB (90%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 58.7 MB (93%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 60.8 MB (97%) of input file
+2024-04-26T15:17:37Z [1099] INFO [9ddf3] {general} processed 62.3 MB (100%) of input file
+
+created:          1024000
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:17:45] Finished importing manufacturedBy
+[2024-04-26 15:17:45] Importing orderedBy
+Connected to ArangoDB 'http+tcp://127.0.0.1:8529, version: 3.11.3, database: '_system', username: 'root'
+----------------------------------------
+database:               _system
+collection:             orderedBy
+overwrite coll. prefix: no
+create:                 yes
+create database:        no
+source filename:        dumps/data_1M24k/edges/orderedBy.json
+file type:              jsonl
+threads:                8
+on duplicate:           error
+connect timeout:        5
+request timeout:        1200
+----------------------------------------
+Starting JSON import...
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 4.1 MB (3%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 7.3 MB (6%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 11.5 MB (9%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 14.6 MB (12%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 17.8 MB (15%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 22.0 MB (18%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 25.1 MB (21%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 29.3 MB (24%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 32.5 MB (27%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 35.6 MB (30%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 39.8 MB (33%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 42.9 MB (36%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 46.1 MB (39%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 50.3 MB (42%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 53.4 MB (45%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 57.6 MB (48%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 60.8 MB (51%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 63.9 MB (54%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 68.1 MB (57%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 71.3 MB (60%) of input file
+2024-04-26T15:17:45Z [1142] INFO [9ddf3] {general} processed 74.4 MB (63%) of input file
+2024-04-26T15:17:49Z [1142] INFO [9ddf3] {general} processed 78.6 MB (66%) of input file
+2024-04-26T15:17:49Z [1142] INFO [9ddf3] {general} processed 81.7 MB (69%) of input file
+2024-04-26T15:17:50Z [1142] INFO [9ddf3] {general} processed 85.9 MB (72%) of input file
+2024-04-26T15:17:50Z [1142] INFO [9ddf3] {general} processed 89.1 MB (75%) of input file
+2024-04-26T15:17:50Z [1142] INFO [9ddf3] {general} processed 92.2 MB (78%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 96.4 MB (81%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 99.6 MB (84%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 103.8 MB (87%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 106.9 MB (90%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 110.1 MB (93%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 114.2 MB (96%) of input file
+2024-04-26T15:17:51Z [1142] INFO [9ddf3] {general} processed 117.4 MB (99%) of input file
+
+created:          1905923
+warnings/errors:  0
+updated/replaced: 0
+ignored:          0
+[2024-04-26 15:17:59] Finished importing orderedBy
+[2024-04-26 15:17:59] Finished creating edges

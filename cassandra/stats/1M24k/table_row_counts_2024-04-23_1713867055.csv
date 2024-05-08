@@ -1,0 +1,14 @@
+table,row_count
+Contact,   Suppressed: [driver|control|id: 0xbbdc7921, L:/127.0.0.1:45296 - R:/127.0.0.1:9042] Protocol initialization request, step 1 (OPTIONS): timed out after 300000 ms.
+Order,5717344
+Orders_by_customer,1905923
+Orders_by_person,1024000
+Orders_by_product,5717344
+Person,1024000
+Person_by_birthday_indexed,1024000
+Product,1024000
+Products_by_brand,1024000
+Tag,1024000
+Vendor,1024000
+Vendor_contacts_by_order_contact,0
+Vendor_countries_by_product_brand,234906

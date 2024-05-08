@@ -107,6 +107,30 @@
     Customer,16416
     Type,16
     ```
+    - 1M24k:
+    ```
+    Table,Size (MB)
+Order_Contacts,692
+Order_Products,345
+Person_Person,295
+Post_Tags,285
+Person_Tags,275
+Post,245
+Vendor_Contacts,242
+Product,138
+Person,117
+Industry,98
+Order,82
+Vendor,58
+Tag,49
+Vendor_Products,42
+Customer,41
+Type,0
+```
+```
+Total Size (MB)
+3004.57812500
+```
 - 128k:
 ```
 Table,Size (MB)

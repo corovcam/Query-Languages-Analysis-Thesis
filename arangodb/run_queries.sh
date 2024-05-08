@@ -9,7 +9,7 @@
 
 set -eu
 
-record_volume=128000 # NOTE: Change this for every experiment with different data volume
+record_volume=1024000 # NOTE: Change this for every experiment with different data volume
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 log_file="logs/query_$timestamp.log"
