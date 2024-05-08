@@ -24,7 +24,6 @@ DROP PROCEDURE IF EXISTS drop_birthday_index_if_exists;
 CREATE TABLE Vendor
 (
     vendorId INTEGER PRIMARY KEY,
-    -- vendorUuid BINARY(16) UNIQUE, -- How to specify UUID? to make references work
     name     TEXT,
     country  TEXT
 );
@@ -67,7 +66,7 @@ CREATE TABLE Vendor_Contacts
 (
     vendorId INTEGER,
     typeId   INTEGER,
-    value    VARCHAR(255), -- type TEXT does not work as part of a composite key. How to make it equal to SQLite TEXT?
+    value    VARCHAR(255),
     PRIMARY KEY (vendorId, typeId, value),
     FOREIGN KEY (vendorId) REFERENCES Vendor (vendorId),
     FOREIGN KEY (typeId) REFERENCES Type (typeId)
@@ -130,7 +129,6 @@ CREATE TABLE Order_Products
     FOREIGN KEY (productId) REFERENCES Product (productId)
 );
 
--- Not used in Queries
 CREATE TABLE Post
 (
     postId       INTEGER PRIMARY KEY,

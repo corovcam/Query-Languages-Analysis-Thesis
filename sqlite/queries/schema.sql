@@ -18,7 +18,6 @@ DROP TABLE IF EXISTS Person_Tags;
 CREATE TABLE Vendor
 (
     vendorId INTEGER PRIMARY KEY,
-    -- vendorUuid BINARY(16) UNIQUE, -- How to specify UUID? to make references work
     name     TEXT,
     country  TEXT
 );
@@ -51,7 +50,7 @@ CREATE TABLE Vendor_Contacts
 (
     vendorId INTEGER REFERENCES Vendor (vendorId),
     typeId   INTEGER REFERENCES Type (typeId),
-    value    TEXT, -- How to make it equal to MySQL VARCHAR?
+    value    TEXT,
     PRIMARY KEY (vendorId, typeId, value)
 ) WITHOUT ROWID;
 
@@ -64,7 +63,6 @@ CREATE TABLE Type
 CREATE TABLE `Order`
 (
     orderId    INTEGER PRIMARY KEY,
-    -- orderUuid  INTEGER,
     customerId INTEGER REFERENCES Customer (customerId)
 );
 
@@ -110,7 +108,6 @@ CREATE TABLE Person_Person
     PRIMARY KEY (personId1, personId2)
 ) WITHOUT ROWID;
 
--- Not used in Queries
 CREATE TABLE Post
 (
     postId       INTEGER PRIMARY KEY,

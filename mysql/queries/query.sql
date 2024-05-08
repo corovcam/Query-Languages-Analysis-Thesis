@@ -98,7 +98,7 @@ HAVING COUNT(*) > 1;
 -- NOTE: Guessing the max recursion depth will never exceed 10 million 
 SET SESSION cte_max_recursion_depth = 10000000;
 
--- This query doesn't perform well with large datasets. It's recommended to limit the recursion depth.
+-- NOTE: This query doesn't perform well with large datasets. It's recommended to limit the recursion depth.
 -- This is just an illustration of how it can be done with relational data. For large datasets, consider using graph databases.
 -- Find all direct and indirect relationships between people
 WITH RECURSIVE PersonRelationships AS (SELECT personId1 AS sourcePersonId,
@@ -121,7 +121,7 @@ FROM PersonRelationships;
 -- NOTE: Guessing the max recursion depth will never exceed 10 million 
 SET SESSION cte_max_recursion_depth = 10000000;
 
--- This is just an illustration of how it can be done with relational data. For large datasets, consider using graph databases.
+-- NOTE: This is just an illustration of how it can be done with relational data. For large datasets, consider using graph databases.
 -- Find the shortest path between two persons using WITH RECURSIVE
 WITH RECURSIVE PersonPath AS (SELECT personId1 AS sourcePersonId,
                                      personId2 AS targetPersonId,

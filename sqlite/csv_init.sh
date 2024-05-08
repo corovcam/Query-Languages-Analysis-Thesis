@@ -15,7 +15,7 @@ for file in "$data_dir"/*.csv; do
     fullFilename=$(basename "$file")
     filename=${fullFilename%.*}
     echo "[$(date +"%Y-%m-%d %T")] Importing $file" 2>&1 | tee -a "$log_file"
-    sqlite3 data/ecommerce.db "PRAGMA foreign_keys = OFF; .import --csv '/mysql/$data_dir/$fullFilename' $filename; PRAGMA foreign_keys = ON;" 2>&1 | tee -a "$log_file"
+    sqlite3 data/ecommerce.db "PRAGMA foreign_keys = OFF; .import --csv '/sqlite/$data_dir/$fullFilename' $filename; PRAGMA foreign_keys = ON;" 2>&1 | tee -a "$log_file"
     echo "[$(date +"%Y-%m-%d %T")] Finished importing $file" 2>&1 | tee -a "$log_file"
 done
 echo "[$(date +"%Y-%m-%d %T")] Finished importing data" 2>&1 | tee -a "$log_file"
